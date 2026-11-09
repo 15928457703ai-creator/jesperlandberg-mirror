@@ -23,13 +23,19 @@ PRIMLAND_TAIL = ('<a href="https://ownprimland.com" target="_blank" rel="noopene
                  + FULL_CLASS + '>Primland</a><!----></span>')
 FULL_MARKER = '<!--]--></div></div><div class="pointer-events-none absolute inset-0">'
 CSS_LINK = '<link rel="stylesheet" href="/local-copy.css"></head>'
+# The stylesheet paints the CJK copy, but a DOM node is not part of the WebGL
+# scene: /local-copy.js ties the copy's enter/leave to the current route so it
+# cannot outlive the detail page it belongs to.
+JS_TAG = ('<link rel="stylesheet" href="/local-copy.css">'
+          '<script src="/local-copy.js" defer></script></head>')
 
 
 def inject_css(t):
-    """Load the left-hand-copy stylesheet on every page. A plain <link> does
-    not change any element attribute, so it is hydration-safe, and attribute
-    selectors also match sheets re-rendered by SPA navigations."""
-    return t.replace('</head>', CSS_LINK, 1)
+    """Load the left-hand-copy stylesheet (and its route-bound life cycle) on
+    every page. A plain <link>/<script> pair does not change any element
+    attribute, so it is hydration-safe, and attribute selectors also match
+    sheets re-rendered by SPA navigations."""
+    return t.replace('</head>', JS_TAG, 1)
 
 
 # ---------------------------------------------------------------- home cards

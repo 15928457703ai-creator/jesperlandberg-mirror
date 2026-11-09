@@ -30,8 +30,36 @@
 [data-gl="sheet"][data-id="illustration"] h1 {
   -webkit-text-fill-color: #000 !important;
   color: #000 !important;
-  opacity: 1 !important;
+  /* No `opacity: 1 !important` here on purpose: an !important declaration
+   * outranks keyframes, which would turn the reveal below into a hard pop.
+   * The WebGL text renderer never writes inline opacity on these nodes, so
+   * the plain cascade value (1) is enough. */
 }
+
+/* === copy life cycle — driven by /local-copy.js =====================
+ * The DOM-painted copy is not part of the WebGL scene, so without this it
+ * stayed at full opacity while the sheet animated away: the paragraph from the
+ * page you just left hovered over the home strip, and a project-to-project
+ * switch painted two paragraphs on top of each other.
+ *
+ * The runtime tags the sheet that belongs to the current URL with
+ * data-lc-state="in" and every other local sheet with "out". Leaving copy is
+ * hidden in the same frame the route changes; entering copy is revealed with a
+ * short wipe through the Web Animations API (so the very first paint of a
+ * directly loaded detail page is not re-animated).
+ *
+ * The always-visible rules above stay as the fallback: they only lose their
+ * force once html[data-lc="ready"] is set, i.e. after the runtime booted
+ * (post-hydration), so a blocked/absent script cannot leave the copy blank.
+ * =================================================================== */
+html[data-lc="ready"] [data-gl="sheet"][data-lc-state="out"] div[data-gl="text"],
+html[data-lc="ready"] [data-gl="sheet"][data-lc-state="out"] h1 {
+  /* !important outranks running animations, so a reveal that is still in
+   * flight cannot keep stale copy on screen. */
+  opacity: 0 !important;
+  visibility: hidden;
+}
+/* === end copy life cycle === */
 
 /* OPPO 服务小程序 is a WeChat mini program: there is no public URL, so its
  * round arrow pill carries the access instruction instead. The tooltip is a
