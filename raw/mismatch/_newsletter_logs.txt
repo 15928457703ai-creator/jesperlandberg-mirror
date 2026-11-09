@@ -1,3 +1,0 @@
-error: Hydration completed but contains mismatches.
-warning: [CAR] measure 653     at http://127.0.0.1:5188/_nuxt/mriNB3Nt.js:3:2285
-warning: [COL] measure 655     at http://127.0.0.1:5188/_nuxt/mriNB3Nt.js:3:2289

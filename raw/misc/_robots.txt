@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://jesperlandberg.com/sitemap.xml
-# llms.txt: https://jesperlandberg.com/llms.txt

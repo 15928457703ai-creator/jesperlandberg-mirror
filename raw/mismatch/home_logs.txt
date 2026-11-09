@@ -1,7 +1,0 @@
-error: Hydration completed but contains mismatches.
-warning: [CAR] measure 1945     at http://127.0.0.1:5188/_nuxt/mriNB3Nt.js:3:2285
-warning: [COL] measure 1946     at http://127.0.0.1:5188/_nuxt/mriNB3Nt.js:3:2289
-warning: [.WebGL-0x13c000d5c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
-warning: [.WebGL-0x13c000d5c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
-warning: [.WebGL-0x13c000d5c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
-warning: [.WebGL-0x13c000d5c00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
