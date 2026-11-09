@@ -61,6 +61,32 @@ html[data-lc="ready"] [data-gl="sheet"][data-lc-state="out"] h1 {
 }
 /* === end copy life cycle === */
 
+/* === glyph spans — written by /local-copy.js ========================
+ * The stock copy is a WebGL mesh, so every glyph can lean on its own when
+ * the pointer passes. DOM copy has to split into one inline-block span per
+ * glyph to get the same magnetic skew. The spans are inline-block only for
+ * the transform: latin runs stay inside an unbreakable .lc-w so words never
+ * break mid-word, and CJK glyphs (already breakable) sit on their own.
+ * Nothing here changes metrics, colour or line breaking.
+ * =================================================================== */
+.lc-w,
+.lc-c {
+  display: inline-block;
+  /* Keep the lean anchored on the baseline, like the glyph meshes. */
+  transform-origin: 50% 78%;
+  will-change: transform;
+}
+.lc-w {
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .lc-w,
+  .lc-c {
+    will-change: auto;
+  }
+}
+/* === end glyph spans === */
+
 /* OPPO 服务小程序 is a WeChat mini program: there is no public URL, so its
  * round arrow pill carries the access instruction instead. The tooltip is a
  * CSS pseudo-element on the existing <a> (no extra DOM node -> hydration
