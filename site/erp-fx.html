@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>华润白酒 ERP — 封面动效</title>
+<link rel="stylesheet" href="erp-fx/style.css">
+</head>
+<body>
+<div class="viewport" id="viewport">
+  <div class="stage" id="stage">
+
+    <div class="card card-white" id="cardWhite"></div>
+    <div class="card card-blue" id="cardBlue">
+      <div class="sweep" id="sweep" aria-hidden="true"></div>
+      <div class="sweep sweep-2" id="sweep2" aria-hidden="true"></div>
+    </div>
+
+    <!-- phones: slot carries the layout box, inner .phone carries motion -->
+    <div class="slot slot-grid" id="slotGrid">
+      <div class="phone" id="gridPhone">
+        <img src="erp-fx/assets/phone-grid.png" alt="金沙白酒 ERP 首页" draggable="false">
+        <div class="glare" aria-hidden="true"><i></i></div>
+      </div>
+    </div>
+
+    <div class="slot slot-detail" id="slotDetail">
+      <div class="phone" id="detailPhone">
+        <img src="erp-fx/assets/phone-detail.png" alt="生产详情" draggable="false">
+        <div class="glare glare-soft" aria-hidden="true"><i></i></div>
+      </div>
+    </div>
+
+    <div class="badge-slot" id="badgeSlot">
+      <div class="badge" id="badge">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <g fill="currentColor">
+            <rect x="6" y="45.2" width="88" height="9.6"/>
+            <rect x="45.2" y="6" width="9.6" height="88"/>
+            <rect x="45.2" y="6" width="9.6" height="88" transform="rotate(45 50 50)"/>
+            <rect x="45.2" y="6" width="9.6" height="88" transform="rotate(-45 50 50)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="eyebrow" id="eyebrow">
+      <span class="ln"><i>APP</i></span>
+      <span class="ln"><i>Experience 1.0</i></span>
+    </div>
+
+    <h1 class="title" id="title">
+      <span class="g"><i>华</i></span><span class="g"><i>润</i></span><span class="g"><i>白</i></span><span class="g"><i>酒</i></span><span class="g lat"><i>ERP</i></span>
+    </h1>
+
+    <p class="sub" id="sub">
+      <span class="w w1"><i>主设</i></span><span class="w w2"><i>UX/UI</i></span><span class="w w3"><i class="bar"></i></span><span class="w w4"><i>0-1</i></span><span class="w w5"><i>建设</i></span>
+    </p>
+
+    <div class="col" id="col">
+      <div class="rule rule-top" id="ruleTop"></div>
+      <div class="copy" id="copy">
+        <span class="ln"><i>白酒移动端ERP是为仓管员/操作员提供日常物料领/发、入</i></span>
+        <span class="ln"><i>库、退货等服务，改善线下“办公场景转移，电脑无法移</i></span>
+        <span class="ln"><i>动”的作业不便捷甚至受阻的问题；通过移动端ERP的建设</i></span>
+        <span class="ln"><i>提高处理效率及相应速度</i></span>
+      </div>
+      <div class="pills" id="pills">
+        <span><i>从0-1建设</i></span><span><i>线下作业刚需</i></span><span><i>全面提升作业效率</i></span>
+      </div>
+      <p class="meta"><em>使用角色：</em><b>仓管员、操作员、组长</b></p>
+      <p class="meta meta-2"><em>本期范围：</em><b>生产、采购、库存</b></p>
+      <div class="rule rule-bottom" id="ruleBottom"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="erp-fx/assets/gsap.min.js"></script>
+<script src="erp-fx/main.js"></script>
+</body>
+</html>

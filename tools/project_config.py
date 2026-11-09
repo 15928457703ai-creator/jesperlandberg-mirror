@@ -96,6 +96,19 @@ PROJECTS = [
         "tags": [("erp-tag-ux", "UX / UI", None),
                  ("erp-tag-brand", "ERP", None),
                  ("erp-tag-year", "2026", None)],
+        # Animated HOME card cover.  The two phone slices from
+        # `ERP/动画/` are staged on a rebuilt version of the artwork in
+        # site/erp-fx.html, driven by one GSAP master timeline (14 s, seamless)
+        # and recorded to cover.mp4 by tools/record_erp_fx.js.  `home_cover`
+        # swaps ONLY the payload's src/thumb/card/video, so the home card plays
+        # the clip while the 12 detail slides / GraphQL media are untouched.
+        "home_cover": {
+            "main": {"file": "cover.jpg", "width": 1600, "height": 900},
+            "_small": {"file": "cover_small.jpg", "width": 640, "height": 360},
+            "_card": {"file": "cover_card.jpg", "width": 1200, "height": 675},
+            "video": {"file": "cover.mp4", "width": 1600, "height": 900,
+                      "duration": 14},
+        },
         "meta": _meta("erp", "raw/project_images/erp.json"),
     },
     {

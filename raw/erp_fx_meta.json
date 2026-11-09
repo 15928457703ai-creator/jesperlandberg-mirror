@@ -1,0 +1,12 @@
+{
+ "source": "ERP 动画/切图.png + 切图-1.png (site/erp-fx.html)",
+ "gsap": "3.12.5",
+ "duration": 14,
+ "fps": 24,
+ "frames": 336,
+ "size": [
+  1600,
+  900
+ ],
+ "seam": true
+}

@@ -1,0 +1,334 @@
+/* ------------------------------------------------------------------
+   华润白酒 ERP — animated home cover (1600 x 900 design space)
+
+   The composition is a faithful DOM rebuild of the supplied artwork
+   (site/erp/2.jpg): every panel, phone, glyph and hairline sits on the
+   coordinates recovered from that file with tools/locate_erp_cover.py, so
+   the motion starts from exactly the approved cover.
+
+   Layering is deliberate, because it isolates the two animation systems:
+     .slot / .badge-slot / .ln / .g / .w   -> layout box (never animated)
+     .phone / .badge / .ln > i / .g > i    -> INTRO timeline (once)
+     .phone (inner)                        -> LOOP timeline (seamless)
+
+   Typefaces are subset builds of 汉仪旗黑 (HYQiHei 85W / 75W / 55W) — the
+   family the artwork itself uses — so the rebuild is pixel-comparable.
+   ------------------------------------------------------------------ */
+@font-face {
+  font-family: 'HY85';
+  src: url(assets/hy-85.woff2) format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'HY75';
+  src: url(assets/hy-75.woff2) format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'HY55';
+  src: url(assets/hy-55.woff2) format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+
+* { box-sizing: border-box; }
+
+:root {
+  --ink: #020d1d;
+  --blue: #0077ed;
+  --lime: #cfff0b;
+  --shell: #1c1b29;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #0b0b12;
+  overflow: hidden;
+}
+
+.viewport {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #0b0b12;
+}
+
+.stage {
+  position: relative;
+  width: 1600px;
+  height: 900px;
+  background: var(--shell);
+  transform-origin: center center;
+  overflow: hidden;
+}
+
+/* ---------- panels ---------- */
+.card {
+  position: absolute;
+  border-radius: 40px;
+  transform-origin: 50% 50%;
+}
+.card-white {
+  left: 17px; top: 17px;
+  width: 1566px; height: 866px;
+  background: #fff;
+}
+.card-blue {
+  left: 17px; top: 382px;
+  width: 1566px; height: 500px;
+  background: var(--blue);
+  overflow: hidden;
+}
+
+/* the two slow light bands that cross the blue field */
+.sweep {
+  position: absolute;
+  top: -260px; left: -600px;
+  width: 150px; height: 1000px;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, .10) 30%,
+      rgba(255, 255, 255, .34) 50%,
+      rgba(255, 255, 255, .10) 70%,
+      rgba(255, 255, 255, 0) 100%);
+  filter: blur(22px);
+  transform: rotate(21deg);
+  opacity: 0;
+  pointer-events: none;
+}
+.sweep-2 {
+  width: 90px;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, .20) 50%,
+      rgba(255, 255, 255, 0) 100%);
+}
+
+/* ---------- phones ---------- */
+.slot {
+  position: absolute;
+  z-index: 2;
+}
+.slot-grid { left: 874px; top: 19px; width: 629.6px; }
+.slot-detail { left: 611px; top: 380px; width: 675.5px; }
+
+.phone {
+  position: relative;
+  width: 100%;
+  /* the artwork itself is shadow-free: the phones float flat on the panels,
+   * and depth comes from the motion (scale + parallax), not from a blur */
+  filter: none;
+  will-change: transform;
+}
+.phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* specular sweep clipped to the phone silhouette (alpha of the PNG) */
+.glare {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  -webkit-mask-image: url(assets/phone-grid.png);
+  mask-image: url(assets/phone-grid.png);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+.slot-detail .glare {
+  -webkit-mask-image: url(assets/phone-detail.png);
+  mask-image: url(assets/phone-detail.png);
+}
+.glare i {
+  position: absolute;
+  top: -25%;
+  left: 0;
+  width: 34%;
+  height: 150%;
+  transform: translateX(-160%) skewX(-16deg);
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, .42) 42%,
+      rgba(255, 255, 255, .78) 50%,
+      rgba(255, 255, 255, .42) 58%,
+      rgba(255, 255, 255, 0) 100%);
+  opacity: 0;
+}
+.glare-soft i { width: 26%; }
+
+/* ---------- badge ---------- */
+.badge-slot {
+  position: absolute;
+  left: 1348px; top: 68px;
+  width: 125px; height: 125px;
+  z-index: 4;
+}
+.badge {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--lime);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  transform-origin: 50% 50%;
+}
+.badge svg { width: 78.4px; height: 78.4px; display: block; transform: translate(2px, 2px); }
+
+/* ---------- type ---------- */
+.eyebrow {
+  position: absolute;
+  left: 111px; top: 55px;
+  font-family: 'HY75';
+  font-size: 8.5px;
+  line-height: 15px;
+  letter-spacing: .16em;
+  color: var(--ink);
+  z-index: 3;
+}
+.eyebrow .ln { display: block; overflow: hidden; }
+.eyebrow .ln:nth-child(2) { letter-spacing: .02em; }
+
+.title {
+  position: absolute;
+  left: 95px; top: 130px;
+  margin: 0;
+  font-family: 'HY85';
+  font-size: 113px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--ink);
+  white-space: nowrap;
+  z-index: 3;
+}
+.title .g {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: .05em;
+  margin-bottom: -.05em;
+}
+.title .g i {
+  display: block;
+  font-style: normal;
+  transform: translateY(0);
+}
+.title .lat { letter-spacing: -.01em; }
+
+.sub {
+  position: absolute;
+  left: 0; top: 259px;
+  margin: 0;
+  width: 1600px;
+  height: 54px;
+  font-family: 'HY85';
+  font-size: 53px;
+  line-height: 54px;
+  color: var(--ink);
+  white-space: nowrap;
+  z-index: 3;
+}
+.sub .w {
+  position: absolute;
+  top: 0;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-bottom: .06em;
+  margin-bottom: -.06em;
+}
+.sub .w i { display: block; font-style: normal; }
+.sub .w3 i {
+  width: 9px; height: 37px; margin-top: 10px;
+  background: var(--ink);
+}
+.sub .w1 { left: 102px; }
+.sub .w2 { left: 233px; letter-spacing: 4.5px; }
+.sub .w3 { left: 446px; }
+.sub .w4 { left: 490px; letter-spacing: 6.7px; }
+.sub .w5 { left: 613px; letter-spacing: .4px; }
+
+/* ---------- left column ---------- */
+.col {
+  position: absolute;
+  left: 102px; top: 577px;
+  width: 465px;
+  z-index: 3;
+  font-family: 'HY55';
+  color: #fff;
+}
+.rule {
+  height: 1px;
+  background: rgba(255, 255, 255, .52);
+  box-shadow: 0 1px 0 rgba(0, 40, 90, .22);
+  transform-origin: 0 50%;
+}
+.rule-top { margin-left: 2px; width: 463px; }
+.rule-bottom { position: absolute; top: 254px; width: 465px; }
+
+.copy {
+  position: absolute;
+  top: 21px;
+  left: 0;
+  width: 465px;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: .58px;
+}
+.copy .ln { display: block; overflow: hidden; height: 25px; }
+.copy .ln i { display: block; font-style: normal; }
+
+.pills {
+  position: absolute;
+  top: 126px;
+  left: 0;
+  display: flex;
+  gap: 12px;
+  font-family: 'HY55';
+  font-size: 11.5px;
+  line-height: 32px;
+  white-space: nowrap;
+}
+.pills span {
+  position: relative;
+  height: 32px;
+  padding: 0 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .19);
+  color: #fff;
+  overflow: hidden;
+}
+.pills span i { font-style: normal; display: block; position: relative; z-index: 1; }
+.pills span::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, .55);
+  opacity: 0;
+}
+
+.meta {
+  position: absolute;
+  top: 175px;
+  left: 0;
+  margin: 0;
+  font-family: 'HY55';
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: .6px;
+  color: #fff;
+}
+.meta em { font-style: normal; }
+.meta b { font-family: 'HY75'; font-weight: 400; }
+.meta-2 { top: 214px; }
