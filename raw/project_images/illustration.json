@@ -1,0 +1,267 @@
+[
+ {
+  "n": 1,
+  "source": "插画1.mov",
+  "kind": "video",
+  "cover": true,
+  "origWidth": 1280,
+  "origHeight": 652,
+  "main": {
+   "file": "cover.jpg",
+   "width": 1280,
+   "height": 652
+  },
+  "_card": {
+   "file": "cover_card.jpg",
+   "width": 1200,
+   "height": 611
+  },
+  "_small": {
+   "file": "cover_small.jpg",
+   "width": 640,
+   "height": 326
+  },
+  "video": {
+   "file": "cover.mp4",
+   "width": 1280,
+   "height": 652,
+   "duration": 18
+  }
+ },
+ {
+  "n": 2,
+  "source": "Frame 1.jpg",
+  "kind": "image",
+  "cover": false,
+  "origWidth": 1024,
+  "origHeight": 562,
+  "main": {
+   "file": "frame1.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_card": {
+   "file": "frame1_card.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_small": {
+   "file": "frame1_small.jpg",
+   "width": 640,
+   "height": 351
+  }
+ },
+ {
+  "n": 3,
+  "source": "Frame 2.jpg",
+  "kind": "image",
+  "cover": false,
+  "origWidth": 1024,
+  "origHeight": 562,
+  "main": {
+   "file": "frame2.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_card": {
+   "file": "frame2_card.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_small": {
+   "file": "frame2_small.jpg",
+   "width": 640,
+   "height": 351
+  }
+ },
+ {
+  "n": 4,
+  "source": "Frame 3.jpg",
+  "kind": "image",
+  "cover": false,
+  "origWidth": 1024,
+  "origHeight": 562,
+  "main": {
+   "file": "frame3.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_card": {
+   "file": "frame3_card.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_small": {
+   "file": "frame3_small.jpg",
+   "width": 640,
+   "height": 351
+  }
+ },
+ {
+  "n": 5,
+  "source": "Frame 4.jpg",
+  "kind": "image",
+  "cover": false,
+  "origWidth": 1024,
+  "origHeight": 562,
+  "main": {
+   "file": "frame4.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_card": {
+   "file": "frame4_card.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_small": {
+   "file": "frame4_small.jpg",
+   "width": 640,
+   "height": 351
+  }
+ },
+ {
+  "n": 6,
+  "source": "Frame 5.jpg",
+  "kind": "image",
+  "cover": false,
+  "origWidth": 1024,
+  "origHeight": 562,
+  "main": {
+   "file": "frame5.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_card": {
+   "file": "frame5_card.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_small": {
+   "file": "frame5_small.jpg",
+   "width": 640,
+   "height": 351
+  }
+ },
+ {
+  "n": 7,
+  "source": "Frame 6.jpg",
+  "kind": "image",
+  "cover": false,
+  "origWidth": 1024,
+  "origHeight": 562,
+  "main": {
+   "file": "frame6.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_card": {
+   "file": "frame6_card.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_small": {
+   "file": "frame6_small.jpg",
+   "width": 640,
+   "height": 351
+  }
+ },
+ {
+  "n": 8,
+  "source": "Frame 7.jpg",
+  "kind": "image",
+  "cover": false,
+  "origWidth": 1024,
+  "origHeight": 562,
+  "main": {
+   "file": "frame7.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_card": {
+   "file": "frame7_card.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_small": {
+   "file": "frame7_small.jpg",
+   "width": 640,
+   "height": 351
+  }
+ },
+ {
+  "n": 9,
+  "source": "Frame 8.jpg",
+  "kind": "image",
+  "cover": false,
+  "origWidth": 1024,
+  "origHeight": 562,
+  "main": {
+   "file": "frame8.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_card": {
+   "file": "frame8_card.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_small": {
+   "file": "frame8_small.jpg",
+   "width": 640,
+   "height": 351
+  }
+ },
+ {
+  "n": 10,
+  "source": "Frame 9.jpg",
+  "kind": "image",
+  "cover": false,
+  "origWidth": 1024,
+  "origHeight": 562,
+  "main": {
+   "file": "frame9.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_card": {
+   "file": "frame9_card.jpg",
+   "width": 1024,
+   "height": 562
+  },
+  "_small": {
+   "file": "frame9_small.jpg",
+   "width": 640,
+   "height": 351
+  }
+ },
+ {
+  "n": 11,
+  "source": "插画.mov",
+  "kind": "video",
+  "cover": false,
+  "origWidth": 1280,
+  "origHeight": 652,
+  "main": {
+   "file": "reel.jpg",
+   "width": 1280,
+   "height": 652
+  },
+  "_card": {
+   "file": "reel_card.jpg",
+   "width": 1200,
+   "height": 611
+  },
+  "_small": {
+   "file": "reel_small.jpg",
+   "width": 640,
+   "height": 326
+  },
+  "video": {
+   "file": "reel.mp4",
+   "width": 1280,
+   "height": 652,
+   "duration": 26
+  }
+ }
+]

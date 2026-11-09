@@ -1,0 +1,323 @@
+{
+ "home": {
+  "cards": 15,
+  "ids": [
+   "oppo-service",
+   "naivideo",
+   "oppo-self-service",
+   "erp",
+   "csa-service",
+   "hengxiang-advantage",
+   "nathan-riley",
+   "casa-di-solare",
+   "the-lookback",
+   "book-of-happiness",
+   "dogelon-mars",
+   "gil-huybrecht",
+   "discoveryland",
+   "griflan",
+   "illustration"
+  ],
+  "gl": true,
+  "canvas": 1
+ },
+ "oppo-service": {
+  "url": "/projects/oppo-service",
+  "title": "OPPO 服务小程序",
+  "h1": "OPPO 服务小程序",
+  "sheet": "oppo-service",
+  "placeholders": 18,
+  "tags": [
+   "UI / UX",
+   "OPPO",
+   "2026"
+  ],
+  "canvas": 1,
+  "linkPill": {
+   "href": "/oppo-wechat",
+   "label": "Visit OPPO 服务小程序"
+  },
+  "related": [
+   {
+    "id": "illustration",
+    "href": "/projects/illustration"
+   },
+   {
+    "id": "naivideo",
+    "href": "/projects/naivideo"
+   }
+  ],
+  "ok": true
+ },
+ "naivideo": {
+  "url": "/projects/naivideo",
+  "title": "Naivideo",
+  "h1": "Naivideo",
+  "sheet": "naivideo",
+  "placeholders": 8,
+  "tags": [
+   "AI / Video",
+   "Naivideo",
+   "2026"
+  ],
+  "canvas": 1,
+  "linkPill": {
+   "href": "https://www.piclumen.com/",
+   "label": "Visit Naivideo"
+  },
+  "related": [
+   {
+    "id": "oppo-service",
+    "href": "/projects/oppo-service"
+   },
+   {
+    "id": "oppo-self-service",
+    "href": "/projects/oppo-self-service"
+   }
+  ],
+  "ok": true
+ },
+ "oppo-self-service": {
+  "url": "/projects/oppo-self-service",
+  "title": "OPPO自助服务",
+  "h1": "OPPO自助服务",
+  "sheet": "oppo-self-service",
+  "placeholders": 17,
+  "tags": [
+   "UX / UI",
+   "OPPO Service",
+   "2026"
+  ],
+  "canvas": 1,
+  "linkPill": {
+   "href": "https://support.oppo.com/cn/",
+   "label": "Visit OPPO自助服务"
+  },
+  "related": [
+   {
+    "id": "naivideo",
+    "href": "/projects/naivideo"
+   },
+   {
+    "id": "erp",
+    "href": "/projects/erp"
+   }
+  ],
+  "ok": true,
+  "scrolled": {
+   "sheetId": "oppo-self-service",
+   "placeholders": 17,
+   "scrollY": 0,
+   "sheetTop": 19
+  }
+ },
+ "erp": {
+  "url": "/projects/erp",
+  "title": "ERP",
+  "h1": "ERP",
+  "sheet": "erp",
+  "placeholders": 11,
+  "tags": [
+   "UX / UI",
+   "ERP",
+   "2026"
+  ],
+  "canvas": 1,
+  "linkPill": null,
+  "related": [
+   {
+    "id": "oppo-self-service",
+    "href": "/projects/oppo-self-service"
+   },
+   {
+    "id": "csa-service",
+    "href": "/projects/csa-service"
+   }
+  ],
+  "ok": true
+ },
+ "csa-service": {
+  "url": "/projects/csa-service",
+  "title": "CSA客服服务",
+  "h1": "CSA客服服务",
+  "sheet": "csa-service",
+  "placeholders": 8,
+  "tags": [
+   "UX / UI",
+   "CSA",
+   "2026"
+  ],
+  "canvas": 1,
+  "linkPill": null,
+  "related": [
+   {
+    "id": "erp",
+    "href": "/projects/erp"
+   },
+   {
+    "id": "hengxiang-advantage",
+    "href": "/projects/hengxiang-advantage"
+   }
+  ],
+  "ok": true,
+  "scrolled": {
+   "sheetId": "csa-service",
+   "placeholders": 8,
+   "scrollY": 0,
+   "sheetTop": 19
+  }
+ },
+ "hengxiang-advantage": {
+  "url": "/projects/hengxiang-advantage",
+  "title": "横向优势",
+  "h1": "横向优势",
+  "sheet": "hengxiang-advantage",
+  "placeholders": 5,
+  "tags": [
+   "Illustration",
+   "3D / AIGC",
+   "2026"
+  ],
+  "canvas": 1,
+  "linkPill": {
+   "href": "https://www.zcool.com.cn/u/ZNTIyMjA1MTY=#tab_anchor",
+   "label": "Visit 横向优势"
+  },
+  "related": [
+   {
+    "id": "csa-service",
+    "href": "/projects/csa-service"
+   },
+   {
+    "id": "nathan-riley",
+    "href": "/projects/nathan-riley"
+   }
+  ],
+  "ok": true,
+  "scrolled": {
+   "sheetId": "hengxiang-advantage",
+   "placeholders": 5,
+   "scrollY": 0,
+   "sheetTop": 19
+  }
+ },
+ "illustration": {
+  "url": "/projects/illustration",
+  "title": "插画",
+  "h1": "插画",
+  "sheet": "illustration",
+  "placeholders": 11,
+  "tags": [
+   "Illustration",
+   "Motion / 3D",
+   "2026"
+  ],
+  "canvas": 1,
+  "linkPill": null,
+  "related": [
+   {
+    "id": "griflan",
+    "href": "/projects/griflan"
+   },
+   {
+    "id": "oppo-service",
+    "href": "/projects/oppo-service"
+   }
+  ],
+  "ok": true
+ },
+ "full": {
+  "links": [
+   "/projects/the-lookback",
+   "/projects/nathan-riley",
+   "/projects/dogelon-mars",
+   "/projects/discoveryland",
+   "/projects/griflan",
+   "/projects/book-of-happiness",
+   "/projects/casa-di-solare",
+   "/projects/gil-huybrecht",
+   "/projects/oppo-service",
+   "/projects/naivideo",
+   "/projects/oppo-self-service",
+   "/projects/erp",
+   "/projects/csa-service",
+   "/projects/hengxiang-advantage",
+   "/projects/illustration"
+  ],
+  "allLocal": true
+ },
+ "newsletterCards": 15,
+ "hydration": [],
+ "bad": [],
+ "ext": [],
+ "perr": [],
+ "cerr": [],
+ "imgs": [
+  "/oppo/1.jpg",
+  "/erp/2.jpg",
+  "/csa/2.jpg",
+  "/hengxiang/2.jpg",
+  "/oppo/3.jpg",
+  "/oppo/2.jpg",
+  "/oppo/4.jpg",
+  "/oppo/5.jpg",
+  "/oppo/6.jpg",
+  "/oppo/7.jpg",
+  "/oppo/8.jpg",
+  "/oppo/9.jpg",
+  "/oppo/10.jpg",
+  "/oppo/11.jpg",
+  "/oppo/12.jpg",
+  "/oppo/13.jpg",
+  "/oppo/14.jpg",
+  "/oppo/15.jpg",
+  "/oppo/16.jpg",
+  "/oppo/17.jpg",
+  "/oppo/18.jpg",
+  "/naivideo/1.jpg",
+  "/naivideo/3.jpg",
+  "/naivideo/4.jpg",
+  "/naivideo/6.jpg",
+  "/naivideo/5.jpg",
+  "/naivideo/7.jpg",
+  "/naivideo/8.jpg",
+  "/oppo-self/0.jpg",
+  "/oppo-self/1.jpg",
+  "/oppo-self/2.jpg",
+  "/oppo-self/3.jpg",
+  "/oppo-self/4.jpg",
+  "/oppo-self/5.jpg",
+  "/oppo-self/6.jpg",
+  "/oppo-self/8.jpg",
+  "/oppo-self/7.jpg",
+  "/oppo-self/9.jpg",
+  "/oppo-self/10.jpg",
+  "/oppo-self/11.jpg",
+  "/oppo-self/12.jpg",
+  "/oppo-self/13.jpg",
+  "/oppo-self/14.jpg",
+  "/oppo-self/15.jpg",
+  "/oppo-self/16.jpg",
+  "/erp/1.jpg",
+  "/erp/3.jpg",
+  "/erp/4.jpg",
+  "/erp/5.jpg",
+  "/erp/6.jpg",
+  "/erp/7.jpg",
+  "/erp/8.jpg",
+  "/erp/9.jpg",
+  "/erp/10.jpg",
+  "/csa/1.jpg",
+  "/erp/11.jpg",
+  "/csa/3.jpg",
+  "/csa/4.jpg",
+  "/csa/5.jpg",
+  "/csa/6.jpg",
+  "/csa/7.jpg",
+  "/csa/8.jpg",
+  "/hengxiang/1.jpg",
+  "/hengxiang/3.jpg",
+  "/hengxiang/4.jpg",
+  "/hengxiang/5.jpg"
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "source": "OPPO 服务小程序 tile-wall fx (oppo-service-fx.zip)",
+ "gsap": "3.12.5",
+ "duration": 27.0384,
+ "fps": 24,
+ "frames": 649,
+ "tiles": 7,
+ "size": [
+  1600,
+  900
+ ]
+}
