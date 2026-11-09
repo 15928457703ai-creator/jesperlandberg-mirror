@@ -1,0 +1,178 @@
+[
+ {
+  "n": 2,
+  "source": "2. 合集.jpg",
+  "cover": true,
+  "origWidth": 5760,
+  "origHeight": 3240,
+  "main": {
+   "file": "2.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "2_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "2_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 1,
+  "source": "1. 海外AI创作工具Naivideo-APP.jpg",
+  "cover": false,
+  "origWidth": 3840,
+  "origHeight": 2160,
+  "main": {
+   "file": "1.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "1_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "1_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 3,
+  "source": "3. 背景.jpg",
+  "cover": false,
+  "origWidth": 1920,
+  "origHeight": 1080,
+  "main": {
+   "file": "3.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "3_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "3_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 4,
+  "source": "4. 沉浸观看 灵感激发 社交裂变.jpg",
+  "cover": false,
+  "origWidth": 1920,
+  "origHeight": 1080,
+  "main": {
+   "file": "4.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "4_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "4_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 5,
+  "source": "5. 资产的生命周期管理-内容承接.jpg",
+  "cover": false,
+  "origWidth": 1920,
+  "origHeight": 1080,
+  "main": {
+   "file": "5.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "5_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "5_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 6,
+  "source": "6. 创作与生成 Agent创作.jpg",
+  "cover": false,
+  "origWidth": 1920,
+  "origHeight": 1080,
+  "main": {
+   "file": "6.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "6_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "6_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 7,
+  "source": "7. 商业化如何嵌入创作循环.jpg",
+  "cover": false,
+  "origWidth": 1920,
+  "origHeight": 1080,
+  "main": {
+   "file": "7.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "7_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "7_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 8,
+  "source": "8. PC横向支持.jpg",
+  "cover": false,
+  "origWidth": 1920,
+  "origHeight": 1080,
+  "main": {
+   "file": "8.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "8_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "8_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ }
+]

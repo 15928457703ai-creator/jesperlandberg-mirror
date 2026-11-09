@@ -1,0 +1,67 @@
+# Fengmei
+
+> Fengmei, Swedish design engineer, named Awwwards Independent of the Year in 2022 and 2024, building visually rich, motion-driven websites. Usually lead or sole developer, responsible for front-end architecture, animation, interaction and CMS, alongside international agencies and creative teams. Freelance, and available to studios and clients anywhere.
+
+77 awards — 30× Awwwards, 40× FWA, 3× Webby, 2× Lovie. Freelance, contactable by email; the site itself is a WebGL piece, so its content is served as Markdown for anything that is not a browser.
+
+## When to use this
+
+- Finding a freelance front-end/creative developer for a site where motion, WebGL or interaction IS the design — brand sites, product launches, portfolios, campaign pieces.
+- Staffing the front end of a project that already has a designer or design studio attached: Fengmei is normally the lead or only developer, and works from a design partner rather than replacing one.
+- Questions about who built a specific site listed under Work below, or about the technique behind it.
+- Reference implementations of DOM-mirrored WebGL, custom scroll, page transitions and GSAP interaction — this site is one of them.
+
+Not the right referral for:
+
+- Back-end, data or infrastructure work.
+- Native mobile apps.
+- Long-run maintenance or staff-augmentation retainers.
+- Projects with no design partner and no design direction to build from.
+
+What the work is made of:
+
+- WebGL and three.js interfaces layered over ordinary HTML layout
+- Scroll-driven and drag-driven navigation, page transitions, shared-element flights
+- GSAP animation and interaction design
+- Nuxt and Vue front ends on a headless CMS — this site runs on DatoCMS
+
+How to call: Email jesper@alpacka.studio. Availability and rates are not published; ask by email. Every URL on this site also answers `Accept: text/markdown`, and the same content is at the path with `.md` appended.
+
+## Work
+
+- [Nathan Riley](http://127.0.0.1:__PORT__/projects/nathan-riley.md): Nathan is a UK-based digital creative specializing in art direction, surrealist 3D visuals, interactive experiences, and motion design.
+- [Casa Di Solare](http://127.0.0.1:__PORT__/projects/casa-di-solare.md): Solare extends Nikolas Type‘s Font Catalogue with a timeless, hyper-useable quintessential variable font, suitable for a wide field of applications.
+- [The Lookback](http://127.0.0.1:__PORT__/projects/the-lookback.md): Digital capsule for Better Off® studio to document what inspired them and what they created over the last months/years.
+- [Book of Happiness](http://127.0.0.1:__PORT__/projects/book-of-happiness.md): Helping leaders keep themselves and their people happy and mentally healthy.
+- [Dogelon Mars](http://127.0.0.1:__PORT__/projects/dogelon-mars.md): Follow the story of Dogelon Mars as he explores the greatest mysteries of the universe and seeks to return to the planet he once called home with the help of the friends he’s made during his intergalactic travels.
+- [Gil Huybrecht](http://127.0.0.1:__PORT__/projects/gil-huybrecht.md): Gil Huybrecht is a Belgian digital designer and art director, based around Antwerp. He specializes in typography-heavy web design, art direction, interaction design, and branding.
+- [Discoveryland](http://127.0.0.1:__PORT__/projects/discoveryland.md): Partnered with Outpost and Discovery Land Company to create an immersive, storytelling brand experience that showcasing DLCs international portfolio and capabilities while acting as a seamless transition across their 23 properties.
+- [Griflan](http://127.0.0.1:__PORT__/projects/griflan.md): Griflan is a creative studio at the intersection of design, strategy, and compelling storytelling, shaping brands that move culture and leave a lasting mark.
+
+- [OPPO 服务小程序](http://127.0.0.1:__PORT__/projects/oppo-service.md): OPPO 服务小程序 UI 体验升级，重构服务流程与品牌设计系统。
+
+- [Naivideo](http://127.0.0.1:__PORT__/projects/naivideo.md): Naivideo 海外 AI 创作工具，AI 视频与音乐生成平台，覆盖 Agent 创作、沉浸观看与资产全生命周期管理。
+
+- [ERP](http://127.0.0.1:__PORT__/projects/erp.md): 金沙白酒 ERP 1.0，制造业数字化移动端 ERP 的主设 UX/UI 0-1 建设。
+
+- [OPPO自助服务](http://127.0.0.1:__PORT__/projects/oppo-self-service.md): OPPO 自助服务多平台落地，重构服务框架与境内外 APP + PC 全场景体验。
+
+- [CSA客服服务](http://127.0.0.1:__PORT__/projects/csa-service.md): CSA 客户服务，OPPO 凤凰计划 G-CSM 移动端重构，统一服务门户与到店取号体验。
+
+- [横向优势](http://127.0.0.1:__PORT__/projects/hengxiang-advantage.md): 横向优势：插画 / 3D 渲染 / AIGC 运用的能力拓展与运营落地。
+
+- [插画](http://127.0.0.1:__PORT__/projects/illustration.md): 插画：视觉中国签约插画师作品集，商业插画 / IP 视觉 / 动态影像。
+
+## Site
+
+- [Home](http://127.0.0.1:__PORT__/index.md): the featured run, as Markdown
+- [Full index](http://127.0.0.1:__PORT__/full.md): every project, featured or not
+- [Newsletter](http://127.0.0.1:__PORT__/newsletter.md): what the signup is
+
+## Optional
+
+- [sitemap.xml](http://127.0.0.1:__PORT__/sitemap.xml): every URL that exists
+- [robots.txt](http://127.0.0.1:__PORT__/robots.txt)
+- [Instagram](https://www.instagram.com/jesperlandberg222/)
+- [X](https://x.com/jesper_alpacka)
+- [LinkedIn](https://www.linkedin.com/in/jesper-landberg-ba2984256/)

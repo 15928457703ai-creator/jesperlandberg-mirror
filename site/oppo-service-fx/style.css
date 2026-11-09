@@ -1,0 +1,140 @@
+/* OPPO 服务小程序 · 切图动效墙
+   仅使用用户提供的 7 张原始切图，背景为合集原色纯色，页面零文字 */
+:root{
+  --bg:#262626;
+  --s:1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--bg)}
+body{
+  -webkit-font-smoothing:antialiased;
+  user-select:none;-webkit-user-select:none;
+  touch-action:none;
+}
+img{display:block;-webkit-user-drag:none}
+
+/* ── 3D 舞台 ───────────────────────────────────────── */
+.viewport{
+  position:fixed;inset:0;
+  perspective:1600px;
+  perspective-origin:50% 50%;
+  overflow:hidden;
+}
+.stage-scale{
+  position:absolute;left:50%;top:50%;
+  width:1920px;height:1080px;
+  margin:-540px 0 0 -960px;
+  transform:scale(var(--s));
+  transform-style:preserve-3d;
+}
+.stage,.tiles{position:absolute;inset:0;transform-style:preserve-3d}
+
+/* ── 卡片：五层 transform 互不干扰 ───────────────────
+   .tile       定位（Flip 备用）
+   .tile-depth 静态 Z 景深 + 呼吸
+   .tile-3d    自动循环招式
+   .tile-face  鼠标 tilt / 邻近抬起
+   img         hover 推近 + 亮度闪
+──────────────────────────────────────────────────── */
+.tile{
+  position:absolute;
+  left:var(--x);top:var(--y);width:var(--w);height:var(--h);
+  transform-style:preserve-3d;
+  cursor:pointer;
+}
+.tile-depth,.tile-3d,.tile-face{
+  position:absolute;inset:0;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.tile-face{backface-visibility:visible}
+
+.tile-face>img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:fill;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  filter:brightness(1);
+  will-change:transform,filter;
+  pointer-events:none;
+}
+/* 翻面时露出的品牌色背板（无任何文字） */
+.tile-back{
+  position:absolute;inset:0;
+  border-radius:var(--r);
+  background:
+    radial-gradient(120% 120% at 20% 15%,rgba(255,255,255,.24),transparent 55%),
+    var(--tint);
+  transform:rotateY(180deg) translateZ(1px);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  pointer-events:none;
+}
+.tile-back::after{
+  content:"";position:absolute;inset:0;border-radius:var(--r);
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.16) 48%,transparent 66%);
+}
+/* 高光扫过：只动 background-position，不溢出卡片 */
+.tile-shine{
+  position:absolute;inset:0;
+  border-radius:var(--r);
+  background:linear-gradient(105deg,transparent 34%,rgba(255,255,255,.42) 49%,rgba(255,255,255,.12) 55%,transparent 68%);
+  background-size:260% 100%;
+  background-position:190% 0;
+  background-repeat:no-repeat;
+  opacity:0;
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+/* 悬停外发光 */
+.tile-glow{
+  position:absolute;inset:-8px;
+  border-radius:calc(var(--r) + 10px);
+  background:var(--tint);
+  filter:blur(34px);
+  opacity:0;
+  pointer-events:none;
+  z-index:-1;
+  will-change:opacity;
+}
+
+/* ── 点击聚焦（Flip 驱动） ─────────────────────────── */
+.focus-layer{
+  position:fixed;inset:0;z-index:40;
+  pointer-events:none;
+  visibility:hidden;
+}
+.focus-layer.open{pointer-events:auto;visibility:visible}
+.focus-card{
+  position:absolute;
+  left:var(--fx,0px);top:var(--fy,0px);
+  width:var(--fw,0px);height:var(--fh,0px);
+  will-change:transform;
+}
+.focus-card>img{
+  width:100%;height:100%;object-fit:contain;
+  filter:drop-shadow(0 40px 90px rgba(0,0,0,.65));
+}
+
+/* ── 悬停瞬间的 RGB 色差故障闪（仅卡片自身） ───────── */
+@keyframes chromaHit{
+  0%{filter:brightness(1)}
+  18%{filter:drop-shadow(10px 0 rgba(0,210,130,.85)) drop-shadow(-10px 0 rgba(255,70,160,.85)) brightness(1.12)}
+  38%{filter:drop-shadow(-7px 0 rgba(0,210,130,.6)) drop-shadow(7px 0 rgba(255,70,160,.6)) brightness(1.06)}
+  64%{filter:drop-shadow(3px 0 rgba(0,210,130,.3)) drop-shadow(-3px 0 rgba(255,70,160,.3))}
+  100%{filter:brightness(1)}
+}
+.tile-face.glitch>img{animation:chromaHit .6s cubic-bezier(.16,1,.3,1)}
+
+/* ── 静态预览 / 导出模式 ───────────────────────────── */
+html.still .tile-3d,
+html.still .tile-depth,
+html.still .tile-face,
+html.still .tile-face>img{transform:none!important;filter:none!important}
+html.still .tile-glow,html.still .tile-shine{opacity:0!important}
+html.still .tile-face.glitch>img{animation:none!important}
+
+@media (prefers-reduced-motion:reduce){
+  .tile-face.glitch>img{animation:none}
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OPPO 服务小程序 · 动效墙</title>
+<link rel="stylesheet" href="oppo-service-fx/style.css">
+</head>
+<body>
+
+<div class="viewport" id="viewport">
+  <div class="stage-scale" id="stageScale">
+    <div class="stage" id="stage">
+      <div class="tiles" id="tiles"></div>
+    </div>
+  </div>
+</div>
+
+<div class="focus-layer" id="focusLayer" aria-hidden="true">
+  <div class="focus-card" id="focusCard">
+    <img id="focusImg" src="" alt="" draggable="false">
+  </div>
+</div>
+
+<script src="oppo-service-fx/assets/gsap.min.js"></script>
+<script src="oppo-service-fx/assets/Flip.min.js"></script>
+<script src="oppo-service-fx/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://127.0.0.1:__PORT__/sitemap.xml
+# llms.txt: http://127.0.0.1:__PORT__/llms.txt

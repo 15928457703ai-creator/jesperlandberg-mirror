@@ -1,0 +1,12 @@
+{
+ "source": "OPPO 服务小程序 layered cover from 服务10.png",
+ "gsap": "3.15.1",
+ "duration": 12,
+ "fps": 24,
+ "frames": 288,
+ "layers": 7,
+ "size": [
+  1600,
+  900
+ ]
+}

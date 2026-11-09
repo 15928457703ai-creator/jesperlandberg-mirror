@@ -1,0 +1,157 @@
+/* Naivideo — 11-card 3D collage / motion showcase
+   Stage is a fixed 1920x1080 design canvas, scaled uniformly to the window.
+   Layers are independent so their GSAP tweens never fight each other:
+     #wall        pointer parallax
+     #wallInner   timeline breathing / cruise
+     .card-3d     intro / wave / detonate
+     .card-face   hover tilt + push-in
+     .fx / .glow  light effects
+*/
+:root{
+  --bg:#121212;
+  --s:1;
+  --ui:#e9e9ef;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--bg);color:var(--ui);
+  font-family:Inter,"Helvetica Neue",Arial,"PingFang SC",sans-serif;
+  -webkit-font-smoothing:antialiased}
+body{cursor:crosshair}
+img{display:block;user-select:none;-webkit-user-drag:none}
+
+#app{position:fixed;inset:0;overflow:hidden}
+#shaker{position:absolute;inset:0}
+#stageWrap{position:absolute;left:50%;top:50%;width:1920px;height:1080px;
+  transform:translate(-50%,-50%) scale(var(--s));transform-origin:50% 50%;
+  will-change:transform}
+#stage{position:absolute;inset:0;perspective:1900px;transform-style:preserve-3d}
+#wall,#wallInner{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform,filter,opacity}
+#wall{transform-origin:50% 50%}
+#wallInner{transform-origin:50% 50%}
+
+.card{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);
+  transform-style:preserve-3d;will-change:transform}
+.card-3d{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform,opacity}
+.card-face{position:absolute;inset:0;border-radius:var(--r);overflow:hidden;
+  background:#121212;transform-style:preserve-3d;will-change:transform,filter;
+  box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.card-face img{width:100%;height:100%;object-fit:cover}
+.card .glow{position:absolute;inset:-14%;border-radius:calc(var(--r) + 12px);
+  background:radial-gradient(ellipse at center,rgba(150,120,255,.42),rgba(80,190,255,.14) 48%,transparent 72%);
+  opacity:0;pointer-events:none;filter:blur(22px);will-change:opacity}
+
+/* ── the 11th card has no artwork: pure CSS gradient type ── */
+.meet{position:absolute;inset:0;background:#221b09;border-radius:var(--r);
+  display:flex;flex-direction:column;justify-content:center;padding-left:58px;
+  font-weight:800;font-size:64px;line-height:1.1;letter-spacing:-.035em;
+  transform:translateY(6px)}
+.meet b{display:block;width:max-content;font-weight:800;
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.meet .m1{background-image:linear-gradient(100deg,#d5e88a 0%,#f6ffd9 58%,#ffffff 100%)}
+.meet .m2{background-image:linear-gradient(100deg,#f0e27a 0%,#f6c58e 42%,#f19ad0 100%)}
+
+/* ── hover FX layers ── */
+.fx{position:absolute;inset:0;pointer-events:none;opacity:0}
+.fx.aurora{border-radius:var(--r);padding:3px;overflow:hidden;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude}
+.fx.aurora::before{content:"";position:absolute;left:-60%;top:-60%;width:220%;height:220%;
+  background:conic-gradient(from 0deg,#ff4fd8,#7b61ff,#4fe0ff,#8dff9b,#ffe36e,#ff4fd8);
+  animation:auroraSpin 3.4s linear infinite}
+@keyframes auroraSpin{to{transform:rotate(360deg)}}
+.fx.glare{background:linear-gradient(108deg,transparent 34%,rgba(255,255,255,.30) 49%,rgba(255,255,255,.06) 56%,transparent 70%);
+  transform:translateX(-160%)}
+.fx.sweep{background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.42) 50%,transparent 70%);
+  transform:translateX(-160%)}
+.fx.pulse{background:linear-gradient(118deg,rgba(150,205,255,.30),rgba(190,150,255,.18) 55%,rgba(255,220,170,.24));
+  mix-blend-mode:screen}
+.fx.rgb{inset:0;mix-blend-mode:screen}
+.fx.rgb::before,.fx.rgb::after{content:"";position:absolute;inset:0;
+  background-image:var(--img);background-size:cover;background-position:center;opacity:.85}
+.fx.rgb::before{filter:grayscale(1) sepia(1) saturate(9) hue-rotate(-42deg);transform:translateX(5px)}
+.fx.rgb::after{filter:grayscale(1) sepia(1) saturate(9) hue-rotate(142deg);transform:translateX(-5px)}
+.corner{position:absolute;width:26px;height:26px;opacity:0;pointer-events:none;
+  border-color:rgba(190,240,255,.95);border-style:solid;filter:drop-shadow(0 0 6px rgba(120,220,255,.8))}
+.corner.c1{top:12px;left:12px;border-width:2px 0 0 2px;border-top-left-radius:8px}
+.corner.c2{top:12px;right:12px;border-width:2px 2px 0 0;border-top-right-radius:8px}
+.corner.c3{bottom:12px;left:12px;border-width:0 0 2px 2px;border-bottom-left-radius:8px}
+.corner.c4{bottom:12px;right:12px;border-width:0 2px 2px 0;border-bottom-right-radius:8px}
+
+/* ── full-screen overlays ── */
+#dust{position:fixed;inset:0;pointer-events:none;z-index:4}
+#shock{position:fixed;left:50%;top:50%;width:340px;height:340px;margin:-170px 0 0 -170px;
+  border:3px solid rgba(220,235,255,.9);border-radius:50%;opacity:0;pointer-events:none;z-index:7;
+  box-shadow:0 0 60px rgba(150,190,255,.7),inset 0 0 60px rgba(150,190,255,.45)}
+#flash{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:8}
+
+/* ── focus / FLIP detail ── */
+#focus{position:fixed;inset:0;z-index:10;visibility:hidden;opacity:0;
+  background:rgba(8,8,11,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+#focusCard{position:fixed;z-index:11;border-radius:34px;overflow:hidden;visibility:hidden;
+  box-shadow:0 40px 120px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.08);
+  transform-origin:top left;background:#1b1b1d}
+#focusCard img{width:100%;height:100%;object-fit:cover}
+#focusCard .meet{font-size:1em}
+#focusMeta{position:fixed;left:50%;bottom:6vh;transform:translateX(-50%);z-index:12;
+  text-align:center;visibility:hidden;opacity:0;white-space:nowrap}
+#focusMeta .idx{font:600 11px/1 var(--mono);letter-spacing:.22em;color:#9b9ba8;text-transform:uppercase}
+#focusMeta .ttl{font-size:26px;font-weight:700;letter-spacing:-.02em;margin-top:10px}
+#focusMeta .hint{font:500 11px/1 var(--mono);color:#8d8d9a;margin-top:14px;letter-spacing:.08em}
+#focusNav{position:fixed;top:50%;z-index:12;transform:translateY(-50%);width:52px;height:52px;
+  border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(20,20,24,.55);
+  color:#fff;font-size:22px;line-height:50px;text-align:center;cursor:pointer;visibility:hidden;opacity:0}
+#focusNav:hover{background:rgba(60,60,70,.8)}
+#navPrev{left:4vw}#navNext{right:4vw}
+
+/* ── HUD + console ── */
+#hud{position:fixed;left:22px;top:18px;z-index:20;font:600 11px/1.75 var(--mono);
+  letter-spacing:.06em;color:#cfcfe0;text-transform:uppercase;
+  text-shadow:0 1px 8px rgba(0,0,0,.9);pointer-events:none}
+#hud b{color:#8ce0b0;font-weight:600}
+#hud .k{color:#77778c}
+#hint{position:fixed;left:22px;bottom:18px;z-index:20;font:500 10.5px/1.7 var(--mono);
+  color:#7d7d90;letter-spacing:.04em;pointer-events:none}
+#hint kbd{display:inline-block;padding:1px 5px;border:1px solid #3a3a48;border-radius:4px;
+  color:#c9c9d8;font:inherit}
+#console{position:fixed;right:20px;top:18px;z-index:21;width:224px;padding:14px 15px 13px;
+  border-radius:14px;border:1px solid rgba(255,255,255,.10);
+  background:rgba(20,20,25,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 14px 44px rgba(0,0,0,.5);font:600 10px/1 var(--mono);letter-spacing:.09em;
+  color:#b9b9ca;text-transform:uppercase}
+#console h4{margin:0 0 12px;font:700 11px/1 var(--mono);letter-spacing:.18em;color:#f0f0f6}
+#console .row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+#console .row:last-of-type{margin-bottom:0}
+#console input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;
+  border-radius:3px;background:linear-gradient(90deg,#8b7bff,#4fe0ff);outline:none;margin:4px 0 14px}
+#console input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;
+  border-radius:50%;background:#fff;box-shadow:0 0 9px rgba(140,180,255,.9);cursor:pointer}
+.tog{position:relative;width:34px;height:18px;border-radius:10px;background:#393944;
+  border:1px solid rgba(255,255,255,.10);cursor:pointer;transition:background .2s}
+.tog::after{content:"";position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:50%;
+  background:#8d8d9c;transition:transform .2s,background .2s}
+.tog.on{background:rgba(110,95,220,.55)}
+.tog.on::after{transform:translateX(16px);background:#eaeaff}
+.btn{flex:1;padding:8px 0;text-align:center;border-radius:8px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.05);
+  color:#dedee9;font:700 10px/1 var(--mono);letter-spacing:.1em;transition:background .18s}
+.btn:hover{background:rgba(255,255,255,.14)}
+.btn.hot{border-color:rgba(255,110,140,.4);color:#ffc2d0;background:rgba(255,80,120,.10)}
+.btn.hot:hover{background:rgba(255,80,120,.24)}
+.btn+.btn{margin-left:8px}
+.btns{display:flex;margin-top:13px}
+
+/* capture / still: no UI in the recorded video texture */
+.capture #hud,.capture #console,.capture #hint,
+.capture #focusNav,.capture #focusMeta{display:none!important}
+.still #console,.still #hud,.still #hint{opacity:.55}
+
+@media (max-width:760px){
+  #console{right:10px;top:10px;width:190px;padding:11px}
+  #hud{left:12px;top:10px;font-size:9.5px}
+  #hint{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .fx.aurora::before{animation:none}
+}

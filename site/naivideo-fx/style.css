@@ -1,0 +1,79 @@
+/* ═══════════════════════════════════════════════
+   PURE BLACK · ORIGINAL ARTWORKS ONLY · GSAP MOTION
+   ═══════════════════════════════════════════════ */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{background:#000;color:#fff;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
+
+/* 舞台：外层负责等比缩放居中，内层交给 GSAP 做 3D 变换 */
+.viewport{position:fixed;inset:0;perspective:1700px;perspective-origin:50% 50%}
+.stage-wrap{
+  position:absolute;left:50%;top:50%;width:1920px;height:1080px;
+  transform:translate(-50%,-50%) scale(var(--s,1));
+  transform-style:preserve-3d;will-change:opacity,filter;
+}
+.stage{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+.tiles{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
+
+/* 卡片 */
+.tile{
+  position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);
+  transform-style:preserve-3d;will-change:transform;
+}
+.tile-3d{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform,opacity,filter}
+.tile-face{
+  position:absolute;inset:0;border-radius:30px;overflow:hidden;
+  transform-style:preserve-3d;will-change:transform;
+  backface-visibility:visible;
+}
+.tile-face img{will-change:transform}
+
+/* 卡片外发光（纯光效，无文字） */
+.glow{
+  position:absolute;inset:-44px;border-radius:70px;pointer-events:none;opacity:0;
+  background:radial-gradient(ellipse at center,hsl(var(--hue) 100% 62% / .62),transparent 68%);
+  filter:blur(34px);will-change:opacity;
+}
+
+/* 叠在切图上的动效层 */
+.fx{position:absolute;inset:0;pointer-events:none;display:block;border-radius:30px}
+.glare{
+  opacity:0;mix-blend-mode:screen;
+  background:radial-gradient(circle 42% at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.55),rgba(190,160,255,.16) 42%,transparent 72%);
+  will-change:opacity;
+}
+.sweep{
+  opacity:0;transform:translateX(-160%);mix-blend-mode:screen;
+  background:linear-gradient(105deg,transparent 24%,rgba(255,255,255,.06) 38%,rgba(255,255,255,.9) 50%,rgba(190,230,255,.3) 58%,transparent 74%);
+  will-change:transform,opacity;
+}
+.rgb{
+  opacity:0;mix-blend-mode:screen;
+  background:linear-gradient(90deg,rgba(255,32,128,.85),transparent 14%,transparent 86%,rgba(32,220,255,.85));
+  will-change:opacity;
+}
+
+/* 聚焦放大层 */
+.focus{position:fixed;inset:0;z-index:80;pointer-events:none}
+.focus-card{
+  position:fixed;overflow:hidden;border-radius:30px;background:#000;
+  box-shadow:0 60px 160px rgba(0,0,0,.9);
+  will-change:transform,opacity;visibility:hidden;
+}
+.focus-card img{width:100%;height:100%;object-fit:cover;transform:scale(1.01)}
+
+/* 全屏白闪 */
+.flash{position:fixed;inset:0;z-index:90;background:#fff;opacity:0;pointer-events:none;will-change:opacity}
+
+/* 静态预览（仅用于截图校验，不参与正式播放） */
+html.still .glow,html.still .fx{display:none}
+html.still .flash{display:none}
+
+@media (max-width:900px){
+  .viewport{perspective:1100px}
+  .tile-face,.fx{border-radius:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  .glow,.sweep,.rgb{display:none}
+}

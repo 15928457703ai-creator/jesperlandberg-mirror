@@ -1,0 +1,30 @@
+{
+ "url": "https://jesperlandberg.com/cdn-cgi/rum?",
+ "postBody": "{\"startTime\":1794150474891,\"pageloadId\":\"52f26813-cb38-4b8f-a5b9-9836a9020c8c\",\"eventType\":1,\"nt\":\"navigate\",\"location\":\"https://jesperlandberg.com/full\",\"versions\":{\"fl\":\"2024.11.0\",\"js\":\"2026.10.1\",\"timings\":2},\"bi\":{\"be\":\"Blink\",\"bev\":\"156\",\"bv\":\"156\",\"ov\":\"26.5\"},\"memory\":{\"totalJSHeapSize\":13763982,\"usedJSHeapSize\":8652954,\"jsHeapSizeLimit\":4395630592},\"firstPaint\":0,\"firstContentfulPaint\":0,\"timingsV2\":{\"nextHopProtocol\":\"h3\",\"domainLookupStart\":1,\"domainLookupEnd\":1,\"connectStart\":1,\"connectEnd\":1,\"secureConnectionStart\":1,\"requestStart\":1,\"responseStart\":170,\"responseEnd\":170,\"domInteractive\":1094,\"domComplete\":1102,\"loadEventStart\":1102,\"loadEventEnd\":1102,\"finalResponseHeadersStart\":170,\"firstInterimResponseStart\":0,\"transferSize\":8524,\"decodedBodySize\":35833},\"siteToken\":\"48cadbc4bff14c1ca96b50aea2e56259\",\"st\":2}",
+ "headers": {
+  "sec-ch-ua-platform": "\"macOS\"",
+  "referer": "https://jesperlandberg.com/full",
+  "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+  "sec-ch-ua": "\"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"156\", \"Google Chrome\";v=\"156\"",
+  "content-type": "application/json",
+  "sec-ch-ua-mobile": "?0"
+ },
+ "status": 204,
+ "responseHeaders": {
+  "access-control-max-age": "86400",
+  "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+  "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=3eB3FLgD9SjDjJMEwNVB%2BdbG4AH1rPzEZEbCYND2B1Jiv6BNjLrO5ZkDhvON1fWXv%2BRpX36W7m6mRVw5TPJ1iKhHmUablGCWMB9IsZ2zUdH3OmBfd9W5uX7y9j9sUeIO%2FBO4lpo%3D\"}]}",
+  "access-control-allow-credentials": "true",
+  "access-control-allow-methods": "POST,OPTIONS",
+  "cf-ray": "a5757d7c5dec55be-NRT",
+  "access-control-allow-origin": "https://jesperlandberg.com",
+  "alt-svc": "h3=\":443\"; ma=86400",
+  "server-timing": "cfExtPri",
+  "date": "Sun, 08 Nov 2026 15:07:56 GMT",
+  "content-type": "text/plain",
+  "vary": "Origin",
+  "server": "cloudflare",
+  "priority": "u=1,i"
+ },
+ "response": ""
+}
