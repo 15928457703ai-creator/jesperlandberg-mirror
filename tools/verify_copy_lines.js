@@ -24,7 +24,7 @@ const BASE = 'http://127.0.0.1:5188';
 const OUT = path.join(__dirname, '..', 'raw', 'verify_copy_lines.json');
 const LOCAL = ['oppo-service', 'naivideo', 'oppo-self-service', 'erp',
   'csa-service', 'hengxiang-advantage', 'illustration', 'ai-video'];
-const STOCK = ['griflan', 'dogelon-mars'];
+const STOCK = ['griflan', 'the-lookback'];
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
 let pass = 0;

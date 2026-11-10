@@ -3,7 +3,7 @@ const fs = require('fs'); const path = require('path'); const crypto = require('
 const OUT = path.join(__dirname,'..','raw','captured'); fs.mkdirSync(OUT,{recursive:true});
 const manifest = {}; const errors = []; const failed = [];
 const BASE='https://jesperlandberg.com';
-const PAGES=['/','/full','/newsletter','/projects/nathan-riley','/projects/casa-di-solare','/projects/the-lookback','/projects/book-of-happiness','/projects/dogelon-mars','/projects/gil-huybrecht','/projects/discoveryland','/projects/griflan'];
+const PAGES=['/','/full','/newsletter','/projects/the-lookback','/projects/griflan'];
 function fileFor(u){
   const p=new URL(u); const ext=(path.extname(p.pathname)||'.bin').slice(0,10).replace(/[^a-z0-9.]/gi,'');
   return crypto.createHash('sha1').update(u).digest('hex').slice(0,20)+ext;

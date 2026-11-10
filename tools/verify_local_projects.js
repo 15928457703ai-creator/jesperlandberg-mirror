@@ -12,9 +12,8 @@ const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'screenshots');
 const PROJECTS = JSON.parse(fs.readFileSync(path.join(ROOT, 'raw', 'local_projects.json'), 'utf8'));
 const NEW = ['oppo-self-service', 'csa-service', 'hengxiang-advantage'];
-const ORIGINAL = ['/projects/nathan-riley', '/projects/casa-di-solare', '/projects/the-lookback',
-  '/projects/book-of-happiness', '/projects/dogelon-mars', '/projects/gil-huybrecht',
-  '/projects/discoveryland', '/projects/griflan'];
+const ORIGINAL = ['/projects/the-lookback',
+  '/projects/griflan'];
 const ALL_PAGES = ['/', '/full', '/newsletter', ...ORIGINAL,
   ...PROJECTS.map(p => '/projects/' + p.slug)];
 const wait = ms => new Promise(r => setTimeout(r, ms));

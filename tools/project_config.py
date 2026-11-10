@@ -3,7 +3,7 @@
 Two different orders live here:
   * DISPLAY_ORDER -> relative order of the local projects in data.projects,
     the /full catalogue, sitemap and markdown.
-  * HOME_ORDER    -> the COMPLETE 16-item permutation of the home card strip;
+  * HOME_ORDER    -> the COMPLETE 10-item permutation of the home card strip;
     this also drives home.featured in every payload / the GraphQL replay and
     the detail-page prev/next ring. See the notes next to HOME_ORDER.
 """
@@ -219,27 +219,21 @@ DISPLAY_ORDER = ["oppo-service", "naivideo", "oppo-self-service",
 assert set(DISPLAY_ORDER) == {p["slug"] for p in PROJECTS}
 PROJECTS.sort(key=lambda p: DISPLAY_ORDER.index(p["slug"]))
 
-# the eight case studies shipped with the original site, in the recorded
+# the two case studies shipped with the original site, in the recorded
 # order of its own home.featured
 ORIGINAL_FEATURED = [
-    ("nathan-riley", "Nathan Riley"),
-    ("casa-di-solare", "Casa Di Solare"),
     ("the-lookback", "The Lookback"),
-    ("book-of-happiness", "Book Of Happiness"),
-    ("dogelon-mars", "Dogelon Mars"),
-    ("gil-huybrecht", "Gil Huybrecht"),
-    ("discoveryland", "Discoveryland"),
     ("griflan", "Griflan"),
 ]
 
 # ---------------------------------------------------------------------------
 # HOME_ORDER is THE single source of truth for the home card strip.
-# A complete 16-item permutation (1-based positions):
+# A complete 10-item permutation (1-based positions):
 #    1 oppo-service      2 naivideo            3 oppo-self-service
 #    4 erp               5 csa-service         6 hengxiang-advantage
 #    7 ai-video
-#    8..15  the eight original case studies, in their own recorded order
-#   16 illustration
+#    8..9   the two retained original case studies, in their own recorded order
+#   10 illustration
 # The client's `useAsyncData("featured")` reads home.featured and computes
 # BOTH the home strip and each detail page's prev/next ring from that one
 # array. So home.featured in every Nuxt payload + the GraphQL replay, the SSR
@@ -251,7 +245,7 @@ LOCAL_HEAD = ["oppo-service", "naivideo", "oppo-self-service",
 LOCAL_TAIL = ["illustration"]
 ORIGINAL_ORDER = [s for s, _ in ORIGINAL_FEATURED]
 HOME_ORDER = LOCAL_HEAD + ORIGINAL_ORDER + LOCAL_TAIL
-assert len(HOME_ORDER) == 16 and len(set(HOME_ORDER)) == 16
+assert len(HOME_ORDER) == 10 and len(set(HOME_ORDER)) == 10
 assert set(HOME_ORDER) == set(ORIGINAL_ORDER) | {p["slug"] for p in PROJECTS}
 
 _TITLES = dict(ORIGINAL_FEATURED)

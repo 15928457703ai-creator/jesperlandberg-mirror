@@ -1,4 +1,4 @@
-/* Verify the requested 16-card home permutation, the default first screen,
+/* Verify the requested 10-card home permutation, the default first screen,
  * the detail-page prev/next ring and hydration after the SSR reorder. */
 const { chromium } = require('playwright-core');
 const path = require('path');
@@ -6,8 +6,7 @@ const OUT = path.join(__dirname, '..', 'screenshots');
 const ORIGIN = 'http://127.0.0.1:5188';
 const ORDER = [
   'oppo-service', 'naivideo', 'oppo-self-service', 'erp', 'csa-service',
-  'hengxiang-advantage', 'ai-video', 'nathan-riley', 'casa-di-solare', 'the-lookback',
-  'book-of-happiness', 'dogelon-mars', 'gil-huybrecht', 'discoveryland',
+  'hengxiang-advantage', 'ai-video', 'the-lookback',
   'griflan', 'illustration'
 ];
 const TITLES = {
@@ -101,7 +100,7 @@ const readCards = () => {
   console.log('Naivideo motion cover playing:', !!(live && !live.paused && live.t > 0));
 
   // ---- 2. scroll to the far end, illustration must be last --------------
-  // The rail is an INFINITE LOOP: rolling past card #16 wraps back to #1.
+  // The rail is an INFINITE LOOP: rolling past card #10 wraps back to #1.
   // Stop the moment the last card enters the viewport, then shoot it.
   let tailShot = false;
   for (let i = 0; i < 95; i++) {
@@ -131,14 +130,10 @@ const readCards = () => {
   console.log('DOM last still illustration:', ids[ids.length - 1] === 'illustration');
 
   // ---- 3. related ring on 3 representative detail pages -----------------
-  const ringCases = [
-    { slug: 'nathan-riley', want: ['ai-video', 'casa-di-solare'] },
-    { slug: 'ai-video', want: ['hengxiang-advantage', 'nathan-riley'] },
-    { slug: 'griflan', want: ['discoveryland', 'illustration'] },
-    { slug: 'illustration', want: ['griflan', 'oppo-service'] },
-    { slug: 'oppo-service', want: ['illustration', 'naivideo'] },
-    { slug: 'naivideo', want: ['oppo-service', 'oppo-self-service'] },
-  ];
+  const ringCases = ORDER.map((slug, i) => ({
+    slug,
+    want: [ORDER[(i - 1 + ORDER.length) % ORDER.length], ORDER[(i + 1) % ORDER.length]]
+  }));
   const ring = [];
   for (const c of ringCases) {
     await page.goto(ORIGIN + '/projects/' + c.slug, { waitUntil: 'domcontentloaded', timeout: 60000 });
@@ -189,7 +184,7 @@ const readCards = () => {
   if (bad.length) console.log(' bad :', bad.slice(0, 5));
   if (ext.length) console.log(' ext :', ext.slice(0, 5));
 
-  const okAll = orderOK && ids.length === 16 && center.id === 'naivideo' &&
+  const okAll = orderOK && ids.length === ORDER.length && center.id === 'naivideo' &&
     firstThree.join(',') === 'oppo-service,naivideo,oppo-self-service' &&
     ring.every(x => x.ok) && clean;
   console.log('\nHOME ORDER VERIFY:', okAll ? 'PASS' : 'FAIL');

@@ -1,7 +1,7 @@
 const { chromium } = require('playwright-core');
 const fs=require('fs'),path=require('path'),crypto=require('crypto');
 const OUT=path.join(__dirname,'..','raw','graphql'); fs.mkdirSync(OUT,{recursive:true});
-const PAGES=['/','/full','/newsletter','/projects/nathan-riley','/projects/the-lookback','/projects/dogelon-mars'];
+const PAGES=['/','/full','/newsletter','/projects/the-lookback'];
 (async()=>{
  const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,
   args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl','--ignore-gpu-blocklist','--no-sandbox','--autoplay-policy=no-user-gesture-required']});

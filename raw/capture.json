@@ -1,11 +1,5 @@
 {
  "manifest": {
-  "https://jesperlandberg.com/": {
-   "file": "0991b91c13669e7c1f30.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 39626
-  },
   "https://jesperlandberg.com/_nuxt/CSMsEA09.js": {
    "file": "ee1d69058df849956610.js",
    "status": 200,
@@ -35,12 +29,6 @@
    "status": 200,
    "mime": "text/javascript",
    "size": 4789
-  },
-  "https://jesperlandberg.com/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "fd6abebff8ea69f04bba.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 48768
   },
   "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092": {
    "file": "1cad1da46507d8197396.bin",
@@ -102,23 +90,11 @@
    "mime": "application/json",
    "size": 5753
   },
-  "https://stream.mux.com/DrMKk9cqmTOu4Y4dJzCjEn5ny37s02001I/high.mp4": {
-   "file": "aa62e0d292b452871c30.mp4",
-   "status": 206,
-   "mime": "video/mp4",
-   "size": 2458224
-  },
   "https://stream.mux.com/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4": {
    "file": "fdc12ef15e790e0cd86f.mp4",
    "status": 206,
    "mime": "video/mp4",
    "size": 1995455
-  },
-  "https://stream.mux.com/qmEPTzOaDQBZL5258j01i2mMBkGh3G9BI/high.mp4": {
-   "file": "e811c101a366e263c25d.mp4",
-   "status": 206,
-   "mime": "video/mp4",
-   "size": 7366969
   },
   "https://jesperlandberg.com/textures/223669_1785656645-image-84.ktx2": {
    "file": "ad634c14e77eca6671cc.ktx2",
@@ -144,12 +120,6 @@
    "mime": "image/ktx2",
    "size": 129414
   },
-  "https://jesperlandberg.com/textures/DrMKk9cqmTOu4Y4dJzCjEn5ny37s02001I_thumbnail.ktx2": {
-   "file": "1e61fa0f59f7d6168591.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 174060
-  },
   "https://jesperlandberg.com/textures/223669_1786214209-ingrao-thumb.ktx2": {
    "file": "fb99e5b0d3b8583ba1b9.ktx2",
    "status": 200,
@@ -161,18 +131,6 @@
    "status": 200,
    "mime": "image/ktx2",
    "size": 35486
-  },
-  "https://jesperlandberg.com/textures/qmEPTzOaDQBZL5258j01i2mMBkGh3G9BI_thumbnail.ktx2": {
-   "file": "5db52221312484bbaaa3.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 225078
-  },
-  "https://jesperlandberg.com/_nuxt/builds/meta/dae78082-791f-45e5-83d8-7af79c012859.json": {
-   "file": "9f5dff069d47f0d04747.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 317
   },
   "https://jesperlandberg.com/_nuxt/rY37MP56.js": {
    "file": "bbbd6d90445674128843.js",
@@ -198,23 +156,11 @@
    "mime": "application/wasm",
    "size": 527333
   },
-  "https://jesperlandberg.com/full/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "91980f5fdb8bcea84e1f.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 44175
-  },
   "https://jesperlandberg.com/cdn-cgi/rum?": {
    "file": "b01fbefb3fc2309768fa.bin",
    "status": 204,
    "mime": "text/plain",
    "size": ""
-  },
-  "https://jesperlandberg.com/projects/casa-di-solare/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "46d6227ffa4d32bd5bfc.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 48768
   },
   "https://jesperlandberg.com/textures/223669_1785656901-image-63.ktx2": {
    "file": "0df4fe20a518dd49f59a.ktx2",
@@ -228,23 +174,11 @@
    "mime": "image/ktx2",
    "size": 118639
   },
-  "https://jesperlandberg.com/textures/223669_1786207957-dogelon-2.ktx2": {
-   "file": "f879e2580d376735dc23.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 231609
-  },
   "https://jesperlandberg.com/textures/223669_1786207051-ts2.ktx2": {
    "file": "2866bce3260aa8ca20ba.ktx2",
    "status": 200,
    "mime": "image/ktx2",
    "size": 191873
-  },
-  "https://jesperlandberg.com/projects/the-lookback/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "6827e42845ed609d5e16.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 48768
   },
   "https://www.datocms-assets.com/223669/1786371616-face.png?auto=format&h=32&w=32": {
    "file": "550b2d35f37e7c166de9.png",
@@ -258,41 +192,17 @@
    "mime": "image/ktx2",
    "size": 209116
   },
-  "https://www.datocms-assets.com/223669/1786432901-dlc-thumbnail.jpg?auto=format&fit=max&w=1200": {
-   "file": "9dceab598c35178b3640.jpg",
-   "status": 200,
-   "mime": "image/avif",
-   "size": 96287
-  },
   "https://jesperlandberg.com/textures/223669_1786212398-david-thumb.ktx2": {
    "file": "4d2fe411dabdf983eb7a.ktx2",
    "status": 200,
    "mime": "image/ktx2",
    "size": 139910
   },
-  "https://jesperlandberg.com/textures/e79MwNWsJkhoNzhR02UVL3LRe1wexvcA9_thumbnail.ktx2": {
-   "file": "d829250d0b82eacf4103.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 180947
-  },
-  "https://jesperlandberg.com/textures/X3NsXaLph6rhK6M9kgi24PWL9vfH7SSf_thumbnail.ktx2": {
-   "file": "c71c8dc46b4235923293.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 91829
-  },
   "https://image.mux.com/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/thumbnail.jpg": {
    "file": "309837cd9f3354c02748.jpg",
    "status": 200,
    "mime": "image/jpeg",
    "size": 106817
-  },
-  "https://jesperlandberg.com/projects/nathan-riley/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "33d2e5f762c9449816ca.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 48768
   },
   "https://jesperlandberg.com/textures/223669_1786215014-5p-thumb.ktx2": {
    "file": "ac6ee53480fd15af8be7.ktx2",
@@ -324,41 +234,11 @@
    "mime": "image/ktx2",
    "size": 126040
   },
-  "https://jesperlandberg.com/textures/223669_1786207557-nathan-3.ktx2": {
-   "file": "aee7df34e06a75c96cde.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 168010
-  },
-  "https://jesperlandberg.com/textures/223669_1786207557-nathan-1.ktx2": {
-   "file": "885cb8ffc93360a03ddb.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 203299
-  },
-  "https://jesperlandberg.com/textures/R3vmn027401UtGEikdEo5clIi5MUU9aZs02_thumbnail.ktx2": {
-   "file": "ae871feebd78d7f949fb.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 77482
-  },
-  "https://jesperlandberg.com/textures/223669_1786207557-nathan-2.ktx2": {
-   "file": "793f916d800d5cad5046.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 162141
-  },
   "https://graphql.datocms.com/": {
    "file": "61cee4fe57ae89e61690.bin",
    "status": 200,
    "mime": "application/json; charset=utf-8",
    "size": 52820
-  },
-  "https://stream.mux.com/X3NsXaLph6rhK6M9kgi24PWL9vfH7SSf/high.mp4": {
-   "file": "ab1bf8b9b710c70d0244.mp4",
-   "status": 206,
-   "mime": "video/mp4",
-   "size": 4138840
   },
   "https://jesperlandberg.com/textures/HofYkQ00DP02B202026iOjEsHVlOHoXqJB02y_thumbnail.ktx2": {
    "file": "cb56b6f7258044dd51d9.ktx2",
@@ -372,23 +252,11 @@
    "mime": "video/mp4",
    "size": 3174022
   },
-  "https://jesperlandberg.com/textures/iyDjwB2orEKXdIKP5u02RfT68xRnllt7a_thumbnail.ktx2": {
-   "file": "e6d4a82dc3fe927f4afd.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 87326
-  },
   "https://jesperlandberg.com/models/award.glb": {
    "file": "d8af8fa47c3ef923ec1a.glb",
    "status": 200,
    "mime": "model/gltf-binary",
    "size": 71776
-  },
-  "https://stream.mux.com/e79MwNWsJkhoNzhR02UVL3LRe1wexvcA9/high.mp4": {
-   "file": "11bef0fe48d675acfa6e.mp4",
-   "status": 206,
-   "mime": "video/mp4",
-   "size": ""
   },
   "https://jesperlandberg.com/models/llama.glb": {
    "file": "dbde14adc59b659825a0.glb",
@@ -408,66 +276,6 @@
    "mime": "image/ktx2",
    "size": 80618
   },
-  "https://jesperlandberg.com/textures/223669_1786210260-book-2.ktx2": {
-   "file": "9e6d713922ffa9872841.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 100613
-  },
-  "https://jesperlandberg.com/textures/223669_1786210260-book-3.ktx2": {
-   "file": "33972be59885b4749c5c.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 159156
-  },
-  "https://jesperlandberg.com/textures/223669_1786207957-dogelon-1.ktx2": {
-   "file": "066a6c04e7d3c67f7bd3.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 218123
-  },
-  "https://jesperlandberg.com/textures/223669_1786207957-dogelon-4.ktx2": {
-   "file": "fa955bdd0d08ab8cbe64.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 221902
-  },
-  "https://jesperlandberg.com/textures/223669_1786210260-book-1.ktx2": {
-   "file": "922b9eb19e8c64219f75.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 164516
-  },
-  "https://image.mux.com/BV6q01JxClCQwHfNI2sVS76jGjg5isqkq/thumbnail.jpg": {
-   "file": "6186482e411cd67187fb.jpg",
-   "status": 200,
-   "mime": "image/jpeg",
-   "size": 52520
-  },
-  "https://image.mux.com/wt002Ew1EVcKEXR5K4PkB9G5l1OoW9jiV/thumbnail.jpg": {
-   "file": "a2bb3f3b6f39cb0bc514.jpg",
-   "status": 200,
-   "mime": "image/jpeg",
-   "size": 75844
-  },
-  "https://jesperlandberg.com/textures/g12oqAEfwFRDxmxiuH02yJsALmVkKqsKA_thumbnail.ktx2": {
-   "file": "71ba3cfe48e6d12002db.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 82254
-  },
-  "https://jesperlandberg.com/textures/223669_1786207957-dogelon-3.ktx2": {
-   "file": "6b02b75d7eea41eb1203.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 205445
-  },
-  "https://jesperlandberg.com/textures/ONW93srqx6kGfiHTKQtV2pkqByQY01nF01_thumbnail.ktx2": {
-   "file": "ba7ba94081163a919083.ktx2",
-   "status": 200,
-   "mime": "image/ktx2",
-   "size": 56905
-  },
   "https://image.mux.com/Hb00nsAmF7R01kcTOmRr2tgpX3WjZkVYPN/thumbnail.jpg": {
    "file": "7e5dd20b2d252dbb94cd.jpg",
    "status": 200,
@@ -480,137 +288,17 @@
    "mime": "image/jpeg",
    "size": 60699
   },
-  "https://jesperlandberg.com/full": {
-   "file": "659e0de491ff7822b9f0.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 35833
-  },
-  "https://jesperlandberg.com/newsletter": {
-   "file": "0703add9e2e1de2f7889.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 39722
-  },
   "https://jesperlandberg.com/_nuxt/BkQn8csq.js": {
    "file": "f7860a516e40c31a7637.js",
    "status": 200,
    "mime": "text/javascript",
    "size": 127
   },
-  "https://jesperlandberg.com/newsletter/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "b6cdcd37ef9cebf8a726.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 48768
-  },
-  "https://jesperlandberg.com/projects/nathan-riley": {
-   "file": "38f2ad021f99c99cebbc.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 31211
-  },
-  "https://jesperlandberg.com/projects/griflan/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "a93b2607d9335aa854ed.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 48768
-  },
-  "https://jesperlandberg.com/projects/casa-di-solare": {
-   "file": "24b4431fa0bd656e8f6c.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 31778
-  },
-  "https://stream.mux.com/R3vmn027401UtGEikdEo5clIi5MUU9aZs02/high.mp4": {
-   "file": "051302c3339a8e1ab4f5.mp4",
-   "status": 206,
-   "mime": "video/mp4",
-   "size": 975439
-  },
-  "https://stream.mux.com/iyDjwB2orEKXdIKP5u02RfT68xRnllt7a/high.mp4": {
-   "file": "c1b3c83fead4467a8199.mp4",
-   "status": 206,
-   "mime": "video/mp4",
-   "size": 1363539
-  },
-  "https://jesperlandberg.com/projects/the-lookback": {
-   "file": "d17330ddcc7dc4720b1b.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 32167
-  },
-  "https://jesperlandberg.com/projects/book-of-happiness/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "2a5b1630853f292624ed.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 48768
-  },
   "https://stream.mux.com/HofYkQ00DP02B202026iOjEsHVlOHoXqJB02y/high.mp4": {
    "file": "481c85df80e8bd808667.mp4",
    "status": 206,
    "mime": "video/mp4",
    "size": 1611019
-  },
-  "https://jesperlandberg.com/projects/book-of-happiness": {
-   "file": "c35f565b286461d73ca8.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 31574
-  },
-  "https://jesperlandberg.com/projects/dogelon-mars/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "39102b22e0ed1e7383cf.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 48768
-  },
-  "https://jesperlandberg.com/projects/dogelon-mars": {
-   "file": "6af44665a7e224246b63.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 32148
-  },
-  "https://jesperlandberg.com/projects/gil-huybrecht/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "9780efb99954cd5917dd.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 48768
-  },
-  "https://jesperlandberg.com/projects/gil-huybrecht": {
-   "file": "60114e2b35fe2c854680.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 31915
-  },
-  "https://jesperlandberg.com/projects/discoveryland/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859": {
-   "file": "39db27bbbb1c11685a7c.json",
-   "status": 200,
-   "mime": "application/json",
-   "size": 48768
-  },
-  "https://stream.mux.com/ONW93srqx6kGfiHTKQtV2pkqByQY01nF01/high.mp4": {
-   "file": "4b3e06e3c36aac1cad2b.mp4",
-   "status": 206,
-   "mime": "video/mp4",
-   "size": 1762100
-  },
-  "https://stream.mux.com/g12oqAEfwFRDxmxiuH02yJsALmVkKqsKA/high.mp4": {
-   "file": "fe5411321dfa9e3fcef6.mp4",
-   "status": 206,
-   "mime": "video/mp4",
-   "size": 2917079
-  },
-  "https://jesperlandberg.com/projects/discoveryland": {
-   "file": "19e8562453908094b5f8.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 32042
-  },
-  "https://jesperlandberg.com/projects/griflan": {
-   "file": "d0a535d9a303be7a22a1.bin",
-   "status": 200,
-   "mime": "text/html",
-   "size": 31279
   },
   "https://stream.mux.com/Hb00nsAmF7R01kcTOmRr2tgpX3WjZkVYPN/high.mp4": {
    "file": "09f73608cf6c4a4c0ce2.mp4",
@@ -636,7 +324,6 @@
   "https://jesperlandberg.com/textures/223669_1786208283-betteroff-thumb.ktx2 :: net::ERR_ABORTED",
   "https://jesperlandberg.com/textures/223669_1786207051-ts2.ktx2 :: net::ERR_ABORTED",
   "https://jesperlandberg.com/textures/qmEPTzOaDQBZL5258j01i2mMBkGh3G9BI_thumbnail.ktx2 :: net::ERR_ABORTED",
-  "https://jesperlandberg.com/textures/223669_1786207957-dogelon-2.ktx2 :: net::ERR_ABORTED",
   "https://jesperlandberg.com/textures/e79MwNWsJkhoNzhR02UVL3LRe1wexvcA9_thumbnail.ktx2 :: net::ERR_ABORTED",
   "https://jesperlandberg.com/textures/g12oqAEfwFRDxmxiuH02yJsALmVkKqsKA_thumbnail.ktx2 :: net::ERR_ABORTED",
   "https://jesperlandberg.com/textures/ONW93srqx6kGfiHTKQtV2pkqByQY01nF01_thumbnail.ktx2 :: net::ERR_ABORTED"

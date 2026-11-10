@@ -8,9 +8,7 @@ const OUT = path.join(__dirname, '..', 'screenshots');
 const SLUG = 'oppo-service';
 const EXPECT = 18;
 const HOME = ['oppo-service', 'naivideo', 'oppo-self-service', 'erp',
-  'csa-service', 'hengxiang-advantage', 'ai-video', 'nathan-riley', 'casa-di-solare',
-  'the-lookback', 'book-of-happiness', 'dogelon-mars', 'gil-huybrecht',
-  'discoveryland', 'griflan', 'illustration'];
+  'csa-service', 'hengxiang-advantage', 'ai-video', 'the-lookback', 'griflan', 'illustration'];
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
 const boot = async page => {

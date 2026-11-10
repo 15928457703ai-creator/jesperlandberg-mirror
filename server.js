@@ -7,7 +7,7 @@ try{ DB=JSON.parse(fs.readFileSync(path.join(ASSETS,'manifest.json'),'utf8')); }
 const MIME={'.html':'text/html; charset=utf-8','.htm':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.md':'text/markdown; charset=utf-8','.txt':'text/plain; charset=utf-8','.xml':'application/xml; charset=utf-8','.jpg':'image/jpeg','.jpeg':'image/jpeg','.png':'image/png','.webp':'image/webp','.avif':'image/avif','.gif':'image/gif','.svg':'image/svg+xml','.mp4':'video/mp4','.webm':'video/webm','.woff':'font/woff','.woff2':'font/woff2','.wasm':'application/wasm','.bin':'application/octet-stream','.ktx2':'image/ktx2','.glb':'model/gltf-binary','.ico':'image/x-icon'};
 const mime=f=>MIME[path.extname(f).toLowerCase()]||'application/octet-stream';
 const TEXT_EXT=new Set(['.html','.htm','.js','.mjs','.css','.json','.md','.txt','.xml']);
-const PAGES=new Set(['/','/full','/newsletter','/projects/nathan-riley','/projects/casa-di-solare','/projects/the-lookback','/projects/book-of-happiness','/projects/dogelon-mars','/projects/gil-huybrecht','/projects/discoveryland','/projects/griflan','/projects/oppo-service','/projects/naivideo','/projects/erp']);
+const PAGES=new Set(['/','/full','/newsletter','/projects/the-lookback','/projects/griflan','/projects/oppo-service','/projects/naivideo','/projects/erp']);
 // any additional locally added case study is routed automatically
 try{ for(const f of fs.readdirSync(path.join(SITE,'projects'))) if(f.endsWith('.html')) PAGES.add('/projects/'+f.slice(0,-5)); }catch(e){}
 // local hint pages used by link pills that point at words instead of a URL
@@ -121,6 +121,11 @@ const server=http.createServer((req,res)=>{
   refreshDB();
   const u=new URL(req.url,'http://127.0.0.1:'+PORT);
   const p=decodeURIComponent(u.pathname), search=u.search;
+  // Only published case studies may serve pages, markdown, or payloads.
+  // Unknown project payloads must not fall through to the upstream healer.
+  if(p.startsWith('/projects/') && !PAGES.has('/projects/'+p.slice(10).split(/[/.]/)[0])){
+    return sendBuf(res,Buffer.from('Project not found'),'text/plain; charset=utf-8',404);
+  }
   if(req.method==='OPTIONS'){res.writeHead(204,{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Headers':'*'});return res.end();}
   if(p==='/__graphql'){
     const chunks=[]; req.on('data',c=>chunks.push(c)); req.on('end',()=>graphqlReplay(req,res,Buffer.concat(chunks).toString())); return;

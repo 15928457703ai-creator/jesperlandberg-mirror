@@ -2,7 +2,7 @@ const { chromium } = require('playwright-core');
 const fs=require('fs'),path=require('path');
 const OUT=path.join(__dirname,'..','screenshots');
 const ORIGIN='http://127.0.0.1:5188';
-const PAGES=['/','/full','/newsletter','/projects/nathan-riley','/projects/casa-di-solare','/projects/the-lookback','/projects/book-of-happiness','/projects/dogelon-mars','/projects/gil-huybrecht','/projects/discoveryland','/projects/griflan'];
+const PAGES=['/','/full','/newsletter','/projects/the-lookback','/projects/griflan'];
 const bad=[],ext=[],perr=[],cerr=[],stats={};
 (async()=>{
  const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,
@@ -32,7 +32,7 @@ const bad=[],ext=[],perr=[],cerr=[],stats={};
      cards:document.querySelectorAll('[data-gl="card"]').length,
      title:document.title, body:document.body.innerText.slice(0,80)}));
    console.log(p.padEnd(34),JSON.stringify(info));
-   if(['/','/full','/projects/nathan-riley','/newsletter'].includes(p)){
+   if(['/','/full','/newsletter'].includes(p)){
      await page.screenshot({path:path.join(OUT,(p==='/'?'home':p.replace(/\//g,'_'))+'.png')});
    }
  }

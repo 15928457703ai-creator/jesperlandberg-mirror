@@ -5,9 +5,8 @@ const OUT = path.join(__dirname, '..', 'screenshots');
 const ORIGIN = 'http://127.0.0.1:5188';
 const OLD = /Jesper\s+Landberg|\bJesper\b|\bLandberg\b/;
 const PAGES = ['/', '/full', '/newsletter',
-  '/projects/nathan-riley', '/projects/casa-di-solare', '/projects/the-lookback',
-  '/projects/book-of-happiness', '/projects/dogelon-mars', '/projects/gil-huybrecht',
-  '/projects/discoveryland', '/projects/griflan',
+  '/projects/the-lookback',
+  '/projects/griflan',
   '/projects/oppo-service', '/projects/naivideo', '/projects/oppo-self-service',
   '/projects/erp', '/projects/csa-service', '/projects/hengxiang-advantage',
   '/projects/illustration', '/projects/ai-video'];

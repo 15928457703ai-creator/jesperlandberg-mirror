@@ -7,8 +7,7 @@ const O = 'http://127.0.0.1:5188';
 const OUT = path.join(__dirname, '..', 'screenshots');
 const LOCAL_PROJECTS = JSON.parse(fs.readFileSync(
   path.join(__dirname, '..', 'raw', 'local_projects.json'), 'utf8'));
-const SLUGS = ['nathan-riley', 'casa-di-solare', 'the-lookback', 'book-of-happiness',
-  'dogelon-mars', 'gil-huybrecht', 'discoveryland', 'griflan',
+const SLUGS = ['the-lookback', 'griflan',
   ...LOCAL_PROJECTS.map(p => p.slug)];
 const LOCAL_SLUGS = LOCAL_PROJECTS.map(p => p.slug);
 const wait = ms => new Promise(r => setTimeout(r, ms));

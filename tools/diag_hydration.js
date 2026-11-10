@@ -1,6 +1,6 @@
 const { chromium } = require('playwright-core');
 const O='http://127.0.0.1:5188';
-const P=['/','/full','/newsletter','/projects/nathan-riley','/projects/griflan','/projects/oppo-service'];
+const P=['/','/full','/newsletter','/projects/griflan','/projects/oppo-service'];
 (async()=>{
  const b=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,
   args:['--use-gl=angle','--use-angle=swiftshader','--enable-webgl','--ignore-gpu-blocklist','--no-sandbox','--autoplay-policy=no-user-gesture-required']});

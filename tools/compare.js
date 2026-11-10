@@ -1,7 +1,7 @@
 const { chromium } = require('playwright-core');
 const fs=require('fs'),path=require('path');
 const OUT=path.join(__dirname,'..','screenshots','compare'); fs.mkdirSync(OUT,{recursive:true});
-const PAGES=['/','/full','/projects/nathan-riley'];
+const PAGES=['/','/full','/projects/the-lookback'];
 const VW=1440,VH=900;
 async function shoot(browser,base,p,name){
   const ctx=await browser.newContext({viewport:{width:VW,height:VH},deviceScaleFactor:1,ignoreHTTPSErrors:true});

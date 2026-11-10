@@ -12,8 +12,6 @@ Live site: <https://griflan.com>
 
 ## More work
 
-- [Previous: Discoveryland](http://127.0.0.1:__PORT__/projects/discoveryland)
-- [Next: Nathan Riley](http://127.0.0.1:__PORT__/projects/nathan-riley)
 - [All projects](http://127.0.0.1:__PORT__/full)
 - [Home](http://127.0.0.1:__PORT__/)
 

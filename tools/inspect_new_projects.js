@@ -4,9 +4,8 @@ const { chromium } = require('playwright-core');
 const fs = require('fs'), path = require('path');
 const O = 'http://127.0.0.1:5188';
 const PAGES = ['/', '/full', '/newsletter',
-  '/projects/nathan-riley', '/projects/casa-di-solare', '/projects/the-lookback',
-  '/projects/book-of-happiness', '/projects/dogelon-mars', '/projects/gil-huybrecht',
-  '/projects/discoveryland', '/projects/griflan',
+  '/projects/the-lookback',
+  '/projects/griflan',
   '/projects/oppo-service', '/projects/naivideo', '/projects/erp'];
 const wait = ms => new Promise(r => setTimeout(r, ms));
 

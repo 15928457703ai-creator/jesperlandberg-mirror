@@ -3,7 +3,7 @@
  * The user asked for a new project built from /Users/soul/Downloads/AI短视频
  * with "01" (1.jpg, the black title page) as its HOME cover. Checks, in order:
  *
- *   1. static build outputs: SSR card strip (16 cards, ai-video at #7),
+ *   1. static build outputs: SSR card strip (10 cards, ai-video at #7),
  *      detail HTML (6 slide placeholders, DOM-painted CJK copy, prev/next),
  *      sitemap / llms.txt / markdown / /full index;
  *   2. Nuxt payloads: the project's src/thumb/card point at 1.jpg and its
@@ -26,9 +26,7 @@ const REPORT = path.join(ROOT, 'raw', 'verify_ai_video.json');
 const SLUG = 'ai-video';
 const PID = 'ai-short-video-2026';
 const HOME = ['oppo-service', 'naivideo', 'oppo-self-service', 'erp',
-  'csa-service', 'hengxiang-advantage', 'ai-video', 'nathan-riley',
-  'casa-di-solare', 'the-lookback', 'book-of-happiness', 'dogelon-mars',
-  'gil-huybrecht', 'discoveryland', 'griflan', 'illustration'];
+  'csa-service', 'hengxiang-advantage', 'ai-video', 'the-lookback', 'griflan', 'illustration'];
 const SLIDES = [1, 2, 3, 4, 5, 6];
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
@@ -68,7 +66,7 @@ function mediaFrom(p) {
   const home = read('site/index.html');
   const cardIds = [...home.matchAll(/<article\b[^>]*>/g)]
     .map(m => (m[0].match(/data-id="([^"]+)"/) || [])[1]).filter(Boolean);
-  check('SSR home: 16 cards in HOME_ORDER',
+  check('SSR home: 10 cards in HOME_ORDER',
     JSON.stringify(cardIds) === JSON.stringify(HOME),
     cardIds.join(' | '));
   check('SSR home: ai-video is card #7, titled AI短视频',
@@ -83,7 +81,7 @@ function mediaFrom(p) {
     /property="og:image" content="[^"]*\/ai-video\/1_card\.jpg"/.test(detail));
   check('detail HTML: prev/next ring',
     detail.includes('aria-label="Previous project: 横向优势"') &&
-    detail.includes('aria-label="Next project: Nathan Riley"'));
+    detail.includes('aria-label="Next project: The Lookback"'));
   check('detail HTML: loads local-copy.css + local-copy.js',
     detail.includes('/local-copy.css') && detail.includes('/local-copy.js'));
 
@@ -139,7 +137,7 @@ function mediaFrom(p) {
     !!gp && gp.media.length === 6 && gp.media[0].url === '/ai-video/1.jpg',
     gp ? gp.media[0].url : 'missing');
   check('graphql: featured[6] points at the new project',
-    g.data.home.featured.length === 16 && g.data.home.featured[6].id === PID,
+    g.data.home.featured.length === HOME.length && g.data.home.featured[6].id === PID,
     g.data.home.featured.length + ' items');
 
   const manifest = JSON.parse(read('raw/local_projects.json'));
@@ -188,8 +186,8 @@ function mediaFrom(p) {
     ids: [...document.querySelectorAll('[data-gl="card"]')].map(x => x.dataset.id),
     title: document.querySelector('[data-gl="card"][data-id="ai-video"]')?.innerText.trim()
   }));
-  check('browser home: 16 cards in order',
-    homeInfo.cards === 16 && JSON.stringify(homeInfo.ids) === JSON.stringify(HOME),
+  check('browser home: 10 cards in order',
+    homeInfo.cards === HOME.length && JSON.stringify(homeInfo.ids) === JSON.stringify(HOME),
     homeInfo.ids.join(' | '));
   check('browser home: WebGL loads the 01 cover texture',
     aiReqs.some(u => /\/ai-video\/1(_small|_card)?\.jpg:200/.test(u)),
@@ -250,7 +248,7 @@ function mediaFrom(p) {
     spa.delays.slice(1).every((d, i) => d - spa.delays[i] >= 55 && d - spa.delays[i] <= 95),
     spa.delays.join(' | '));
   check('SPA entry: related ring matches HOME_ORDER',
-    spa.related[0] === 'hengxiang-advantage' && spa.related[1] === 'nathan-riley',
+    spa.related[0] === 'hengxiang-advantage' && spa.related[1] === 'the-lookback',
     spa.related.join(' | '));
   await page.screenshot({ path: path.join(OUT, 'ai_video_detail_spa.png') });
 

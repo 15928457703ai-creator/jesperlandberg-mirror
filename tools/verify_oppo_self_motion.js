@@ -7,9 +7,7 @@ const path = require('path');
 const O = 'http://127.0.0.1:5188';
 const OUT = path.join(__dirname, '..', 'screenshots');
 const HOME = ['oppo-service', 'naivideo', 'oppo-self-service', 'erp',
-  'csa-service', 'hengxiang-advantage', 'ai-video', 'nathan-riley', 'casa-di-solare',
-  'the-lookback', 'book-of-happiness', 'dogelon-mars', 'gil-huybrecht',
-  'discoveryland', 'griflan', 'illustration'];
+  'csa-service', 'hengxiang-advantage', 'ai-video', 'the-lookback', 'griflan', 'illustration'];
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
 const HOOK = () => {

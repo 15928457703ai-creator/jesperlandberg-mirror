@@ -245,7 +245,7 @@ const HOOK = () => {
                   parseFloat(hover.otherOpacity) < .6;
 
   // -------------------------------------------------------------- summary
-  const okHome = home.cards === 16 && home.title === 'Naivideo' && home.canvas === 1 &&
+  const okHome = home.cards === 10 && home.title === 'Naivideo' && home.canvas === 1 &&
                  home.siteName === 'Fengmei' && homePlaying &&
                  JSON.stringify(home.order) === JSON.stringify(['oppo-service', 'naivideo', 'oppo-self-service']);
   const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.title === 'Naivideo' &&

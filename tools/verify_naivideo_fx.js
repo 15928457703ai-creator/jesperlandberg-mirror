@@ -11,7 +11,7 @@ if (!process.argv.includes('--force-legacy')) {
 
 /* Verify the user-supplied Naivideo motion FX is the ACTIVE home cover.
 
-   1. Home: 16 cards, first three unchanged, and the Naivideo card's
+   1. Home: 10 cards, first three unchanged, and the Naivideo card's
       WebGL video texture is /naivideo/live.mp4 with duration ~18.85s
       (the retired cover was 12s) and an advancing currentTime.
    2. Payload: featured[1] points at live.mp4; the 8 detail slides keep their
@@ -217,7 +217,7 @@ const HOOK = () => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
 
   // --------------------------------------------------------------- verdict
-  const okHome = home.cards === 16 && home.title === 'Naivideo' && home.canvas === 1 &&
+  const okHome = home.cards === 10 && home.title === 'Naivideo' && home.canvas === 1 &&
     home.siteName === 'Fengmei' &&
     JSON.stringify(home.order) === JSON.stringify(['oppo-service', 'naivideo', 'oppo-self-service']) &&
     playing && !!b && Math.abs(b.dur - 18.85) < .2 && b.w === 1600 && b.h === 900;

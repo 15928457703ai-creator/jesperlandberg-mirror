@@ -16,7 +16,7 @@ const { chromium } = require('playwright-core');
 const BASE = 'http://127.0.0.1:5188';
 const LOCAL = ['oppo-service', 'naivideo', 'erp', 'oppo-self-service', 'csa-service',
   'hengxiang-advantage', 'illustration', 'ai-video'];
-const STOCK = ['dogelon-mars', 'griflan'];
+const STOCK = ['griflan', 'the-lookback'];
 const CLOSE = /[、。，．,.!?！？；：;:）)］\]｝\}」』】》〉”’…—～·%‰℃]/;
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 

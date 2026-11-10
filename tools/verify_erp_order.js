@@ -85,8 +85,8 @@ function mediaOf(payload, proj) {
 
   const home = read('site/index.html');
   const ids = [...home.matchAll(/<article\b[^>]*data-id="([^"]+)"/g)].map(m => m[1]);
-  check('SSR home: erp is still card #4 of 16',
-    ids.length === 16 && ids[3] === SLUG, ids.slice(0, 5).join(' | '));
+  check('SSR home: erp is still card #4 of 10',
+    ids.length === 10 && ids[3] === SLUG, ids.slice(0, 5).join(' | '));
 
   const md = read('site/projects/' + SLUG + '.md');
   const mdSlides = [...md.matchAll(/\/erp\/(\d+)\.jpg/g)].map(m => +m[1]);

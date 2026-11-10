@@ -8,3 +8,5 @@ node_modules/
 # are all versioned now, so a clone contains everything needed to run the
 # mirror offline without re-fetching anything from the original site.
 # Kept ignored above: dependencies, workspace state, OS cruft and logs.
+
+__pycache__/

@@ -12,7 +12,7 @@ from project_config import (ROOT, LOCAL, PROJECTS, FEATURED, HOME_ORDER,
 
 os.chdir(ROOT)
 paths = json.load(open("raw/discovery.json", encoding="utf-8"))["paths"]
-NATHAN_DESC = "Nathan is a UK-based digital creative specializing in art direction, surrealist 3D visuals, interactive experiences, and motion design."
+TEMPLATE_DESC = "PROJECT_DESCRIPTION"
 FULL_CLASS = ('class="pointer-events-auto cursor-pointer whitespace-nowrap '
               'text-18 s:text-30 leading-none tracking-[-0.05em]"')
 BULLET = ('<span class="pointer-events-none absolute left-full top-1/2 ml-12 '
@@ -162,27 +162,20 @@ def neighbours(slug):
 
 for p in PROJECTS:
     slug, title = p["slug"], p["title"]
-    t = rw(open("raw/pages/projects__nathan-riley.html", encoding="utf-8", errors="replace").read())
-    t = t.replace("Nathan Riley", title).replace(NATHAN_DESC, p["desc"])
-    t = t.replace("/projects/nathan-riley", "/projects/" + slug)
-    # devalue escapes "/" as \u002F inside <script id="__NUXT_DATA__">.
-    # Without this replacement the hydrated app still believes it is on
-    # /projects/nathan-riley and swaps the whole sheet back to that project,
-    # which is what caused "Hydration completed but contains mismatches".
-    t = t.replace(r"\u002Fprojects\u002Fnathan-riley",
-                  r"\u002Fprojects\u002F" + slug)
-    t = t.replace('data-id="nathan-riley" data-gl="sheet"',
-                  'data-id="' + slug + '" data-gl="sheet"')
-
+    t = rw(open("raw/templates/project.html", encoding="utf-8").read())
+    t = t.replace("Project template", title).replace(TEMPLATE_DESC, p["desc"])
+    t = t.replace("project-template", slug)
     (prev_slug, prev_title), (next_slug, next_title) = neighbours(slug)
-    t = t.replace('data-id="griflan" data-gl="related"',
-                  'data-id="' + prev_slug + '" data-gl="related"', 1)
-    t = t.replace('href="/projects/griflan" class="pointer-events-auto visible absolute inset-0 -right-25 cursor-pointer" aria-label="Previous project: Griflan"',
-                  'href="/projects/' + prev_slug + '" class="pointer-events-auto visible absolute inset-0 -right-25 cursor-pointer" aria-label="Previous project: ' + prev_title + '"', 1)
-    t = t.replace('data-id="casa-di-solare" data-gl="related"',
-                  'data-id="' + next_slug + '" data-gl="related"', 1)
-    t = t.replace('href="/projects/casa-di-solare" class="pointer-events-auto visible absolute inset-0 -left-25 cursor-pointer" aria-label="Next project: Casa Di Solare"',
-                  'href="/projects/' + next_slug + '" class="pointer-events-auto visible absolute inset-0 -left-25 cursor-pointer" aria-label="Next project: ' + next_title + '"', 1)
+    blocks = list(re.finditer(r'<div[^>]*data-gl="related"[^>]*>.*?</div>', t, re.S))
+    assert len(blocks) == 2
+    for block, target, label in reversed(list(zip(
+            blocks, [prev_slug, next_slug],
+            ["Previous project: " + prev_title, "Next project: " + next_title]))):
+        b = re.sub(r'data-id="[^"]*"', 'data-id="' + target + '"', block.group(), count=1)
+        b = re.sub(r'href="/projects/[^"]*"', 'href="/projects/' + target + '"', b, count=1)
+        b = re.sub(r'aria-label="(?:Previous|Next) project: [^"]*"',
+                   'aria-label="' + label + '"', b, count=1)
+        t = t[:block.start()] + b + t[block.end():]
 
     # The client renders a black round "pill" <a> when project.link is
     # truthy, otherwise a comment anchor (see rY37MP56.js:
@@ -218,8 +211,7 @@ for p in PROJECTS:
 
     # og:image / twitter:image -> the requested cover
     img = LOCAL + "/" + p["dir"] + "/" + cover(p)["_card"]["file"]
-    t = re.sub(r'http://127\.0\.0\.1:__PORT__/qmEPTzOaDQBZL5258j01i2mMBkGh3G9BI/thumbnail\.jpg\?width=1200&height=630&fit_mode=crop',
-               img, t)
+    t = t.replace("PROJECT_COVER", img)
     t = t.replace('<meta property="og:image:height" content="630">',
                   '<meta property="og:image:height" content="%d">'
                   % cover(p)["_card"]["height"])
@@ -349,6 +341,6 @@ for p in paths:
         kept += 1
     else:
         print("  !! left-hand copy changed:", p, repr(a), "->", repr(b))
-print("original detail pages with byte-identical left-hand copy:", kept, "/ 8")
+print("original detail pages with byte-identical left-hand copy:", kept, "/", len(ORIGINAL_ORDER))
 print("new detail pages with DOM-painted copy:", len(PROJECTS), "/", len(PROJECTS))
 print("aux files updated")
