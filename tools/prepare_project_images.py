@@ -27,8 +27,12 @@ PROJECTS = [
     {
         "slug": "erp",
         "src": "/Users/soul/Downloads/ERP",
+        # 1.jpg (black 制造业数字化 / ERP1.0建设 title page) is now detail
+        # slide 1; the deck continues 2..11. The home card is the animated
+        # home_cover (cover.mp4 / cover.jpg), and og:image stays on 2.jpg via
+        # "cover_index": 1 in project_config.py -- see the CSA entry below.
         "cover": 2,
-        "order": [2, 1, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        "order": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     },
     {
         "slug": "oppo-self-service",

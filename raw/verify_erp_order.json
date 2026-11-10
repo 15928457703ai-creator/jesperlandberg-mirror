@@ -1,0 +1,147 @@
+{
+ "pass": 24,
+ "total": 24,
+ "fails": [],
+ "results": [
+  {
+   "name": "detail HTML: sheet belongs to erp",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: 11 slide placeholders",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: og:image still 2_card.jpg",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: prev/next ring unchanged",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "SSR home: erp is still card #4 of 16",
+   "ok": true,
+   "note": "oppo-service | naivideo | oppo-self-service | erp | csa-service"
+  },
+  {
+   "name": "markdown: slides listed as 1..11 (title page first)",
+   "ok": true,
+   "note": "1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11"
+  },
+  {
+   "name": "config: cover_index pins og:image / manifest cover to meta[1]",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "image prep: ERP order is [1..11], cover still 2",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "payload: HOME card still paints the animated cover.mp4 / cover.jpg",
+   "ok": true,
+   "note": "/erp/cover.jpg | /erp/cover_small.jpg | /erp/cover_card.jpg | /erp/cover.mp4"
+  },
+  {
+   "name": "payload: images[] = 1..11, title page first",
+   "ok": true,
+   "note": "/erp/1.jpg | /erp/2.jpg | /erp/3.jpg"
+  },
+  {
+   "name": "payload: 11 stills, no video textures inside the deck",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "payload: home cover deliberately differs from images[0]",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail payload: identical 1..11 order",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "graphql: media[] = 1..11, first is 1.jpg",
+   "ok": true,
+   "note": "/erp/1.jpg | /erp/2.jpg | /erp/3.jpg"
+  },
+  {
+   "name": "manifest: cover 2.jpg, slides[0] 1.jpg, 11 slides",
+   "ok": true,
+   "note": "2.jpg / 1.jpg"
+  },
+  {
+   "name": "browser home: animated cover.mp4 + poster requested",
+   "ok": true,
+   "note": "/erp/cover.jpg:200 | /erp/cover.mp4:206"
+  },
+  {
+   "name": "SPA entry: first slide is the DARK 1.jpg title page",
+   "ok": true,
+   "note": "luma=15.5"
+  },
+  {
+   "name": "SPA entry: detail sheet does not pull the motion cover files",
+   "ok": true,
+   "note": "/projects/erp/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859:200 | /erp/1.jpg:200 | /erp/5.jpg:200 | /erp/4.jpg:200 | /erp/3.jpg:200 | /erp/2.jpg:200"
+  },
+  {
+   "name": "SPA entry: sheet, Chinese copy and 11 placeholders",
+   "ok": true,
+   "note": "{\"path\":\"/projects/erp\",\"id\":\"erp\",\"h1\":\"ERP\",\"op\":1,\"placeholders\":11}"
+  },
+  {
+   "name": "direct load: first slide is the DARK 1.jpg title page",
+   "ok": true,
+   "note": "luma=15.5"
+  },
+  {
+   "name": "direct load: all 11 main stills fetched with 200",
+   "ok": true,
+   "note": "/erp/1.jpg:200 | /erp/2.jpg:200 | /erp/3.jpg:200 | /erp/4.jpg:200 | /erp/5.jpg:200 | /erp/6.jpg:200 | /erp/7.jpg:200 | /erp/8.jpg:200 | /erp/9.jpg:200 | /erp/10.jpg:200 | /erp/11.jpg:200"
+  },
+  {
+   "name": "direct load: sheet copy revealed",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "no page/console/hydration errors",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "no 4xx / external requests",
+   "ok": true,
+   "note": ""
+  }
+ ],
+ "luma": {
+  "spa": 15.5,
+  "direct": 15.5
+ },
+ "requests": [
+  "/projects/erp/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859:200",
+  "/erp/cover.mp4:206",
+  "/erp/cover.jpg:200",
+  "/erp/1.jpg:200",
+  "/erp/2.jpg:200",
+  "/erp/3.jpg:200",
+  "/erp/4.jpg:200",
+  "/erp/5.jpg:200",
+  "/erp/6.jpg:200",
+  "/erp/7.jpg:200",
+  "/erp/8.jpg:200",
+  "/erp/9.jpg:200",
+  "/erp/10.jpg:200",
+  "/erp/11.jpg:200"
+ ]
+}

@@ -4,9 +4,9 @@
 
 ## Slides
 
-![ERP 2](http://127.0.0.1:__PORT__/erp/2.jpg)
-
 ![ERP 1](http://127.0.0.1:__PORT__/erp/1.jpg)
+
+![ERP 2](http://127.0.0.1:__PORT__/erp/2.jpg)
 
 ![ERP 3](http://127.0.0.1:__PORT__/erp/3.jpg)
 

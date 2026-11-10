@@ -1,10 +1,12 @@
 """Replace ONLY the first slide's image of the ERP detail page.
 
 The user supplied a revised `2.jpg` ("华润白酒ERP", replacing the earlier
-"金沙白酒ERP" artwork).  `2.jpg` is both the home-card cover and slide 1 of
-the detail sheet, so overwriting its three WebGL variants updates both while
-leaving the 11-slide order (2, 1, 3..11), every URL, every dimension and all
-payloads / SSR pages byte-identical.  No rebuild is required.
+"金沙白酒ERP" artwork).  Overwriting its three WebGL variants updates the
+share image (og:image) and the slide wherever it sits in the deck, while
+leaving every URL, dimension, payload and SSR page byte-identical.
+The deck was later reordered to 1, 2, 3..11 and the HOME card became the
+animated home_cover (cover.mp4), so look the entry up by source name rather
+than assuming it is meta[0].  No rebuild is required.
 
 Source priority: the image attached in this conversation, then the refreshed
 attachment in ~/Downloads/ERP, then the original we already archived (so a
@@ -26,9 +28,9 @@ CANDIDATES = [
 BACKUP = "/tmp/erp_first_slide_prev.zip"
 
 meta = json.load(open(META, encoding="utf-8"))
-first = meta[0]
-assert first["source"] == "2.jpg" and first.get("cover"), "unexpected ERP deck head"
-assert first["main"]["file"] == "2.jpg", "slide 1 is not 2.jpg"
+first = next((m for m in meta if m["source"] == "2.jpg" and m.get("cover")), None)
+assert first is not None, "2.jpg cover entry not found in erp.json"
+assert first["main"]["file"] == "2.jpg", "2.jpg entry has an unexpected filename"
 
 # Keep the previous artwork / variants exactly once.
 files = ["2.jpg", "2_small.jpg", "2_card.jpg"]

@@ -2,8 +2,9 @@
  *
  *  1. home rail: the ERP card requests /erp/cover.mp4 (range 200/206) and
  *     /erp/cover.jpg, i.e. the WebGL renderer really plays the clip;
- *  2. click through into the detail: the sheet keeps its 12 still slides and
- *     the first slide is still /erp/2.jpg (home_cover must not leak into it);
+ *  2. click through into the detail: the sheet keeps its 11 still slides,
+ *     now opening on /erp/1.jpg with /erp/2.jpg second (the detail deck was
+ *     reordered; home_cover must still not leak into it);
  *  3. direct URL load of /projects/erp: no console/page errors, no 4xx, no
  *     external requests, no hydration mismatch;
  *  4. the motion stage itself (/erp-fx) loads both slices + the three webfonts
@@ -125,8 +126,8 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
   await page.goto(O + '/projects/' + SLUG, { waitUntil: 'networkidle', timeout: 60000 });
   await wait(2500);
   const deck = await page.evaluate(async () => {
-    const txt = await fetch('/projects/erp/_payload.json').then(r => r.text());
-    const flat = JSON.parse(txt);
+    const flat = await fetch('/projects/erp/_payload.json').then(r => r.json());
+    const g = i => (typeof i === 'number' && i >= 0 && i < flat.length ? flat[i] : i);
     const walk = (o, acc) => {
       if (typeof o === 'string') { if (/^\/erp\/[\w.-]+\.jpg$/.test(o)) acc.add(o); return acc; }
       if (Array.isArray(o)) { o.forEach(v => walk(v, acc)); return acc; }
@@ -134,11 +135,18 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
       return acc;
     };
     const imgs = [...walk(flat, new Set())].sort();
+    // devalue is a flat array: resolve the project's images[] in its real
+    // order instead of merely checking that a filename appears somewhere.
+    const proj = flat.filter(x => x && typeof x === 'object' && !Array.isArray(x))
+      .find(o => g(o.slug) === 'erp' && o.images !== undefined);
+    const order = proj ? (g(proj.images) || []).map(i => g(g(i).src)) : [];
     return { imgs, count: imgs.filter(x => /^\/erp\/\d+\.jpg$/.test(x)).length,
-             first: imgs.includes('/erp/2.jpg') };
+             first: order[0], second: order[1] };
   });
   check('detail deck still holds all 11 stills', deck.count === 11, deck.imgs.join(','));
-  check('detail deck still opens on /erp/2.jpg', deck.first);
+  check('detail deck opens on /erp/1.jpg with /erp/2.jpg second',
+    deck.first === '/erp/1.jpg' && deck.second === '/erp/2.jpg',
+    deck.first + ' | ' + deck.second);
   check('no page errors', perr.length === before.perr, perr.slice(0, 2).join(' | '));
   check('no console errors', cerr.length === before.cerr, cerr.slice(0, 2).join(' | '));
   check('no hydration mismatch', hyd.length === before.hyd, hyd.slice(0, 2).join(' | '));

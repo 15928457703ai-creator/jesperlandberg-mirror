@@ -86,7 +86,7 @@
   {
    "name": "browser home: CSA card shows the LIGHT 2.jpg cover",
    "ok": true,
-   "note": "luma=171.7 box=549,344,945,556"
+   "note": "luma=177.9 box=505,344,901,556"
   },
   {
    "name": "SPA entry: first slide is the DARK 1.jpg title page",
@@ -130,7 +130,7 @@
   }
  ],
  "luma": {
-  "home": 171.7,
+  "home": 177.9,
   "spa": 14.8,
   "direct": 14.8
  },

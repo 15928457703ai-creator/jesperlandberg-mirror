@@ -1,27 +1,5 @@
 [
  {
-  "n": 2,
-  "source": "2.jpg",
-  "cover": true,
-  "origWidth": 1920,
-  "origHeight": 1080,
-  "main": {
-   "file": "2.jpg",
-   "width": 1600,
-   "height": 900
-  },
-  "_small": {
-   "file": "2_small.jpg",
-   "width": 640,
-   "height": 360
-  },
-  "_card": {
-   "file": "2_card.jpg",
-   "width": 1200,
-   "height": 675
-  }
- },
- {
   "n": 1,
   "source": "1.jpg",
   "cover": false,
@@ -39,6 +17,28 @@
   },
   "_card": {
    "file": "1_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 2,
+  "source": "2.jpg",
+  "cover": true,
+  "origWidth": 1920,
+  "origHeight": 1080,
+  "main": {
+   "file": "2.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "2_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "2_card.jpg",
    "width": 1200,
    "height": 675
   }

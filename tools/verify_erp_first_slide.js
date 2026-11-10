@@ -1,5 +1,9 @@
-/* Verify the ERP first-slide artwork swap ("华润白酒ERP" 2.jpg) and that
- * the slide order / second slide / home cover / all effects stay intact. */
+/* Verify the ERP deck artwork ("华润白酒ERP" 2.jpg) and that the home
+ * cover / 11 slides / SPA + direct loads / all effects stay intact.
+ *
+ * The deck was later reordered to 1, 2, 3..11 (the black 制造业数字化
+ * title page 1.jpg is now slide 1, 2.jpg is slide 2). The home rail used to
+ * prefetch 2.jpg and now prefetches 1.jpg; both assets must still resolve. */
 const { chromium } = require('playwright-core');
 const path = require('path');
 const O = 'http://127.0.0.1:5188';
@@ -120,7 +124,8 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
 
   const clean = !perr.length && !cerr.length && !hyd.length && !bad.length && !ext.length;
   const okHome = JSON.stringify(home.order) === JSON.stringify(HOME) && home.canvas === 1 &&
-    home.site === 'Fengmei' && homeErp.some(x => x === '/erp/2.jpg:200');
+    home.site === 'Fengmei' &&
+    homeErp.some(x => /^\/erp\/(1\.jpg|cover\.jpg):200$|^\/erp\/cover\.mp4:(200|206)$/.test(x));
   const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.id === SLUG &&
     spa.h1 === 'ERP' && spa.slides === 11 && spa.ratios.every(r => r === '1600 / 900') &&
     JSON.stringify(spa.related) === JSON.stringify(['oppo-self-service', 'csa-service']) &&

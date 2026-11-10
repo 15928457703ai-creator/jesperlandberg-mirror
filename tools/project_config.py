@@ -101,7 +101,7 @@ PROJECTS = [
         # site/erp-fx.html, driven by one GSAP master timeline (14 s, seamless)
         # and recorded to cover.mp4 by tools/record_erp_fx.js.  `home_cover`
         # swaps ONLY the payload's src/thumb/card/video, so the home card plays
-        # the clip while the 12 detail slides / GraphQL media are untouched.
+        # the clip while the 11 detail slides / GraphQL media are untouched.
         "home_cover": {
             "main": {"file": "cover.jpg", "width": 1600, "height": 900},
             "_small": {"file": "cover_small.jpg", "width": 640, "height": 360},
@@ -109,6 +109,11 @@ PROJECTS = [
             "video": {"file": "cover.mp4", "width": 1600, "height": 900,
                       "duration": 14},
         },
+        # 1.jpg (black title page) was moved from detail slide 2 to slide 1.
+        # Pin og:image / the manifest cover to 2.jpg at meta[1]; the HOME card
+        # is painted by home_cover above, so this only keeps the static share
+        # image unchanged. images[] / GraphQL media still start with 1.jpg.
+        "cover_index": 1,
         "meta": _meta("erp", "raw/project_images/erp.json"),
     },
     {
