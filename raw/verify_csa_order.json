@@ -1,0 +1,147 @@
+{
+ "pass": 25,
+ "total": 25,
+ "fails": [],
+ "results": [
+  {
+   "name": "detail HTML: sheet belongs to csa-service",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: 8 slide placeholders",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: og:image is still the 2.jpg home cover",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: prev/next ring unchanged",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "SSR home: csa-service is still card #5 of 16",
+   "ok": true,
+   "note": "oppo-service | naivideo | oppo-self-service | erp | csa-service | hengxiang-advantage | ai-video | nathan-riley | casa-di-solare | the-lookback | book-of-happiness | dogelon-mars | gil-huybrecht | discoveryland | griflan | illustration"
+  },
+  {
+   "name": "markdown: slides listed as 1..8 (title page first)",
+   "ok": true,
+   "note": "1 | 2 | 3 | 4 | 5 | 6 | 7 | 8"
+  },
+  {
+   "name": "config: cover_index pins the home cover to meta[1] (2.jpg)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "image prep: CSA order is [1..8], cover still 2",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "payload: home cover src/thumb/card = 2.jpg family",
+   "ok": true,
+   "note": "/csa/2.jpg | /csa/2_small.jpg | /csa/2_card.jpg"
+  },
+  {
+   "name": "payload: images[] = 1..8, title page first",
+   "ok": true,
+   "note": "/csa/1.jpg | /csa/2.jpg | /csa/3.jpg | /csa/4.jpg | /csa/5.jpg | /csa/6.jpg | /csa/7.jpg | /csa/8.jpg"
+  },
+  {
+   "name": "payload: 8 stills, no video textures",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "payload: cover deliberately differs from images[0]",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail payload: identical 1..8 order",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "graphql: media[] = 1..8, first is 1.jpg",
+   "ok": true,
+   "note": "/csa/1.jpg | /csa/2.jpg | /csa/3.jpg"
+  },
+  {
+   "name": "manifest: cover 2.jpg, slides[0] 1.jpg",
+   "ok": true,
+   "note": "2.jpg / 1.jpg"
+  },
+  {
+   "name": "browser home: WebGL loads the 2.jpg cover texture",
+   "ok": true,
+   "note": "/csa/2.jpg:200 | /csa/1.jpg:200"
+  },
+  {
+   "name": "browser home: CSA card shows the LIGHT 2.jpg cover",
+   "ok": true,
+   "note": "luma=171.7 box=549,344,945,556"
+  },
+  {
+   "name": "SPA entry: first slide is the DARK 1.jpg title page",
+   "ok": true,
+   "note": "luma=14.8"
+  },
+  {
+   "name": "1.jpg title-page texture loaded (home prefetch or detail entry)",
+   "ok": true,
+   "note": "/csa/2.jpg:200 | /csa/1.jpg:200 | /csa/3.jpg:200 | /csa/4.jpg:200 | /csa/5.jpg:200 | /csa/6.jpg:200 | /csa/7.jpg:200 | /csa/8.jpg:200"
+  },
+  {
+   "name": "SPA entry: sheet, Chinese copy and 8 placeholders",
+   "ok": true,
+   "note": "{\"path\":\"/projects/csa-service\",\"id\":\"csa-service\",\"h1\":\"CSA客服服务\",\"op\":1,\"placeholders\":8}"
+  },
+  {
+   "name": "direct load: first slide is the DARK 1.jpg title page",
+   "ok": true,
+   "note": "luma=14.8"
+  },
+  {
+   "name": "direct load: all 8 main stills fetched with 200",
+   "ok": true,
+   "note": "/csa/2.jpg:200 | /csa/1.jpg:200 | /csa/3.jpg:200 | /csa/4.jpg:200 | /csa/5.jpg:200 | /csa/6.jpg:200 | /csa/7.jpg:200 | /csa/8.jpg:200"
+  },
+  {
+   "name": "direct load: sheet copy revealed",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "no page/console/hydration errors",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "no 4xx / external requests",
+   "ok": true,
+   "note": ""
+  }
+ ],
+ "luma": {
+  "home": 171.7,
+  "spa": 14.8,
+  "direct": 14.8
+ },
+ "requests": [
+  "/csa/2.jpg:200",
+  "/csa/1.jpg:200",
+  "/csa/3.jpg:200",
+  "/csa/4.jpg:200",
+  "/csa/5.jpg:200",
+  "/csa/6.jpg:200",
+  "/csa/7.jpg:200",
+  "/csa/8.jpg:200"
+ ]
+}

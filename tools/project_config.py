@@ -154,6 +154,11 @@ PROJECTS = [
         "tags": [("csa-tag-ux", "UX / UI", None),
                  ("csa-tag-brand", "CSA", None),
                  ("csa-tag-year", "2026", None)],
+        # 1.jpg (the black title page) was moved from detail slide 2 to
+        # slide 1.  Keep the home card / og:image on the originally requested
+        # 2.jpg, which is now at index 1 in meta; images[] still starts with
+        # 1.jpg. Same mechanism as oppo-self-service's extra title slide.
+        "cover_index": 1,
         "meta": _meta("csa-service", "raw/project_images/csa-service.json"),
     },
     {

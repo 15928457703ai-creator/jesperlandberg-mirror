@@ -4,9 +4,9 @@ CSA 客户服务：基于 2022 年 OPPO 凤凰计划 G-CSM 重构，对 CSA 移�
 
 ## Slides
 
-![CSA客服服务 2](http://127.0.0.1:__PORT__/csa/2.jpg)
-
 ![CSA客服服务 1](http://127.0.0.1:__PORT__/csa/1.jpg)
+
+![CSA客服服务 2](http://127.0.0.1:__PORT__/csa/2.jpg)
 
 ![CSA客服服务 3](http://127.0.0.1:__PORT__/csa/3.jpg)
 

@@ -39,8 +39,12 @@ PROJECTS = [
     {
         "slug": "csa-service",
         "src": "/Users/soul/Downloads/CSA客服服务",
+        # The detail sheet opens with 1.jpg (the black 平台重构 / CSA客户服务
+        # title page), followed by 2..8.  The HOME card cover is still the
+        # originally requested 2.jpg: project_config.py pins it with
+        # "cover_index": 1, so only images[] / GraphQL media follow this order.
         "cover": 2,
-        "order": [2, 1, 3, 4, 5, 6, 7, 8],
+        "order": [1, 2, 3, 4, 5, 6, 7, 8],
     },
     {
         "slug": "hengxiang-advantage",

@@ -534,20 +534,20 @@
   "cover": "2.jpg",
   "slides": [
    {
-    "n": 2,
-    "files": [
-     "2.jpg",
-     "2_small.jpg",
-     "2_card.jpg"
-    ],
-    "video": null
-   },
-   {
     "n": 1,
     "files": [
      "1.jpg",
      "1_small.jpg",
      "1_card.jpg"
+    ],
+    "video": null
+   },
+   {
+    "n": 2,
+    "files": [
+     "2.jpg",
+     "2_small.jpg",
+     "2_card.jpg"
     ],
     "video": null
    },
