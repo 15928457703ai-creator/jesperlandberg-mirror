@@ -3,13 +3,8 @@ node_modules/
 .DS_Store
 *.log
 
-# Third-party CDN media cache (regenerable: server.js self-heals from the
-# original datocms/mux URLs on first request).  Excluded to keep the repo
-# within pushable size on a slow uplink.
-/assets/
-
-# Verification evidence (local only)
-screenshots/
-
-# Raw site capture dumps (the localized graphql replay in raw/ is kept)
-raw/captured/
+# Full publish: assets/ (third-party CDN media cache), screenshots/
+# (verification evidence) and raw/captured/ (original site capture dumps)
+# are all versioned now, so a clone contains everything needed to run the
+# mirror offline without re-fetching anything from the original site.
+# Kept ignored above: dependencies, workspace state, OS cruft and logs.

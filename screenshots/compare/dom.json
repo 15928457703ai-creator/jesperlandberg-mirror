@@ -1,0 +1,140 @@
+{
+ "/": {
+  "original": {
+   "info": {
+    "title": "Jesper Landberg",
+    "cards": 8,
+    "canvas": {
+     "w": 1440,
+     "h": 900,
+     "css": "1440x900"
+    },
+    "h1": "Jesper Landberg — design engineer",
+    "textLen": 2697,
+    "links": [
+     "/projects/nathan-riley",
+     "/projects/casa-di-solare",
+     "/projects/the-lookback",
+     "/projects/book-of-happiness",
+     "/projects/dogelon-mars",
+     "/projects/gil-huybrecht",
+     "/projects/discoveryland",
+     "/projects/griflan"
+    ]
+   },
+   "errs": []
+  },
+  "mirror": {
+   "info": {
+    "title": "Jesper Landberg",
+    "cards": 8,
+    "canvas": {
+     "w": 1440,
+     "h": 900,
+     "css": "1440x900"
+    },
+    "h1": "Jesper Landberg — design engineer",
+    "textLen": 2697,
+    "links": [
+     "/projects/nathan-riley",
+     "/projects/casa-di-solare",
+     "/projects/the-lookback",
+     "/projects/book-of-happiness",
+     "/projects/dogelon-mars",
+     "/projects/gil-huybrecht",
+     "/projects/discoveryland",
+     "/projects/griflan"
+    ]
+   },
+   "errs": []
+  }
+ },
+ "/full": {
+  "original": {
+   "info": {
+    "title": "Index",
+    "cards": 0,
+    "canvas": {
+     "w": 1440,
+     "h": 900,
+     "css": "1440x900"
+    },
+    "h1": "Index — every project by Jesper Landberg",
+    "textLen": 1103,
+    "links": [
+     "/projects/the-lookback",
+     "/projects/nathan-riley",
+     "/projects/dogelon-mars",
+     "/projects/discoveryland",
+     "/projects/griflan",
+     "/projects/book-of-happiness",
+     "/projects/casa-di-solare",
+     "/projects/gil-huybrecht"
+    ]
+   },
+   "errs": []
+  },
+  "mirror": {
+   "info": {
+    "title": "Index",
+    "cards": 0,
+    "canvas": {
+     "w": 1440,
+     "h": 900,
+     "css": "1440x900"
+    },
+    "h1": "Index — every project by Jesper Landberg",
+    "textLen": 1103,
+    "links": [
+     "/projects/the-lookback",
+     "/projects/nathan-riley",
+     "/projects/dogelon-mars",
+     "/projects/discoveryland",
+     "/projects/griflan",
+     "/projects/book-of-happiness",
+     "/projects/casa-di-solare",
+     "/projects/gil-huybrecht"
+    ]
+   },
+   "errs": []
+  }
+ },
+ "/projects/nathan-riley": {
+  "original": {
+   "info": {
+    "title": "Nathan Riley",
+    "cards": 0,
+    "canvas": {
+     "w": 1440,
+     "h": 900,
+     "css": "1440x900"
+    },
+    "h1": "Nathan Riley",
+    "textLen": 728,
+    "links": [
+     "/projects/griflan",
+     "/projects/casa-di-solare"
+    ]
+   },
+   "errs": []
+  },
+  "mirror": {
+   "info": {
+    "title": "Nathan Riley",
+    "cards": 0,
+    "canvas": {
+     "w": 1440,
+     "h": 900,
+     "css": "1440x900"
+    },
+    "h1": "Nathan Riley",
+    "textLen": 728,
+    "links": [
+     "/projects/griflan",
+     "/projects/casa-di-solare"
+    ]
+   },
+   "errs": []
+  }
+ }
+}
