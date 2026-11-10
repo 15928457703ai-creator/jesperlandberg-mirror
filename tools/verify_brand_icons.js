@@ -6,6 +6,12 @@
  * every declared icon URL still resolves to a correctly sized image after the
  * artwork swap, that all 19 prerendered pages carry the same declarations,
  * and that the share card is a real WebP at 1200x630.
+ *
+ * Shape contract (see tools/make_brand_icons.py):
+ *   favicon 16/32/96/192 -> full circle, transparent corners, opaque centre
+ *   apple-touch + tiles  -> opaque square; iOS masks a squircle and renders
+ *                           alpha as black, so a transparent corner would
+ *                           show four black wedges on the home screen.
  */
 const { chromium } = require('playwright-core');
 const fs = require('fs');
@@ -104,6 +110,39 @@ const check = (name, ok, note) => {
 
   const icon16 = icons.find(p => p.w === '16');
   check('16px favicon stays small enough for a tab', icon16.bytes > 200 && icon16.bytes < 4096, icon16.bytes + ' B');
+
+  // Alpha probes: read the corners / centre straight out of the decoded PNG.
+  const CIRCLE = new Set(['16', '32', '96', '192']);
+  const shapes = await page.evaluate(async (sizes) => {
+    const out = [];
+    for (const w of sizes) {
+      const res = await fetch('/223669/1786371616-face.png?auto=format&h=' + w + '&w=' + w);
+      const bmp = await createImageBitmap(await res.blob());
+      const c = new OffscreenCanvas(bmp.width, bmp.height);
+      const g = c.getContext('2d');
+      g.drawImage(bmp, 0, 0);
+      const a = (x, y) => g.getImageData(x, y, 1, 1).data[3];
+      const n = bmp.width;
+      out.push({ w, n,
+        corners: [a(0, 0), a(n - 1, 0), a(0, n - 1), a(n - 1, n - 1)],
+        center: a(n >> 1, n >> 1),
+        midTop: a(n >> 1, 0), midLeft: a(0, n >> 1),
+        diag: a(Math.round(n * 0.12), Math.round(n * 0.12)) });
+    }
+    return out;
+  }, EXPECT.map(e => e[0]));
+
+  const round = shapes.filter(s => CIRCLE.has(s.w));
+  const square = shapes.filter(s => !CIRCLE.has(s.w));
+  check('favicons are fully round: transparent corners, opaque centre',
+    round.every(s => s.corners.every(v => v <= 8) && s.center >= 250),
+    round.map(s => s.w + ':' + s.corners.join('/') + ' c' + s.center).join(' '));
+  check('the round mask covers the full tile (no shrunken disc)',
+    round.every(s => s.midTop >= 200 && s.midLeft >= 200),
+    round.map(s => s.w + ':' + s.midTop + '/' + s.midLeft).join(' '));
+  check('apple-touch and tile icons stay opaque squares',
+    square.every(s => s.corners.every(v => v === 255)),
+    square.filter(s => !s.corners.every(v => v === 255)).map(s => s.w).join(',') || 'all opaque');
 
   fs.mkdirSync(OUT, { recursive: true });
   // The WebGL boot overlay paints three white bars; wait for it to clear or the

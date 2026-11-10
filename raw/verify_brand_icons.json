@@ -1,6 +1,6 @@
 {
- "pass": 9,
- "total": 9,
+ "pass": 12,
+ "total": 12,
  "fails": [],
  "results": [
   {
@@ -31,7 +31,22 @@
   {
    "name": "16px favicon stays small enough for a tab",
    "ok": true,
-   "note": "822 B"
+   "note": "993 B"
+  },
+  {
+   "name": "favicons are fully round: transparent corners, opaque centre",
+   "ok": true,
+   "note": "16:0/0/0/0 c255 32:0/0/0/0 c255 96:0/0/0/0 c255 192:0/0/0/0 c255"
+  },
+  {
+   "name": "the round mask covers the full tile (no shrunken disc)",
+   "ok": true,
+   "note": "16:253/254 32:254/255 96:255/255 192:255/255"
+  },
+  {
+   "name": "apple-touch and tile icons stay opaque squares",
+   "ok": true,
+   "note": "all opaque"
   },
   {
    "name": "no page or console errors",
@@ -57,7 +72,7 @@
    "type": "image/png",
    "width": 16,
    "height": 16,
-   "bytes": 822
+   "bytes": 993
   },
   {
    "w": "32",
@@ -66,7 +81,7 @@
    "type": "image/png",
    "width": 32,
    "height": 32,
-   "bytes": 2648
+   "bytes": 3201
   },
   {
    "w": "57",
@@ -120,7 +135,7 @@
    "type": "image/png",
    "width": 96,
    "height": 96,
-   "bytes": 18113
+   "bytes": 21513
   },
   {
    "w": "114",
@@ -183,7 +198,7 @@
    "type": "image/png",
    "width": 192,
    "height": 192,
-   "bytes": 65107
+   "bytes": 76422
   },
   {
    "w": "310",
