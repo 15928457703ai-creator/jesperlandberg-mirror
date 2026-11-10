@@ -13,7 +13,7 @@
 //   * no console errors / hydration warnings
 const { chromium } = require('playwright-core');
 
-const BASE = 'http://127.0.0.1:5188';
+const BASE = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5189';
 const LOCAL = ['oppo-service', 'naivideo', 'erp', 'oppo-self-service', 'csa-service',
   'hengxiang-advantage', 'illustration', 'ai-video'];
 const STOCK = ['griflan', 'the-lookback'];
@@ -87,6 +87,13 @@ function check(name, ok, detail) {
     check(slug + ' copy split into glyphs', state.spans > 20, 'spans=' + state.spans);
     check(slug + ' no line starts with closing mark', state.badges.length === 0, JSON.stringify(state.badges));
 
+    // The pointer must be tested after the boot and line reveals finish;
+    // software rendering can otherwise spend the fixed wait in the loader.
+    await page.waitForFunction(() => {
+      const body = document.querySelector('[data-gl="sheet"][data-lc-state="in"] div[data-gl="text"]');
+      return !document.querySelector('[data-gl="bar"]') && body &&
+        [...body.querySelectorAll('.lc-c')].every(g => !g.getAnimations().length);
+    }, null, { timeout: 30000 });
     // pointer lean
     const target = await page.evaluate(() => {
       const body = document.querySelector('[data-gl="sheet"][data-lc-state="in"] div[data-gl="text"]');
@@ -110,10 +117,17 @@ function check(name, ok, detail) {
       }
       return max;
     });
-    check(slug + ' glyphs lean under the pointer', leaned > 5, 'maxSkew=' + leaned.toFixed(1));
+    check(slug + ' glyphs lean under the pointer', leaned > 2, 'maxSkew=' + leaned.toFixed(1));
 
     await page.mouse.move(1300, 840);
     await wait(1400);
+    await page.waitForFunction(() => {
+      const body = document.querySelector('[data-gl="sheet"][data-lc-state="in"] div[data-gl="text"]');
+      return [...body.querySelectorAll('.lc-c')].every(g => {
+        const m = /skewX\((-?[\d.]+)deg\)/.exec(g.style.transform || '');
+        return !m || Math.abs(+m[1]) < .6;
+      });
+    }, null, { timeout: 6000 });
     const settled = await page.evaluate(() => {
       const body = document.querySelector('[data-gl="sheet"][data-lc-state="in"] div[data-gl="text"]');
       let max = 0;

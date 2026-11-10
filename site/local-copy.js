@@ -99,6 +99,7 @@
    * text:{at:.35,dur:1.1,stagger:.075,step:.09}} and the shader's
    * timing(dur, stagger) gives every line its own 1.1 s expo-out window. */
   var LINE_DUR = 1100;
+  var TITLE_DUR = 1250;
   var LINE_STAGGER = 75;
   var TITLE_AT = 250;
   var TEXT_AT = 350;
@@ -222,6 +223,10 @@
   }
 
   function dropRecord(rec) {
+    for (var j = 0; j < rec.chars.length; j++) {
+      cancelReveal(rec.chars[j]);
+      rec.chars[j].style.transform = '';
+    }
     var i;
     for (i = 0; i < records.length; i++) {
       if (records[i] === rec) { records.splice(i, 1); break; }
@@ -238,8 +243,9 @@
     rec.at = Date.now();
     for (var i = 0; i < rec.chars.length; i++) {
       var r = rec.chars[i].getBoundingClientRect();
+      // offset metrics ignore the glyph's current hover/reveal transform.
       rec.cx[i] = r.left - base.left + r.width / 2;
-      rec.cy[i] = r.top - base.top + r.height / 2;
+      rec.cy[i] = r.top - base.top + r.height / 2 - (rec.lift[i] || 0);
     }
     rec.dirty = false;
   }
@@ -249,10 +255,10 @@
    * Motion is eased per frame so the copy springs back after the pointer
    * leaves -- the same "magnetic" feel the stock text has.
    * ==================================================================== */
-  var RADIUS = 220;      // px of influence
-  var MAX_SKEW = 20;     // deg, right at the pointer
-  var MAX_LIFT = 4;      // px
-  var TAU = 90;          // ms, exponential approach constant
+  var RADIUS = 150;      // localized field keeps long paragraphs readable
+  var MAX_SKEW = 14;
+  var MAX_LIFT = 2.5;
+  var TAU = 115;
   var EPS = 0.02;
   var pointer = { x: -1e4, y: -1e4, inside: false };
   var rafId = 0;
@@ -277,7 +283,7 @@
           // which is the "magnetic" wave the stock glyph meshes show.
           var f = 1 - d / RADIUS;
           f = f * f * (1.25 - 0.25 * f);
-          targetSkew = (dx < 0 ? 1 : -1) * MAX_SKEW * f;
+          targetSkew = -Math.tanh(dx / 22) * MAX_SKEW * f;
           targetLift = -MAX_LIFT * f;
         }
       }
@@ -337,7 +343,7 @@
       // Webfonts land after boot and reflow the copy, so the cache is also
       // refreshed on a slow timer while the pointer is around.
       if (rec.dirty || Math.abs(r.left - rec.bx) > 1 || Math.abs(r.top - rec.by) > 1 ||
-          Math.abs(r.width - rec.bw) > 1 || !rec.at || Date.now() - rec.at > 600) {
+          Math.abs(r.width - rec.bw) > 1 || !rec.at) {
         measure(rec);
       }
     }
@@ -364,7 +370,6 @@
     // record looking valid while its spans are detached.
     var intact = rec && rec.chars.length > 0 && rec.chars[0].isConnected && el.contains(rec.chars[0]);
     if (rec && intact && rec.text === el.textContent) {
-      rec.dirty = true;
       if (records.indexOf(rec) < 0) records.push(rec);
       return rec;
     }
@@ -444,7 +449,7 @@
     return frames;
   }
 
-  function animateRec(rec, delay) {
+  function animateRec(rec, delay, duration) {
     if (!rec || !supportsWAAPI || !supportsClip) return;
     // Cancel first: a still-running reveal translates the glyphs, which would
     // corrupt the line grouping and the height measurement below.
@@ -457,7 +462,7 @@
         var g = glyphs[j];
         var h = g.getBoundingClientRect().height || lh;
         var anim = g.animate(framesFor(h, lh), {
-          duration: LINE_DUR,
+          duration: duration || LINE_DUR,
           delay: Math.max(0, delay + i * LINE_STAGGER),
           easing: 'linear',       // expo out is baked into the keyframes
           fill: 'backwards'       // stay hidden during the per-line delay
@@ -505,7 +510,7 @@
       wipe(title, tDelay, 440);
       wipe(body, bDelay, 480);
     } else {
-      animateRec(recT, tDelay);
+      animateRec(recT, tDelay, TITLE_DUR);
       animateRec(recB, bDelay);
     }
     // Remove the CSS hold only after the animations exist: they carry the
@@ -557,6 +562,8 @@
         var staleTitle = sheet.querySelector('h1');
         if (stale && splitIndex.get(stale)) dropRecord(splitIndex.get(stale));
         if (staleTitle && splitIndex.get(staleTitle)) dropRecord(splitIndex.get(staleTitle));
+        if (stale) revealCtx['delete'](stale);
+        if (staleTitle) revealCtx['delete'](staleTitle);
         continue;
       }
 
@@ -616,6 +623,11 @@
   window.addEventListener('resize', function () {
     for (var i = 0; i < records.length; i++) records[i].dirty = true;
   });
+  // Font swaps can change line breaks after the first layout.
+  if (document.fonts) document.fonts.ready.then(function () {
+    for (var i = 0; i < records.length; i++) records[i].dirty = true;
+  });
+  window.addEventListener('blur', onLeave);
 
   if (!reduce && canHover) {
     window.addEventListener('pointermove', onPointer, { passive: true });
@@ -709,7 +721,7 @@
       // Fallback for a loader that never resolves (see watchLoader).
       bootFallback = setTimeout(function () {
         if (!bootStarted) { onLoaderRelease(); startBootReveal(bootClock); }
-      }, 2500);
+      }, 12000);
     }
 
     if (window.MutationObserver) {

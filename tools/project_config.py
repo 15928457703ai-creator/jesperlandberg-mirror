@@ -219,6 +219,11 @@ DISPLAY_ORDER = ["oppo-service", "naivideo", "oppo-self-service",
 assert set(DISPLAY_ORDER) == {p["slug"] for p in PROJECTS}
 PROJECTS.sort(key=lambda p: DISPLAY_ORDER.index(p["slug"]))
 
+# Illustration is a motion-only collection; posters remain video fallbacks.
+for project in PROJECTS:
+    if project["slug"] == "illustration":
+        project["meta"] = [m for m in project["meta"] if m.get("video")]
+
 # the two case studies shipped with the original site, in the recorded
 # order of its own home.featured
 ORIGINAL_FEATURED = [

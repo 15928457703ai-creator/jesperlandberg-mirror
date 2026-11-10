@@ -186,9 +186,16 @@ const HOOK = () => {
     .map(v => ({ src: v.src, ready: v.readyState, frames: v.getVideoPlaybackQuality().totalVideoFrames })));
   const motionBefore = await frames();
   await wait(650);
-  const motionAfter = await frames();
-  const newClipsPlaying = motionAfter.length === 2 && motionAfter.every(v =>
-    v.ready >= 2 && v.frames > motionBefore.find(b => b.src === v.src).frames);
+  var motionAfter = await frames();
+  const progressed = new Set();
+  for (let step = 0; step < 8; step++) {
+    for (const v of motionAfter) if (v.ready >= 2 && v.frames > motionBefore.find(b => b.src === v.src).frames) progressed.add(v.src);
+    if (progressed.size === 2) break;
+    await page.mouse.wheel(0, 260);
+    await wait(400);
+    motionAfter = await frames();
+  }
+  const newClipsPlaying = progressed.size === 2;
   console.log('new motion clips playing:', newClipsPlaying, motionBefore, motionAfter);
 
   await page.goto(ORIGIN + '/full', { waitUntil: 'domcontentloaded' });
@@ -207,8 +214,8 @@ const HOOK = () => {
                  reached && homePlaying;
   const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.title === '插画' &&
                   spa.fill === 'rgb(0, 0, 0)' && spa.hFill === 'rgb(0, 0, 0)' &&
-                  spa.slides === 13 && (spa.copy || '').length > 40;
-  const okDirect = direct && directInfo.id === SLUG && directInfo.slides === 13 &&
+                  spa.slides === 4 && (spa.copy || '').length > 40;
+  const okDirect = direct && directInfo.id === SLUG && directInfo.slides === 4 &&
                    directInfo.fill === 'rgb(0, 0, 0)';
   const clean = !perr.length && !cerr.length && !hyd.length && !bad.length && !ext.length;
   const result = { home, homeVids, homePlaying, spa, cover1, cover2, afterScroll, directInfo,

@@ -13,7 +13,7 @@
    "path": "/oppo/live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 0.97,
+   "t": 2.59,
    "w": 1600,
    "h": 900
   },
@@ -22,7 +22,7 @@
    "path": "/naivideo/live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 0.69,
+   "t": 2.39,
    "w": 1600,
    "h": 900
   },
@@ -31,7 +31,7 @@
    "path": "/oppo-self/motion.mp4",
    "ready": 4,
    "paused": false,
-   "t": 0.45,
+   "t": 2.17,
    "w": 1600,
    "h": 900
   },
@@ -40,7 +40,7 @@
    "path": "/erp/cover.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.57,
+   "t": 2.27,
    "w": 1600,
    "h": 900
   },
@@ -49,7 +49,7 @@
    "path": "/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.36,
+   "t": 1.91,
    "w": 1250,
    "h": 720
   },
@@ -58,7 +58,7 @@
    "path": "/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.49,
+   "t": 1.91,
    "w": 1162,
    "h": 720
   },
@@ -67,7 +67,7 @@
    "path": "/illustration/cover.mp4",
    "ready": 4,
    "paused": false,
-   "t": 1.48,
+   "t": 2.59,
    "w": 1280,
    "h": 652
   }
@@ -80,7 +80,7 @@
   "copy": "插画：以视觉表现力为核心的横向创作能力。作为视觉中国签约插画师，将商业插画、IP 形象与运营视觉沉淀为可复用的素材与材质资产，覆盖花卉、节庆、人物与数字艺术等主题；并以动态影像与 ",
   "fill": "rgb(0, 0, 0)",
   "hFill": "rgb(0, 0, 0)",
-  "slides": 13,
+  "slides": 4,
   "tags": [
    "Illustration",
    "Motion / 3D",
@@ -93,7 +93,7 @@
   "path": "/illustration/cover.mp4",
   "ready": 4,
   "paused": false,
-  "t": 5.83,
+  "t": 6.42,
   "w": 1280,
   "h": 652
  },
@@ -102,7 +102,7 @@
   "path": "/illustration/cover.mp4",
   "ready": 4,
   "paused": false,
-  "t": 7.33,
+  "t": 7.92,
   "w": 1280,
   "h": 652
  },
@@ -112,7 +112,7 @@
    "path": "/oppo/live.mp4",
    "ready": 4,
    "paused": true,
-   "t": 2.77,
+   "t": 4.56,
    "w": 1600,
    "h": 900
   },
@@ -121,7 +121,7 @@
    "path": "/naivideo/live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 0.12,
+   "t": 8.22,
    "w": 1600,
    "h": 900
   },
@@ -130,7 +130,7 @@
    "path": "/oppo-self/motion.mp4",
    "ready": 4,
    "paused": false,
-   "t": 3.79,
+   "t": 0.03,
    "w": 1600,
    "h": 900
   },
@@ -139,7 +139,7 @@
    "path": "/erp/cover.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.57,
+   "t": 2.27,
    "w": 1600,
    "h": 900
   },
@@ -148,7 +148,7 @@
    "path": "/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.36,
+   "t": 1.91,
    "w": 1250,
    "h": 720
   },
@@ -157,7 +157,7 @@
    "path": "/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.49,
+   "t": 1.91,
    "w": 1162,
    "h": 720
   },
@@ -165,8 +165,8 @@
    "src": "cover.mp4",
    "path": "/illustration/cover.mp4",
    "ready": 4,
-   "paused": true,
-   "t": 12.67,
+   "paused": false,
+   "t": 5.91,
    "w": 1280,
    "h": 652
   },
@@ -174,26 +174,26 @@
    "src": "reel.mp4",
    "path": "/illustration/reel.mp4",
    "ready": 4,
-   "paused": true,
-   "t": 0.95,
+   "paused": false,
+   "t": 20.32,
    "w": 1280,
    "h": 652
   },
   {
    "src": "gift-motion.mp4",
    "path": "/illustration/gift-motion.mp4",
-   "ready": 4,
-   "paused": true,
-   "t": 1.06,
+   "ready": 2,
+   "paused": false,
+   "t": 0.65,
    "w": 1920,
    "h": 1080
   },
   {
    "src": "launch-motion.mp4",
    "path": "/illustration/launch-motion.mp4",
-   "ready": 4,
+   "ready": 2,
    "paused": true,
-   "t": 1.09,
+   "t": 1.66,
    "w": 1920,
    "h": 600
   }
@@ -204,7 +204,7 @@
   "title": "插画",
   "copy": "插画：以视觉表现力为核心的横向创作能力。作为视觉中国签约插画师，将商业插画、IP 形象与运营视觉沉淀为可复用的素材与材质",
   "fill": "rgb(0, 0, 0)",
-  "slides": 13
+  "slides": 4
  },
  "directVids": [
   {
@@ -221,7 +221,7 @@
    "path": "/illustration/cover.mp4",
    "ready": 4,
    "paused": false,
-   "t": 2.9,
+   "t": 5.95,
    "w": 1280,
    "h": 652
   },
@@ -239,25 +239,25 @@
    "path": "/illustration/reel.mp4",
    "ready": 4,
    "paused": false,
-   "t": 0.85,
+   "t": 3.52,
    "w": 1280,
    "h": 652
   },
   {
    "src": "gift-motion.mp4",
    "path": "/illustration/gift-motion.mp4",
-   "ready": 4,
+   "ready": 2,
    "paused": false,
-   "t": 0.73,
+   "t": 0.7,
    "w": 1920,
    "h": 1080
   },
   {
    "src": "launch-motion.mp4",
    "path": "/illustration/launch-motion.mp4",
-   "ready": 4,
+   "ready": 2,
    "paused": false,
-   "t": 0.4,
+   "t": 0.87,
    "w": 1920,
    "h": 600
   }
@@ -267,6 +267,84 @@
  "okSheet": true,
  "okDirect": true,
  "clean": true,
+ "motionBefore": [
+  {
+   "src": "http://127.0.0.1:5189/illustration/gift-motion.mp4",
+   "ready": 2,
+   "frames": 300
+  },
+  {
+   "src": "http://127.0.0.1:5189/illustration/launch-motion.mp4",
+   "ready": 4,
+   "frames": 222
+  }
+ ],
+ "motionAfter": [
+  {
+   "src": "http://127.0.0.1:5189/illustration/gift-motion.mp4",
+   "ready": 4,
+   "frames": 402
+  },
+  {
+   "src": "http://127.0.0.1:5189/illustration/launch-motion.mp4",
+   "ready": 4,
+   "frames": 243
+  }
+ ],
+ "newClipsPlaying": true,
+ "catalogue": [
+  {
+   "title": "The Lookback",
+   "href": "/projects/the-lookback",
+   "fill": "rgb(255, 255, 255)"
+  },
+  {
+   "title": "Griflan",
+   "href": "/projects/griflan",
+   "fill": "rgb(255, 255, 255)"
+  },
+  {
+   "title": "OPPO 服务小程序",
+   "href": "/projects/oppo-service",
+   "fill": "rgb(255, 255, 255)"
+  },
+  {
+   "title": "Naivideo",
+   "href": "/projects/naivideo",
+   "fill": "rgb(255, 255, 255)"
+  },
+  {
+   "title": "OPPO自助服务",
+   "href": "/projects/oppo-self-service",
+   "fill": "rgb(255, 255, 255)"
+  },
+  {
+   "title": "ERP",
+   "href": "/projects/erp",
+   "fill": "rgb(255, 255, 255)"
+  },
+  {
+   "title": "CSA客服服务",
+   "href": "/projects/csa-service",
+   "fill": "rgb(255, 255, 255)"
+  },
+  {
+   "title": "横向优势",
+   "href": "/projects/hengxiang-advantage",
+   "fill": "rgb(255, 255, 255)"
+  },
+  {
+   "title": "插画",
+   "href": "/projects/illustration",
+   "fill": "rgb(255, 255, 255)"
+  },
+  {
+   "title": "AI短视频",
+   "href": "/projects/ai-video",
+   "fill": "rgb(255, 255, 255)"
+  }
+ ],
+ "catalogueOk": true,
  "perr": [],
  "cerr": [],
  "hyd": [],
@@ -274,28 +352,19 @@
  "ext": [],
  "media": [
   "206 /oppo/live.mp4",
-  "206 /oppo-self/motion.mp4",
   "206 /naivideo/live.mp4",
+  "206 /oppo-self/motion.mp4",
   "200 /illustration/cover.jpg",
+  "206 /erp/cover.mp4",
   "206 /9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
   "206 /illustration/cover.mp4",
   "206 /01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
-  "206 /erp/cover.mp4",
-  "200 /illustration/frame1.jpg",
-  "200 /illustration/frame2.jpg",
-  "200 /illustration/frame3.jpg",
-  "200 /illustration/frame4.jpg",
-  "200 /illustration/frame5.jpg",
-  "200 /illustration/frame6.jpg",
-  "200 /illustration/frame7.jpg",
-  "200 /illustration/frame8.jpg",
-  "200 /illustration/frame9.jpg",
   "200 /illustration/reel.jpg",
   "200 /illustration/gift-motion.jpg",
   "200 /illustration/launch-motion.jpg",
   "200 /projects/illustration/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859",
-  "206 /illustration/gift-motion.mp4",
   "206 /illustration/reel.mp4",
+  "206 /illustration/gift-motion.mp4",
   "206 /illustration/launch-motion.mp4"
  ]
 }

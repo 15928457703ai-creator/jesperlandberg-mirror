@@ -27,6 +27,7 @@ CSS_LINK = '<link rel="stylesheet" href="/local-copy.css"></head>'
 # scene: /local-copy.js ties the copy's enter/leave to the current route so it
 # cannot outlive the detail page it belongs to.
 JS_TAG = ('<link rel="stylesheet" href="/local-copy.css">'
+          '<script src="/local-motion.js"></script>'
           '<script src="/local-copy.js" defer></script></head>')
 
 

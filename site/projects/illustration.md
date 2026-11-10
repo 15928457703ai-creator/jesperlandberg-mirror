@@ -8,24 +8,6 @@
 
 [Watch video](http://127.0.0.1:__PORT__/illustration/cover.mp4)
 
-![插画 2](http://127.0.0.1:__PORT__/illustration/frame1.jpg)
-
-![插画 3](http://127.0.0.1:__PORT__/illustration/frame2.jpg)
-
-![插画 4](http://127.0.0.1:__PORT__/illustration/frame3.jpg)
-
-![插画 5](http://127.0.0.1:__PORT__/illustration/frame4.jpg)
-
-![插画 6](http://127.0.0.1:__PORT__/illustration/frame5.jpg)
-
-![插画 7](http://127.0.0.1:__PORT__/illustration/frame6.jpg)
-
-![插画 8](http://127.0.0.1:__PORT__/illustration/frame7.jpg)
-
-![插画 9](http://127.0.0.1:__PORT__/illustration/frame8.jpg)
-
-![插画 10](http://127.0.0.1:__PORT__/illustration/frame9.jpg)
-
 ![插画 11](http://127.0.0.1:__PORT__/illustration/reel.jpg)
 
 [Watch video](http://127.0.0.1:__PORT__/illustration/reel.mp4)

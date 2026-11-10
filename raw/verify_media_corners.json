@@ -1,0 +1,489 @@
+{
+  "results": [
+    {
+      "slug": "oppo-service",
+      "ok": true,
+      "media": [
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        }
+      ]
+    },
+    {
+      "slug": "naivideo",
+      "ok": true,
+      "media": [
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": true
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        }
+      ]
+    },
+    {
+      "slug": "oppo-self-service",
+      "ok": true,
+      "media": [
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        }
+      ]
+    },
+    {
+      "slug": "erp",
+      "ok": true,
+      "media": [
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        }
+      ]
+    },
+    {
+      "slug": "csa-service",
+      "ok": true,
+      "media": [
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        }
+      ]
+    },
+    {
+      "slug": "hengxiang-advantage",
+      "ok": true,
+      "media": [
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        }
+      ]
+    },
+    {
+      "slug": "ai-video",
+      "ok": true,
+      "media": [
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60.00000000000001,
+          "css": "60px",
+          "video": false
+        }
+      ]
+    },
+    {
+      "slug": "the-lookback",
+      "ok": true,
+      "media": [
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": true
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": true
+        },
+        {
+          "radius": 60.00000000000001,
+          "css": "60px",
+          "video": false
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": false
+        }
+      ]
+    },
+    {
+      "slug": "griflan",
+      "ok": true,
+      "media": [
+        {
+          "radius": 60.00000000000001,
+          "css": "60px",
+          "video": true
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": true
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": true
+        }
+      ]
+    },
+    {
+      "slug": "illustration",
+      "ok": true,
+      "media": [
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": true
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": true
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": true
+        },
+        {
+          "radius": 60,
+          "css": "60px",
+          "video": true
+        }
+      ]
+    },
+    {
+      "slug": "mobile",
+      "ok": true
+    }
+  ],
+  "errors": []
+}

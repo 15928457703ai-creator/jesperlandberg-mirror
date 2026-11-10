@@ -20,7 +20,7 @@ const { chromium } = require('playwright-core');
 const fs = require('fs');
 const path = require('path');
 
-const BASE = 'http://127.0.0.1:5188';
+const BASE = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5189';
 const OUT = path.join(__dirname, '..', 'raw', 'verify_copy_lines.json');
 const LOCAL = ['oppo-service', 'naivideo', 'oppo-self-service', 'erp',
   'csa-service', 'hengxiang-advantage', 'illustration', 'ai-video'];

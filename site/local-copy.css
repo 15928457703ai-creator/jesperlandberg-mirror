@@ -207,6 +207,13 @@ div.fixed.inset-0.z-40 a.label[href="/"] {
 }
 /* === end brand name === */
 
+/* All detail media share the same corner treatment, including video planes.
+ * The matching WebGL radius is applied in syncContent in the scene bundle. */
+[data-gl="sheet"] [data-gl="simple"] {
+  border-radius: 60px;
+  overflow: hidden;
+}
+
 /* The full catalogue uses the Latin glyph atlas too. Paint local Chinese
  * names in the DOM so their characters remain readable. */
 main.fixed[data-gl-shield]:has(.content-center) {
