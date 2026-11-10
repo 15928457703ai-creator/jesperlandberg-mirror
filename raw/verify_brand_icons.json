@@ -1,0 +1,207 @@
+{
+ "pass": 9,
+ "total": 9,
+ "fails": [],
+ "results": [
+  {
+   "name": "all 19 public pages declare the avatar icons",
+   "ok": true,
+   "note": "19/19"
+  },
+  {
+   "name": "head declares 17 icon / tile entries",
+   "ok": true,
+   "note": "17"
+  },
+  {
+   "name": "all 16 icon widths return 200 image/png",
+   "ok": true,
+   "note": "ok"
+  },
+  {
+   "name": "every icon decodes at its declared pixel size",
+   "ok": true,
+   "note": "all exact"
+  },
+  {
+   "name": "share card is a 1200x630 image/webp",
+   "ok": true,
+   "note": "200 | image/webp | 1200x630"
+  },
+  {
+   "name": "16px favicon stays small enough for a tab",
+   "ok": true,
+   "note": "822 B"
+  },
+  {
+   "name": "no page or console errors",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "no 4xx / failed requests",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "no external requests",
+   "ok": true,
+   "note": ""
+  }
+ ],
+ "probes": [
+  {
+   "w": "16",
+   "px": 16,
+   "status": 200,
+   "type": "image/png",
+   "width": 16,
+   "height": 16,
+   "bytes": 822
+  },
+  {
+   "w": "32",
+   "px": 32,
+   "status": 200,
+   "type": "image/png",
+   "width": 32,
+   "height": 32,
+   "bytes": 2648
+  },
+  {
+   "w": "57",
+   "px": 57,
+   "status": 200,
+   "type": "image/png",
+   "width": 57,
+   "height": 57,
+   "bytes": 7225
+  },
+  {
+   "w": "60",
+   "px": 60,
+   "status": 200,
+   "type": "image/png",
+   "width": 60,
+   "height": 60,
+   "bytes": 7924
+  },
+  {
+   "w": "70",
+   "px": 70,
+   "status": 200,
+   "type": "image/png",
+   "width": 70,
+   "height": 70,
+   "bytes": 10382
+  },
+  {
+   "w": "72",
+   "px": 72,
+   "status": 200,
+   "type": "image/png",
+   "width": 72,
+   "height": 72,
+   "bytes": 10938
+  },
+  {
+   "w": "76",
+   "px": 76,
+   "status": 200,
+   "type": "image/png",
+   "width": 76,
+   "height": 76,
+   "bytes": 12027
+  },
+  {
+   "w": "96",
+   "px": 96,
+   "status": 200,
+   "type": "image/png",
+   "width": 96,
+   "height": 96,
+   "bytes": 18113
+  },
+  {
+   "w": "114",
+   "px": 114,
+   "status": 200,
+   "type": "image/png",
+   "width": 114,
+   "height": 114,
+   "bytes": 24853
+  },
+  {
+   "w": "120",
+   "px": 120,
+   "status": 200,
+   "type": "image/png",
+   "width": 120,
+   "height": 120,
+   "bytes": 27295
+  },
+  {
+   "w": "144",
+   "px": 144,
+   "status": 200,
+   "type": "image/png",
+   "width": 144,
+   "height": 144,
+   "bytes": 38124
+  },
+  {
+   "w": "150",
+   "px": 150,
+   "status": 200,
+   "type": "image/png",
+   "width": 150,
+   "height": 150,
+   "bytes": 41187
+  },
+  {
+   "w": "152",
+   "px": 152,
+   "status": 200,
+   "type": "image/png",
+   "width": 152,
+   "height": 152,
+   "bytes": 42112
+  },
+  {
+   "w": "180",
+   "px": 180,
+   "status": 200,
+   "type": "image/png",
+   "width": 180,
+   "height": 180,
+   "bytes": 57782
+  },
+  {
+   "w": "192",
+   "px": 192,
+   "status": 200,
+   "type": "image/png",
+   "width": 192,
+   "height": 192,
+   "bytes": 65107
+  },
+  {
+   "w": "310",
+   "px": 310,
+   "status": 200,
+   "type": "image/png",
+   "width": 310,
+   "height": 310,
+   "bytes": 158172
+  },
+  {
+   "w": "share",
+   "px": 1200,
+   "status": 200,
+   "type": "image/webp",
+   "width": 1200,
+   "height": 630,
+   "bytes": 36980
+  }
+ ]
+}
