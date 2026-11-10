@@ -91,6 +91,7 @@ def variants(src_path, stem):
 
 
 meta = []
+existing = json.load(open(META, encoding="utf-8")) if os.path.exists(META) else []
 
 
 def add_video(stem, src_name, at, cover):
@@ -145,6 +146,13 @@ for i, f in enumerate(FRAMES, 1):
 
 # 3. the longer demo closes the deck
 add_video("reel", VIDEOS[1][1], VIDEOS[1][2], False)
+
+# Keep separately imported motion studies when rebuilding the original deck.
+base_sources = {m["source"] for m in meta}
+for item in existing:
+    if item["source"] not in base_sources:
+        item["n"] = len(meta) + 1
+        meta.append(item)
 
 json.dump(meta, open(META, "w", encoding="utf-8"), indent=1, ensure_ascii=False)
 print("\nslides:", len(meta), "| cover:", meta[0]["source"],

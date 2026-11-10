@@ -8,7 +8,7 @@
  */
 const { chromium } = require('playwright-core');
 const fs = require('fs'), path = require('path');
-const ORIGIN = 'http://127.0.0.1:5188';
+const ORIGIN = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5189';
 const OUT = path.join(__dirname, '..', 'screenshots');
 const SLUG = 'illustration';
 const wait = ms => new Promise(r => setTimeout(r, ms));
@@ -54,6 +54,7 @@ const HOOK = () => {
 
   const vids = () => page.evaluate(() => (window.__videos || []).map(v => ({
     src: (v.currentSrc || v.src || '').split('/').pop().split('?')[0],
+    path: new URL(v.currentSrc || v.src, location.href).pathname,
     ready: v.readyState, paused: v.paused, t: +v.currentTime.toFixed(2),
     w: v.videoWidth, h: v.videoHeight
   })));
@@ -108,7 +109,7 @@ const HOOK = () => {
   await wait(220);
   await page.screenshot({ path: path.join(OUT, 'illustration_home_card.png') });
   const homeVids = await vids();
-  const homeCover = homeVids.find(v => v.src === 'cover.mp4');
+  const homeCover = homeVids.find(v => v.path === '/illustration/cover.mp4');
   const homePlaying = !!(homeCover && homeCover.ready >= 2 &&
                          !homeCover.paused && homeCover.t > 0);
   console.log('home video elements:', JSON.stringify(homeVids));
@@ -144,8 +145,8 @@ const HOOK = () => {
   const t1 = await vids();
   await wait(1500);
   const t2 = await vids();
-  const cover1 = t1.find(v => v.src === 'cover.mp4');
-  const cover2 = t2.find(v => v.src === 'cover.mp4');
+  const cover1 = t1.find(v => v.path === '/illustration/cover.mp4');
+  const cover2 = t2.find(v => v.path === '/illustration/cover.mp4');
   console.log('cover video:', JSON.stringify({ before: cover1, after: cover2 }));
   await page.screenshot({ path: path.join(OUT, 'illustration_detail_spa.png') });
   await wait(1400);
@@ -180,6 +181,25 @@ const HOOK = () => {
   console.log('direct video elements:', JSON.stringify(directVids));
   await page.screenshot({ path: path.join(OUT, 'illustration_detail_direct.png') });
 
+  const frames = () => page.evaluate(() => (window.__videos || [])
+    .filter(v => /\/(gift-motion|launch-motion)\.mp4$/.test(v.src))
+    .map(v => ({ src: v.src, ready: v.readyState, frames: v.getVideoPlaybackQuality().totalVideoFrames })));
+  const motionBefore = await frames();
+  await wait(650);
+  const motionAfter = await frames();
+  const newClipsPlaying = motionAfter.length === 2 && motionAfter.every(v =>
+    v.ready >= 2 && v.frames > motionBefore.find(b => b.src === v.src).frames);
+  console.log('new motion clips playing:', newClipsPlaying, motionBefore, motionAfter);
+
+  await page.goto(ORIGIN + '/full', { waitUntil: 'domcontentloaded' });
+  await wait(3500);
+  const catalogue = await page.evaluate(() => [...document.querySelectorAll('main .content-center a')]
+    .map(a => ({ title: a.textContent, href: a.getAttribute('href'), fill: getComputedStyle(a).webkitTextFillColor })));
+  await page.screenshot({ path: path.join(OUT, 'full_catalogue_fixed.png') });
+  const catalogueOk = catalogue.length === 10 && catalogue.every(a => a.title.trim() && a.href.startsWith('/projects/')) &&
+    catalogue.filter(a => /[\u3400-\u9fff]/.test(a.title)).every(a => a.fill === 'rgb(255, 255, 255)');
+  console.log('catalogue:', catalogueOk, catalogue);
+
   // ------------------------------------------------------------- summary
   const playing = !!(cover1 && cover2 && cover2.ready >= 2 && !cover2.paused && cover2.t > cover1.t);
   const okHome = home.cards === 10 && home.last === SLUG && home.title === '插画' &&
@@ -187,12 +207,13 @@ const HOOK = () => {
                  reached && homePlaying;
   const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.title === '插画' &&
                   spa.fill === 'rgb(0, 0, 0)' && spa.hFill === 'rgb(0, 0, 0)' &&
-                  spa.slides === 11 && (spa.copy || '').length > 40;
-  const okDirect = direct && directInfo.id === SLUG && directInfo.slides === 11 &&
+                  spa.slides === 13 && (spa.copy || '').length > 40;
+  const okDirect = direct && directInfo.id === SLUG && directInfo.slides === 13 &&
                    directInfo.fill === 'rgb(0, 0, 0)';
   const clean = !perr.length && !cerr.length && !hyd.length && !bad.length && !ext.length;
   const result = { home, homeVids, homePlaying, spa, cover1, cover2, afterScroll, directInfo,
                    directVids, playing, okHome, okSheet, okDirect, clean,
+                   motionBefore, motionAfter, newClipsPlaying, catalogue, catalogueOk,
                    perr, cerr, hyd, bad, ext, media: [...new Set(media)] };
   console.log('\n=== ILLUSTRATION VERIFY ===');
   console.log('home(+video) / spa / direct / playing / clean:',
@@ -203,5 +224,5 @@ const HOOK = () => {
   fs.writeFileSync(path.join(__dirname, '..', 'raw', 'verify_illustration.json'),
     JSON.stringify(result, null, 1));
   await browser.close();
-  if (!(okHome && okSheet && okDirect && playing && clean)) process.exitCode = 1;
+  if (!(okHome && okSheet && okDirect && playing && clean && newClipsPlaying && catalogueOk)) process.exitCode = 1;
 })().catch(e => { console.error('FATAL', e); process.exit(1); });

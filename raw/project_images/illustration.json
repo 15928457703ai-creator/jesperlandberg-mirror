@@ -263,5 +263,63 @@
    "height": 652,
    "duration": 26
   }
+ },
+ {
+  "n": 12,
+  "source": "礼物 4.mp4",
+  "kind": "video",
+  "cover": false,
+  "origWidth": 1920,
+  "origHeight": 1080,
+  "main": {
+   "file": "gift-motion.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_card": {
+   "file": "gift-motion_card.jpg",
+   "width": 1200,
+   "height": 675
+  },
+  "_small": {
+   "file": "gift-motion_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "video": {
+   "file": "gift-motion.mp4",
+   "width": 1920,
+   "height": 1080,
+   "duration": 1.8
+  }
+ },
+ {
+  "n": 13,
+  "source": "启动页 版本1_1.mp4",
+  "kind": "video",
+  "cover": false,
+  "origWidth": 1920,
+  "origHeight": 600,
+  "main": {
+   "file": "launch-motion.jpg",
+   "width": 1600,
+   "height": 500
+  },
+  "_card": {
+   "file": "launch-motion_card.jpg",
+   "width": 1200,
+   "height": 375
+  },
+  "_small": {
+   "file": "launch-motion_small.jpg",
+   "width": 640,
+   "height": 200
+  },
+  "video": {
+   "file": "launch-motion.mp4",
+   "width": 1920,
+   "height": 600,
+   "duration": 1.983333
+  }
  }
 ]

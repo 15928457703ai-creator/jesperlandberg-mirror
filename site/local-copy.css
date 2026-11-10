@@ -206,3 +206,20 @@ div.fixed.inset-0.z-40 a.label[href="/"] {
   text-transform: none !important;
 }
 /* === end brand name === */
+
+/* The full catalogue uses the Latin glyph atlas too. Paint local Chinese
+ * names in the DOM so their characters remain readable. */
+main.fixed[data-gl-shield]:has(.content-center) {
+  z-index: 30;
+}
+main.fixed[data-gl-shield] .content-center a[href="/projects/oppo-service"],
+main.fixed[data-gl-shield] .content-center a[href="/projects/oppo-self-service"],
+main.fixed[data-gl-shield] .content-center a[href="/projects/csa-service"],
+main.fixed[data-gl-shield] .content-center a[href="/projects/hengxiang-advantage"],
+main.fixed[data-gl-shield] .content-center a[href="/projects/illustration"],
+main.fixed[data-gl-shield] .content-center a[href="/projects/ai-video"] {
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}

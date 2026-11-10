@@ -61,7 +61,8 @@ def tier_for(size):
 
 
 def render(size, circle):
-    img = crop(*CROPS[tier_for(size)])
+    # The round portrait keeps the full head with background above the hair.
+    img = crop(1600, 1024, 800) if circle else crop(*CROPS[tier_for(size)])
     big = img.resize((size * SUPERSAMPLE, size * SUPERSAMPLE), Image.LANCZOS)
     big = big.resize((size, size), Image.LANCZOS)
     # Small tiles get a harder contrast lift and a tighter unsharp so the face

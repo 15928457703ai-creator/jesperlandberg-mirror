@@ -134,6 +134,9 @@ for p in paths:
     d = rwobj(d)
     for proj in PROJECTS:
         d = inject_devalue(d, proj)
+    root = next(o for o in d if isinstance(o, dict) and "projects" in o)
+    d[root["projects"]] = [i for i in d[root["projects"]]
+                           if d[d[i]["slug"]] in HOME_ORDER]
     d = reorder_featured(d)
     dst = payload_dst(p)
     os.makedirs(os.path.dirname(dst), exist_ok=True)
@@ -151,7 +154,8 @@ print("detail payloads:", len(PROJECTS))
 G = "raw/graphql_localized.json"
 g = json.load(open(G, encoding="utf-8"))
 g["data"]["projects"] = [x for x in g["data"]["projects"]
-                         if x.get("slug") not in SLUGS and x.get("id") not in PIDS]
+                         if x.get("slug") in HOME_ORDER
+                         and x.get("slug") not in SLUGS and x.get("id") not in PIDS]
 g["data"]["home"]["featured"] = [x for x in g["data"]["home"]["featured"]
                                  if x.get("id") not in PIDS]
 for p in PROJECTS:

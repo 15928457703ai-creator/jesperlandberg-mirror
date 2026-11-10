@@ -88,17 +88,17 @@ def add_cards(t):
 
 # ---------------------------------------------------------------- /full index
 def add_full(t):
-    # The original tail (Primland) has no bullet.  Every appended project must
-    # give the previous tail a bullet; only the NEW last item keeps `<!---->`,
-    # otherwise Vue's v-for reuses DOM by position and hydration mismatches.
-    if PRIMLAND_TAIL in t:
-        t = t.replace(PRIMLAND_TAIL, PRIMLAND_TAIL.replace("<!----></span>", BULLET), 1)
-    items = ""
-    for i, p in enumerate(PROJECTS):
-        tail = "<!----></span>" if i == len(PROJECTS) - 1 else BULLET
-        items += ('<span class="relative flex"><a href="/projects/' + p["slug"] + '" ' +
-                  FULL_CLASS + '>' + p["title"] + '</a>' + tail)
-    return t.replace(FULL_MARKER, items + FULL_MARKER, 1)
+    # Only publish names backed by a retained local case study.
+    start = t.index('<span class="relative flex">', t.index('class="absolute inset-0"'))
+    end = t.index(FULL_MARKER, start)
+    titles = dict(FEATURED)
+    order = ORIGINAL_ORDER + [p["slug"] for p in PROJECTS]
+    items = []
+    for i, slug in enumerate(order):
+        tail = '<!----></span>' if i == len(order) - 1 else BULLET
+        items.append('<span class="relative flex"><a href="/projects/' + slug + '" ' +
+                     FULL_CLASS + '>' + titles[slug] + '</a>' + tail)
+    return t[:start] + ''.join(items) + t[end:]
 
 
 # ------------------------------------------------- original detail pages

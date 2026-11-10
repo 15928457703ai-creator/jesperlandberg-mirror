@@ -768,6 +768,24 @@
      "reel_card.jpg"
     ],
     "video": "reel.mp4"
+   },
+   {
+    "n": 12,
+    "files": [
+     "gift-motion.jpg",
+     "gift-motion_small.jpg",
+     "gift-motion_card.jpg"
+    ],
+    "video": "gift-motion.mp4"
+   },
+   {
+    "n": 13,
+    "files": [
+     "launch-motion.jpg",
+     "launch-motion_small.jpg",
+     "launch-motion_card.jpg"
+    ],
+    "video": "launch-motion.mp4"
    }
   ]
  },

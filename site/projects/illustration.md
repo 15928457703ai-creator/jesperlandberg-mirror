@@ -29,3 +29,11 @@
 ![插画 11](http://127.0.0.1:__PORT__/illustration/reel.jpg)
 
 [Watch video](http://127.0.0.1:__PORT__/illustration/reel.mp4)
+
+![插画 12](http://127.0.0.1:__PORT__/illustration/gift-motion.jpg)
+
+[Watch video](http://127.0.0.1:__PORT__/illustration/gift-motion.mp4)
+
+![插画 13](http://127.0.0.1:__PORT__/illustration/launch-motion.jpg)
+
+[Watch video](http://127.0.0.1:__PORT__/illustration/launch-motion.mp4)
