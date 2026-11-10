@@ -1,10 +1,11 @@
-// Regression pass for the local copy motion (arrival wipe + magnetic skew).
+// Regression pass for the local copy motion (top-down line reveal + magnetic
+// skew). See verify_copy_lines.js for the timing/order assertions.
 //
 // Checks, per local case study:
 //   * the active sheet's copy is split into glyph spans (pointer skew can run)
 //   * the split did not change line breaking: no line may start with a
 //     closing CJK mark (the classic "lone 。" regression)
-//   * the arrival wipe actually runs on SPA entry (clip-path animates)
+//   * the line reveal actually runs on SPA entry (clip-path animates)
 //   * the pointer leans glyphs and they settle back afterwards
 // and once globally:
 //   * stock (WebGL) case studies are untouched -- no glyph spans there
@@ -125,33 +126,34 @@ function check(name, ok, detail) {
     check(slug + ' glyphs settle back', settled < 0.6, 'residualSkew=' + settled.toFixed(2));
   }
 
-  // arrival wipe on SPA entry
+  // line reveal on SPA entry (one animation per glyph, staggered per line)
   await page.goto(BASE + '/', { waitUntil: 'networkidle' });
   await wait(2200);
   const wipe = await page.evaluate(async () => {
     const card = document.querySelector('[data-gl="card"][data-id="erp"]');
     (card.querySelector('a') || card).click();
     return new Promise((resolve) => {
-      const seen = [];
       let n = 0;
       const step = () => {
         const body = document.querySelector('[data-gl="sheet"][data-lc-state="in"] div[data-gl="text"]');
         if (body) {
-          const anims = body.getAnimations();
-          seen.push(anims.length);
+          const gs = [...body.querySelectorAll('.lc-c')];
+          const anims = gs.flatMap((g) => g.getAnimations());
           if (anims.length) {
-            const a = anims[0];
-            resolve({ animated: true, clip: getComputedStyle(body).clipPath, elapsed: a.currentTime });
+            const delays = [...new Set(anims.map((a) => Math.round(a.effect.getTiming().delay)))];
+            resolve({ animated: true, count: anims.length, delays,
+              clip: getComputedStyle(gs[0]).clipPath });
             return;
           }
         }
-        if (++n > 60) return resolve({ animated: false, seen });
+        if (++n > 120) return resolve({ animated: false });
         requestAnimationFrame(step);
       };
       step();
     });
   });
-  check('entry wipe runs on the copy', wipe.animated === true, JSON.stringify(wipe));
+  check('entry line reveal runs on the copy', wipe.animated === true && wipe.delays.length >= 2,
+    JSON.stringify(wipe));
 
   // stock pages must stay untouched
   for (const slug of STOCK) {

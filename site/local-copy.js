@@ -11,8 +11,8 @@
  * stock ones:
  *
  *   1. the life cycle (copy must not survive the sheet it belongs to), and
- *   2. the copy motion -- the top-down wipe on arrival plus the magnetic
- *      skew the stock glyph meshes get from the pointer
+ *   2. the copy motion -- the stock renderer's top-down line reveal plus the
+ *      magnetic skew the glyph meshes get from the pointer
  *      (|pointer.x - glyph.x| leans the glyph, falling off with distance).
  *
  * What it does
@@ -22,11 +22,31 @@
  *     data-lc-state="in"   sheet belongs to the current URL -> reveal once
  *     data-lc-state="out"  any other local sheet -> hidden immediately
  *
- * /local-copy.css hides the "out" state. The "in" reveal is a 460 ms wipe
- * (title first, then the paragraph 70 ms later) driven through the Web
- * Animations API, and the copy of the active sheet is then split into one
- * inline-block span per glyph so the pointer can skew it. Direct page loads
- * are not re-animated: the first paint already belongs to that route.
+ * /local-copy.css hides the "out" state and holds the "in" state at opacity 0
+ * until this runtime has taken over (so a cold load does not paint the copy
+ * before the WebGL intro even starts). The reveal is driven through the Web
+ * Animations API on one inline-block span per glyph.
+ *
+ * The stock text shader (_nuxt bundle, "Line reveal") is the reference:
+ *
+ *     lp      = clamp((progress - line * stagger) / window, 0, 1)
+ *     lp      = 1 - 2^(-10 * lp)                       // expo out, per line
+ *     slide   = (1 - lp) * pitch                      // pitch = 1.15 line h
+ *     travel  = (1 - lp) * u_riseIn * pitch           // u_riseIn = 1
+ *     window  = [inkTop, inkTop + pitch]              // fixed per-line mask
+ *
+ * i.e. lines start 75 ms apart, each taking 1.1 s to rise 2.3 line heights
+ * into a mask window pinned to its resting box; the top of a glyph enters the
+ * window first, so the ink reads as arriving from the top down. The DOM cannot
+ * have a fixed mask without restructuring the paragraph, so each glyph keeps
+ * its own window: clip-path's bottom inset is animated to (offset - slack),
+ * which leaves the visible band's bottom edge pinned in page space while the
+ * glyph translates up. Both share the same expo-out clock, exactly like the
+ * shader's slide / window / travel.
+ *
+ * Entrance times are the stock choreography (Kp / BF in the bundle):
+ *     SPA entry   title +250 ms, paragraph +350 ms (pills +500 ms, WebGL)
+ *     cold load   the same offsets from the loader's release
  *
  * Hydration safety: no SSR markup changes (no extra attributes nor nodes). The
  * state attribute is only written after `load`, i.e. after Vue hydrated, and
@@ -68,6 +88,35 @@
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var canHover = window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches;
   var supportsWAAPI = typeof Element.prototype.animate === 'function';
+  var supportsClip = !window.CSS || !CSS.supports ||
+    CSS.supports('clip-path', 'inset(0px 0px 10px 0px)');
+  var useTranslate = !window.CSS || !CSS.supports ||
+    CSS.supports('translate', '0px 1px');
+
+  /* Stock text choreography, in ms. Kp = {title:{at:.25,dur:1.25},
+   * text:{at:.35,dur:1.1,stagger:.075,step:.09}} and the shader's
+   * timing(dur, stagger) gives every line its own 1.1 s expo-out window. */
+  var LINE_DUR = 1100;
+  var LINE_STAGGER = 75;
+  var TITLE_AT = 250;
+  var TEXT_AT = 350;
+  var PITCH = 1.15;      // aPitch = line height * 1.15
+  var TRAVEL = 1;        // u_riseIn, extra pitch of entrance travel
+
+  // Cold-load choreography. The site removes its three [data-gl="bar"] loader
+  // pills 0.5 s after bootRelease(); the stock copy starts at bootRelease +
+  // 0.75 / 0.85 s, i.e. 250 / 350 ms after that signal. If the loader never
+  // resolves (headless/software WebGL), the fallback below releases the copy
+  // so it can never be stranded invisible.
+  var bootHold = true;
+  var bootClock = 0;
+  var bootQueued = false;
+  var bootDone = false;
+  var bootStarted = false;
+  var bootFallback = 0;
+  var routeClock = 0;
+  var navPending = false;   // a real pushState / popstate happened
+  var lastPath = null;      // last pathname seen by sync()
 
   /* === glyph splitting ---------------------------------------------------
    * One inline-block span per glyph (latin words stay unbreakable) so each
@@ -82,6 +131,7 @@
   var OPEN_MARK = /[（(［\[｛\{「『【《〈“‘]/;
   var records = [];              // records of the copy currently on screen
   var splitIndex = new WeakMap(); // element -> record
+  var revealCtx = new WeakMap();  // element -> entrance still in flight
 
   function makeSpan(cls, text) {
     var s = document.createElement('span');
@@ -301,7 +351,9 @@
   }
 
   function mountCopy(el) {
-    if (reduce || !canHover) return null;
+    if (reduce) return null;
+    // Splitting is needed for the line reveal too, not just for the pointer
+    // skew, so it runs on touch devices as well. The skew loop is idle there.
     // Vue may have rewritten the copy (SPA re-use) -- our spans are gone and
     // the element holds a plain text node again.
     var rec = splitIndex.get(el);
@@ -317,14 +369,104 @@
     if (rec) dropRecord(rec);
     var fresh = splitElement(el);
     records.push(fresh);
+    // Vue may replace the copy with a plain text node while the entrance is
+    // still running (SPA re-use of the sheet). The new spans would otherwise
+    // paint at rest and lose the top-down reveal, so re-issue it with the
+    // remaining delay.
+    var ctx = revealCtx.get(el);
+    if (ctx && performance.now() < ctx.end) {
+      animateRec(fresh, Math.max(0, ctx.clock + ctx.at - performance.now()));
+    }
     return fresh;
   }
 
-  /* === arrival wipe ------------------------------------------------------
-   * The stock copy is wiped in from the top with the sheet, title first and
-   * the paragraph a beat later. A hard clip reads as the same gesture; the
-   * opacity ramp is kept short so the copy does not look like it fades.
+  /* === arrival: ordered top-to-bottom line reveal ------------------------
+   * Mirrors the stock text shader. Each visual line gets its own expo-out
+   * clock, offset by LINE_STAGGER, and its glyphs rise into a mask window
+   * whose bottom edge stays pinned in page space.
    * ==================================================================== */
+  function cancelReveal(el) {
+    if (!el || !el.getAnimations) return;
+    var anims = el.getAnimations();
+    for (var i = 0; i < anims.length; i++) {
+      if (anims[i].id === 'lc-reveal') anims[i].cancel();
+    }
+  }
+
+  function buildLines(rec) {
+    // Group glyph spans by the visual line they landed on. Glyph centres are
+    // used (not tops) because CJK and Latin glyph boxes have different ascent.
+    var lines = [];
+    var cur = null;
+    var cy = null;
+    for (var i = 0; i < rec.chars.length; i++) {
+      var g = rec.chars[i];
+      var r = g.getBoundingClientRect();
+      if (!r.height) continue;
+      var mid = r.top + r.height / 2;
+      if (!cur || Math.abs(mid - cy) > Math.max(7, r.height * 0.7)) {
+        cur = [];
+        lines.push(cur);
+        cy = mid;
+      }
+      cur.push(g);
+    }
+    return lines;
+  }
+
+  function lineHeightOf(el) {
+    var cs = getComputedStyle(el);
+    var lh = parseFloat(cs.lineHeight);
+    if (isFinite(lh) && lh > 0) return lh;
+    return (parseFloat(cs.fontSize) || 16) * 1.4;
+  }
+
+  function framesFor(h, lh) {
+    // d = (1 - lp) * (slide + travel); the window's bottom inset keeps the
+    // visible band's lower edge at the line's resting bottom (lh * PITCH).
+    var pitch = lh * PITCH;
+    var d0 = pitch * (1 + TRAVEL);
+    var slack = Math.max(0, pitch - h);
+    var frames = [];
+    for (var k = 0; k <= 12; k++) {
+      var p = k / 12;
+      var lp = 1 - Math.pow(2, -10 * p);
+      var d = d0 * (1 - lp);
+      var bottom = Math.max(0, d - slack);
+      var f = { offset: p, opacity: 1 };
+      if (useTranslate) f.translate = '0px ' + d.toFixed(2) + 'px';
+      else f.transform = 'translate3d(0,' + d.toFixed(2) + 'px,0)';
+      f.clipPath = 'inset(0px 0px ' + bottom.toFixed(2) + 'px 0px)';
+      frames.push(f);
+    }
+    return frames;
+  }
+
+  function animateRec(rec, delay) {
+    if (!rec || !supportsWAAPI || !supportsClip) return;
+    // Cancel first: a still-running reveal translates the glyphs, which would
+    // corrupt the line grouping and the height measurement below.
+    for (var k = 0; k < rec.chars.length; k++) cancelReveal(rec.chars[k]);
+    var lines = buildLines(rec);
+    var lh = lineHeightOf(rec.el);
+    for (var i = 0; i < lines.length; i++) {
+      var glyphs = lines[i];
+      for (var j = 0; j < glyphs.length; j++) {
+        var g = glyphs[j];
+        var h = g.getBoundingClientRect().height || lh;
+        var anim = g.animate(framesFor(h, lh), {
+          duration: LINE_DUR,
+          delay: Math.max(0, delay + i * LINE_STAGGER),
+          easing: 'linear',       // expo out is baked into the keyframes
+          fill: 'backwards'       // stay hidden during the per-line delay
+        });
+        anim.id = 'lc-reveal';
+      }
+    }
+  }
+
+  // Fallback for browsers without clip-path animation support: the old
+  // whole-block wipe. Not used in Chromium/WebKit/Firefox today.
   function wipe(node, delay, duration) {
     if (!node || !supportsWAAPI) return;
     node.animate(
@@ -337,21 +479,38 @@
     );
   }
 
-  function reveal(sheet) {
-    if (reduce) return;
+  function markReady() {
+    if (root.getAttribute('data-lc') !== 'ready') root.setAttribute('data-lc', 'ready');
+  }
+
+  function reveal(sheet, clock) {
+    if (reduce) { markReady(); return; }
     var id = sheet.getAttribute('data-id');
     var hasTitle = Object.prototype.hasOwnProperty.call(CJK_TITLE, id);
     var title = hasTitle ? sheet.querySelector('h1') : null;
     var body = sheet.querySelector('div[data-gl="text"]');
+    var now = performance.now();
+    var tDelay = Math.max(0, clock + TITLE_AT - now);
+    var bDelay = Math.max(0, clock + TEXT_AT - now);
+    var end = clock + TEXT_AT + LINE_DUR + 12 * LINE_STAGGER;
 
-    wipe(title, 0, 440);
-    wipe(body, 70, 480);
+    var recT = title ? mountCopy(title) : null;
+    var recB = body ? mountCopy(body) : null;
+    if (title) revealCtx.set(title, { clock: clock, at: TITLE_AT, end: end });
+    if (body) revealCtx.set(body, { clock: clock, at: TEXT_AT, end: end });
 
-    if (canHover) {
-      mountCopy(body);
-      if (title) mountCopy(title);
-      scheduleTick();
+    if (!supportsWAAPI || !supportsClip) {
+      wipe(title, tDelay, 440);
+      wipe(body, bDelay, 480);
+    } else {
+      animateRec(recT, tDelay);
+      animateRec(recB, bDelay);
     }
+    // Remove the CSS hold only after the animations exist: they carry the
+    // hidden first keyframe backwards through their per-line delay, so the
+    // copy cannot flash at full opacity in between.
+    markReady();
+    if (canHover) scheduleTick();
   }
 
   function currentSlug() {
@@ -361,7 +520,17 @@
 
   function sync() {
     var slug = currentSlug();
+    var path = location.pathname;
     var changed = slug !== lastSlug;
+    // Nuxt calls replaceState() several times with the SAME url while
+    // hydrating. Those must not be mistaken for an entrance: only a real
+    // pushState / popstate that actually changed the pathname is one.
+    var entering = bootDone && navPending && path !== lastPath;
+    if (entering) {
+      navPending = false;
+      routeClock = performance.now();
+      endBootHold();
+    }
     var sheets = document.querySelectorAll('[data-gl="sheet"][data-id]');
     var i;
 
@@ -394,17 +563,19 @@
       var isNew = !known.has(sheet);
       if (isNew) known.add(sheet);
 
-      if (isNew || changed || idChanged) revealed['delete'](sheet);
+      // During the cold-load hold the intro choreography owns the entrance;
+      // sync() only keeps the states correct and must not reveal.
+      if (!bootHold && (isNew || changed || idChanged)) revealed['delete'](sheet);
 
-      if (!revealed.has(sheet)) {
+      if (!bootHold && !revealed.has(sheet)) {
         revealed.add(sheet);
-        if (isNew || changed || idChanged) reveal(sheet);
+        if (isNew || changed || idChanged) reveal(sheet, routeClock || performance.now());
       }
 
       // Hydration (and any later Vue re-render) replaces our glyph spans with
       // a plain text node, so the split is re-asserted on every pass; the
       // check is a single string comparison when nothing changed.
-      if (canHover) {
+      if (!reduce) {
         var body = sheet.querySelector('div[data-gl="text"]');
         if (body) mountCopy(body);
         if (Object.prototype.hasOwnProperty.call(CJK_TITLE, id)) {
@@ -415,6 +586,7 @@
     }
 
     lastSlug = slug;
+    lastPath = path;
   }
 
   // Run synchronously: the state has to be correct in the very frame the new
@@ -432,11 +604,12 @@
     if (typeof original !== 'function') return;
     history[name] = function () {
       var out = original.apply(this, arguments);
+      if (name === 'pushState') navPending = true;
       schedule();
       return out;
     };
   });
-  window.addEventListener('popstate', schedule);
+  window.addEventListener('popstate', function () { navPending = true; schedule(); });
   window.addEventListener('hashchange', schedule);
   window.addEventListener('resize', function () {
     for (var i = 0; i < records.length; i++) records[i].dirty = true;
@@ -448,10 +621,66 @@
     document.addEventListener('mouseleave', onLeave, { passive: true });
   }
 
+  /* === cold-load choreography ==========================================
+   * The stock WebGL copy does not paint on first frame either: it waits for
+   * bootRelease() (loader off + 0.25 / 0.35 s). The DOM copy is held by
+   * /local-copy.css until the same moment, then revealed with the same
+   * top-down line stagger. The loader's three [data-gl="bar"] pills are the
+   * observable signal: Vue removes them 0.5 s after bootRelease().
+   * ==================================================================== */
+  function endBootHold() {
+    if (!bootHold) return;
+    bootHold = false;
+    bootStarted = true;
+    clearTimeout(bootFallback);
+    markReady();
+  }
+
+  function onLoaderRelease() {
+    if (bootQueued) return;
+    bootQueued = true;
+    bootClock = performance.now();
+    if (bootDone) startBootReveal(bootClock);
+  }
+
+  function startBootReveal(clock) {
+    if (bootStarted || !bootDone) return;
+    bootStarted = true;
+    clearTimeout(bootFallback);
+    bootHold = false;
+    if (reduce) { markReady(); return; }
+    var slug = currentSlug();
+    var sheets = document.querySelectorAll('[data-gl="sheet"][data-lc-state="in"][data-id]');
+    for (var i = 0; i < sheets.length; i++) {
+      var id = sheets[i].getAttribute('data-id');
+      if (id !== slug || !Object.prototype.hasOwnProperty.call(LOCAL, id)) continue;
+      revealed['delete'](sheets[i]);
+      reveal(sheets[i], clock);
+      revealed.add(sheets[i]);
+    }
+    markReady();   // home / stock pages have no local sheet to reveal
+  }
+
+  function watchLoader() {
+    if (!window.MutationObserver) return;
+    var seen = document.querySelectorAll('[data-gl="bar"]').length > 0;
+    var obs = new MutationObserver(function () {
+      var n = document.querySelectorAll('[data-gl="bar"]').length;
+      if (n > 0) seen = true;
+      if (seen && n === 0) {
+        obs.disconnect();
+        onLoaderRelease();
+      }
+    });
+    obs.observe(document.documentElement, { childList: true, subtree: true });
+    // Software WebGL / a stalled preload may never resolve the loader. Never
+    // leave the copy hidden: release it on this generous fallback instead.
+    setTimeout(function () { obs.disconnect(); }, 12000);
+  }
+
   function boot() {
-    root.setAttribute('data-lc', 'ready');
-    // Prime the states without animating: on a direct page load the copy is
-    // already on screen and belongs to this route.
+    // Prime the states without revealing: the intro choreography owns the
+    // entrance on a cold load and will call startBootReveal() itself.
     var sheets = document.querySelectorAll('[data-gl="sheet"][data-id]');
     var slug = currentSlug();
     for (var i = 0; i < sheets.length; i++) {
@@ -460,7 +689,7 @@
       sheets[i].setAttribute('data-lc-state', id === slug ? 'in' : 'out');
       known.add(sheets[i]);
       revealed.add(sheets[i]);
-      if (id === slug && !reduce && canHover) {
+      if (id === slug && !reduce) {
         var body = sheets[i].querySelector('div[data-gl="text"]');
         var title = sheets[i].querySelector('h1');
         if (body) mountCopy(body);
@@ -468,6 +697,18 @@
       }
     }
     lastSlug = slug;
+    lastPath = location.pathname;
+    bootDone = true;
+
+    if (reduce) { endBootHold(); markReady(); }
+    else {
+      watchLoader();
+      if (bootQueued && !bootStarted) startBootReveal(bootClock);
+      // Fallback for a loader that never resolves (see watchLoader).
+      bootFallback = setTimeout(function () {
+        if (!bootStarted) { onLoaderRelease(); startBootReveal(bootClock); }
+      }, 2500);
+    }
 
     if (window.MutationObserver) {
       // A sheet can be mounted a few frames after the URL changed (the SPA

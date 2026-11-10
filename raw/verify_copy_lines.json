@@ -1,0 +1,410 @@
+{
+ "pass": 66,
+ "fails": [],
+ "report": [
+  {
+   "slug": "oppo-service",
+   "scene": "entry",
+   "lines": {
+    "delays": [
+     345,
+     420,
+     495,
+     570
+    ],
+    "gaps": [
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 75,
+   "settled": {
+    "text": "OPPO 服务小程序 UI 体验升级：从现状与目标出发重构信息架构，建立品牌色与设计系统，统一服务预约、门店查询与进度追踪等核心流程，关键指标提升 6.74× 与 4.89×。",
+    "opacity": 1,
+    "anims": 0,
+    "clip": "none",
+    "translate": "none",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "naivideo",
+   "scene": "entry",
+   "lines": {
+    "delays": [
+     347,
+     422,
+     497,
+     572
+    ],
+    "gaps": [
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 443,
+   "settled": {
+    "text": "Naivideo 海外 AI 创作工具：面向 AI 视频与音乐生成的一站式创作平台，以 AI Studio、AI Effects 与 Agent 创作打通从灵感到成片的完整链路，构建沉浸观看、社交裂变与资产全生命周期管理，并支持 PC 横向扩展与商业化闭环。",
+    "opacity": 1,
+    "anims": 0,
+    "clip": "none",
+    "translate": "none",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "oppo-self-service",
+   "scene": "entry",
+   "lines": {
+    "delays": [
+     346,
+     421,
+     496,
+     571,
+     646,
+     721
+    ],
+    "gaps": [
+     75,
+     75,
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 95,
+   "settled": {
+    "text": "OPPO 自助服务大型项目落地多平台：覆盖国内版 my oppo、国际版 my oppo 与官网 PC 三端，重新搭建层级和场景清晰的服务框架，按账号管理、设备管理、问题场景、功能与内容重新组织服务信息，并针对各业务场景基于实际问题做优化补充，提升内容的易寻、易用性与交互成功率。",
+    "opacity": 1,
+    "anims": 0,
+    "clip": "none",
+    "translate": "none",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "erp",
+   "scene": "entry",
+   "lines": {
+    "delays": [
+     346,
+     421,
+     496,
+     571
+    ],
+    "gaps": [
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 156,
+   "settled": {
+    "text": "金沙白酒 ERP 1.0 制造业数字化：从 0 到 1 搭建移动端 ERP 体验，覆盖生产、采购、库存与仓库管理四大核心流程，为 60+ 工厂的仓管与操作员提供日常指令、入库与退货服务，解决办公场景转移下电脑无法移动的作业瓶颈。",
+    "opacity": 1,
+    "anims": 0,
+    "clip": "none",
+    "translate": "none",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "csa-service",
+   "scene": "entry",
+   "lines": {
+    "delays": [
+     347,
+     422,
+     497,
+     572,
+     647,
+     722
+    ],
+    "gaps": [
+     75,
+     75,
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 158,
+   "settled": {
+    "text": "CSA 客户服务：基于 2022 年 OPPO 凤凰计划 G-CSM 重构，对 CSA 移动端内容与缺失场景做补充优化。面向服务顾问、维修工程师与网点主管，承载于 iPad mini 与 OPPO PAD，统一服务门户、提供一站式服务体验；补充用户到店取号与叫号、叫号大屏状态联动等场景，推广至 180+ 门店使用，取号大屏覆盖门店数提升至 500+。",
+    "opacity": 1,
+    "anims": 0,
+    "clip": "none",
+    "translate": "none",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "hengxiang-advantage",
+   "scene": "entry",
+   "lines": {
+    "delays": [
+     347,
+     422,
+     497,
+     572,
+     647,
+     722
+    ],
+    "gaps": [
+     75,
+     75,
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 105,
+   "settled": {
+    "text": "横向优势：以视觉表现为核心的能力横向拓展，覆盖插画、3D 渲染与 AIGC 运用。作为视觉中国签约插画师，将插画与 3D 输出沉淀为可复用的材质库与 IP 资产，落地到运营项目（渠道订货、在线对账、政策可视），并运用 AIGC 制作比赛宣传、年末贺岁、数字人采访等视频，为各业务线设计落地 IP。",
+    "opacity": 1,
+    "anims": 0,
+    "clip": "none",
+    "translate": "none",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "illustration",
+   "scene": "entry",
+   "lines": {
+    "delays": [
+     347,
+     422,
+     497,
+     572,
+     647,
+     722
+    ],
+    "gaps": [
+     75,
+     75,
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 110,
+   "settled": {
+    "text": "插画：以视觉表现力为核心的横向创作能力。作为视觉中国签约插画师，将商业插画、IP 形象与运营视觉沉淀为可复用的素材与材质资产，覆盖花卉、节庆、人物与数字艺术等主题；并以动态影像与 3D 动效把静态插画延展为可播放的作品集，落地到比赛宣传、年末贺岁与业务线 IP 设计。",
+    "opacity": 1,
+    "anims": 0,
+    "clip": "none",
+    "translate": "none",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "oppo-service",
+   "scene": "cold",
+   "readyAt": 8123,
+   "firstAnimAt": 8123,
+   "lines": {
+    "delays": [
+     350,
+     425,
+     500,
+     575
+    ],
+    "gaps": [
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 8123,
+   "after": {
+    "op": 1,
+    "anims": 0,
+    "spans": 76,
+    "text": "OPPO 服务小程序 UI 体验升级：从现状与目",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "naivideo",
+   "scene": "cold",
+   "readyAt": 8187,
+   "firstAnimAt": 8187,
+   "lines": {
+    "delays": [
+     350,
+     425,
+     500,
+     575
+    ],
+    "gaps": [
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 8187,
+   "after": {
+    "op": 1,
+    "anims": 0,
+    "spans": 109,
+    "text": "Naivideo 海外 AI 创作工具：面向 A",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "oppo-self-service",
+   "scene": "cold",
+   "readyAt": 8560,
+   "firstAnimAt": 8560,
+   "lines": {
+    "delays": [
+     350,
+     425,
+     500,
+     575,
+     650,
+     725
+    ],
+    "gaps": [
+     75,
+     75,
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 8560,
+   "after": {
+    "op": 1,
+    "anims": 0,
+    "spans": 121,
+    "text": "OPPO 自助服务大型项目落地多平台：覆盖国内版",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "erp",
+   "scene": "cold",
+   "readyAt": 7959,
+   "firstAnimAt": 7959,
+   "lines": {
+    "delays": [
+     350,
+     425,
+     500,
+     575
+    ],
+    "gaps": [
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 7959,
+   "after": {
+    "op": 1,
+    "anims": 0,
+    "spans": 95,
+    "text": "金沙白酒 ERP 1.0 制造业数字化：从 0 ",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "csa-service",
+   "scene": "cold",
+   "readyAt": 8183,
+   "firstAnimAt": 8183,
+   "lines": {
+    "delays": [
+     350,
+     425,
+     500,
+     575,
+     650,
+     725
+    ],
+    "gaps": [
+     75,
+     75,
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 8183,
+   "after": {
+    "op": 1,
+    "anims": 0,
+    "spans": 147,
+    "text": "CSA 客户服务：基于 2022 年 OPPO ",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "hengxiang-advantage",
+   "scene": "cold",
+   "readyAt": 7879,
+   "firstAnimAt": 7879,
+   "lines": {
+    "delays": [
+     350,
+     425,
+     500,
+     575,
+     650,
+     725
+    ],
+    "gaps": [
+     75,
+     75,
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 7879,
+   "after": {
+    "op": 1,
+    "anims": 0,
+    "spans": 123,
+    "text": "横向优势：以视觉表现为核心的能力横向拓展，覆盖插",
+    "lc": "ready"
+   }
+  },
+  {
+   "slug": "illustration",
+   "scene": "cold",
+   "readyAt": 7947,
+   "firstAnimAt": 7947,
+   "lines": {
+    "delays": [
+     350,
+     425,
+     500,
+     575,
+     650,
+     725
+    ],
+    "gaps": [
+     75,
+     75,
+     75,
+     75,
+     75
+    ]
+   },
+   "firstAt": 7947,
+   "after": {
+    "op": 1,
+    "anims": 0,
+    "spans": 118,
+    "text": "插画：以视觉表现力为核心的横向创作能力。作为视觉",
+    "lc": "ready"
+   }
+  }
+ ],
+ "errors": []
+}
