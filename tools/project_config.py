@@ -3,7 +3,7 @@
 Two different orders live here:
   * DISPLAY_ORDER -> relative order of the local projects in data.projects,
     the /full catalogue, sitemap and markdown.
-  * HOME_ORDER    -> the COMPLETE 15-item permutation of the home card strip;
+  * HOME_ORDER    -> the COMPLETE 16-item permutation of the home card strip;
     this also drives home.featured in every payload / the GraphQL replay and
     the detail-page prev/next ring. See the notes next to HOME_ORDER.
 """
@@ -183,13 +183,29 @@ PROJECTS = [
                  ("illu-tag-year", "2026", None)],
         "meta": _meta("illustration", "raw/project_images/illustration.json"),
     },
+    {
+        "slug": "ai-video",
+        "title": "AI短视频",
+        "pid": "ai-short-video-2026",
+        "dir": "ai-video",
+        "desc": "AI 创新实验·儿童故事短视频：以 AIGC 生成工作流打造累计播放破百万的儿童故事系列。担任项目主理人，从设计背景、技术应用与内容运营三类挑战出发，建立数据驱动的选题、封面与剧情迭代策略，并用 LoRA 角色一致性训练、AI 视频模型与自动化工作流把单集制作从 5 天压缩到 0.5 天，形成内容运营与技术应用互相成就的规模化生产链路。",
+        "short": "AI 创新实验·儿童故事短视频，AIGC 工作流与 LoRA 角色一致性驱动的百万播放系列。",
+        # The home cover is the requested "01" title page (1.jpg). No
+        # home_cover override here: this project's card is a still, so
+        # cover() falls through to meta[0] both for the card and for the
+        # first slide of the detail sheet.
+        "tags": [("aiv-tag-aigc", "AIGC", None),
+                 ("aiv-tag-video", "AI / Video", None),
+                 ("aiv-tag-year", "2026", None)],
+        "meta": _meta("ai-video", "raw/project_images/ai-video.json"),
+    },
 ]
 
 # Relative order of the locally added case studies. DIFFERENT from the home
 # strip: this drives data.projects, the /full index, sitemap and markdown.
 DISPLAY_ORDER = ["oppo-service", "naivideo", "oppo-self-service",
                  "erp", "csa-service", "hengxiang-advantage",
-                 "illustration"]
+                 "illustration", "ai-video"]
 assert set(DISPLAY_ORDER) == {p["slug"] for p in PROJECTS}
 PROJECTS.sort(key=lambda p: DISPLAY_ORDER.index(p["slug"]))
 
@@ -208,11 +224,12 @@ ORIGINAL_FEATURED = [
 
 # ---------------------------------------------------------------------------
 # HOME_ORDER is THE single source of truth for the home card strip.
-# A complete 15-item permutation (1-based positions):
+# A complete 16-item permutation (1-based positions):
 #    1 oppo-service      2 naivideo            3 oppo-self-service
 #    4 erp               5 csa-service         6 hengxiang-advantage
-#    7..14  the eight original case studies, in their own recorded order
-#   15 illustration
+#    7 ai-video
+#    8..15  the eight original case studies, in their own recorded order
+#   16 illustration
 # The client's `useAsyncData("featured")` reads home.featured and computes
 # BOTH the home strip and each detail page's prev/next ring from that one
 # array. So home.featured in every Nuxt payload + the GraphQL replay, the SSR
@@ -220,11 +237,11 @@ ORIGINAL_FEATURED = [
 # derived from this list, otherwise Vue reports hydration mismatches.
 # ---------------------------------------------------------------------------
 LOCAL_HEAD = ["oppo-service", "naivideo", "oppo-self-service",
-              "erp", "csa-service", "hengxiang-advantage"]
+              "erp", "csa-service", "hengxiang-advantage", "ai-video"]
 LOCAL_TAIL = ["illustration"]
 ORIGINAL_ORDER = [s for s, _ in ORIGINAL_FEATURED]
 HOME_ORDER = LOCAL_HEAD + ORIGINAL_ORDER + LOCAL_TAIL
-assert len(HOME_ORDER) == 15 and len(set(HOME_ORDER)) == 15
+assert len(HOME_ORDER) == 16 and len(set(HOME_ORDER)) == 16
 assert set(HOME_ORDER) == set(ORIGINAL_ORDER) | {p["slug"] for p in PROJECTS}
 
 _TITLES = dict(ORIGINAL_FEATURED)

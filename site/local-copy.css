@@ -20,6 +20,7 @@
 [data-gl="sheet"][data-id="csa-service"] div[data-gl="text"],
 [data-gl="sheet"][data-id="hengxiang-advantage"] div[data-gl="text"],
 [data-gl="sheet"][data-id="illustration"] div[data-gl="text"],
+[data-gl="sheet"][data-id="ai-video"] div[data-gl="text"],
 /* CJK titles cannot be drawn by the Latin glyph atlas either. English
  * titles (Naivideo, ERP) are intentionally left to WebGL to avoid a double
  * render of the same text. */
@@ -27,7 +28,8 @@
 [data-gl="sheet"][data-id="oppo-self-service"] h1,
 [data-gl="sheet"][data-id="csa-service"] h1,
 [data-gl="sheet"][data-id="hengxiang-advantage"] h1,
-[data-gl="sheet"][data-id="illustration"] h1 {
+[data-gl="sheet"][data-id="illustration"] h1,
+[data-gl="sheet"][data-id="ai-video"] h1 {
   -webkit-text-fill-color: #000 !important;
   color: #000 !important;
   /* No `opacity: 1 !important` here on purpose: an !important declaration
@@ -56,11 +58,13 @@ html:not([data-lc="ready"]) [data-gl="sheet"][data-id="oppo-self-service"] div[d
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="csa-service"] div[data-gl="text"],
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="hengxiang-advantage"] div[data-gl="text"],
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="illustration"] div[data-gl="text"],
+html:not([data-lc="ready"]) [data-gl="sheet"][data-id="ai-video"] div[data-gl="text"],
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="oppo-service"] h1,
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="oppo-self-service"] h1,
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="csa-service"] h1,
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="hengxiang-advantage"] h1,
-html:not([data-lc="ready"]) [data-gl="sheet"][data-id="illustration"] h1 {
+html:not([data-lc="ready"]) [data-gl="sheet"][data-id="illustration"] h1,
+html:not([data-lc="ready"]) [data-gl="sheet"][data-id="ai-video"] h1 {
   opacity: 0;
   animation: lcBootFallback .01s linear 20s forwards;
 }

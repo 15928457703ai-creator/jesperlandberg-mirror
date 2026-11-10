@@ -48,3 +48,5 @@ _Every page on http://127.0.0.1:__PORT__ is also available as Markdown: send `Ac
 - [横向优势](http://127.0.0.1:__PORT__/projects/hengxiang-advantage.md): 横向优势：插画 / 3D 渲染 / AIGC 运用的能力拓展与运营落地。
 
 - [插画](http://127.0.0.1:__PORT__/projects/illustration.md): 插画：视觉中国签约插画师作品集，商业插画 / IP 视觉 / 动态影像。
+
+- [AI短视频](http://127.0.0.1:__PORT__/projects/ai-video.md): AI 创新实验·儿童故事短视频，AIGC 工作流与 LoRA 角色一致性驱动的百万播放系列。

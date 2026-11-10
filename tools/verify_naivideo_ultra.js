@@ -6,7 +6,7 @@
       FLIP focus + arrow keys + ESC, D/R/Space shortcuts, console controls,
       reduced-motion fallback.
    2. Capture mode: deterministic 16s seek hook, UI hidden.
-   3. Home: 15 cards in order, WebGL video texture /naivideo/live.mp4
+   3. Home: 16 cards in order, WebGL video texture /naivideo/live.mp4
       playing, duration ~16s, 1600x900.
    4. Payload + detail page unchanged (8 slides, poster og, CJK copy).
    5. Zero page/console/hydration errors, 4xx and external requests.
@@ -65,7 +65,14 @@ const HOOK = () => {
   // ------------------------------------------------------------- SHOWCASE
   mark('goto showcase');
   await page.goto(ORIGIN + '/naivideo-ultra', { waitUntil: 'networkidle', timeout: 60000 });
-  await wait(3400);                                   // let the intro finish
+  // The intro fade is GSAP-driven. A fixed 3.4 s can sample it mid-tween
+  // under software WebGL (opacity ~0.06), which used to fail okShow even
+  // though the showcase is fine. Wait for the actual end state instead.
+  await page.waitForFunction(() => {
+    const c = document.querySelector('.card-3d');
+    return c && parseFloat(getComputedStyle(c).opacity) > .99;
+  }, null, { timeout: 30000 }).catch(() => {});
+  await wait(300);
   const show = await page.evaluate(() => ({
     cards: document.querySelectorAll('.card').length,
     images: [...document.images].filter(i => i.naturalWidth > 0).length,
@@ -302,7 +309,7 @@ const HOOK = () => {
     cap.cards === 11 && cap.ui === 'none';
   const playing = !!(a && b && a.ready >= 2 && b.t > a.t && b.dur &&
     Math.abs(b.dur - 16) < .25 && b.w === 1600 && b.h === 900);
-  const okHome = home.cards === 15 && home.canvas === 1 &&
+  const okHome = home.cards === 16 && home.canvas === 1 &&
     home.siteName === 'Fengmei' &&
     JSON.stringify(home.order) === JSON.stringify(['oppo-service', 'naivideo', 'oppo-self-service']) &&
     playing;

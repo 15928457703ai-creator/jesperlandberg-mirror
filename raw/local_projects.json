@@ -770,5 +770,69 @@
     "video": "reel.mp4"
    }
   ]
+ },
+ {
+  "slug": "ai-video",
+  "title": "AI短视频",
+  "dir": "ai-video",
+  "link": null,
+  "hint": null,
+  "cover": "1.jpg",
+  "slides": [
+   {
+    "n": 1,
+    "files": [
+     "1.jpg",
+     "1_small.jpg",
+     "1_card.jpg"
+    ],
+    "video": null
+   },
+   {
+    "n": 2,
+    "files": [
+     "2.jpg",
+     "2_small.jpg",
+     "2_card.jpg"
+    ],
+    "video": null
+   },
+   {
+    "n": 3,
+    "files": [
+     "3.jpg",
+     "3_small.jpg",
+     "3_card.jpg"
+    ],
+    "video": null
+   },
+   {
+    "n": 4,
+    "files": [
+     "4.jpg",
+     "4_small.jpg",
+     "4_card.jpg"
+    ],
+    "video": null
+   },
+   {
+    "n": 5,
+    "files": [
+     "5.jpg",
+     "5_small.jpg",
+     "5_card.jpg"
+    ],
+    "video": null
+   },
+   {
+    "n": 6,
+    "files": [
+     "6.jpg",
+     "6_small.jpg",
+     "6_card.jpg"
+    ],
+    "video": null
+   }
+  ]
  }
 ]

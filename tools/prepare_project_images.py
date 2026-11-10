@@ -50,12 +50,21 @@ PROJECTS = [
         "cover": 2,
         "order": [2, 1, 3, 4, 5],
     },
+    {
+        "slug": "ai-video",
+        "src": "/Users/soul/Downloads/AI短视频",
+        # The user asked for "01" as the home cover: 1.jpg is the title page
+        # (AI创新实验 / 儿童故事短视频). 2.png is a transparent PNG; the common
+        # flatten-on-white path below handles it.
+        "cover": 1,
+        "order": [1, 2, 3, 4, 5, 6],
+    },
 ]
 
 # site/ directory name per project (kept short and unique)
 DIRS = {"naivideo": "naivideo", "erp": "erp",
         "oppo-self-service": "oppo-self", "csa-service": "csa",
-        "hengxiang-advantage": "hengxiang"}
+        "hengxiang-advantage": "hengxiang", "ai-video": "ai-video"}
 
 SIZES = {"": 1600, "_small": 640, "_card": 1200}
 

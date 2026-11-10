@@ -1,4 +1,4 @@
-/* Verify the Fengmei rename across all 17 pages + hydration + SPA. */
+/* Verify the Fengmei rename across all 18 pages + hydration + SPA. */
 const { chromium } = require('playwright-core');
 const fs = require('fs'), path = require('path');
 const OUT = path.join(__dirname, '..', 'screenshots');
@@ -10,7 +10,7 @@ const PAGES = ['/', '/full', '/newsletter',
   '/projects/discoveryland', '/projects/griflan',
   '/projects/oppo-service', '/projects/naivideo', '/projects/oppo-self-service',
   '/projects/erp', '/projects/csa-service', '/projects/hengxiang-advantage',
-  '/projects/illustration'];
+  '/projects/illustration', '/projects/ai-video'];
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
 (async () => {

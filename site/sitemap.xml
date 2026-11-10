@@ -90,4 +90,9 @@
 		<lastmod>2026-11-09T00:00:00.000+01:00</lastmod>
 		<priority>0.8</priority>
 	</url>
+	<url>
+		<loc>http://127.0.0.1:__PORT__/projects/ai-video</loc>
+		<lastmod>2026-11-09T00:00:00.000+01:00</lastmod>
+		<priority>0.8</priority>
+	</url>
 </urlset>

@@ -1,6 +1,6 @@
 {
  "home": {
-  "cards": 15,
+  "cards": 16,
   "order": [
    "oppo-service",
    "naivideo",
@@ -15,7 +15,16 @@
    "src": "live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 1.08,
+   "t": 1.25,
+   "w": 1600,
+   "h": 900,
+   "loop": true
+  },
+  {
+   "src": "live.mp4",
+   "ready": 4,
+   "paused": false,
+   "t": 1.11,
    "w": 1600,
    "h": 900,
    "loop": true
@@ -24,7 +33,16 @@
    "src": "motion.mp4",
    "ready": 4,
    "paused": false,
-   "t": 1.08,
+   "t": 1.11,
+   "w": 1600,
+   "h": 900,
+   "loop": true
+  },
+  {
+   "src": "cover.mp4",
+   "ready": 4,
+   "paused": false,
+   "t": 2.38,
    "w": 1600,
    "h": 900,
    "loop": true
@@ -113,7 +131,7 @@
   "src": "live.mp4",
   "ready": 4,
   "paused": false,
-  "t": 2.76,
+  "t": 4.7,
   "w": 1600,
   "h": 900,
   "loop": true
@@ -122,7 +140,7 @@
   "src": "live.mp4",
   "ready": 4,
   "paused": false,
-  "t": 4.36,
+  "t": 6.33,
   "w": 1600,
   "h": 900,
   "loop": true
@@ -143,12 +161,12 @@
   "gsap": "3.15.1",
   "timelineDuration": 12,
   "timelineActive": true,
-  "timelineTime": 0.69,
+  "timelineTime": 0.77,
   "bg": "rgb(10, 10, 12)",
   "stageBg": "rgb(10, 10, 12)",
   "stageImage": "none"
  },
- "time2": 1.87,
+ "time2": 1.8,
  "timelineAdvance": true,
  "hover": {
   "translate": "0px -14px",
@@ -169,15 +187,17 @@
  "bad": [],
  "ext": [],
  "media": [
+  "206 /oppo/live.mp4",
   "206 /naivideo/live.mp4",
   "206 /oppo-self/motion.mp4",
   "200 /naivideo/live.jpg",
-  "206 /e79MwNWsJkhoNzhR02UVL3LRe1wexvcA9/high.mp4",
-  "206 /X3NsXaLph6rhK6M9kgi24PWL9vfH7SSf/high.mp4",
-  "206 /qmEPTzOaDQBZL5258j01i2mMBkGh3G9BI/high.mp4",
-  "206 /9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
   "206 /DrMKk9cqmTOu4Y4dJzCjEn5ny37s02001I/high.mp4",
+  "206 /qmEPTzOaDQBZL5258j01i2mMBkGh3G9BI/high.mp4",
+  "206 /e79MwNWsJkhoNzhR02UVL3LRe1wexvcA9/high.mp4",
+  "206 /erp/cover.mp4",
   "206 /01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
-  "206 /illustration/cover.mp4"
+  "206 /X3NsXaLph6rhK6M9kgi24PWL9vfH7SSf/high.mp4",
+  "206 /illustration/cover.mp4",
+  "206 /9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4"
  ]
 }

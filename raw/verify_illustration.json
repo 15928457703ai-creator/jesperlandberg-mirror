@@ -1,6 +1,6 @@
 {
  "home": {
-  "cards": 15,
+  "cards": 16,
   "last": "illustration",
   "title": "插画",
   "hasCss": true,
@@ -12,7 +12,15 @@
    "src": "live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 0.69,
+   "t": 1.06,
+   "w": 1600,
+   "h": 900
+  },
+  {
+   "src": "live.mp4",
+   "ready": 4,
+   "paused": false,
+   "t": 0.59,
    "w": 1600,
    "h": 900
   },
@@ -20,7 +28,15 @@
    "src": "motion.mp4",
    "ready": 4,
    "paused": false,
-   "t": 0.32,
+   "t": 0.12,
+   "w": 1600,
+   "h": 900
+  },
+  {
+   "src": "cover.mp4",
+   "ready": 4,
+   "paused": true,
+   "t": 1.38,
    "w": 1600,
    "h": 900
   },
@@ -28,7 +44,7 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.36,
+   "t": 1.32,
    "w": 1888,
    "h": 1080
   },
@@ -36,7 +52,7 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 0.91,
+   "t": 1.22,
    "w": 1838,
    "h": 1080
   },
@@ -44,7 +60,7 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 0.98,
+   "t": 1.46,
    "w": 1250,
    "h": 720
   },
@@ -52,7 +68,7 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.43,
+   "t": 1.5,
    "w": 1920,
    "h": 1044
   },
@@ -60,15 +76,15 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.08,
+   "t": 1.14,
    "w": 1196,
    "h": 720
   },
   {
    "src": "high.mp4",
    "ready": 4,
-   "paused": true,
-   "t": 1.05,
+   "paused": false,
+   "t": 1.3,
    "w": 1162,
    "h": 720
   },
@@ -76,12 +92,12 @@
    "src": "cover.mp4",
    "ready": 4,
    "paused": false,
-   "t": 1.24,
+   "t": 1.34,
    "w": 1280,
    "h": 652
   }
  ],
- "homePlaying": true,
+ "homePlaying": false,
  "spa": {
   "url": "/projects/illustration",
   "id": "illustration",
@@ -100,25 +116,33 @@
  "cover1": {
   "src": "cover.mp4",
   "ready": 4,
-  "paused": false,
-  "t": 5.64,
-  "w": 1280,
-  "h": 652
+  "paused": true,
+  "t": 1.38,
+  "w": 1600,
+  "h": 900
  },
  "cover2": {
   "src": "cover.mp4",
   "ready": 4,
-  "paused": false,
-  "t": 7.13,
-  "w": 1280,
-  "h": 652
+  "paused": true,
+  "t": 1.38,
+  "w": 1600,
+  "h": 900
  },
  "afterScroll": [
   {
    "src": "live.mp4",
    "ready": 4,
+   "paused": true,
+   "t": 2.93,
+   "w": 1600,
+   "h": 900
+  },
+  {
+   "src": "live.mp4",
+   "ready": 1,
    "paused": false,
-   "t": 13.67,
+   "t": 0,
    "w": 1600,
    "h": 900
   },
@@ -126,7 +150,15 @@
    "src": "motion.mp4",
    "ready": 4,
    "paused": false,
-   "t": 1.15,
+   "t": 3.46,
+   "w": 1600,
+   "h": 900
+  },
+  {
+   "src": "cover.mp4",
+   "ready": 4,
+   "paused": true,
+   "t": 1.38,
    "w": 1600,
    "h": 900
   },
@@ -134,7 +166,7 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.36,
+   "t": 1.32,
    "w": 1888,
    "h": 1080
   },
@@ -142,7 +174,7 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 0.91,
+   "t": 1.22,
    "w": 1838,
    "h": 1080
   },
@@ -150,7 +182,7 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 0.98,
+   "t": 1.46,
    "w": 1250,
    "h": 720
   },
@@ -158,7 +190,7 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.43,
+   "t": 1.5,
    "w": 1920,
    "h": 1044
   },
@@ -166,7 +198,7 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.08,
+   "t": 1.14,
    "w": 1196,
    "h": 720
   },
@@ -174,7 +206,7 @@
    "src": "high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.05,
+   "t": 1.83,
    "w": 1162,
    "h": 720
   },
@@ -182,7 +214,7 @@
    "src": "cover.mp4",
    "ready": 4,
    "paused": true,
-   "t": 10.9,
+   "t": 12.32,
    "w": 1280,
    "h": 652
   },
@@ -190,7 +222,7 @@
    "src": "reel.mp4",
    "ready": 4,
    "paused": true,
-   "t": 0.6,
+   "t": 0.85,
    "w": 1280,
    "h": 652
   }
@@ -216,21 +248,29 @@
    "src": "cover.mp4",
    "ready": 4,
    "paused": false,
-   "t": 2.15,
+   "t": 2.71,
    "w": 1280,
    "h": 652
+  },
+  {
+   "src": "live.mp4",
+   "ready": 4,
+   "paused": true,
+   "t": 0,
+   "w": 1600,
+   "h": 900
   },
   {
    "src": "reel.mp4",
    "ready": 4,
    "paused": false,
-   "t": 1.32,
+   "t": 1.28,
    "w": 1280,
    "h": 652
   }
  ],
- "playing": true,
- "okHome": true,
+ "playing": false,
+ "okHome": false,
  "okSheet": true,
  "okDirect": true,
  "clean": true,
@@ -240,23 +280,25 @@
  "bad": [],
  "ext": [],
  "media": [
+  "206 /oppo/live.mp4",
   "206 /naivideo/live.mp4",
   "206 /oppo-self/motion.mp4",
   "200 /illustration/cover.jpg",
   "206 /qmEPTzOaDQBZL5258j01i2mMBkGh3G9BI/high.mp4",
-  "206 /9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
-  "206 /X3NsXaLph6rhK6M9kgi24PWL9vfH7SSf/high.mp4",
-  "206 /e79MwNWsJkhoNzhR02UVL3LRe1wexvcA9/high.mp4",
-  "206 /01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
   "206 /DrMKk9cqmTOu4Y4dJzCjEn5ny37s02001I/high.mp4",
+  "206 /e79MwNWsJkhoNzhR02UVL3LRe1wexvcA9/high.mp4",
+  "206 /erp/cover.mp4",
+  "206 /01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
+  "206 /X3NsXaLph6rhK6M9kgi24PWL9vfH7SSf/high.mp4",
   "206 /illustration/cover.mp4",
+  "206 /9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
   "200 /illustration/frame1.jpg",
   "200 /illustration/frame2.jpg",
   "200 /illustration/frame3.jpg",
   "200 /illustration/frame4.jpg",
-  "200 /illustration/frame5.jpg",
-  "200 /illustration/frame7.jpg",
   "200 /illustration/frame6.jpg",
+  "200 /illustration/frame7.jpg",
+  "200 /illustration/frame5.jpg",
   "200 /illustration/frame8.jpg",
   "200 /illustration/frame9.jpg",
   "200 /illustration/reel.jpg",

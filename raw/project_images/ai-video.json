@@ -1,0 +1,134 @@
+[
+ {
+  "n": 1,
+  "source": "1.jpg",
+  "cover": true,
+  "origWidth": 3840,
+  "origHeight": 2160,
+  "main": {
+   "file": "1.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "1_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "1_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 2,
+  "source": "2.png",
+  "cover": false,
+  "origWidth": 2880,
+  "origHeight": 1620,
+  "main": {
+   "file": "2.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "2_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "2_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 3,
+  "source": "3.jpg",
+  "cover": false,
+  "origWidth": 5760,
+  "origHeight": 3240,
+  "main": {
+   "file": "3.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "3_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "3_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 4,
+  "source": "4.jpg",
+  "cover": false,
+  "origWidth": 5760,
+  "origHeight": 3240,
+  "main": {
+   "file": "4.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "4_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "4_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 5,
+  "source": "5.jpg",
+  "cover": false,
+  "origWidth": 5760,
+  "origHeight": 3240,
+  "main": {
+   "file": "5.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_small": {
+   "file": "5_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "_card": {
+   "file": "5_card.jpg",
+   "width": 1200,
+   "height": 675
+  }
+ },
+ {
+  "n": 6,
+  "source": "6.jpg",
+  "cover": false,
+  "origWidth": 5760,
+  "origHeight": 3294,
+  "main": {
+   "file": "6.jpg",
+   "width": 1600,
+   "height": 915
+  },
+  "_small": {
+   "file": "6_small.jpg",
+   "width": 640,
+   "height": 366
+  },
+  "_card": {
+   "file": "6_card.jpg",
+   "width": 1200,
+   "height": 686
+  }
+ }
+]

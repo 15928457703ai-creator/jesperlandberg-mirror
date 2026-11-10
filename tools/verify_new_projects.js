@@ -9,7 +9,8 @@ const ALL_PAGES = ['/', '/full', '/newsletter',
   '/projects/nathan-riley', '/projects/casa-di-solare', '/projects/the-lookback',
   '/projects/book-of-happiness', '/projects/dogelon-mars', '/projects/gil-huybrecht',
   '/projects/discoveryland', '/projects/griflan',
-  '/projects/oppo-service', '/projects/naivideo', '/projects/erp'];
+  '/projects/oppo-service', '/projects/naivideo', '/projects/erp',
+  '/projects/ai-video'];
 const bad = [], ext = [], perr = [], cerr = [], localImgs = [];
 const wait = ms => new Promise(r => setTimeout(r, ms));
 

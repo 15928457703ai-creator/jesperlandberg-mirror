@@ -1,4 +1,4 @@
-/* Verify the requested 15-card home permutation, the default first screen,
+/* Verify the requested 16-card home permutation, the default first screen,
  * the detail-page prev/next ring and hydration after the SSR reorder. */
 const { chromium } = require('playwright-core');
 const path = require('path');
@@ -6,7 +6,7 @@ const OUT = path.join(__dirname, '..', 'screenshots');
 const ORIGIN = 'http://127.0.0.1:5188';
 const ORDER = [
   'oppo-service', 'naivideo', 'oppo-self-service', 'erp', 'csa-service',
-  'hengxiang-advantage', 'nathan-riley', 'casa-di-solare', 'the-lookback',
+  'hengxiang-advantage', 'ai-video', 'nathan-riley', 'casa-di-solare', 'the-lookback',
   'book-of-happiness', 'dogelon-mars', 'gil-huybrecht', 'discoveryland',
   'griflan', 'illustration'
 ];
@@ -14,7 +14,7 @@ const TITLES = {
   'oppo-service': 'OPPO 服务小程序', 'naivideo': 'Naivideo',
   'oppo-self-service': 'OPPO自助服务', 'erp': 'ERP',
   'csa-service': 'CSA客服服务', 'hengxiang-advantage': '横向优势',
-  'illustration': '插画'
+  'illustration': '插画', 'ai-video': 'AI短视频'
 };
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
@@ -101,7 +101,7 @@ const readCards = () => {
   console.log('Naivideo motion cover playing:', !!(live && !live.paused && live.t > 0));
 
   // ---- 2. scroll to the far end, illustration must be last --------------
-  // The rail is an INFINITE LOOP: rolling past card #15 wraps back to #1.
+  // The rail is an INFINITE LOOP: rolling past card #16 wraps back to #1.
   // Stop the moment the last card enters the viewport, then shoot it.
   let tailShot = false;
   for (let i = 0; i < 95; i++) {
@@ -132,7 +132,8 @@ const readCards = () => {
 
   // ---- 3. related ring on 3 representative detail pages -----------------
   const ringCases = [
-    { slug: 'nathan-riley', want: ['hengxiang-advantage', 'casa-di-solare'] },
+    { slug: 'nathan-riley', want: ['ai-video', 'casa-di-solare'] },
+    { slug: 'ai-video', want: ['hengxiang-advantage', 'nathan-riley'] },
     { slug: 'griflan', want: ['discoveryland', 'illustration'] },
     { slug: 'illustration', want: ['griflan', 'oppo-service'] },
     { slug: 'oppo-service', want: ['illustration', 'naivideo'] },
@@ -188,7 +189,7 @@ const readCards = () => {
   if (bad.length) console.log(' bad :', bad.slice(0, 5));
   if (ext.length) console.log(' ext :', ext.slice(0, 5));
 
-  const okAll = orderOK && ids.length === 15 && center.id === 'naivideo' &&
+  const okAll = orderOK && ids.length === 16 && center.id === 'naivideo' &&
     firstThree.join(',') === 'oppo-service,naivideo,oppo-self-service' &&
     ring.every(x => x.ok) && clean;
   console.log('\nHOME ORDER VERIFY:', okAll ? 'PASS' : 'FAIL');

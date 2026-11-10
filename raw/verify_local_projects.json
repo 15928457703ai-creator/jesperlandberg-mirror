@@ -1,6 +1,6 @@
 {
  "home": {
-  "cards": 15,
+  "cards": 16,
   "ids": [
    "oppo-service",
    "naivideo",
@@ -8,6 +8,7 @@
    "erp",
    "csa-service",
    "hengxiang-advantage",
+   "ai-video",
    "nathan-riley",
    "casa-di-solare",
    "the-lookback",
@@ -189,8 +190,8 @@
     "href": "/projects/csa-service"
    },
    {
-    "id": "nathan-riley",
-    "href": "/projects/nathan-riley"
+    "id": "ai-video",
+    "href": "/projects/ai-video"
    }
   ],
   "ok": true,
@@ -226,6 +227,31 @@
   ],
   "ok": true
  },
+ "ai-video": {
+  "url": "/projects/ai-video",
+  "title": "AI短视频",
+  "h1": "AI短视频",
+  "sheet": "ai-video",
+  "placeholders": 6,
+  "tags": [
+   "AIGC",
+   "AI / Video",
+   "2026"
+  ],
+  "canvas": 1,
+  "linkPill": null,
+  "related": [
+   {
+    "id": "hengxiang-advantage",
+    "href": "/projects/hengxiang-advantage"
+   },
+   {
+    "id": "nathan-riley",
+    "href": "/projects/nathan-riley"
+   }
+  ],
+  "ok": true
+ },
  "full": {
   "links": [
    "/projects/the-lookback",
@@ -242,24 +268,24 @@
    "/projects/erp",
    "/projects/csa-service",
    "/projects/hengxiang-advantage",
-   "/projects/illustration"
+   "/projects/illustration",
+   "/projects/ai-video"
   ],
   "allLocal": true
  },
- "newsletterCards": 15,
+ "newsletterCards": 16,
  "hydration": [],
  "bad": [],
  "ext": [],
  "perr": [],
  "cerr": [],
  "imgs": [
-  "/oppo/1.jpg",
-  "/erp/2.jpg",
-  "/csa/2.jpg",
   "/hengxiang/2.jpg",
+  "/csa/2.jpg",
+  "/oppo/1.jpg",
+  "/oppo/4.jpg",
   "/oppo/3.jpg",
   "/oppo/2.jpg",
-  "/oppo/4.jpg",
   "/oppo/5.jpg",
   "/oppo/6.jpg",
   "/oppo/7.jpg",
@@ -277,8 +303,8 @@
   "/naivideo/1.jpg",
   "/naivideo/3.jpg",
   "/naivideo/4.jpg",
-  "/naivideo/6.jpg",
   "/naivideo/5.jpg",
+  "/naivideo/6.jpg",
   "/naivideo/7.jpg",
   "/naivideo/8.jpg",
   "/oppo-self/0.jpg",
@@ -298,6 +324,7 @@
   "/oppo-self/14.jpg",
   "/oppo-self/15.jpg",
   "/oppo-self/16.jpg",
+  "/erp/2.jpg",
   "/erp/1.jpg",
   "/erp/3.jpg",
   "/erp/4.jpg",
@@ -307,8 +334,8 @@
   "/erp/8.jpg",
   "/erp/9.jpg",
   "/erp/10.jpg",
-  "/csa/1.jpg",
   "/erp/11.jpg",
+  "/csa/1.jpg",
   "/csa/3.jpg",
   "/csa/4.jpg",
   "/csa/5.jpg",

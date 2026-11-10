@@ -182,7 +182,7 @@ const HOOK = () => {
 
   // ------------------------------------------------------------- summary
   const playing = !!(cover1 && cover2 && cover2.ready >= 2 && !cover2.paused && cover2.t > cover1.t);
-  const okHome = home.cards === 15 && home.last === SLUG && home.title === '插画' &&
+  const okHome = home.cards === 16 && home.last === SLUG && home.title === '插画' &&
                  home.hasCss && home.canvas === 1 && home.siteName === 'Fengmei' &&
                  reached && homePlaying;
   const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.title === '插画' &&

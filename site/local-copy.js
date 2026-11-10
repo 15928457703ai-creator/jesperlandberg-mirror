@@ -65,7 +65,8 @@
     'erp': 1,
     'csa-service': 1,
     'hengxiang-advantage': 1,
-    'illustration': 1
+    'illustration': 1,
+    'ai-video': 1
   };
 
   // Only these sheets have their CJK title painted by the DOM (see
@@ -77,7 +78,8 @@
     'oppo-self-service': 1,
     'csa-service': 1,
     'hengxiang-advantage': 1,
-    'illustration': 1
+    'illustration': 1,
+    'ai-video': 1
   };
 
   var root = document.documentElement;

@@ -133,5 +133,14 @@
   "hasCss": true,
   "errs": [],
   "ok": true
+ },
+ {
+  "slug": "ai-video",
+  "copyLength": 169,
+  "fill": "rgb(0, 0, 0)",
+  "opacity": "1",
+  "hasCss": true,
+  "errs": [],
+  "ok": true
  }
 ]

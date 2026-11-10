@@ -159,10 +159,20 @@ const HOOK = () => {
   });
   console.log('SPA SHEET', navigated, JSON.stringify(spa));
   await page.screenshot({ path: path.join(OUT, 'naivideo_live_detail_spa.png') });
-  const t1 = (await vids()).find(v => v.src === CLIP);
+  // The renderer holds one detached <video> per home card AND one for the
+  // detail sheet. After an SPA entry both live.mp4 elements are alive: the
+  // home card is idle (poster, paused) while the sheet's clip plays. A plain
+  // `.find()` picks whichever was created first and reports a false negative
+  // as soon as another card shifts the creation order. Sample them all and
+  // follow the most advanced (i.e. actually playing) element instead.
+  await page.mouse.move(900, 420);   // keep the detail cover engaged
+  await wait(350);
+  const a1 = (await vids()).filter(v => v.src === CLIP);
   await wait(1600);
-  const t2 = (await vids()).find(v => v.src === CLIP);
-  console.log('cover timeline:', JSON.stringify({ before: t1, after: t2 }));
+  const a2 = (await vids()).filter(v => v.src === CLIP);
+  const t1 = a1.slice().sort((x, y) => y.t - x.t)[0];
+  const t2 = a2.slice().sort((x, y) => y.t - x.t)[0];
+  console.log('cover timeline:', JSON.stringify({ before: t1, after: t2, all: a2 }));
   const playing = !!(t1 && t2 && t2.ready >= 2 && !t2.paused && t2.t > t1.t);
   await page.screenshot({ path: path.join(OUT, 'naivideo_live_detail_video.png') });
 
@@ -235,7 +245,7 @@ const HOOK = () => {
                   parseFloat(hover.otherOpacity) < .6;
 
   // -------------------------------------------------------------- summary
-  const okHome = home.cards === 15 && home.title === 'Naivideo' && home.canvas === 1 &&
+  const okHome = home.cards === 16 && home.title === 'Naivideo' && home.canvas === 1 &&
                  home.siteName === 'Fengmei' && homePlaying &&
                  JSON.stringify(home.order) === JSON.stringify(['oppo-service', 'naivideo', 'oppo-self-service']);
   const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.title === 'Naivideo' &&

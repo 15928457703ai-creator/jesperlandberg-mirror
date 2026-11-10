@@ -1,0 +1,166 @@
+{
+ "pass": 30,
+ "total": 30,
+ "fails": [],
+ "results": [
+  {
+   "name": "SSR home: 16 cards in HOME_ORDER",
+   "ok": true,
+   "note": "oppo-service | naivideo | oppo-self-service | erp | csa-service | hengxiang-advantage | ai-video | nathan-riley | casa-di-solare | the-lookback | book-of-happiness | dogelon-mars | gil-huybrecht | discoveryland | griflan | illustration"
+  },
+  {
+   "name": "SSR home: ai-video is card #7, titled AI短视频",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: sheet belongs to ai-video",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: 6 slide placeholders",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: og:image is the 01 cover",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: prev/next ring",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "detail HTML: loads local-copy.css + local-copy.js",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "aux: sitemap / llms.txt / markdown / full index include the project",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "markdown: all 6 slides are listed in order",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "payload: project object exists",
+   "ok": true,
+   "note": "ai-short-video-2026"
+  },
+  {
+   "name": "payload: cover src/thumb/card = 1.jpg family",
+   "ok": true,
+   "note": "/ai-video/1.jpg | /ai-video/1_small.jpg | /ai-video/1_card.jpg"
+  },
+  {
+   "name": "payload: no video texture on the still cover",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "payload: images[] holds all 6 stills in 1..6 order",
+   "ok": true,
+   "note": "/ai-video/1.jpg | /ai-video/2.jpg | /ai-video/3.jpg | /ai-video/4.jpg | /ai-video/5.jpg | /ai-video/6.jpg"
+  },
+  {
+   "name": "payload: all 6 slides are stills (no video)",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "payload: home.featured is the same 16-item permutation",
+   "ok": true,
+   "note": "oppo-service | naivideo | oppo-self-service | erp | csa-service | hengxiang-advantage | ai-video | nathan-riley | casa-di-solare | the-lookback | book-of-happiness | dogelon-mars | gil-huybrecht | discoveryland | griflan | illustration"
+  },
+  {
+   "name": "detail payload: 6 stills, first is 1.jpg",
+   "ok": true,
+   "note": "/ai-video/1.jpg | /ai-video/2.jpg | /ai-video/3.jpg | /ai-video/4.jpg | /ai-video/5.jpg | /ai-video/6.jpg"
+  },
+  {
+   "name": "graphql: project has 6 media entries, cover = 1.jpg",
+   "ok": true,
+   "note": "/ai-video/1.jpg"
+  },
+  {
+   "name": "graphql: featured[6] points at the new project",
+   "ok": true,
+   "note": "16 items"
+  },
+  {
+   "name": "verification manifest: 8 projects, cover = 1.jpg",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "client caps leave room for 16 featured projects",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "browser home: 16 cards in order",
+   "ok": true,
+   "note": "oppo-service | naivideo | oppo-self-service | erp | csa-service | hengxiang-advantage | ai-video | nathan-riley | casa-di-solare | the-lookback | book-of-happiness | dogelon-mars | gil-huybrecht | discoveryland | griflan | illustration"
+  },
+  {
+   "name": "browser home: WebGL loads the 01 cover texture",
+   "ok": true,
+   "note": "/ai-video/1.jpg:200"
+  },
+  {
+   "name": "SPA entry: sheet + Chinese title/description painted",
+   "ok": true,
+   "note": "{\"h1\":\"AI短视频\",\"color\":\"rgb(0, 0, 0)\",\"body\":\"AI 创新实验·儿童故事短视频：以 AIGC 生\"}"
+  },
+  {
+   "name": "SPA entry: copy ends readable, split into glyphs",
+   "ok": true,
+   "note": "spans=149 op=1/1"
+  },
+  {
+   "name": "SPA entry: top-down line reveal with 75 ms stagger",
+   "ok": true,
+   "note": "345 | 420 | 495 | 570 | 645 | 720 | 795"
+  },
+  {
+   "name": "SPA entry: related ring matches HOME_ORDER",
+   "ok": true,
+   "note": "hengxiang-advantage | nathan-riley"
+  },
+  {
+   "name": "direct load: 6 main stills fetched with 200",
+   "ok": true,
+   "note": "/ai-video/1.jpg:200 | /ai-video/2.jpg:200 | /ai-video/3.jpg:200 | /ai-video/4.jpg:200 | /ai-video/5.jpg:200 | /ai-video/6.jpg:200"
+  },
+  {
+   "name": "direct load: copy revealed and split",
+   "ok": true,
+   "note": "{\"id\":\"ai-video\",\"lc\":\"ready\",\"op\":1,\"spans\":149,\"placeholders\":6}"
+  },
+  {
+   "name": "no page/console/hydration errors",
+   "ok": true,
+   "note": ""
+  },
+  {
+   "name": "no 4xx / external requests",
+   "ok": true,
+   "note": ""
+  }
+ ],
+ "requests": [
+  "/projects/ai-video/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859:200",
+  "/ai-video/1.jpg:200",
+  "/ai-video/2.jpg:200",
+  "/ai-video/3.jpg:200",
+  "/ai-video/4.jpg:200",
+  "/ai-video/5.jpg:200",
+  "/ai-video/6.jpg:200"
+ ]
+}
