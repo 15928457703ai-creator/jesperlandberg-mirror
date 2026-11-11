@@ -219,6 +219,6 @@ div.fixed.inset-0.z-40 a.label[href="/"] {
  * can deform, mask and dim every label together. */
 @media (min-width: 650px) {
   main.fixed[data-gl-shield] .content-center {
-    max-width: 68rem;
+    max-width: 70rem;
   }
 }

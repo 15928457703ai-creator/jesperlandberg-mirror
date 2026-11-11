@@ -146,6 +146,80 @@
           text.mesh.position.z += offset.z;
         }
       };
+
+      // Motion collection: play only the clips actually inside the detail
+      // viewport. Preloaded/parked media must never start in the background.
+      var detailPointer = { x: -10000, y: -10000, fine: false };
+      var visibleClips = new Set(), startedClips = new WeakSet();
+      var detailWasActive = false;
+      var lastMediaFrame = 0;
+      var mediaStates = new WeakMap();
+      window.addEventListener('pointermove', function (e) {
+        detailPointer.x = e.clientX; detailPointer.y = e.clientY;
+        detailPointer.fine = e.pointerType !== 'touch';
+      }, { passive: true });
+      document.documentElement.addEventListener('pointerleave', function () { detailPointer.fine = false; });
+      var playVideo = folio.playVideo;
+      folio.playVideo = function (video, wantsPlay) {
+        if (video && location.pathname.replace(/\/$/, '') === '/projects/illustration') {
+          var path = new URL(video.el.currentSrc || video.el.src, location.href).pathname;
+          if (path.startsWith('/illustration/')) {
+            wantsPlay = wantsPlay && visibleClips.has(path);
+            if (wantsPlay && !startedClips.has(video)) {
+              startedClips.add(video);
+              video.el.currentTime = 0;
+            }
+          }
+        }
+        return playVideo.call(this, video, wantsPlay);
+      };
+      var syncContent = folio.syncContent;
+      folio.syncContent = function () {
+        var active = location.pathname.replace(/\/$/, '') === '/projects/illustration';
+        if (active && !detailWasActive) startedClips = new WeakSet();
+        detailWasActive = active;
+        visibleClips.clear();
+        var motionMedia = [];
+        for (var item of this.content) {
+          var el = item.el, source = item.mesh.userData.videoSrc;
+          if (!el?.isConnected || !source || !source.startsWith('/illustration/')) continue;
+          var panel = el.closest('[data-gl="sheet"][data-id="illustration"]');
+          if (!panel) continue;
+          var box = el._vrect || el.getBoundingClientRect();
+          var bounds = panel.getBoundingClientRect();
+          var top = Math.max(0, bounds.top), bottom = Math.min(innerHeight, bounds.bottom);
+          var overlapY = Math.min(box.bottom ?? box.top + box.height, bottom) - Math.max(box.top, top);
+          var overlapX = Math.min(box.right ?? box.left + box.width, bounds.right, innerWidth) - Math.max(box.left, bounds.left, 0);
+          var visible = active && !document.hidden && !el._parked && item.p > .95 && overlapX > 0 &&
+            overlapY >= Math.min(box.height * .3, Math.max(0, bottom - top) * .4);
+          if (visible) visibleClips.add(new URL(source, location.href).pathname);
+          motionMedia.push({ item: item, box: box, visible: visible });
+        }
+        syncContent.apply(this, arguments);
+        var now = performance.now();
+        var k = 1 - Math.exp(-Math.min(lastMediaFrame ? (now - lastMediaFrame) / 1000 : .016, .12) * 8);
+        lastMediaFrame = now;
+        for (var entry of motionMedia) {
+          var mesh = entry.item.mesh, box = entry.box;
+          var state = mediaStates.get(entry.item);
+          if (!state) { state = { x: 0, y: 0 }; mediaStates.set(entry.item, state); }
+          var inside = entry.visible && detailPointer.fine && this.ctx.$resize?.mouse && !media.matches &&
+            detailPointer.x >= box.left && detailPointer.x <= box.left + box.width &&
+            detailPointer.y >= box.top && detailPointer.y <= box.top + box.height;
+          var x = inside ? ((detailPointer.x - box.left) / box.width - .5) * 2 : 0;
+          var y = inside ? ((detailPointer.y - box.top) / box.height - .5) * 2 : 0;
+          state.x += (x - state.x) * k;
+          state.y += (y - state.y) * k;
+          mesh.quaternion.identity();
+          if (!active || media.matches) continue;
+          mesh.position.x += mesh.scale.x * state.x * .008;
+          mesh.position.y -= mesh.scale.y * state.y * .008;
+          mesh.quaternion.setFromAxisAngle({ x: 0, y: 1, z: 0 }, state.x * .016);
+          var qx = this.core.camera.quaternion.clone().setFromAxisAngle({ x: 1, y: 0, z: 0 }, state.y * .012);
+          mesh.quaternion.multiply(qx);
+          if (Math.abs(x - state.x) + Math.abs(y - state.y) > .002) this.core.wake();
+        }
+      };
     }
   };
 })();

@@ -181,14 +181,14 @@ PROJECTS = [
     },
     {
         "slug": "illustration",
-        "title": "插画",
+        "title": "动效设计精选",
         "pid": "illustration-2026",
         "dir": "illustration",
-        "desc": "插画：以视觉表现力为核心的横向创作能力。作为视觉中国签约插画师，将商业插画、IP 形象与运营视觉沉淀为可复用的素材与材质资产，覆盖花卉、节庆、人物与数字艺术等主题；并以动态影像与 3D 动效把静态插画延展为可播放的作品集，落地到比赛宣传、年末贺岁与业务线 IP 设计。",
-        "short": "插画：视觉中国签约插画师作品集，商业插画 / IP 视觉 / 动态影像。",
+        "desc": "围绕启动页、交互反馈、礼物互动与动态视觉展开的动效作品精选。通过关键帧动画、运动曲线与转场编排，将功能逻辑和视觉创意转化为清晰、连贯的动态体验；结合插画与 3D 表现，兼顾信息层级、品牌风格和情绪表达，呈现动效构思、节奏设计、画面制作与细节打磨能力。",
+        "short": "界面动效与动态视觉作品精选，涵盖启动页、交互反馈、礼物互动及插画与 3D 动态表达。",
         # Video-led project: meta[0] carries a `video` entry, so the stock
         # WebGL video-texture path paints the cover as a looping clip.
-        "tags": [("illu-tag-illu", "Illustration", None),
+        "tags": [("illu-tag-illu", "UI Motion", None),
                  ("illu-tag-motion", "Motion / 3D", None),
                  ("illu-tag-year", "2026", None)],
         "meta": _meta("illustration", "raw/project_images/illustration.json"),

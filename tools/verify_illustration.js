@@ -191,7 +191,7 @@ const HOOK = () => {
   await wait(650);
   var motionAfter = await frames();
   const progressed = new Set();
-  for (let step = 0; step < 8; step++) {
+  for (let step = 0; step < EXPECTED_SLIDES * 4; step++) {
     for (const v of motionAfter) if (v.ready >= 2 && v.frames > (motionBefore.find(b => b.src === v.src)?.frames || 0)) progressed.add(v.src);
     if (progressed.size === MOTION_FILES.length) break;
     await page.mouse.wheel(0, 260);
@@ -212,10 +212,10 @@ const HOOK = () => {
 
   // ------------------------------------------------------------- summary
   const playing = !!(cover1 && cover2 && cover2.ready >= 2 && !cover2.paused && cover2.t > cover1.t);
-  const okHome = home.cards === 10 && home.last === SLUG && home.title === '插画' &&
+  const okHome = home.cards === 10 && home.last === SLUG && home.title === PROJECT.title &&
                  home.hasCss && home.canvas === 1 && home.siteName === 'Fengmei' &&
                  reached && homePlaying;
-  const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.title === '插画' &&
+  const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.title === PROJECT.title &&
                   spa.fill === 'rgb(0, 0, 0)' && spa.hFill === 'rgb(0, 0, 0)' &&
                   spa.slides === EXPECTED_SLIDES && (spa.copy || '').length > 40;
   const okDirect = direct && directInfo.id === SLUG && directInfo.slides === EXPECTED_SLIDES &&

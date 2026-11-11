@@ -1,0 +1,1832 @@
+{
+  "checks": [
+    {
+      "name": "new motion collection name and introduction",
+      "ok": true
+    },
+    {
+      "name": "five video works with 28px corners",
+      "ok": true
+    },
+    {
+      "name": "offscreen videos do not start early",
+      "ok": true,
+      "data": [
+        {
+          "src": "/illustration/launch-motion-v3.mp4",
+          "time": 0
+        },
+        {
+          "src": "/illustration/precomposition-3.mp4",
+          "time": 0
+        }
+      ]
+    },
+    {
+      "name": "visible video subtly follows the pointer",
+      "ok": true
+    },
+    {
+      "name": "pointer motion settles when leaving",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 0",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 1",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 2",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 3",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 4",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 5",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 6",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 7",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 8",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 9",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 10",
+      "ok": true
+    },
+    {
+      "name": "offscreen clips pause after scroll 11",
+      "ok": true
+    },
+    {
+      "name": "every video plays when scrolled into view",
+      "ok": true,
+      "data": [
+        "/illustration/cover.mp4",
+        "/illustration/reel.mp4",
+        "/illustration/gift-motion-v2.mp4",
+        "/illustration/launch-motion-v3.mp4",
+        "/illustration/precomposition-3.mp4"
+      ]
+    },
+    {
+      "name": "catalogue stays at three rows at 1280",
+      "ok": true,
+      "data": 3
+    },
+    {
+      "name": "catalogue stays at three rows at 1440",
+      "ok": true,
+      "data": 3
+    },
+    {
+      "name": "catalogue stays at three rows at 1920",
+      "ok": true,
+      "data": 3
+    },
+    {
+      "name": "no runtime errors",
+      "ok": true,
+      "data": []
+    }
+  ],
+  "errors": [],
+  "samples": [
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 57.578125,
+        "bottom": 399.875,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 342.296875,
+        "paused": false,
+        "time": 1.4455,
+        "frames": 49,
+        "pos": [
+          10.162960233277104,
+          10.1841750172342,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": 457.46875,
+        "bottom": 799.765625,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 342.296875,
+        "paused": false,
+        "time": 1.4343,
+        "frames": 52,
+        "pos": [
+          10.162960233277104,
+          -8.22090856967925,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 857.359375,
+        "bottom": 1235.359375,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 23.453125,
+        "paused": true,
+        "time": 0,
+        "frames": 4,
+        "pos": [
+          10.162960233277104,
+          -27.447615569168352,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": 1292.953125,
+        "bottom": 1670.953125,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -412.140625,
+        "paused": true,
+        "time": 0,
+        "frames": 4,
+        "pos": [
+          10.162960233277104,
+          -57.85163713317128,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": 1728.546875,
+        "bottom": 2106.546875,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -847.734375,
+        "paused": true,
+        "time": 0,
+        "frames": 4,
+        "pos": [
+          10.162960233277104,
+          -77.89996754523602,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": -228.41187499999978,
+        "bottom": 113.88500000000022,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 94.69750000000022,
+        "paused": false,
+        "time": 4.2983,
+        "frames": 136,
+        "pos": [
+          10.162995730954881,
+          18.99158561099112,
+          0
+        ],
+        "quat": [
+          -4.918780492045636e-7,
+          0.000001147715107550837,
+          5.645358681451518e-13,
+          0.9999999999992204
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": 171.47875000000022,
+        "bottom": 513.7756250000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 342.296875,
+        "paused": false,
+        "time": 4.7414,
+        "frames": 153,
+        "pos": [
+          10.243037557208416,
+          0.5785133563440982,
+          0
+        ],
+        "quat": [
+          0.00037981541321086237,
+          0.0025890664093083664,
+          -9.833706949155818e-7,
+          0.9999965762313455
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 571.3693750000002,
+        "bottom": 949.3693750000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 309.4431249999998,
+        "paused": false,
+        "time": 0.0298,
+        "frames": 5,
+        "pos": [
+          10.162960233277104,
+          -18.640215307679952,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": 1006.9631250000002,
+        "bottom": 1384.9631250000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -126.15062500000022,
+        "paused": true,
+        "time": 0,
+        "frames": 4,
+        "pos": [
+          10.162960233277104,
+          -57.85163713317128,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": 1728.546875,
+        "bottom": 2106.546875,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -847.734375,
+        "paused": true,
+        "time": 0,
+        "frames": 4,
+        "pos": [
+          10.162960233277104,
+          -77.89996754523602,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 1732.2181249999999,
+        "bottom": 2074.515,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -851.4056249999999,
+        "paused": true,
+        "time": 4.4024,
+        "frames": 139,
+        "pos": [
+          10.162963324979408,
+          -66.89162244145308,
+          0
+        ],
+        "quat": [
+          -4.216607177530267e-9,
+          9.838747161177742e-9,
+          4.1486131897727604e-17,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": -296.2712500000007,
+        "bottom": 46.02562499999931,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 26.83812499999931,
+        "paused": false,
+        "time": 5.5802,
+        "frames": 174,
+        "pos": [
+          10.164757602172392,
+          20.13866829557922,
+          0
+        ],
+        "quat": [
+          0.00007948088467334107,
+          0.00005811274304348495,
+          -4.6188522502790055e-9,
+          0.9999999951528491
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 103.61937500000022,
+        "bottom": 481.6193750000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 378,
+        "paused": false,
+        "time": 0.8221,
+        "frames": 51,
+        "pos": [
+          10.241566233833844,
+          0.9049805483591205,
+          0
+        ],
+        "quat": [
+          0.0003729089661973153,
+          0.002541495574873205,
+          -9.477496141761914e-7,
+          0.9999967008636816
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": 539.2131250000002,
+        "bottom": 917.2131250000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 341.5993749999998,
+        "paused": false,
+        "time": 0.1407,
+        "frames": 5,
+        "pos": [
+          10.162960233277104,
+          -19.134699560185005,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": 974.8068750000002,
+        "bottom": 1352.8068750000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -93.99437500000022,
+        "paused": true,
+        "time": 0,
+        "frames": 4,
+        "pos": [
+          10.162960233277104,
+          -77.89996754523602,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 789.8981249999997,
+        "bottom": 1132.1949999999997,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 90.91437500000029,
+        "paused": true,
+        "time": 4.4024,
+        "frames": 139,
+        "pos": [
+          10.162960235781437,
+          -30.76038678504005,
+          0
+        ],
+        "quat": [
+          -3.4701610476156405e-11,
+          8.097040041575676e-11,
+          2.8098032953260037e-21,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": 1688.19875,
+        "bottom": 2030.495625,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -807.38625,
+        "paused": true,
+        "time": 5.6007,
+        "frames": 178,
+        "pos": [
+          10.1633780587692,
+          -64.86600677831,
+          0
+        ],
+        "quat": [
+          6.541075778869885e-7,
+          4.782531773522565e-7,
+          -3.1282902745474347e-13,
+          0.9999999999996717
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 1746.9693749999997,
+        "bottom": 2124.9693749999997,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -866.1568749999997,
+        "paused": true,
+        "time": 1.4699,
+        "frames": 97,
+        "pos": [
+          10.163607140778222,
+          -68.3922485619814,
+          0
+        ],
+        "quat": [
+          0.0000030689564460870796,
+          0.000020915889676783798,
+          -6.418995446355486e-11,
+          0.9999999997765535
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": -81.32687499999975,
+        "bottom": 296.67312500000025,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 277.48562500000025,
+        "paused": false,
+        "time": 0.8349,
+        "frames": 56,
+        "pos": [
+          10.192018972328915,
+          8.505506021372234,
+          0
+        ],
+        "quat": [
+          0.00046862377682116484,
+          0.000939530339339369,
+          -4.402864987289133e-7,
+          0.9999994488369999
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": 354.26687500000025,
+        "bottom": 732.2668750000003,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 378,
+        "paused": false,
+        "time": 0.4259,
+        "frames": 25,
+        "pos": [
+          10.162960233277104,
+          -11.531953837754585,
+          0
+        ],
+        "quat": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 115.95812500000011,
+        "bottom": 458.2550000000001,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 342.296875,
+        "paused": false,
+        "time": 4.9998,
+        "frames": 156,
+        "pos": [
+          10.231578314878792,
+          -0.044100037338766496,
+          0
+        ],
+        "quat": [
+          0.00011307502067912418,
+          0.002218566078940082,
+          -2.508650242419707e-7,
+          0.999997532586221
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": 515.8487500000001,
+        "bottom": 858.1456250000001,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 342.296875,
+        "paused": false,
+        "time": 5.6684,
+        "frames": 179,
+        "pos": [
+          10.162960355010629,
+          -18.446808505590035,
+          0
+        ],
+        "quat": [
+          5.383139908858085e-9,
+          3.935902675000179e-9,
+          -2.118751476717476e-17,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 915.7393750000001,
+        "bottom": 1293.739375,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -34.92687500000011,
+        "paused": true,
+        "time": 1.4699,
+        "frames": 97,
+        "pos": [
+          10.162965557162202,
+          -37.673515977876356,
+          0
+        ],
+        "quat": [
+          2.5256735261320018e-8,
+          1.7213248135850036e-7,
+          -4.347504511545812e-15,
+          0.9999999999999849
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": 1678.7931250000001,
+        "bottom": 2056.793125,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -797.9806250000001,
+        "paused": true,
+        "time": 1.2305,
+        "frames": 83,
+        "pos": [
+          10.163823956301835,
+          -65.25466853074897,
+          0
+        ],
+        "quat": [
+          0.000003856656987598365,
+          0.000007732099024068843,
+          -2.9820053731090774e-11,
+          0.9999999999626704
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": -319.67312500000025,
+        "bottom": 58.326874999999745,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 39.139374999999745,
+        "paused": false,
+        "time": 1.1041,
+        "frames": 74,
+        "pos": [
+          10.16681209301279,
+          19.18471437561678,
+          0
+        ],
+        "quat": [
+          0.0000859502704665423,
+          0.00012453878281417868,
+          -1.0704142189000915e-8,
+          0.9999999885513211
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 1697.0281249999994,
+        "bottom": 2039.3249999999994,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -816.2156249999994,
+        "paused": true,
+        "time": 5.6065,
+        "frames": 175,
+        "pos": [
+          10.163524942731675,
+          -65.27201279274456,
+          0
+        ],
+        "quat": [
+          9.305811097591754e-7,
+          0.00001825825273489814,
+          -1.6990785095144422e-11,
+          0.9999999998328851
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": -175.61124999999993,
+        "bottom": 166.68562500000007,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 147.49812500000007,
+        "paused": false,
+        "time": 6.5162,
+        "frames": 203,
+        "pos": [
+          10.173020122766754,
+          13.275908879283838,
+          0
+        ],
+        "quat": [
+          0.00018559901381529423,
+          0.0003252575229768401,
+          -6.036747973345826e-8,
+          0.9999999298802705
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 224.27937500000007,
+        "bottom": 602.2793750000001,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 378,
+        "paused": false,
+        "time": 0.0708,
+        "frames": 113,
+        "pos": [
+          10.212579508108414,
+          -5.910903523412803,
+          0
+        ],
+        "quat": [
+          -0.0015517644362392467,
+          0.0016042936305031513,
+          0.0000024894920021050135,
+          0.9999975091283397
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": 659.8731250000001,
+        "bottom": 1037.873125,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 220.93937499999993,
+        "paused": true,
+        "time": 1.2305,
+        "frames": 83,
+        "pos": [
+          10.162962201388785,
+          -25.995230621357837,
+          0
+        ],
+        "quat": [
+          3.173931146379751e-8,
+          6.363321912716847e-8,
+          -2.0196745613212828e-15,
+          0.9999999999999974
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": 1095.466875,
+        "bottom": 1473.466875,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -214.65437500000007,
+        "paused": true,
+        "time": 1.2116,
+        "frames": 82,
+        "pos": [
+          10.163855656133128,
+          -63.64041418369207,
+          0
+        ],
+        "quat": [
+          7.073489910904465e-7,
+          0.0000010249226867882898,
+          -7.249780284459687e-13,
+          0.9999999999992246
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 833.8981250000002,
+        "bottom": 1176.1950000000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 46.914374999999836,
+        "paused": true,
+        "time": 5.6065,
+        "frames": 175,
+        "pos": [
+          10.162964880693071,
+          -33.21537612905989,
+          0
+        ],
+        "quat": [
+          7.658447143191907e-9,
+          1.5026080157370306e-7,
+          -1.1507644065458652e-15,
+          0.9999999999999887
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": 1665.6387499999996,
+        "bottom": 2007.9356249999996,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -784.8262499999996,
+        "paused": true,
+        "time": 6.7711,
+        "frames": 215,
+        "pos": [
+          10.163823956387851,
+          -63.82762276254812,
+          0
+        ],
+        "quat": [
+          0.0000015274330258060772,
+          0.000002676787233184856,
+          -4.08861322304204e-12,
+          0.9999999999952509
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 1633.6793750000002,
+        "bottom": 2011.6793750000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -752.8668750000002,
+        "paused": true,
+        "time": 0.7018,
+        "frames": 159,
+        "pos": [
+          10.164435083328252,
+          26.10916699220034,
+          0
+        ],
+        "quat": [
+          0.000023745214207447902,
+          0.000047685025893749616,
+          -1.1322911559413341e-9,
+          0.9999999985811515
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": -37.3268750000002,
+        "bottom": 340.6731249999998,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 321.4856249999998,
+        "paused": false,
+        "time": 1.9578,
+        "frames": 122,
+        "pos": [
+          10.238852855777901,
+          5.981860863553418,
+          0
+        ],
+        "quat": [
+          0.0034283310970554953,
+          0.0024537523454469475,
+          -0.00000841235023304689,
+          0.9999911127477826
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": 398.2668749999998,
+        "bottom": 776.2668749999998,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 378,
+        "paused": false,
+        "time": 1.4698,
+        "frames": 87,
+        "pos": [
+          10.162960494158698,
+          -13.986943155209351,
+          0
+        ],
+        "quat": [
+          5.821303272057441e-9,
+          8.434854457073198e-9,
+          -4.91018458502885e-17,
+          1
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 134.81812500000024,
+        "bottom": 477.11500000000024,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 342.296875,
+        "paused": false,
+        "time": 6.1966,
+        "frames": 190,
+        "pos": [
+          10.23157835310524,
+          -1.0385308525700514,
+          0
+        ],
+        "quat": [
+          -0.0005745267818243009,
+          0.002218566962907062,
+          0.0000012746294847198925,
+          0.9999973739355436
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": 534.7087500000002,
+        "bottom": 877.0056250000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 342.296875,
+        "paused": false,
+        "time": 6.8961,
+        "frames": 215,
+        "pos": [
+          10.162960914620708,
+          -19.4556831012324,
+          0
+        ],
+        "quat": [
+          1.257038743675322e-8,
+          2.202928183320957e-8,
+          -2.7691660759687364e-16,
+          0.9999999999999997
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 934.5993750000002,
+        "bottom": 1312.5993750000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -53.78687500000024,
+        "paused": true,
+        "time": 0.7018,
+        "frames": 159,
+        "pos": [
+          10.163867793994903,
+          -63.178310760333275,
+          0
+        ],
+        "quat": [
+          1.954171067926162e-7,
+          3.924357013908707e-7,
+          -7.66886493679424e-14,
+          0.9999999999999039
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": 1704.553125,
+        "bottom": 2082.553125,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -823.7406249999999,
+        "paused": true,
+        "time": 2.303,
+        "frames": 147,
+        "pos": [
+          10.165216016136238,
+          -66.442320789887,
+          0
+        ],
+        "quat": [
+          0.00002821443792871621,
+          0.000020193900054057636,
+          -5.697595399568601e-10,
+          0.9999999993980759
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": -300.8131249999997,
+        "bottom": 77.18687500000033,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 57.99937500000033,
+        "paused": false,
+        "time": 2.2248,
+        "frames": 136,
+        "pos": [
+          10.17408661988244,
+          18.165270063205245,
+          0
+        ],
+        "quat": [
+          0.0005416118248906239,
+          0.00035973958441044195,
+          -1.9483925398266792e-7,
+          0.9999997886219898
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 1708.6481249999997,
+        "bottom": 2050.9449999999997,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -827.8356249999997,
+        "paused": true,
+        "time": 6.8249,
+        "frames": 211,
+        "pos": [
+          10.16443508378974,
+          23.43695756740353,
+          0
+        ],
+        "quat": [
+          -0.000012348680665995121,
+          0.00004768504082440933,
+          5.888473423999473e-10,
+          0.9999999987868234
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": 1.9387499999998,
+        "bottom": 344.2356249999998,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 325.0481249999998,
+        "paused": false,
+        "time": 7.6739,
+        "frames": 237,
+        "pos": [
+          10.238852854225367,
+          4.952637381484781,
+          0
+        ],
+        "quat": [
+          0.0037597692428167377,
+          0.0024537493722742052,
+          -0.000009225624399624316,
+          0.9999899215312855
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 401.8293749999998,
+        "bottom": 779.8293749999998,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 378,
+        "paused": false,
+        "time": 1.136,
+        "frames": 178,
+        "pos": [
+          10.162960494158762,
+          -14.195092509759391,
+          0
+        ],
+        "quat": [
+          4.20021738941171e-9,
+          8.434856519276507e-9,
+          -3.542823102945792e-17,
+          1
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": 837.4231249999998,
+        "bottom": 1215.4231249999998,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 43.3893750000002,
+        "paused": true,
+        "time": 2.303,
+        "frames": 147,
+        "pos": [
+          10.162973657688001,
+          -34.243436891593994,
+          0
+        ],
+        "quat": [
+          6.064298812196244e-7,
+          4.3403963756667075e-7,
+          -2.6321460585423813e-13,
+          0.999999999999722
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": 1660.1268750000004,
+        "bottom": 2038.1268750000004,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -779.3143750000004,
+        "paused": true,
+        "time": 2.2651,
+        "frames": 145,
+        "pos": [
+          10.165455162208197,
+          -64.39804298791935,
+          0
+        ],
+        "quat": [
+          0.0000116411899697776,
+          0.000007732100515617702,
+          -9.001085097651068e-11,
+          0.9999999999023487
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 747.1681250000001,
+        "bottom": 1089.4650000000001,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 133.64437499999985,
+        "paused": true,
+        "time": 6.8249,
+        "frames": 211,
+        "pos": [
+          10.162965691438085,
+          -28.845273342101716,
+          0
+        ],
+        "quat": [
+          -4.570028384444384e-8,
+          1.76473905043914e-7,
+          8.064907551644432e-15,
+          0.9999999999999835
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": 1674.79875,
+        "bottom": 2017.095625,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -793.9862499999999,
+        "paused": true,
+        "time": 7.9179,
+        "frames": 249,
+        "pos": [
+          10.165812341607873,
+          -64.25184775479673,
+          0
+        ],
+        "quat": [
+          0.000013914315877883001,
+          0.000009080965878598634,
+          -1.2635542772854035e-10,
+          0.9999999998619639
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 1705.359375,
+        "bottom": 2083.359375,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -824.546875,
+        "paused": true,
+        "time": 1.7639,
+        "frames": 216,
+        "pos": [
+          10.164513970803894,
+          -66.47741468098963,
+          0
+        ],
+        "quat": [
+          0.000015079377218908413,
+          0.00005023562507166686,
+          -7.575219413252911e-10,
+          0.9999999986244972
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": -124.05687499999976,
+        "bottom": 253.94312500000024,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 234.75562500000024,
+        "paused": false,
+        "time": 0.2456,
+        "frames": 169,
+        "pos": [
+          10.189041932983214,
+          10.42199656772127,
+          0
+        ],
+        "quat": [
+          0.00040921626486090784,
+          0.0008432764226809352,
+          -3.450825795249461e-7,
+          0.9999995607133056
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": 311.53687500000024,
+        "bottom": 689.5368750000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 378,
+        "paused": false,
+        "time": 2.4296,
+        "frames": 145,
+        "pos": [
+          10.212580349331686,
+          -9.544610443079778,
+          0
+        ],
+        "quat": [
+          -0.003113828745915762,
+          0.0016043149828154728,
+          0.000004995592758502684,
+          0.999993865090692
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 107.48812499999985,
+        "bottom": 449.78499999999985,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 342.296875,
+        "paused": false,
+        "time": 7.5521,
+        "frames": 230,
+        "pos": [
+          10.23119504140453,
+          0.5800150859533556,
+          0
+        ],
+        "quat": [
+          0.0005945337501680852,
+          0.0022061736903336033,
+          -0.0000013116481414846412,
+          0.9999973896593668
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": 507.37874999999985,
+        "bottom": 849.6756249999999,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 342.296875,
+        "paused": false,
+        "time": 8.0742,
+        "frames": 250,
+        "pos": [
+          10.162962619888987,
+          -17.812582324687913,
+          0
+        ],
+        "quat": [
+          1.1823492185021851e-7,
+          7.716421708716751e-8,
+          -9.123505176934638e-15,
+          0.99999999999999
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 907.2693749999999,
+        "bottom": 1285.2693749999999,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -26.456874999999854,
+        "paused": true,
+        "time": 1.7639,
+        "frames": 216,
+        "pos": [
+          10.16297343594094,
+          -37.03928981287572,
+          0
+        ],
+        "quat": [
+          1.281348651892845e-7,
+          4.268700854077383e-7,
+          -5.469694084706434e-14,
+          0.9999999999999006
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": 1744.5531250000004,
+        "bottom": 2122.5531250000004,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -863.7406250000004,
+        "paused": true,
+        "time": 0.4922,
+        "frames": 186,
+        "pos": [
+          10.165224767474257,
+          -68.28179293757864,
+          0
+        ],
+        "quat": [
+          0.0000034772583912111167,
+          0.0000071656230148275625,
+          -2.491672275735497e-11,
+          0.9999999999682813
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": -328.1431249999996,
+        "bottom": 49.8568750000004,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 30.6693750000004,
+        "paused": false,
+        "time": 3.2249,
+        "frames": 194,
+        "pos": [
+          10.167358985766956,
+          19.818112180449038,
+          0
+        ],
+        "quat": [
+          0.0001217633328133349,
+          0.0001422209831379317,
+          -1.7317301206376367e-8,
+          0.9999999824734411
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 1701.3281249999995,
+        "bottom": 2043.6249999999995,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -820.5156249999995,
+        "paused": true,
+        "time": 8.0476,
+        "frames": 248,
+        "pos": [
+          10.163521788487932,
+          -65.47000478793707,
+          0
+        ],
+        "quat": [
+          0.000004892874570735065,
+          0.000018156269353697085,
+          -8.883634863582668e-11,
+          0.9999999998232049
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": -169.53125,
+        "bottom": 172.765625,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 153.578125,
+        "paused": false,
+        "time": 8.8261,
+        "frames": 273,
+        "pos": [
+          10.192018991970127,
+          13.048245616565636,
+          0
+        ],
+        "quat": [
+          0.0016020905002770338,
+          0.0009395298717992746,
+          -0.0000015052144783912623,
+          0.9999982752922043
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 230.359375,
+        "bottom": 608.359375,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 378,
+        "paused": false,
+        "time": 0.1386,
+        "frames": 221,
+        "pos": [
+          10.21257957294877,
+          -6.106858212788196,
+          0
+        ],
+        "quat": [
+          -0.0016360033928782167,
+          0.0016042955115187234,
+          0.0000026246397900773463,
+          0.999997374857515
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": 665.953125,
+        "bottom": 1043.953125,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 214.859375,
+        "paused": true,
+        "time": 0.4922,
+        "frames": 186,
+        "pos": [
+          10.162962057199213,
+          -26.193139313166395,
+          0
+        ],
+        "quat": [
+          2.861695698454215e-8,
+          5.8971264861528286e-8,
+          -1.6875781498664005e-15,
+          0.9999999999999978
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": 1639.5568750000002,
+        "bottom": 2017.5568750000002,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -758.7443750000002,
+        "paused": true,
+        "time": 3.2448,
+        "frames": 203,
+        "pos": [
+          10.163982789597345,
+          -63.44914208018706,
+          0
+        ],
+        "quat": [
+          0.0000010020814415091822,
+          0.0000011704427289096596,
+          -1.1728789369911251e-12,
+          0.999999999998813
+        ],
+        "radius": 28
+      }
+    ],
+    [
+      {
+        "src": "/illustration/cover.mp4",
+        "top": 699.7481249999996,
+        "bottom": 1042.0449999999996,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 181.06437500000038,
+        "paused": true,
+        "time": 8.0476,
+        "frames": 248,
+        "pos": [
+          10.162962473801842,
+          -26.04601633053817,
+          0
+        ],
+        "quat": [
+          1.952186768045768e-8,
+          7.244091029381451e-8,
+          -1.4141818654077556e-15,
+          0.9999999999999971
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/reel.mp4",
+        "top": 1674.278749999999,
+        "bottom": 2016.575624999999,
+        "left": 604.8125,
+        "width": 672,
+        "height": 342.296875,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -793.466249999999,
+        "paused": true,
+        "time": 9.0215,
+        "frames": 282,
+        "pos": [
+          10.166235190000025,
+          -64.2287393219064,
+          0
+        ],
+        "quat": [
+          0.000006392116839254494,
+          0.000003748594779456074,
+          -2.396145581396053e-11,
+          0.9999999999725445
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/gift-motion-v2.mp4",
+        "top": 1644.5393749999998,
+        "bottom": 2022.5393749999998,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": -763.7268749999998,
+        "paused": true,
+        "time": 0.5882,
+        "frames": 261,
+        "pos": [
+          10.163671242241689,
+          -63.678033994578186,
+          0
+        ],
+        "quat": [
+          0.00000980687927302024,
+          0.000022988425757800974,
+          -2.2544471615395414e-10,
+          0.9999999996876787
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/launch-motion-v3.mp4",
+        "top": -171.4768750000003,
+        "bottom": 206.5231249999997,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 187.3356249999997,
+        "paused": false,
+        "time": 1.1876,
+        "frames": 226,
+        "pos": [
+          10.19156945053834,
+          13.202563265824265,
+          0
+        ],
+        "quat": [
+          0.0012150045591420413,
+          0.0009249957744739806,
+          -0.0000011238753935307343,
+          0.999998834072058
+        ],
+        "radius": 28
+      },
+      {
+        "src": "/illustration/precomposition-3.mp4",
+        "top": 264.1168749999997,
+        "bottom": 642.1168749999997,
+        "left": 604.8125,
+        "width": 672,
+        "height": 378,
+        "panelTop": 19.1875,
+        "panelBottom": 880.8125,
+        "visible": 378,
+        "paused": false,
+        "time": 3.5179,
+        "frames": 213,
+        "pos": [
+          10.212579608729468,
+          -6.772990231038726,
+          0
+        ],
+        "quat": [
+          -0.001922366713451293,
+          0.0016042958509984875,
+          0.0000030840546098858222,
+          0.9999968653608521
+        ],
+        "radius": 28
+      }
+    ]
+  ]
+}
