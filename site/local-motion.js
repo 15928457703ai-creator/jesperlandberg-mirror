@@ -135,17 +135,19 @@
         pose.quat.multiply(tiltX);
         return pose;
       };
-      // About keeps the native sheet; its audible DOM video owns the media.
-      var aboutSyncContent = folio.syncContent;
-      folio.syncContent = function () {
-        aboutSyncContent.apply(this, arguments);
-        for (var item of this.content) {
-          var about = !!item.el?.closest('[data-gl="sheet"][data-id="showreel"]');
-          if (about || item.mesh.userData.aboutHidden) {
-            item.mesh.visible = !about;
-            item.mesh.userData.aboutHidden = about;
-          }
+      // The About clip stays on the stock WebGL plane and transition clock.
+      window.PortfolioMotion.playAboutAudio = function () {
+        var clip = folio.video('/showreel/showreel.mp4');
+        clip.el.muted = false;
+        clip.el.play().catch(function () {});
+      };
+      var aboutPageText = folio.syncPageText;
+      folio.syncPageText = function (text) {
+        var result = aboutPageText.apply(this, arguments);
+        if (text?.el?.closest('[data-gl="sheet"][data-id="showreel"]') && text.material?.uniforms?.u_alpha) {
+          text.material.uniforms.u_alpha.value = 0;
         }
+        return result;
       };
       var syncTitles = folio.syncTitles;
       folio.syncTitles = function () {
@@ -173,6 +175,9 @@
       document.documentElement.addEventListener('pointerleave', function () { detailPointer.fine = false; });
       var playVideo = folio.playVideo;
       folio.playVideo = function (video, wantsPlay) {
+        if (video && new URL(video.el.currentSrc || video.el.src, location.href).pathname === '/showreel/showreel.mp4') {
+          video.el.muted = location.pathname.replace(/\/$/, '') !== '/projects/showreel';
+        }
         if (video && location.pathname.replace(/\/$/, '') === '/projects/illustration') {
           var path = new URL(video.el.currentSrc || video.el.src, location.href).pathname;
           if (path.startsWith('/illustration/')) {
