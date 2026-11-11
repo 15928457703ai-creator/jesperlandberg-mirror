@@ -219,6 +219,11 @@ div.fixed.inset-0.z-40 a.label[href="/"] {
 main.fixed[data-gl-shield]:has(.content-center) {
   z-index: 30;
 }
+@media (min-width: 650px) {
+  main.fixed[data-gl-shield] .content-center {
+    max-width: 68rem;
+  }
+}
 main.fixed[data-gl-shield] .content-center a[href="/projects/oppo-service"],
 main.fixed[data-gl-shield] .content-center a[href="/projects/oppo-self-service"],
 main.fixed[data-gl-shield] .content-center a[href="/projects/csa-service"],

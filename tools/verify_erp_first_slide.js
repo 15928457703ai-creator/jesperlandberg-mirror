@@ -125,7 +125,7 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
     home.site === 'Fengmei' &&
     homeErp.some(x => /^\/erp\/(1\.jpg|cover\.jpg):200$|^\/erp\/cover\.mp4:(200|206)$/.test(x));
   const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.id === SLUG &&
-    spa.h1 === 'ERP' && spa.slides === 11 && spa.ratios.every(r => r === '1600 / 900') &&
+    spa.h1 === '华润ERP' && spa.slides === 11 && spa.ratios.every(r => r === '1600 / 900') &&
     JSON.stringify(spa.related) === JSON.stringify(['oppo-self-service', 'csa-service']) &&
     spa.canvas === 1;
   const okDirect = direct.id === SLUG && direct.slides === 11 && direct.canvas === 1;

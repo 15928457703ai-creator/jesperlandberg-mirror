@@ -3,6 +3,9 @@
 (function () {
   'use strict';
   window.PortfolioMotion = {
+    // This renamed title needs Chinese glyphs in cards, pills and the index;
+    // use the native canvas-text path instead of the Latin-only outline font.
+    useCanvasText: function (el) { return el.textContent.trim() === '华润ERP'; },
     install: function (folio) {
       if (folio.galleryMotion) return;
       var media = matchMedia('(prefers-reduced-motion: reduce)');

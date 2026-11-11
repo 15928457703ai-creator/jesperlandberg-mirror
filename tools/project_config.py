@@ -88,13 +88,13 @@ PROJECTS = [
     },
     {
         "slug": "erp",
-        "title": "ERP",
+        "title": "华润ERP",
         "pid": "jinsha-erp-2026",
         "dir": "erp",
-        "desc": "金沙白酒 ERP 1.0 制造业数字化：从 0 到 1 搭建移动端 ERP 体验，覆盖生产、采购、库存与仓库管理四大核心流程，为 60+ 工厂的仓管与操作员提供日常指令、入库与退货服务，解决办公场景转移下电脑无法移动的作业瓶颈。",
-        "short": "金沙白酒 ERP 1.0，制造业数字化移动端 ERP 的主设 UX/UI 0-1 建设。",
+        "desc": "华润ERP 1.0 制造业数字化：从 0 到 1 搭建移动端 ERP 体验，覆盖生产、采购、库存与仓库管理四大核心流程，为 60+ 工厂的仓管与操作员提供日常指令、入库与退货服务，解决办公场景转移下电脑无法移动的作业瓶颈。",
+        "short": "华润ERP 1.0，制造业数字化移动端 ERP 的主设 UX/UI 0-1 建设。",
         "tags": [("erp-tag-ux", "UX / UI", None),
-                 ("erp-tag-brand", "ERP", None),
+                 ("erp-tag-brand", "华润ERP", None),
                  ("erp-tag-year", "2026", None)],
         # Animated HOME card cover.  The two phone slices from
         # `ERP/动画/` are staged on a rebuilt version of the artwork in

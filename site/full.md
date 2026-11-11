@@ -36,7 +36,7 @@ _Every page on http://127.0.0.1:__PORT__ is also available as Markdown: send `Ac
 
 - [CSA客服服务](http://127.0.0.1:__PORT__/projects/csa-service.md): CSA 客户服务，OPPO 凤凰计划 G-CSM 移动端重构，统一服务门户与到店取号体验。
 
-- [ERP](http://127.0.0.1:__PORT__/projects/erp.md): 金沙白酒 ERP 1.0，制造业数字化移动端 ERP 的主设 UX/UI 0-1 建设。
+- [华润ERP](http://127.0.0.1:__PORT__/projects/erp.md): 华润ERP 1.0，制造业数字化移动端 ERP 的主设 UX/UI 0-1 建设。
 
 - [横向优势](http://127.0.0.1:__PORT__/projects/hengxiang-advantage.md): 横向优势：插画 / 3D 渲染 / AIGC 运用的能力拓展与运营落地。
 

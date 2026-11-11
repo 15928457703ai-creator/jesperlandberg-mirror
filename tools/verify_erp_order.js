@@ -215,7 +215,7 @@ function mediaOf(payload, proj) {
       placeholders: document.querySelectorAll('[data-gl="simple"]').length };
   });
   check('SPA entry: sheet, Chinese copy and 11 placeholders',
-    spa.path === '/projects/' + SLUG && spa.id === SLUG && spa.h1 === 'ERP' &&
+    spa.path === '/projects/' + SLUG && spa.id === SLUG && spa.h1 === '华润ERP' &&
     spa.op === 1 && spa.placeholders === 11, JSON.stringify(spa));
 
   // (c) Direct URL load: same first slide, all 11 main stills arrive.

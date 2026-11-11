@@ -36,7 +36,7 @@ How to call: Email jesper@alpacka.studio. Availability and rates are not publish
 
 - [Naivideo](http://127.0.0.1:__PORT__/projects/naivideo.md): Naivideo 海外 AI 创作工具，AI 视频与音乐生成平台，覆盖 Agent 创作、沉浸观看与资产全生命周期管理。
 
-- [ERP](http://127.0.0.1:__PORT__/projects/erp.md): 金沙白酒 ERP 1.0，制造业数字化移动端 ERP 的主设 UX/UI 0-1 建设。
+- [华润ERP](http://127.0.0.1:__PORT__/projects/erp.md): 华润ERP 1.0，制造业数字化移动端 ERP 的主设 UX/UI 0-1 建设。
 
 - [OPPO自助服务](http://127.0.0.1:__PORT__/projects/oppo-self-service.md): OPPO 自助服务多平台落地，重构服务框架与境内外 APP + PC 全场景体验。
 
