@@ -13,7 +13,7 @@
    "path": "/oppo/live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 2.59,
+   "t": 1.95,
    "w": 1600,
    "h": 900
   },
@@ -22,7 +22,7 @@
    "path": "/naivideo/live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 2.39,
+   "t": 1.89,
    "w": 1600,
    "h": 900
   },
@@ -30,8 +30,8 @@
    "src": "motion.mp4",
    "path": "/oppo-self/motion.mp4",
    "ready": 4,
-   "paused": false,
-   "t": 2.17,
+   "paused": true,
+   "t": 1.58,
    "w": 1600,
    "h": 900
   },
@@ -40,7 +40,7 @@
    "path": "/erp/cover.mp4",
    "ready": 4,
    "paused": true,
-   "t": 2.27,
+   "t": 2.79,
    "w": 1600,
    "h": 900
   },
@@ -49,7 +49,7 @@
    "path": "/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.91,
+   "t": 1.71,
    "w": 1250,
    "h": 720
   },
@@ -57,8 +57,8 @@
    "src": "high.mp4",
    "path": "/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
    "ready": 4,
-   "paused": true,
-   "t": 1.91,
+   "paused": false,
+   "t": 1.66,
    "w": 1162,
    "h": 720
   },
@@ -67,7 +67,7 @@
    "path": "/illustration/cover.mp4",
    "ready": 4,
    "paused": false,
-   "t": 2.59,
+   "t": 1.47,
    "w": 1280,
    "h": 652
   }
@@ -102,7 +102,7 @@
   "path": "/illustration/cover.mp4",
   "ready": 4,
   "paused": false,
-  "t": 7.92,
+  "t": 7.91,
   "w": 1280,
   "h": 652
  },
@@ -112,7 +112,7 @@
    "path": "/oppo/live.mp4",
    "ready": 4,
    "paused": true,
-   "t": 4.56,
+   "t": 3.91,
    "w": 1600,
    "h": 900
   },
@@ -121,7 +121,7 @@
    "path": "/naivideo/live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 8.22,
+   "t": 5.99,
    "w": 1600,
    "h": 900
   },
@@ -129,8 +129,8 @@
    "src": "motion.mp4",
    "path": "/oppo-self/motion.mp4",
    "ready": 4,
-   "paused": false,
-   "t": 0.03,
+   "paused": true,
+   "t": 1.58,
    "w": 1600,
    "h": 900
   },
@@ -139,7 +139,7 @@
    "path": "/erp/cover.mp4",
    "ready": 4,
    "paused": true,
-   "t": 2.27,
+   "t": 2.79,
    "w": 1600,
    "h": 900
   },
@@ -148,7 +148,7 @@
    "path": "/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.91,
+   "t": 1.71,
    "w": 1250,
    "h": 720
   },
@@ -157,7 +157,7 @@
    "path": "/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.91,
+   "t": 3.27,
    "w": 1162,
    "h": 720
   },
@@ -166,7 +166,7 @@
    "path": "/illustration/cover.mp4",
    "ready": 4,
    "paused": false,
-   "t": 5.91,
+   "t": 2.78,
    "w": 1280,
    "h": 652
   },
@@ -175,27 +175,27 @@
    "path": "/illustration/reel.mp4",
    "ready": 4,
    "paused": false,
-   "t": 20.32,
+   "t": 16.28,
    "w": 1280,
    "h": 652
   },
   {
-   "src": "gift-motion.mp4",
-   "path": "/illustration/gift-motion.mp4",
-   "ready": 2,
+   "src": "gift-motion-v2.mp4",
+   "path": "/illustration/gift-motion-v2.mp4",
+   "ready": 4,
    "paused": false,
-   "t": 0.65,
+   "t": 1.17,
    "w": 1920,
    "h": 1080
   },
   {
-   "src": "launch-motion.mp4",
-   "path": "/illustration/launch-motion.mp4",
-   "ready": 2,
-   "paused": true,
-   "t": 1.66,
+   "src": "launch-motion-v3.mp4",
+   "path": "/illustration/launch-motion-v3.mp4",
+   "ready": 4,
+   "paused": false,
+   "t": 1.95,
    "w": 1920,
-   "h": 600
+   "h": 1080
   }
  ],
  "directInfo": {
@@ -219,9 +219,9 @@
   {
    "src": "cover.mp4",
    "path": "/illustration/cover.mp4",
-   "ready": 4,
+   "ready": 2,
    "paused": false,
-   "t": 5.95,
+   "t": 5.66,
    "w": 1280,
    "h": 652
   },
@@ -239,27 +239,27 @@
    "path": "/illustration/reel.mp4",
    "ready": 4,
    "paused": false,
-   "t": 3.52,
+   "t": 4.65,
    "w": 1280,
    "h": 652
   },
   {
-   "src": "gift-motion.mp4",
-   "path": "/illustration/gift-motion.mp4",
-   "ready": 2,
+   "src": "gift-motion-v2.mp4",
+   "path": "/illustration/gift-motion-v2.mp4",
+   "ready": 1,
    "paused": false,
-   "t": 0.7,
+   "t": 0,
    "w": 1920,
    "h": 1080
   },
   {
-   "src": "launch-motion.mp4",
-   "path": "/illustration/launch-motion.mp4",
-   "ready": 2,
+   "src": "launch-motion-v3.mp4",
+   "path": "/illustration/launch-motion-v3.mp4",
+   "ready": 1,
    "paused": false,
-   "t": 0.87,
+   "t": 0,
    "w": 1920,
-   "h": 600
+   "h": 1080
   }
  ],
  "playing": true,
@@ -269,26 +269,26 @@
  "clean": true,
  "motionBefore": [
   {
-   "src": "http://127.0.0.1:5189/illustration/gift-motion.mp4",
-   "ready": 2,
-   "frames": 300
+   "src": "http://127.0.0.1:5189/illustration/gift-motion-v2.mp4",
+   "ready": 4,
+   "frames": 297
   },
   {
-   "src": "http://127.0.0.1:5189/illustration/launch-motion.mp4",
+   "src": "http://127.0.0.1:5189/illustration/launch-motion-v3.mp4",
    "ready": 4,
-   "frames": 222
+   "frames": 259
   }
  ],
  "motionAfter": [
   {
-   "src": "http://127.0.0.1:5189/illustration/gift-motion.mp4",
+   "src": "http://127.0.0.1:5189/illustration/gift-motion-v2.mp4",
    "ready": 4,
-   "frames": 402
+   "frames": 324
   },
   {
-   "src": "http://127.0.0.1:5189/illustration/launch-motion.mp4",
+   "src": "http://127.0.0.1:5189/illustration/launch-motion-v3.mp4",
    "ready": 4,
-   "frames": 243
+   "frames": 364
   }
  ],
  "newClipsPlaying": true,
@@ -319,7 +319,7 @@
    "fill": "rgb(255, 255, 255)"
   },
   {
-   "title": "ERP",
+   "title": "华润ERP",
    "href": "/projects/erp",
    "fill": "rgb(255, 255, 255)"
   },
@@ -355,16 +355,16 @@
   "206 /naivideo/live.mp4",
   "206 /oppo-self/motion.mp4",
   "200 /illustration/cover.jpg",
-  "206 /erp/cover.mp4",
   "206 /9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
-  "206 /illustration/cover.mp4",
   "206 /01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
+  "206 /illustration/cover.mp4",
+  "206 /erp/cover.mp4",
   "200 /illustration/reel.jpg",
-  "200 /illustration/gift-motion.jpg",
-  "200 /illustration/launch-motion.jpg",
+  "200 /illustration/gift-motion-v2.jpg",
+  "200 /illustration/launch-motion-v3.jpg",
   "200 /projects/illustration/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859",
   "206 /illustration/reel.mp4",
-  "206 /illustration/gift-motion.mp4",
-  "206 /illustration/launch-motion.mp4"
+  "206 /illustration/gift-motion-v2.mp4",
+  "206 /illustration/launch-motion-v3.mp4"
  ]
 }

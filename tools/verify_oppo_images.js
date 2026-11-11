@@ -94,7 +94,7 @@ const boot = async page => {
       related: [...document.querySelectorAll('[data-gl="related"]')]
         .map(x => x.getAttribute('data-id')),
       canvas: document.querySelectorAll('canvas').length,
-      hasCss: !!document.querySelector('link[href="/local-copy.css"]'),
+      hasCss: !!document.querySelector('link[href^="/local-copy.css"]'),
     };
   });
   console.log('SPA SHEET', JSON.stringify({ ...spa, copy: (spa.copy || '').slice(0, 70) + '...' }));

@@ -80,7 +80,7 @@ const HOOK = () => {
     return {
       cards: cards.length, last: cards.at(-1)?.getAttribute('data-id'),
       title: c?.querySelector('[data-title]')?.textContent.trim(),
-      hasCss: !!document.querySelector('link[href="/local-copy.css"]'),
+      hasCss: !!document.querySelector('link[href^="/local-copy.css"]'),
       canvas: document.querySelectorAll('canvas').length,
       siteName: document.querySelector('div.fixed.inset-0.z-40 a.label[href="/"]')?.textContent.trim(),
     };
@@ -182,7 +182,7 @@ const HOOK = () => {
   await page.screenshot({ path: path.join(OUT, 'illustration_detail_direct.png') });
 
   const frames = () => page.evaluate(() => (window.__videos || [])
-    .filter(v => /\/(gift-motion|launch-motion)\.mp4$/.test(v.src))
+    .filter(v => /\/(gift-motion|launch-motion)(?:-v\d+)?\.mp4$/.test(v.src))
     .map(v => ({ src: v.src, ready: v.readyState, frames: v.getVideoPlaybackQuality().totalVideoFrames })));
   const motionBefore = await frames();
   await wait(650);

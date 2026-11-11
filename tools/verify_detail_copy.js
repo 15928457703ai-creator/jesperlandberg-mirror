@@ -66,7 +66,7 @@ const LAUNCH = {
         copy: d?.textContent.trim(),
         fill: cs?.webkitTextFillColor,
         opacity: cs?.opacity,
-        hasCss: !!document.querySelector('link[href="/local-copy.css"]')
+        hasCss: !!document.querySelector('link[href^="/local-copy.css"]')
       };
     });
     const local = LOCAL_SLUGS.includes(s);

@@ -6,8 +6,8 @@ const ROOT = path.join(__dirname, '..');
 const DEST = path.join(ROOT, 'site', 'illustration');
 const META = path.join(ROOT, 'raw', 'project_images', 'illustration.json');
 const clips = [
-  { stem: 'gift-motion', source: '/Users/soul/Documents/动效导出/礼物 4.mp4' },
-  { stem: 'launch-motion', source: '/Users/soul/Documents/动效导出/启动页 版本1_1.mp4' },
+  { stem: 'gift-motion-v2', replaces: 'gift-motion', source: '/Users/soul/Documents/动效导出/礼物 4_2.mp4' },
+  { stem: 'launch-motion-v3', replaces: 'launch-motion', source: '/Users/soul/Documents/动效导出/启动页 版本1_3.mp4' },
 ];
 
 (async () => {
@@ -22,7 +22,8 @@ const clips = [
     await page.goto((process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5189') + '/__noop.js');
     const prior = JSON.parse(fs.readFileSync(META));
     const names = new Set(clips.map(c => path.basename(c.source)));
-    const meta = prior.filter(m => !names.has(m.source));
+    const replaced = new Set(clips.flatMap(c => [c.stem + '.mp4', c.replaces + '.mp4']));
+    const meta = prior.filter(m => !names.has(m.source) && !replaced.has(m.video?.file));
     for (const clip of clips) {
       const result = await page.evaluate(async stem => {
         const video = document.createElement('video');

@@ -2,6 +2,14 @@
 const http=require('http'),https=require('https'),fs=require('fs'),path=require('path'),crypto=require('crypto');
 const ROOT=__dirname, SITE=path.join(ROOT,'site'), ASSETS=path.join(ROOT,'assets'), RAW=path.join(ROOT,'raw');
 const PORT=Number(process.env.PORT||5188);
+// The mirror edits Nuxt bundles in place. Give each coherent set of runtime
+// files its own URL space so a warm browser cannot mix old and new modules.
+const runtimeFiles=[...fs.readdirSync(path.join(SITE,'_nuxt')).filter(f=>/\.(js|css)$/.test(f)).map(f=>path.join(SITE,'_nuxt',f)),
+  ...['local-motion.js','local-copy.js','local-copy.css'].map(f=>path.join(SITE,f))].sort();
+const runtimeHash=crypto.createHash('sha256');
+for(const file of runtimeFiles) runtimeHash.update(fs.readFileSync(file));
+const RUNTIME=runtimeHash.digest('hex').slice(0,12);
+const RUNTIME_PATH='/_nuxt/preview-'+RUNTIME+'/';
 let DB={byUrl:{},byPath:{}};
 try{ DB=JSON.parse(fs.readFileSync(path.join(ASSETS,'manifest.json'),'utf8')); }catch(e){ console.error('manifest missing',e.message); }
 const MIME={'.html':'text/html; charset=utf-8','.htm':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.md':'text/markdown; charset=utf-8','.txt':'text/plain; charset=utf-8','.xml':'application/xml; charset=utf-8','.jpg':'image/jpeg','.jpeg':'image/jpeg','.png':'image/png','.webp':'image/webp','.avif':'image/avif','.gif':'image/gif','.svg':'image/svg+xml','.mp4':'video/mp4','.webm':'video/webm','.woff':'font/woff','.woff2':'font/woff2','.wasm':'application/wasm','.bin':'application/octet-stream','.ktx2':'image/ktx2','.glb':'model/gltf-binary','.ico':'image/x-icon'};
@@ -27,12 +35,14 @@ const missLog=new Set();
 function log404(p){ if(!missLog.has(p)){missLog.add(p); console.log('[MISS]',p);} }
 function sendFile(req,res,fp,ctype){
   let st; try{st=fs.statSync(fp);}catch(e){return false;}
-  // inject the actual listening port into rewritten HTML/JS/JSON at serve time
+  // Serve one runtime revision together, with no stale text responses.
   if(TEXT_EXT.has(path.extname(fp).toLowerCase())){
-    try{
-      const t=fs.readFileSync(fp,'utf8');
-      if(t.includes('__PORT__')){ sendBuf(res,Buffer.from(t.replace(/__PORT__/g,String(PORT))),ctype||mime(fp)); return true; }
-    }catch(e){}
+    let t=fs.readFileSync(fp,'utf8').replace(/__PORT__/g,String(PORT));
+    t=t.replace(/\/_nuxt\/(?!preview-[a-f0-9]{12}\/)/g,RUNTIME_PATH);
+    if(/\.html?$/.test(fp)) t=t.replace(/(["'])\/(local-(?:copy\.(?:css|js)|motion\.js))\1/g,
+      (all,quote,name)=>quote+'/'+name+'?v='+RUNTIME+quote);
+    sendBuf(res,Buffer.from(t),ctype||mime(fp));
+    return true;
   }
   const h={'Content-Type':ctype||mime(fp),'Accept-Ranges':'bytes','Access-Control-Allow-Origin':'*','Cache-Control':'public, max-age=3600','X-Local-Mirror':'1'};
   const range=req.headers.range;
@@ -120,7 +130,7 @@ function heal(req,res,p,search){
 const server=http.createServer((req,res)=>{
   refreshDB();
   const u=new URL(req.url,'http://127.0.0.1:'+PORT);
-  const p=decodeURIComponent(u.pathname), search=u.search;
+  const p=decodeURIComponent(u.pathname).replace(/^\/_nuxt\/preview-[a-f0-9]{12}\//,'/_nuxt/'), search=u.search;
   // Only published case studies may serve pages, markdown, or payloads.
   // Unknown project payloads must not fall through to the upstream healer.
   if(p.startsWith('/projects/') && !PAGES.has('/projects/'+p.slice(10).split(/[/.]/)[0])){

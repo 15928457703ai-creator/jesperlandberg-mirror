@@ -1,0 +1,166 @@
+{
+  "checks": [
+    {
+      "name": "direct detail has working close control",
+      "ok": true
+    },
+    {
+      "name": "project switch completes",
+      "ok": true
+    },
+    {
+      "name": "closing detail restores corner controls",
+      "ok": true,
+      "data": {
+        "alpha": 1,
+        "labels": [
+          {
+            "text": "Featured",
+            "alpha": 1
+          },
+          {
+            "text": "/",
+            "alpha": 1
+          },
+          {
+            "text": "Full",
+            "alpha": 0.5
+          },
+          {
+            "text": "Fengmei",
+            "alpha": 1
+          },
+          {
+            "text": "Profile",
+            "alpha": 1
+          },
+          {
+            "text": "Newsletter",
+            "alpha": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "top-right Profile opens",
+      "ok": true
+    },
+    {
+      "name": "bottom-right Newsletter opens",
+      "ok": true
+    },
+    {
+      "name": "bottom-left Full and hover preview work",
+      "ok": true
+    },
+    {
+      "name": "top-left name returns home with all corners",
+      "ok": true
+    },
+    {
+      "name": "runtime modules use a versioned URL",
+      "ok": true
+    },
+    {
+      "name": "all scripts bypass stale cache",
+      "ok": true
+    },
+    {
+      "name": "local extension has a revision",
+      "ok": true
+    },
+    {
+      "name": "no runtime errors",
+      "ok": true,
+      "data": []
+    }
+  ],
+  "errors": [],
+  "scripts": [
+    {
+      "url": "http://127.0.0.1:5189/local-motion.js?v=d12517bb3a68",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/rY37MP56.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/CSMsEA09.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/D6Jn8M47.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/local-copy.js?v=d12517bb3a68",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/Dhdylg00.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/CHzWqGxK.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/DJ70QaFT.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/basis_transcoder.o4Hde_L7.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/DZyj3ghP.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/DJ70QaFT.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/basis/basis_transcoder.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/mriNB3Nt.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/DNYapgHJ.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/Dhdylg00.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/CHzWqGxK.js",
+      "cache": "no-store",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:5189/_nuxt/preview-d12517bb3a68/BkQn8csq.js",
+      "cache": "no-store",
+      "status": 200
+    }
+  ]
+}

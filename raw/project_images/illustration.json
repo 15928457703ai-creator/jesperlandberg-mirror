@@ -266,28 +266,28 @@
  },
  {
   "n": 12,
-  "source": "礼物 4.mp4",
+  "source": "礼物 4_2.mp4",
   "kind": "video",
   "cover": false,
   "origWidth": 1920,
   "origHeight": 1080,
   "main": {
-   "file": "gift-motion.jpg",
+   "file": "gift-motion-v2.jpg",
    "width": 1600,
    "height": 900
   },
   "_card": {
-   "file": "gift-motion_card.jpg",
+   "file": "gift-motion-v2_card.jpg",
    "width": 1200,
    "height": 675
   },
   "_small": {
-   "file": "gift-motion_small.jpg",
+   "file": "gift-motion-v2_small.jpg",
    "width": 640,
    "height": 360
   },
   "video": {
-   "file": "gift-motion.mp4",
+   "file": "gift-motion-v2.mp4",
    "width": 1920,
    "height": 1080,
    "duration": 1.8
@@ -295,31 +295,31 @@
  },
  {
   "n": 13,
-  "source": "启动页 版本1_1.mp4",
+  "source": "启动页 版本1_3.mp4",
   "kind": "video",
   "cover": false,
   "origWidth": 1920,
-  "origHeight": 600,
+  "origHeight": 1080,
   "main": {
-   "file": "launch-motion.jpg",
+   "file": "launch-motion-v3.jpg",
    "width": 1600,
-   "height": 500
+   "height": 900
   },
   "_card": {
-   "file": "launch-motion_card.jpg",
+   "file": "launch-motion-v3_card.jpg",
    "width": 1200,
-   "height": 375
+   "height": 675
   },
   "_small": {
-   "file": "launch-motion_small.jpg",
+   "file": "launch-motion-v3_small.jpg",
    "width": 640,
-   "height": 200
+   "height": 360
   },
   "video": {
-   "file": "launch-motion.mp4",
+   "file": "launch-motion-v3.mp4",
    "width": 1920,
-   "height": 600,
-   "duration": 1.983333
+   "height": 1080,
+   "duration": 2.466667
   }
  }
 ]

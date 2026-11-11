@@ -691,20 +691,20 @@
    {
     "n": 12,
     "files": [
-     "gift-motion.jpg",
-     "gift-motion_small.jpg",
-     "gift-motion_card.jpg"
+     "gift-motion-v2.jpg",
+     "gift-motion-v2_small.jpg",
+     "gift-motion-v2_card.jpg"
     ],
-    "video": "gift-motion.mp4"
+    "video": "gift-motion-v2.mp4"
    },
    {
     "n": 13,
     "files": [
-     "launch-motion.jpg",
-     "launch-motion_small.jpg",
-     "launch-motion_card.jpg"
+     "launch-motion-v3.jpg",
+     "launch-motion-v3_small.jpg",
+     "launch-motion-v3_card.jpg"
     ],
-    "video": "launch-motion.mp4"
+    "video": "launch-motion-v3.mp4"
    }
   ]
  },
