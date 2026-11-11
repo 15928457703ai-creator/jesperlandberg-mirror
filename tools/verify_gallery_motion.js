@@ -17,19 +17,20 @@ const options = { executablePath: '/Applications/Google Chrome.app/Contents/MacO
     await page.waitForTimeout(1800);
     const read = () => page.evaluate(() => {
       const folio = document.querySelector('#__nuxt').__vue_app__.config.globalProperties.$nuxt.$folio;
-      return { enabled: folio.galleryMotion.enabled, pointer: { ...folio.galleryMotion.pointer },
+      return { enabled: folio.galleryMotion.enabled, autoplay: folio.galleryMotion.autoplay,
         cards: folio.cards.filter(c => c.el.isConnected).map(c => ({ slug: c.slug, pos: c.mesh.position.toArray(), quat: c.mesh.quaternion.toArray(),
           focus: c.mesh.material.uniforms.u_galleryFocus?.value, light: c.mesh.material.uniforms.u_galleryPoint?.value.toArray() })),
         labels: folio.texts.filter(t => t.el.isConnected).map(t => t.el.textContent) };
     });
-    await page.mouse.move(720, 450);
+    // Leave the pointer parked outside the cards: movement must run by itself.
+    await page.mouse.move(20, 20);
     await page.waitForTimeout(800);
     const before = await read();
-    await page.mouse.move(1050, 300, { steps: 12 });
-    await page.waitForTimeout(900);
+    await page.waitForTimeout(1500);
     const after = await read();
     check('desktop gallery active with ten projects', before.enabled && before.cards.length === 10);
-    check('pointer changes rendered card pose', after.cards.some((c, i) => Math.abs(c.pos[1] - before.cards[i].pos[1]) > .001));
+    check('card poses animate without hover', after.autoplay && after.cards.some((c, i) => Math.abs(c.pos[1] - before.cards[i].pos[1]) > .001));
+    check('surface lighting animates without hover', after.cards.some((c, i) => Math.abs(c.light[0] - before.cards[i].light[0]) > .01 && c.focus > .2));
     check('all card poses stay finite', after.cards.every(c => c.pos.concat(c.quat).every(Number.isFinite)));
     check('all card surfaces support directional light', after.cards.every(c => Number.isFinite(c.focus) && c.light.length === 2));
     check('Chinese project captions are rendered', after.labels.includes('OPPO自助服务') && after.labels.includes('华润ERP'));
@@ -47,7 +48,7 @@ const options = { executablePath: '/Applications/Google Chrome.app/Contents/MacO
     const target = page.locator('[data-gl="card"][data-id="' + slug + '"]');
     await target.hover(); await page.waitForTimeout(1100);
     const focused = (await read()).cards.find(c => c.slug === slug);
-    check('hover focuses and lights the active card', focused.focus > .8);
+    check('automatic focus remains active while interacting', focused.focus > .2);
     await page.screenshot({ path: 'screenshots/gallery_motion_focus.png' });
     await page.mouse.down(); await page.waitForTimeout(220);
     const pressed = (await read()).cards.find(c => c.slug === slug);

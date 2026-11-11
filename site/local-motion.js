@@ -12,31 +12,29 @@
     install: function (folio) {
       if (folio.galleryMotion) return;
       var media = matchMedia('(prefers-reduced-motion: reduce)');
-      var pointer = { x: .5, y: .5, sx: .5, sy: .5, active: false };
-      var hovered = null, pressed = null;
+      var elapsed = 0;
+      var pressed = null;
       var states = new WeakMap();
       var intro = -10000;
       var enabled = function () { return !media.matches && location.pathname === '/' && !folio.ctx.$resize?.small; };
       var clamp = function (n, a, b) { return Math.max(a, Math.min(b, n)); };
       function stateFor(el) {
         var state = states.get(el);
-        if (!state) { state = { hover: 0, press: 0, x: .5, y: .5 }; states.set(el, state); }
+        if (!state) { state = { focus: 0, press: 0, x: .5, y: .5 }; states.set(el, state); }
         return state;
       }
-      folio.galleryMotion = { pointer: pointer, get enabled() { return enabled(); } };
-      window.addEventListener('pointermove', function (e) {
-        pointer.x = e.clientX / innerWidth;
-        pointer.y = e.clientY / innerHeight;
-        pointer.active = e.pointerType !== 'touch';
-        hovered = pointer.active ? e.target.closest?.('[data-gl="card"]') : null;
-      }, { passive: true });
+      folio.galleryMotion = { autoplay: true, get enabled() { return enabled(); } };
       function release() { pressed = null; }
-      function leave() { pointer.active = false; hovered = null; release(); }
       window.addEventListener('pointerdown', function (e) { if (e.button === 0) pressed = e.target.closest?.('[data-gl="card"]'); }, { passive: true });
       window.addEventListener('pointerup', release, { passive: true });
-      window.addEventListener('pointercancel', leave, { passive: true });
-      document.documentElement.addEventListener('pointerleave', leave);
-      window.addEventListener('blur', leave);
+      window.addEventListener('pointercancel', release, { passive: true });
+      window.addEventListener('blur', release);
+      // Home card motion follows its own clock; hover remains native on
+      // navigation and the catalogue, without driving the home presentation.
+      var tone = folio.tone;
+      folio.tone = function () {
+        if (location.pathname !== '/') return tone.apply(this, arguments);
+      };
 
       // Light is evaluated on the existing card surface: no overlay can
       // intercept clicks or cover the four corner navigation controls.
@@ -60,29 +58,33 @@
       var showHome = folio.showHome;
       folio.showHome = function () {
         intro = performance.now();
+        elapsed = 0;
         return showHome.apply(this, arguments);
       };
       var tick = folio.tick;
       folio.tick = function (dt) {
         var k = 1 - Math.exp(-Math.min(dt || .016, .05) * 7);
-        pointer.sx += ((pointer.active ? pointer.x : .5) - pointer.sx) * k;
-        pointer.sy += ((pointer.active ? pointer.y : .5) - pointer.sy) * k;
-        var active = enabled() && this.hole.p < .02;
+        var active = enabled() && this.hole.p < .02 && !document.hidden;
+        if (active) elapsed += Math.min(dt || .016, .05);
         for (var card of this.reg.all()) {
           var el = card.el, uniforms = card.mesh.material.uniforms;
           if (!el?.isConnected || el.dataset.gl !== 'card' || !active) {
             if (uniforms.u_galleryFocus) uniforms.u_galleryFocus.value = 0;
+            if (el?.dataset.gl === 'card' && uniforms.u_hover) uniforms.u_hover.value = 0;
             continue;
           }
-          var state = stateFor(el), box = el._vrect || el.getBoundingClientRect();
-          state.hover += ((el === hovered ? 1 : 0) - state.hover) * k;
+          var state = stateFor(el);
+          var index = Math.max(0, this.cards.findIndex(function (c) { return c.el === el; }));
+          var phase = elapsed * .85 + index * .8;
+          state.focus += ((.68 + .22 * Math.sin(phase)) - state.focus) * k;
           state.press += ((el === pressed ? 1 : 0) - state.press) * Math.min(1, k * 2);
-          var x = clamp((pointer.x * innerWidth - box.left) / Math.max(box.width, 1), 0, 1);
-          var y = clamp((pointer.y * innerHeight - box.top) / Math.max(box.height, 1), 0, 1);
+          var x = .5 + .36 * Math.sin(elapsed * .55 + index * .65);
+          var y = .5 + .24 * Math.cos(elapsed * .45 + index * .5);
           state.x += (x - state.x) * k;
           state.y += (y - state.y) * k;
+          if (uniforms.u_hover) uniforms.u_hover.value = state.focus * .4;
           if (uniforms.u_galleryFocus) {
-            uniforms.u_galleryFocus.value = state.hover;
+            uniforms.u_galleryFocus.value = state.focus;
             uniforms.u_galleryPoint.value.set(state.x, 1 - state.y);
           }
         }
@@ -113,12 +115,12 @@
         var p = clamp((performance.now() - intro - delay) / 1650, 0, 1);
         var arrival = Math.pow(1 - p, 4);
         var state = stateFor(el);
-        var hover = this.hole.p < .02 ? state.hover : 0;
+        var hover = this.hole.p < .02 ? state.focus : 0;
         var press = this.hole.p < .02 ? state.press : 0;
         var h = pose.scale.y;
-        var px = (pointer.sx - .5) * 2;
-        var py = (pointer.sy - .5) * 2;
-        var dy = h * (-.20 * arrival + (px * center * .012 - py * .014) * focus + .018 * hover);
+        var px = Math.sin(elapsed * .35) * .4;
+        var py = Math.cos(elapsed * .3) * .3;
+        var dy = h * (-.20 * arrival + (px * center * .012 - py * .014) * focus + .018 * hover + .007 * Math.sin(elapsed * .9 + index * .5));
         var dz = h * (.045 * focus - .15 * arrival - Math.abs(this.vel || 0) * .045 + .06 * hover - .035 * press);
         el._galleryOffset = { y: dy, z: dz };
         pose.pos.y += dy;

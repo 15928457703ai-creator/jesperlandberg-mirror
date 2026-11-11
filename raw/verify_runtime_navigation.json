@@ -16,27 +16,27 @@
         "labels": [
           {
             "text": "Featured",
-            "alpha": 1
+            "alpha": 0.875492
           },
           {
             "text": "/",
-            "alpha": 1
+            "alpha": 0.875492
           },
           {
             "text": "Full",
-            "alpha": 0.5
+            "alpha": 0.437746
           },
           {
             "text": "Fengmei",
-            "alpha": 1
+            "alpha": 0.875492
           },
           {
             "text": "Profile",
-            "alpha": 1
+            "alpha": 0.875492
           },
           {
             "text": "Newsletter",
-            "alpha": 1
+            "alpha": 0.875492
           }
         ]
       }
@@ -78,87 +78,87 @@
   "errors": [],
   "scripts": [
     {
-      "url": "http://127.0.0.1:5191/local-motion.js?v=fd5b1e7f97b6",
+      "url": "http://127.0.0.1:5192/local-motion.js?v=5ccaf14ae3d4",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/rY37MP56.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/rY37MP56.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/CSMsEA09.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/CSMsEA09.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/D6Jn8M47.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/D6Jn8M47.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/local-copy.js?v=fd5b1e7f97b6",
+      "url": "http://127.0.0.1:5192/local-copy.js?v=5ccaf14ae3d4",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/Dhdylg00.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/DZyj3ghP.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/CHzWqGxK.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/Dhdylg00.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/DJ70QaFT.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/CHzWqGxK.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/basis_transcoder.o4Hde_L7.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/DJ70QaFT.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/DZyj3ghP.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/basis_transcoder.o4Hde_L7.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/DJ70QaFT.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/DJ70QaFT.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/basis/basis_transcoder.js",
+      "url": "http://127.0.0.1:5192/basis/basis_transcoder.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/mriNB3Nt.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/mriNB3Nt.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/DNYapgHJ.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/DNYapgHJ.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/Dhdylg00.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/Dhdylg00.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/CHzWqGxK.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/CHzWqGxK.js",
       "cache": "no-store",
       "status": 200
     },
     {
-      "url": "http://127.0.0.1:5191/_nuxt/preview-fd5b1e7f97b6/BkQn8csq.js",
+      "url": "http://127.0.0.1:5192/_nuxt/preview-5ccaf14ae3d4/BkQn8csq.js",
       "cache": "no-store",
       "status": 200
     }
