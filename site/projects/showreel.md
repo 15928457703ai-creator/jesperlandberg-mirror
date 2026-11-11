@@ -1,9 +1,9 @@
-# 视频展示
+# 关于我
 
-视频作品展示。
+关于我
 
 ## Slides
 
-![视频展示 1](http://127.0.0.1:__PORT__/showreel/showreel.jpg)
+![关于我 1](http://127.0.0.1:__PORT__/showreel/showreel.jpg)
 
 [Watch video](http://127.0.0.1:__PORT__/showreel/showreel.mp4)

@@ -47,11 +47,11 @@ def _meta(slug, path):
 PROJECTS = [
     {
         "slug": "showreel",
-        "title": "视频展示",
+        "title": "关于我",
         "pid": "fengmei-showreel-2026",
         "dir": "showreel",
-        "desc": "视频作品展示。",
-        "short": "视频作品展示。",
+        "desc": "关于我",
+        "short": "关于我",
         "tags": [("showreel-video", "Video", None), ("showreel-year", "2026", None)],
         "meta": _meta("showreel", "raw/project_images/showreel.json"),
     },

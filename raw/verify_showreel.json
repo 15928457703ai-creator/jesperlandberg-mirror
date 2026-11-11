@@ -13,7 +13,7 @@
     "illustration"
   ],
   "before": {
-    "time": 3.429763,
+    "time": 3.517706,
     "paused": false,
     "muted": true,
     "loop": true,
@@ -22,13 +22,30 @@
     "height": 832
   },
   "after": {
-    "time": 4.837876,
+    "time": 4.921081,
     "paused": false,
     "muted": true,
     "loop": true,
     "ready": 4,
     "width": 1120,
     "height": 832
+  },
+  "fullscreen": {
+    "open": true,
+    "width": 1440,
+    "height": 900,
+    "vw": 1440,
+    "vh": 900,
+    "muted": false,
+    "paused": false,
+    "time": 1.209749,
+    "text": ""
+  },
+  "mobile": {
+    "x": 0,
+    "y": 0,
+    "width": 390,
+    "height": 844
   },
   "errors": []
 }
