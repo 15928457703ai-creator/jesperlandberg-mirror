@@ -13,7 +13,7 @@
     "illustration"
   ],
   "before": {
-    "time": 3.517706,
+    "time": 3.705854,
     "paused": false,
     "muted": true,
     "loop": true,
@@ -22,7 +22,7 @@
     "height": 832
   },
   "after": {
-    "time": 4.921081,
+    "time": 5.106388,
     "paused": false,
     "muted": true,
     "loop": true,
@@ -32,20 +32,23 @@
   },
   "fullscreen": {
     "open": true,
-    "width": 1440,
-    "height": 900,
+    "width": 1420,
+    "height": 860,
     "vw": 1440,
     "vh": 900,
     "muted": false,
     "paused": false,
-    "time": 1.209749,
-    "text": ""
+    "time": 1.203784,
+    "text": "",
+    "background": "rgb(255, 255, 255)",
+    "radius": "20px",
+    "scrolls": false
   },
   "mobile": {
-    "x": 0,
-    "y": 0,
-    "width": 390,
-    "height": 844
+    "x": 10,
+    "y": 10,
+    "width": 370,
+    "height": 824
   },
   "errors": []
 }
