@@ -135,10 +135,15 @@ const HOOK = () => {
     const d = sh?.querySelector('[data-gl="text"]');
     const cs = d ? getComputedStyle(d) : null;
     const hcs = h1 ? getComputedStyle(h1) : null;
+    const folio = document.querySelector('#__nuxt').__vue_app__.config.globalProperties.$nuxt.$folio;
+    const heading = folio.titleHero?.plane || folio.titleFly?.plane;
+    const headingPainted = !!heading?.canvas && heading.material.uniforms.u_alpha.value > .5 &&
+      heading.ctx2d.getImageData(0, 0, heading.canvas.width, heading.canvas.height).data.some((v, i) => i % 4 === 3 && v > 30);
     return {
       url: location.pathname, id: sh?.getAttribute('data-id'),
       title: h1?.textContent.trim(), copy: d?.textContent.trim().slice(0, 90),
       fill: cs?.webkitTextFillColor, hFill: hcs?.webkitTextFillColor,
+      headingPainted,
       slides: sh?.querySelectorAll('[data-gl="simple"]').length,
       tags: [...(sh?.querySelectorAll('[data-gl="pill"]') || [])].map(x => x.textContent.trim()),
       prev: sh?.querySelector('[data-gl="related"]')?.getAttribute('data-id'),
@@ -216,7 +221,7 @@ const HOOK = () => {
                  home.hasCss && home.canvas === 1 && home.siteName === 'Fengmei' &&
                  reached && homePlaying;
   const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.title === PROJECT.title &&
-                  spa.fill === 'rgb(0, 0, 0)' && spa.hFill === 'rgb(0, 0, 0)' &&
+                  spa.fill === 'rgb(0, 0, 0)' && spa.headingPainted &&
                   spa.slides === EXPECTED_SLIDES && (spa.copy || '').length > 40;
   const okDirect = direct && directInfo.id === SLUG && directInfo.slides === EXPECTED_SLIDES &&
                    directInfo.fill === 'rgb(0, 0, 0)';

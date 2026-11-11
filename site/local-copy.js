@@ -69,18 +69,9 @@
     'ai-video': 1
   };
 
-  // Only these sheets have their CJK title painted by the DOM (see
-  // /local-copy.css). Latin titles stay WebGL-drawn, and they carry an inline
-  // opacity: 0 on the DOM <h1> -- animating those would make the DOM copy pop
-  // over the mesh for half a second.
-  var CJK_TITLE = {
-    'oppo-service': 1,
-    'oppo-self-service': 1,
-    'csa-service': 1,
-    'hengxiang-advantage': 1,
-    'illustration': 1,
-    'ai-video': 1
-  };
+  // Headings, including Chinese, belong to the native scene so their
+  // card/list-to-detail flight cannot race DOM glyph reveal animations.
+  var CJK_TITLE = {};
 
   var root = document.documentElement;
   var revealed = new WeakSet();

@@ -1,0 +1,170 @@
+{
+  "results": [
+    {
+      "label": "direct motion collection",
+      "ok": true,
+      "title": "动效设计精选",
+      "nativeTitle": "动效设计精选",
+      "ink": 4647,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -23.495193446178618,
+        16.66942660113548,
+        0
+      ],
+      "canvas": true
+    },
+    {
+      "label": "home card title flight",
+      "ok": true,
+      "title": "动效设计精选",
+      "nativeTitle": "动效设计精选",
+      "ink": 4647,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -23.495193446178618,
+        16.66942660113548,
+        0
+      ],
+      "canvas": true
+    },
+    {
+      "label": "catalogue title flight",
+      "ok": true,
+      "title": "动效设计精选",
+      "nativeTitle": "动效设计精选",
+      "ink": 4647,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -23.495193446178618,
+        16.66942660113548,
+        0
+      ],
+      "canvas": true
+    },
+    {
+      "label": "switch to Latin title",
+      "ok": true,
+      "title": "Griflan",
+      "nativeTitle": "Griflan",
+      "ink": 27,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -26.401978420910154,
+        16.66942660113548,
+        0
+      ],
+      "canvas": false
+    },
+    {
+      "label": "switch back to motion title",
+      "ok": true,
+      "title": "动效设计精选",
+      "nativeTitle": "动效设计精选",
+      "ink": 4647,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -23.495193446178618,
+        16.66942660113548,
+        0
+      ],
+      "canvas": true
+    },
+    {
+      "label": "Chinese title oppo-service",
+      "ok": true,
+      "title": "OPPO 服务小程序",
+      "nativeTitle": "OPPO 服务小程序",
+      "ink": 5381,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -21.458214613688003,
+        16.66942660113548,
+        0
+      ],
+      "canvas": true
+    },
+    {
+      "label": "Chinese title oppo-self-service",
+      "ok": true,
+      "title": "OPPO自助服务",
+      "nativeTitle": "OPPO自助服务",
+      "ink": 4929,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -22.60057679388618,
+        16.66942660113548,
+        0
+      ],
+      "canvas": true
+    },
+    {
+      "label": "Chinese title csa-service",
+      "ok": true,
+      "title": "CSA客服服务",
+      "nativeTitle": "CSA客服服务",
+      "ink": 4731,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -23.34992611196393,
+        16.66942660113548,
+        0
+      ],
+      "canvas": true
+    },
+    {
+      "label": "Chinese title hengxiang-advantage",
+      "ok": true,
+      "title": "横向优势",
+      "nativeTitle": "横向优势",
+      "ink": 3262,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -25.38402836357901,
+        16.66942660113548,
+        0
+      ],
+      "canvas": true
+    },
+    {
+      "label": "Chinese title ai-video",
+      "ok": true,
+      "title": "AI短视频",
+      "nativeTitle": "AI短视频",
+      "ink": 3213,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -25.414951607991046,
+        16.66942660113548,
+        0
+      ],
+      "canvas": true
+    },
+    {
+      "label": "Chinese title erp",
+      "ok": true,
+      "title": "华润ERP",
+      "nativeTitle": "华润ERP",
+      "ink": 2746,
+      "alpha": 1,
+      "spans": 0,
+      "position": [
+        -25.387983662282874,
+        16.66942660113548,
+        0
+      ],
+      "canvas": true
+    }
+  ],
+  "errors": []
+}

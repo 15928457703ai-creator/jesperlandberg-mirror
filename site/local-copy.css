@@ -3,8 +3,8 @@
  * The original WebGL text renderer ships a Latin-only MSDF glyph atlas
  * (site/glyphs/sans-400.json: 235 glyphs, no CJK). Chinese copy therefore
  * gets no text mesh and would be painted as blank. These rules let the DOM
- * paint the description (and the CJK titles) instead. They only match the
- * local sheet ids, so the eight original case studies keep their original
+ * paint the descriptions instead. Chinese headings use native canvas text.
+ * These rules only match the local sheet ids, so original case studies keep their
  * WebGL text treatment, and every other WebGL effect (sheet reveal, imagery,
  * related cards, hover, scroll) is untouched.
  *
@@ -20,16 +20,7 @@
 [data-gl="sheet"][data-id="csa-service"] div[data-gl="text"],
 [data-gl="sheet"][data-id="hengxiang-advantage"] div[data-gl="text"],
 [data-gl="sheet"][data-id="illustration"] div[data-gl="text"],
-[data-gl="sheet"][data-id="ai-video"] div[data-gl="text"],
-/* CJK titles cannot be drawn by the Latin glyph atlas either. English
- * titles (Naivideo, ERP) are intentionally left to WebGL to avoid a double
- * render of the same text. */
-[data-gl="sheet"][data-id="oppo-service"] h1,
-[data-gl="sheet"][data-id="oppo-self-service"] h1,
-[data-gl="sheet"][data-id="csa-service"] h1,
-[data-gl="sheet"][data-id="hengxiang-advantage"] h1,
-[data-gl="sheet"][data-id="illustration"] h1,
-[data-gl="sheet"][data-id="ai-video"] h1 {
+[data-gl="sheet"][data-id="ai-video"] div[data-gl="text"] {
   -webkit-text-fill-color: #000 !important;
   color: #000 !important;
   /* No `opacity: 1 !important` here on purpose: an !important declaration
@@ -48,8 +39,8 @@
  * It must sit well beyond any realistic intro: a software-WebGL page can
  * spend 8-12 s before the loader releases, and an earlier fallback would let
  * the copy flash at full opacity BEFORE the line reveal even starts.
- * Only DOM-painted nodes are listed: the Latin h1 of ERP / Naivideo belongs
- * to the WebGL renderer and must keep its computed opacity for rasterizing.
+ * Only DOM-painted paragraphs are listed. Headings belong to the native
+ * renderer and must keep their computed opacity for rasterizing.
  * ==================================================================== */
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="oppo-service"] div[data-gl="text"],
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="naivideo"] div[data-gl="text"],
@@ -58,13 +49,7 @@ html:not([data-lc="ready"]) [data-gl="sheet"][data-id="oppo-self-service"] div[d
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="csa-service"] div[data-gl="text"],
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="hengxiang-advantage"] div[data-gl="text"],
 html:not([data-lc="ready"]) [data-gl="sheet"][data-id="illustration"] div[data-gl="text"],
-html:not([data-lc="ready"]) [data-gl="sheet"][data-id="ai-video"] div[data-gl="text"],
-html:not([data-lc="ready"]) [data-gl="sheet"][data-id="oppo-service"] h1,
-html:not([data-lc="ready"]) [data-gl="sheet"][data-id="oppo-self-service"] h1,
-html:not([data-lc="ready"]) [data-gl="sheet"][data-id="csa-service"] h1,
-html:not([data-lc="ready"]) [data-gl="sheet"][data-id="hengxiang-advantage"] h1,
-html:not([data-lc="ready"]) [data-gl="sheet"][data-id="illustration"] h1,
-html:not([data-lc="ready"]) [data-gl="sheet"][data-id="ai-video"] h1 {
+html:not([data-lc="ready"]) [data-gl="sheet"][data-id="ai-video"] div[data-gl="text"] {
   opacity: 0;
   animation: lcBootFallback .01s linear 20s forwards;
 }
