@@ -14,13 +14,12 @@ LINES = [
     "4、有插画（视觉中国签约插画师）、3D建模，动效设计等横向能力",
 ]
 
-# Contact line — placed directly beneath the bio in the profile disc
-# (the user's brief listed this phone alongside the numbered bio).
-PHONE = "电话 15928457703"
+# Contact is rendered as a separate, prominent telephone link.
+PHONE = "15928457703"
 
 # The stock vnode has one leading and one trailing space.  Keeping them makes
 # the SSR text node and the client vnode string identical.
-INTRO = " " + "\n".join(LINES + [PHONE]) + " "
+INTRO = " " + "\n".join(LINES) + " "
 
 # The brand name is handled globally by tools/inject_brand.py; the previous
 # stock-English intro is intentionally not kept here so that no old name is

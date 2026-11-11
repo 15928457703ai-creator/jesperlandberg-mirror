@@ -2,7 +2,7 @@
 const { chromium } = require('playwright-core');
 const fs = require('fs'), path = require('path');
 const OUT = path.join(__dirname, '..', 'screenshots');
-const ORIGIN = 'http://127.0.0.1:5188';
+const ORIGIN = process.env.PROFILE_ORIGIN || 'http://127.0.0.1:5188';
 const SEL = 'div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"]';
 const KEYS = ['能独立负责多平台', '10年B端设计', '100W+', '视觉中国签约插画师'];
 const PAGES = ['/', '/full', '/newsletter', '/projects/oppo-service', '/projects/hengxiang-advantage'];
@@ -81,6 +81,8 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
         canvas: document.querySelectorAll('canvas').length,
         inert: !!el.closest('div.fixed.z-40')?.hasAttribute('inert'),
         close: document.body.innerText.includes('CLOSE'),
+        heading: document.querySelector('.profile-name')?.textContent,
+        phone: document.querySelector('.profile-phone')?.getAttribute('href'),
       };
     }, SEL);
     const hasAll = info && KEYS.every(k => (info.text || '').length > 0) &&
@@ -88,14 +90,29 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
         const el = document.querySelector('div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"]');
         return el && KEYS.every(k => el.textContent.includes(k));
       }, KEYS);
-    const visible = info && info.fill === 'rgb(255, 255, 255)' && info.opacity === '1' && info.rect[1] > 40;
+    const visible = info && info.fill === 'rgb(222, 222, 222)' && info.opacity === '1' && info.rect[1] > 40;
     console.log(p.padEnd(36), JSON.stringify({ opened, closed, visible, hasAll, ...info }));
-    if (opened && visible && hasAll && !info.inert) ok++;
+    if (opened && visible && hasAll && !info.inert && info.heading === '冯梅FengMei' && info.phone === 'tel:15928457703') ok++;
     if (p === '/') {
       await page.screenshot({ path: path.join(OUT, 'profile_zh.png') });
       await page.setViewportSize({ width: 1100, height: 680 });
       await wait(2000);
       await page.screenshot({ path: path.join(OUT, 'profile_zh_1100.png') });
+      await page.setViewportSize({ width: 1440, height: 900 });
+      await page.setViewportSize({ width: 1078, height: 1016 });
+      await wait(1800);
+      await page.screenshot({ path: path.join(OUT, 'profile_reference_layout.png') });
+      await page.setViewportSize({ width: 390, height: 844 });
+      await wait(1200);
+      const mobile = await page.evaluate(() => {
+        const copy = document.querySelector('.profile-heading').parentElement;
+        const phone = document.querySelector('.profile-phone');
+        const box = copy.getBoundingClientRect();
+        phone.scrollIntoView({ block: 'nearest' });
+        return { width: box.width, left: box.left, right: box.right, phone: getComputedStyle(phone).display };
+      });
+      if (mobile.left < 0 || mobile.right > 391 || mobile.phone === 'none') throw new Error('Mobile profile overflow');
+      await page.screenshot({ path: path.join(OUT, 'profile_mobile.png') });
       await page.setViewportSize({ width: 1440, height: 900 });
       // close it again and make sure the bio disappears with the disc
       await page.getByRole('button', { name: 'CLOSE' }).click({ force: true, timeout: 10000 }).catch(() => {});

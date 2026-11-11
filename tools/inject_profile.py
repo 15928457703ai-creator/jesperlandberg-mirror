@@ -28,12 +28,31 @@ JS_NEW = json.dumps(INTRO, ensure_ascii=False)
 # in that stock paragraph can be rewritten independently (inject_brand.py).
 VN = re.compile(r'(ct\("p",\{ref_key:"intro"[^}]*\},)("(?:[^"\\]|\\.)*")(,512\))')
 
+# Shared static tree keeps server markup and Vue hydration identical.
+HEADER = ("header", {"class": "profile-heading"}, [
+    ("h1", {"class": "profile-name"}, "冯梅FengMei"),
+    ("div", {"class": "profile-roles"}, [
+        ("div", {"class": "profile-role"}, [("strong", {}, "UX交互设计师"), ("small", {}, "User Experience Design")]),
+        ("span", {"class": "profile-cross", "aria-hidden": "true"}, "X"),
+        ("div", {"class": "profile-role"}, [("strong", {}, "UI界面设计师"), ("small", {}, "User Interface Designer")]),
+    ]),
+])
+CONTACT = ("a", {"class": "profile-phone", "href": "tel:15928457703", "aria-label": "拨打电话 15928457703"}, "15928457703")
+def markup(node):
+    tag, attrs, children = node
+    body = html.escape(children) if isinstance(children, str) else "".join(map(markup, children))
+    return "<" + tag + "".join(' ' + k + '=\"' + html.escape(v, quote=True) + '\"' for k, v in attrs.items()) + ">" + body + "</" + tag + ">"
+def vnode(node):
+    tag, attrs, children = node
+    body = json.dumps(children, ensure_ascii=False) if isinstance(children, str) else "[" + ",".join(map(vnode, children)) + "]"
+    return "ct(" + json.dumps(tag) + "," + json.dumps(attrs, ensure_ascii=False) + "," + body + ")"
+
 # ---------------------------------------------------------------- SSR pages
 PAT = re.compile(
     r'(<p data-gl="text" ' + re.escape(INTRO_CLASS) + r'>)(.*?)(</p>)',
     re.S)
 
-pages = sorted(glob.glob("raw/pages/*.html"))
+pages = sorted(glob.glob("raw/pages/*.html") + glob.glob("raw/templates/*.html"))
 assert pages, "no raw SSR pages found"
 for f in pages:
     t = open(f, encoding="utf-8").read()
@@ -41,53 +60,92 @@ for f in pages:
     if not m:
         raise SystemExit("profile intro <p> not found in " + f)
     t = t[:m.start(2)] + HTML_INTRO + t[m.end(2):]
+    if 'class="profile-heading"' not in t:
+        m = PAT.search(t)
+        t = t[:m.start()] + markup(HEADER) + t[m.start():m.end()] + markup(CONTACT) + t[m.end():]
     open(f, "w", encoding="utf-8").write(t)
 print("SSR sources updated:", len(pages))
 
 # ------------------------------------------------------------ client bundle
 for f in ("raw/nuxt/DZyj3ghP.js", "site/_nuxt/DZyj3ghP.js"):
     t = open(f, encoding="utf-8", errors="replace").read()
-    if JS_NEW in t:
-        print("bundle already up to date:", f)
-        continue
     m = VN.search(t)
     if not m:
         raise SystemExit("intro vnode not found in " + f)
-    open(f, "w", encoding="utf-8").write(t[:m.start(2)] + JS_NEW + t[m.end(2):])
+    t = t[:m.start(2)] + JS_NEW + t[m.end(2):]
+    if '"profile-heading"' not in t:
+        m = VN.search(t)
+        t = t[:m.start()] + vnode(HEADER) + "," + t[m.start():m.end()] + "," + vnode(CONTACT) + t[m.end():]
+    open(f, "w", encoding="utf-8").write(t)
     print("client vnode updated:", f)
 
 # ------------------------------------------------------------------- styling
-CSS = CSS_BEGIN + """
-/* Vue toggles the `inert` attribute on the disc, so this selector follows
- * the open/close state without adding classes or inline styles (which would
- * break hydration, and which SPA navigations would re-render anyway).
- * CJK has no glyphs in the baked MSDF atlas, so the WebGL text renderer
- * leaves this paragraph to the DOM; credits + social links keep their
- * original WebGL treatment and hover/reveal animation. */
+CSS = CSS_BEGIN + """ */
+/* Keep the native animated disc and characters behind the profile copy. */
+div.fixed.z-40:has(> [data-gl-shield] > p[class*="max-w-[35rem]"]) {
+  width: min(1080px, 100vw);
+}
+div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) {
+  inset-inline: 0;
+  width: 100%;
+  padding: 0 max(36px, 11.5%);
+  box-sizing: border-box;
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) > .label,
+div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) > ul {
+  display: none;
+}
 div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
-  -webkit-text-fill-color: #fff !important;
-  color: #fff !important;
+  -webkit-text-fill-color: #dedede !important;
+  color: #dedede !important;
   opacity: 1 !important;
   white-space: pre-line;
   text-align: left;
   letter-spacing: 0;
-  font-size: 13px;
-  line-height: 1.8;
-  /* Keep the copy inside the inner hole, away from the bright WebGL ring. */
-  width: min(480px, calc(100vw - 96px));
+  font-size: clamp(13px, 2.04vw, 22px);
+  line-height: 1.75;
+  width: 100%;
   max-width: none;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, .95), 0 0 3px rgba(0, 0, 0, .9);
+  text-shadow: 0 1px 8px #000;
   animation: profileBioIn .6s cubic-bezier(.22, 1, .36, 1) both;
 }
-@keyframes profileBioIn {
-  from { transform: translateY(10px); }
-  to   { transform: translateY(0); }
+.profile-heading, .profile-phone {
+  display: none;
 }
+div.fixed.z-40:not([inert]) .profile-heading,
+div.fixed.z-40:not([inert]) .profile-phone {
+  display: block;
+  -webkit-text-fill-color: #f5f5f5;
+  color: #f5f5f5;
+  flex-shrink: 0;
+  text-shadow: 0 2px 12px #000;
+}
+.profile-heading { margin-bottom: 36px; text-align: left; }
+.profile-name { margin: 0 0 14px; font-size: clamp(30px, 5.2vw, 56px); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
+.profile-roles { display: flex; align-items: start; gap: 20px; }
+.profile-role { display: flex; flex-direction: column; gap: 4px; }
+.profile-role strong { font-size: clamp(13px, 2vw, 22px); line-height: 1.2; }
+.profile-role small { color: #666; -webkit-text-fill-color: #666; font-size: clamp(9px, 1.2vw, 13px); letter-spacing: .02em; }
+.profile-cross { color: #666; -webkit-text-fill-color: #666; font-size: 18px; font-weight: 200; }
+.profile-phone { margin-top: clamp(45px, 12.8vh, 140px); font-size: clamp(32px, 5.75vw, 62px); font-weight: 700; letter-spacing: .04em; line-height: 1; text-decoration: none; pointer-events: auto; }
+@keyframes profileBioIn { from { transform: translateY(10px); } to { transform: translateY(0); } }
 @media (max-width: 640px) {
-  div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
-    font-size: 12px;
-    line-height: 1.7;
-  }
+  div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 30px; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 24px; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
+  body:has(div.fixed.z-40:not([inert]) .profile-heading) div.fixed.inset-0.z-40 button { color: #fff; -webkit-text-fill-color: #fff; }
+  .profile-heading { margin-bottom: 24px; }
+  .profile-roles { gap: 12px; }
+  .profile-phone { margin-top: 36px; margin-bottom: 10px; }
+}
+@media (min-width: 641px) and (min-height: 801px) and (max-width: 1200px) {
+  div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { transform: translateY(calc(-50% - 35px)); }
+}
+@media (min-width: 641px) and (max-height: 800px) {
+  div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { width: 80%; left: 10%; padding-inline: 8%; }
+  div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] { font-size: min(1.7vw, 2.35vh); }
+  .profile-name { font-size: min(5.2vw, 6vh); }
+  .profile-heading { margin-bottom: 24px; }
+  .profile-phone { margin-top: 6vh; font-size: 7vh; }
 }
 """ + CSS_END
 
