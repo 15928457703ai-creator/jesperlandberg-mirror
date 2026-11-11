@@ -210,7 +210,7 @@ div.fixed.inset-0.z-40 a.label[href="/"] {
 /* All detail media share the same corner treatment, including video planes.
  * The matching WebGL radius is applied in syncContent in the scene bundle. */
 [data-gl="sheet"] [data-gl="simple"] {
-  border-radius: 36px;
+  border-radius: 28px;
   overflow: hidden;
 }
 

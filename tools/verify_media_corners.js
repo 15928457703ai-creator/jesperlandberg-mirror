@@ -25,15 +25,15 @@ const slugs = ['oppo-service', 'naivideo', 'oppo-self-service', 'erp', 'csa-serv
             css: getComputedStyle(c.el).borderTopLeftRadius, video: !!c.mesh.userData.videoSrc };
         });
       }, slug);
-      const ok = media.length > 0 && media.every(m => Math.abs(m.radius - 36) < .1 && m.css === '36px');
-      console.log(ok ? 'PASS' : 'FAIL', slug, media.length, 'media with 36px corners');
+      const ok = media.length > 0 && media.every(m => Math.abs(m.radius - 28) < .1 && m.css === '28px');
+      console.log(ok ? 'PASS' : 'FAIL', slug, media.length, 'media with 28px corners');
       results.push({ slug, ok, media });
     }
     await page.screenshot({ path: 'screenshots/illustration_rounded_media.png' });
     await page.setViewportSize({ width: 390, height: 844 });
     await page.waitForTimeout(1000);
     const mobile = await page.locator('[data-gl="sheet"] [data-gl="simple"]').evaluateAll(els =>
-      els.every(el => getComputedStyle(el).borderTopLeftRadius === '36px'));
+      els.every(el => getComputedStyle(el).borderTopLeftRadius === '28px'));
     results.push({ slug: 'mobile', ok: mobile });
     fs.writeFileSync('raw/verify_media_corners.json', JSON.stringify({ results, errors }, null, 2));
   } finally { await browser.close(); }
