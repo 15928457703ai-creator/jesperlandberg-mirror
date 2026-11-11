@@ -1,15 +1,15 @@
 /* Import motion studies without changing the existing cover.
- * Optional arguments: source-path output-stem (imports only that clip). */
+ * Optional arguments: source-path output-stem replaced-stem. */
 const { chromium } = require('playwright-core');
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const DEST = path.join(ROOT, 'site', 'illustration');
 const META = path.join(ROOT, 'raw', 'project_images', 'illustration.json');
-const clips = process.argv[2] ? [{ source: process.argv[2], stem: process.argv[3] || 'motion-study', replaces: process.argv[3] || 'motion-study' }] : [
+const clips = process.argv[2] ? [{ source: process.argv[2], stem: process.argv[3] || 'motion-study', replaces: process.argv[4] || process.argv[3] || 'motion-study' }] : [
   { stem: 'gift-motion-v2', replaces: 'gift-motion', source: '/Users/soul/Documents/动效导出/礼物 4_2.mp4' },
   { stem: 'launch-motion-v3', replaces: 'launch-motion', source: '/Users/soul/Documents/动效导出/启动页 版本1_3.mp4' },
-  { stem: 'precomposition-3', replaces: 'precomposition-3', source: '/Users/soul/Documents/动效导出/预合成 3.mp4' },
+  { stem: 'rewards-motion-v2', replaces: 'precomposition-3', source: '/Users/soul/Documents/动效导出/合成 2.mp4' },
 ];
 
 (async () => {

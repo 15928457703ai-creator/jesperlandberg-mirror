@@ -682,15 +682,6 @@
    {
     "n": 11,
     "files": [
-     "reel.jpg",
-     "reel_small.jpg",
-     "reel_card.jpg"
-    ],
-    "video": "reel.mp4"
-   },
-   {
-    "n": 12,
-    "files": [
      "gift-motion-v2.jpg",
      "gift-motion-v2_small.jpg",
      "gift-motion-v2_card.jpg"
@@ -698,7 +689,7 @@
     "video": "gift-motion-v2.mp4"
    },
    {
-    "n": 13,
+    "n": 12,
     "files": [
      "launch-motion-v3.jpg",
      "launch-motion-v3_small.jpg",
@@ -707,13 +698,13 @@
     "video": "launch-motion-v3.mp4"
    },
    {
-    "n": 14,
+    "n": 13,
     "files": [
-     "precomposition-3.jpg",
-     "precomposition-3_small.jpg",
-     "precomposition-3_card.jpg"
+     "rewards-motion-v2.jpg",
+     "rewards-motion-v2_small.jpg",
+     "rewards-motion-v2_card.jpg"
     ],
-    "video": "precomposition-3.mp4"
+    "video": "rewards-motion-v2.mp4"
    }
   ]
  },

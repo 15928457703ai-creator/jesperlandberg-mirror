@@ -8,18 +8,14 @@
 
 [Watch video](http://127.0.0.1:__PORT__/illustration/cover.mp4)
 
-![动效设计精选 11](http://127.0.0.1:__PORT__/illustration/reel.jpg)
-
-[Watch video](http://127.0.0.1:__PORT__/illustration/reel.mp4)
-
-![动效设计精选 12](http://127.0.0.1:__PORT__/illustration/gift-motion-v2.jpg)
+![动效设计精选 11](http://127.0.0.1:__PORT__/illustration/gift-motion-v2.jpg)
 
 [Watch video](http://127.0.0.1:__PORT__/illustration/gift-motion-v2.mp4)
 
-![动效设计精选 13](http://127.0.0.1:__PORT__/illustration/launch-motion-v3.jpg)
+![动效设计精选 12](http://127.0.0.1:__PORT__/illustration/launch-motion-v3.jpg)
 
 [Watch video](http://127.0.0.1:__PORT__/illustration/launch-motion-v3.mp4)
 
-![动效设计精选 14](http://127.0.0.1:__PORT__/illustration/precomposition-3.jpg)
+![动效设计精选 13](http://127.0.0.1:__PORT__/illustration/rewards-motion-v2.jpg)
 
-[Watch video](http://127.0.0.1:__PORT__/illustration/precomposition-3.mp4)
+[Watch video](http://127.0.0.1:__PORT__/illustration/rewards-motion-v2.mp4)

@@ -222,7 +222,7 @@ PROJECTS.sort(key=lambda p: DISPLAY_ORDER.index(p["slug"]))
 # Illustration is a motion-only collection; posters remain video fallbacks.
 for project in PROJECTS:
     if project["slug"] == "illustration":
-        project["meta"] = [m for m in project["meta"] if m.get("video")]
+        project["meta"] = [m for m in project["meta"] if m.get("video") and m["video"]["file"] != "reel.mp4"]
 
 # the two case studies shipped with the original site, in the recorded
 # order of its own home.featured

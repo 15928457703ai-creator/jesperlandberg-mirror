@@ -27,7 +27,9 @@ const origin = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5193';
     const initial = await read(); samples.push(initial);
     check('new motion collection name and introduction', await page.locator('[data-gl="sheet"] h1').textContent() === '动效设计精选' &&
       (await page.locator('[data-gl="sheet"] div[data-gl="text"]').first().textContent()).includes('节奏设计'));
-    check('five video works with 28px corners', initial.length === 5 && initial.every(v => Math.abs(v.radius - 28) < .1));
+    check('four distinct video works with 28px corners', initial.length === 4 && new Set(initial.map(v => v.src)).size === 4 && initial.every(v => Math.abs(v.radius - 28) < .1));
+    check('new rewards clip replaces old clip and duplicate reel', initial.some(v => v.src.endsWith('/rewards-motion-v2.mp4')) &&
+      initial.every(v => !/\/(reel|precomposition-3)\.mp4$/.test(v.src)));
     const offscreen = initial.filter(v => v.bottom <= v.panelTop || v.top >= v.panelBottom);
     check('offscreen videos do not start early', offscreen.length > 0 && offscreen.every(v => v.paused && v.time < .1), offscreen.map(v => ({ src: v.src, time: v.time })));
     const target = initial.find(v => v.visible >= v.height * .8 && v.top + v.height * .5 < 800);
@@ -44,12 +46,22 @@ const origin = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5193';
     const played = new Set(initial.filter(v => !v.paused).map(v => v.src));
     for (let step = 0; step < 12; step++) {
       await page.mouse.move(1050, 500); await page.mouse.wheel(0, 280); await page.waitForTimeout(420);
+      // The virtual strip can wrap DOM slots just after a rendered frame.
+      // Allow the next render to apply its corresponding playback state.
+      await page.waitForFunction(() => {
+        const f = document.querySelector('#__nuxt').__vue_app__.config.globalProperties.$nuxt.$folio;
+        return f.content.filter(c => c.el.isConnected && c.el.closest('[data-gl="sheet"]')?.dataset.id === 'illustration').every(c => {
+          const r = c.el._vrect || c.el.getBoundingClientRect(), b = c.el.closest('[data-gl="sheet"]').getBoundingClientRect();
+          const outside = (r.bottom ?? r.top + r.height) <= b.top || r.top >= b.bottom;
+          return !outside || f.videos.get(c.mesh.userData.videoSrc)?.el.paused;
+        });
+      }, null, { timeout: 2500, polling: 'raf' });
       const state = await read(); samples.push(state);
       for (const v of state) if (!v.paused && v.time > 0) played.add(v.src);
       const hidden = state.filter(v => v.bottom <= v.panelTop || v.top >= v.panelBottom);
       check('offscreen clips pause after scroll ' + step, hidden.every(v => v.paused));
     }
-    check('every video plays when scrolled into view', played.size === 5, [...played]);
+    check('every video plays when scrolled into view', played.size === 4, [...played]);
     await page.screenshot({ path: 'screenshots/motion_collection_scrolled.png' });
     await page.goto(origin + '/full'); await page.waitForTimeout(2000);
     for (const width of [1280, 1440, 1920]) {

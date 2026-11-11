@@ -237,35 +237,6 @@
  },
  {
   "n": 11,
-  "source": "插画.mov",
-  "kind": "video",
-  "cover": false,
-  "origWidth": 1280,
-  "origHeight": 652,
-  "main": {
-   "file": "reel.jpg",
-   "width": 1280,
-   "height": 652
-  },
-  "_card": {
-   "file": "reel_card.jpg",
-   "width": 1200,
-   "height": 611
-  },
-  "_small": {
-   "file": "reel_small.jpg",
-   "width": 640,
-   "height": 326
-  },
-  "video": {
-   "file": "reel.mp4",
-   "width": 1280,
-   "height": 652,
-   "duration": 26
-  }
- },
- {
-  "n": 12,
   "source": "礼物 4_2.mp4",
   "kind": "video",
   "cover": false,
@@ -294,7 +265,7 @@
   }
  },
  {
-  "n": 13,
+  "n": 12,
   "source": "启动页 版本1_3.mp4",
   "kind": "video",
   "cover": false,
@@ -323,32 +294,32 @@
   }
  },
  {
-  "n": 14,
-  "source": "预合成 3.mp4",
+  "n": 13,
+  "source": "合成 2.mp4",
   "kind": "video",
   "cover": false,
   "origWidth": 1920,
   "origHeight": 1080,
   "main": {
-   "file": "precomposition-3.jpg",
+   "file": "rewards-motion-v2.jpg",
    "width": 1600,
    "height": 900
   },
   "_card": {
-   "file": "precomposition-3_card.jpg",
+   "file": "rewards-motion-v2_card.jpg",
    "width": 1200,
    "height": 675
   },
   "_small": {
-   "file": "precomposition-3_small.jpg",
+   "file": "rewards-motion-v2_small.jpg",
    "width": 640,
    "height": 360
   },
   "video": {
-   "file": "precomposition-3.mp4",
+   "file": "rewards-motion-v2.mp4",
    "width": 1920,
    "height": 1080,
-   "duration": 4
+   "duration": 2.766667
   }
  }
 ]
