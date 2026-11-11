@@ -253,11 +253,28 @@ div.fixed.inset-0.z-40 a.label[href="/"] {
 }
 [data-gl="sheet"][data-id="showreel"] [data-gl="simple"] {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) !important;
-  width: min(100%, calc((100dvh - 100px) * 1120 / 832));
-  height: auto; aspect-ratio: 1120 / 832 !important;
+  width: min(100%, calc((100dvh - 100px) * 1920 / 1080));
+  height: auto; aspect-ratio: 1920 / 1080 !important;
   border-radius: 16px; overflow: hidden;
 }
 @media (max-width: 640px) {
   [data-gl="sheet"][data-id="showreel"] > div:nth-child(2) { inset: 15px 15px 65px; }
-  [data-gl="sheet"][data-id="showreel"] [data-gl="simple"] { width: min(100%, calc((100dvh - 110px) * 1120 / 832)); }
+  [data-gl="sheet"][data-id="showreel"] [data-gl="simple"] { width: min(100%, calc((100dvh - 110px) * 1920 / 1080)); }
+}
+
+.about-playback {
+  position: absolute; left: 30px; right: 85px; bottom: 14px;
+  display: flex; align-items: center; gap: 12px; padding: 8px 14px;
+  border-radius: 24px; background: rgba(0,0,0,.85); color: #fff;
+  pointer-events: auto; z-index: 2; animation: aboutControlsIn .25s .8s both;
+}
+.about-playback button { display: grid; place-items: center; flex-shrink: 0; width: 30px; height: 30px; padding: 4px; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.about-playback svg { width: 22px; height: 22px; fill: currentColor; }
+.about-playback input { min-width: 20px; flex: 1; accent-color: #fff; cursor: pointer; }
+.about-playback-time { font: 12px/1 Arial, sans-serif; white-space: nowrap; }
+.about-playback button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@keyframes aboutControlsIn { from { opacity: 0; } to { opacity: 1; } }
+@media (max-width: 640px) {
+  .about-playback { left: 15px; right: 15px; bottom: 65px; gap: 4px; padding: 4px 8px; }
+  .about-playback-time { font-size: 10px; }
 }

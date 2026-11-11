@@ -5,7 +5,7 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const DEST = path.join(ROOT, 'site', 'showreel');
 const META = path.join(ROOT, 'raw', 'project_images', 'showreel.json');
-const clips = [{ source: process.argv[2], stem: 'showreel', replaces: 'showreel' }];
+const clips = [{ source: process.argv[2], stem: process.argv[3] || 'showreel', replaces: 'showreel' }];
 if (!clips[0].source) throw new Error('Pass the source video path');
 
 (async () => {

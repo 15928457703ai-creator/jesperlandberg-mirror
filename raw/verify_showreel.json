@@ -13,33 +13,33 @@
     "illustration"
   ],
   "before": {
-    "time": 3.765023,
+    "time": 3.438616,
     "paused": false,
     "muted": true,
     "loop": true,
     "ready": 4,
-    "width": 1120,
-    "height": 832
+    "width": 1920,
+    "height": 1080
   },
   "after": {
-    "time": 5.189477,
+    "time": 4.842825,
     "paused": false,
     "muted": true,
     "loop": true,
     "ready": 4,
-    "width": 1120,
-    "height": 832
+    "width": 1920,
+    "height": 1080
   },
   "fullscreen": {
     "path": "/projects/showreel",
-    "width": 1076.921875,
-    "height": 799.984375,
+    "width": 1229,
+    "height": 691.3125,
     "muted": false,
     "paused": false,
-    "time": 9.967866,
+    "time": 9.249973,
     "domVideo": 0,
     "slots": 1,
-    "top": 50.0078125,
+    "top": 104.34375,
     "copy": "none",
     "related": [
       "/projects/oppo-service",
@@ -49,9 +49,9 @@
   },
   "mobile": {
     "x": 35,
-    "y": 278.1484375,
+    "y": 307,
     "width": 320,
-    "height": 237.703125
+    "height": 180
   },
   "errors": []
 }

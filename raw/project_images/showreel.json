@@ -1,31 +1,31 @@
 [
  {
   "n": 1,
-  "source": "11月11日.mp4",
+  "source": "11月11日(1).mp4",
   "kind": "video",
   "cover": true,
-  "origWidth": 1120,
-  "origHeight": 832,
+  "origWidth": 1920,
+  "origHeight": 1080,
   "main": {
-   "file": "showreel.jpg",
-   "width": 1120,
-   "height": 832
+   "file": "intro-v2.jpg",
+   "width": 1600,
+   "height": 900
   },
   "_card": {
-   "file": "showreel_card.jpg",
-   "width": 1120,
-   "height": 832
+   "file": "intro-v2_card.jpg",
+   "width": 1200,
+   "height": 675
   },
   "_small": {
-   "file": "showreel_small.jpg",
+   "file": "intro-v2_small.jpg",
    "width": 640,
-   "height": 475
+   "height": 360
   },
   "video": {
-   "file": "showreel.mp4",
-   "width": 1120,
-   "height": 832,
-   "duration": 50.666667
+   "file": "intro-v2.mp4",
+   "width": 1920,
+   "height": 1080,
+   "duration": 50.247982
   }
  }
 ]

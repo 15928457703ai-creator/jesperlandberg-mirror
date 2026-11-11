@@ -5,16 +5,16 @@
   "dir": "showreel",
   "link": null,
   "hint": null,
-  "cover": "11月11日.mp4",
+  "cover": "11月11日(1).mp4",
   "slides": [
    {
     "n": 1,
     "files": [
-     "showreel.jpg",
-     "showreel_small.jpg",
-     "showreel_card.jpg"
+     "intro-v2.jpg",
+     "intro-v2_small.jpg",
+     "intro-v2_card.jpg"
     ],
-    "video": "showreel.mp4"
+    "video": "intro-v2.mp4"
    }
   ]
  },

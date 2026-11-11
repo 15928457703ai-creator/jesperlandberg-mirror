@@ -136,8 +136,13 @@
         return pose;
       };
       // The About clip stays on the stock WebGL plane and transition clock.
+      window.PortfolioMotion.getAboutVideo = function () {
+        return folio.video('/showreel/intro-v2.mp4').el;
+      };
       window.PortfolioMotion.playAboutAudio = function () {
-        var clip = folio.video('/showreel/showreel.mp4');
+        var clip = folio.video('/showreel/intro-v2.mp4');
+        clip.el.dataset.userPaused = "false";
+        clip.el.dataset.userMuted = "false";
         clip.el.muted = false;
         clip.el.play().catch(function () {});
       };
@@ -175,8 +180,10 @@
       document.documentElement.addEventListener('pointerleave', function () { detailPointer.fine = false; });
       var playVideo = folio.playVideo;
       folio.playVideo = function (video, wantsPlay) {
-        if (video && new URL(video.el.currentSrc || video.el.src, location.href).pathname === '/showreel/showreel.mp4') {
-          video.el.muted = location.pathname.replace(/\/$/, '') !== '/projects/showreel';
+        if (video && new URL(video.el.currentSrc || video.el.src, location.href).pathname === '/showreel/intro-v2.mp4') {
+          var aboutActive = location.pathname.replace(/\/$/, '') === '/projects/showreel';
+          video.el.muted = !aboutActive || video.el.dataset.userMuted === 'true';
+          if (aboutActive && video.el.dataset.userPaused === 'true') wantsPlay = false;
         }
         if (video && location.pathname.replace(/\/$/, '') === '/projects/illustration') {
           var path = new URL(video.el.currentSrc || video.el.src, location.href).pathname;
