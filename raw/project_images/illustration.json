@@ -321,5 +321,34 @@
    "height": 1080,
    "duration": 2.466667
   }
+ },
+ {
+  "n": 14,
+  "source": "预合成 3.mp4",
+  "kind": "video",
+  "cover": false,
+  "origWidth": 1920,
+  "origHeight": 1080,
+  "main": {
+   "file": "precomposition-3.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_card": {
+   "file": "precomposition-3_card.jpg",
+   "width": 1200,
+   "height": 675
+  },
+  "_small": {
+   "file": "precomposition-3_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "video": {
+   "file": "precomposition-3.mp4",
+   "width": 1920,
+   "height": 1080,
+   "duration": 4
+  }
  }
 ]

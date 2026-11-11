@@ -13,7 +13,7 @@
    "path": "/oppo/live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 1.95,
+   "t": 2.27,
    "w": 1600,
    "h": 900
   },
@@ -22,7 +22,7 @@
    "path": "/naivideo/live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 1.89,
+   "t": 2.38,
    "w": 1600,
    "h": 900
   },
@@ -30,8 +30,8 @@
    "src": "motion.mp4",
    "path": "/oppo-self/motion.mp4",
    "ready": 4,
-   "paused": true,
-   "t": 1.58,
+   "paused": false,
+   "t": 2.11,
    "w": 1600,
    "h": 900
   },
@@ -40,7 +40,7 @@
    "path": "/erp/cover.mp4",
    "ready": 4,
    "paused": true,
-   "t": 2.79,
+   "t": 1.63,
    "w": 1600,
    "h": 900
   },
@@ -49,7 +49,7 @@
    "path": "/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.71,
+   "t": 1.89,
    "w": 1250,
    "h": 720
   },
@@ -57,8 +57,8 @@
    "src": "high.mp4",
    "path": "/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
    "ready": 4,
-   "paused": false,
-   "t": 1.66,
+   "paused": true,
+   "t": 2.24,
    "w": 1162,
    "h": 720
   },
@@ -67,7 +67,7 @@
    "path": "/illustration/cover.mp4",
    "ready": 4,
    "paused": false,
-   "t": 1.47,
+   "t": 2.99,
    "w": 1280,
    "h": 652
   }
@@ -80,7 +80,7 @@
   "copy": "插画：以视觉表现力为核心的横向创作能力。作为视觉中国签约插画师，将商业插画、IP 形象与运营视觉沉淀为可复用的素材与材质资产，覆盖花卉、节庆、人物与数字艺术等主题；并以动态影像与 ",
   "fill": "rgb(0, 0, 0)",
   "hFill": "rgb(0, 0, 0)",
-  "slides": 4,
+  "slides": 5,
   "tags": [
    "Illustration",
    "Motion / 3D",
@@ -93,7 +93,7 @@
   "path": "/illustration/cover.mp4",
   "ready": 4,
   "paused": false,
-  "t": 6.42,
+  "t": 7.62,
   "w": 1280,
   "h": 652
  },
@@ -102,7 +102,7 @@
   "path": "/illustration/cover.mp4",
   "ready": 4,
   "paused": false,
-  "t": 7.91,
+  "t": 9.13,
   "w": 1280,
   "h": 652
  },
@@ -112,7 +112,7 @@
    "path": "/oppo/live.mp4",
    "ready": 4,
    "paused": true,
-   "t": 3.91,
+   "t": 3.89,
    "w": 1600,
    "h": 900
   },
@@ -121,7 +121,7 @@
    "path": "/naivideo/live.mp4",
    "ready": 4,
    "paused": false,
-   "t": 5.99,
+   "t": 8.13,
    "w": 1600,
    "h": 900
   },
@@ -129,8 +129,8 @@
    "src": "motion.mp4",
    "path": "/oppo-self/motion.mp4",
    "ready": 4,
-   "paused": true,
-   "t": 1.58,
+   "paused": false,
+   "t": 12,
    "w": 1600,
    "h": 900
   },
@@ -139,7 +139,7 @@
    "path": "/erp/cover.mp4",
    "ready": 4,
    "paused": true,
-   "t": 2.79,
+   "t": 1.63,
    "w": 1600,
    "h": 900
   },
@@ -148,7 +148,7 @@
    "path": "/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 1.71,
+   "t": 1.89,
    "w": 1250,
    "h": 720
   },
@@ -157,7 +157,7 @@
    "path": "/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
    "ready": 4,
    "paused": true,
-   "t": 3.27,
+   "t": 2.24,
    "w": 1162,
    "h": 720
   },
@@ -166,7 +166,7 @@
    "path": "/illustration/cover.mp4",
    "ready": 4,
    "paused": false,
-   "t": 2.78,
+   "t": 3.34,
    "w": 1280,
    "h": 652
   },
@@ -174,8 +174,8 @@
    "src": "reel.mp4",
    "path": "/illustration/reel.mp4",
    "ready": 4,
-   "paused": false,
-   "t": 16.28,
+   "paused": true,
+   "t": 16.94,
    "w": 1280,
    "h": 652
   },
@@ -183,17 +183,26 @@
    "src": "gift-motion-v2.mp4",
    "path": "/illustration/gift-motion-v2.mp4",
    "ready": 4,
-   "paused": false,
-   "t": 1.17,
+   "paused": true,
+   "t": 1.12,
    "w": 1920,
    "h": 1080
   },
   {
    "src": "launch-motion-v3.mp4",
    "path": "/illustration/launch-motion-v3.mp4",
-   "ready": 4,
+   "ready": 1,
    "paused": false,
-   "t": 1.95,
+   "t": 0,
+   "w": 1920,
+   "h": 1080
+  },
+  {
+   "src": "precomposition-3.mp4",
+   "path": "/illustration/precomposition-3.mp4",
+   "ready": 2,
+   "paused": false,
+   "t": 3.07,
    "w": 1920,
    "h": 1080
   }
@@ -204,7 +213,7 @@
   "title": "插画",
   "copy": "插画：以视觉表现力为核心的横向创作能力。作为视觉中国签约插画师，将商业插画、IP 形象与运营视觉沉淀为可复用的素材与材质",
   "fill": "rgb(0, 0, 0)",
-  "slides": 4
+  "slides": 5
  },
  "directVids": [
   {
@@ -219,9 +228,9 @@
   {
    "src": "cover.mp4",
    "path": "/illustration/cover.mp4",
-   "ready": 2,
+   "ready": 4,
    "paused": false,
-   "t": 5.66,
+   "t": 6.23,
    "w": 1280,
    "h": 652
   },
@@ -239,25 +248,34 @@
    "path": "/illustration/reel.mp4",
    "ready": 4,
    "paused": false,
-   "t": 4.65,
+   "t": 5.39,
    "w": 1280,
    "h": 652
   },
   {
    "src": "gift-motion-v2.mp4",
    "path": "/illustration/gift-motion-v2.mp4",
-   "ready": 1,
+   "ready": 4,
    "paused": false,
-   "t": 0,
+   "t": 1.8,
    "w": 1920,
    "h": 1080
   },
   {
    "src": "launch-motion-v3.mp4",
    "path": "/illustration/launch-motion-v3.mp4",
-   "ready": 1,
-   "paused": false,
-   "t": 0,
+   "ready": 4,
+   "paused": true,
+   "t": 2.38,
+   "w": 1920,
+   "h": 1080
+  },
+  {
+   "src": "precomposition-3.mp4",
+   "path": "/illustration/precomposition-3.mp4",
+   "ready": 4,
+   "paused": true,
+   "t": 2.63,
    "w": 1920,
    "h": 1080
   }
@@ -271,24 +289,34 @@
   {
    "src": "http://127.0.0.1:5189/illustration/gift-motion-v2.mp4",
    "ready": 4,
-   "frames": 297
+   "frames": 313
   },
   {
    "src": "http://127.0.0.1:5189/illustration/launch-motion-v3.mp4",
    "ready": 4,
-   "frames": 259
+   "frames": 212
+  },
+  {
+   "src": "http://127.0.0.1:5189/illustration/precomposition-3.mp4",
+   "ready": 4,
+   "frames": 167
   }
  ],
  "motionAfter": [
   {
    "src": "http://127.0.0.1:5189/illustration/gift-motion-v2.mp4",
    "ready": 4,
-   "frames": 324
+   "frames": 432
   },
   {
    "src": "http://127.0.0.1:5189/illustration/launch-motion-v3.mp4",
    "ready": 4,
-   "frames": 364
+   "frames": 331
+  },
+  {
+   "src": "http://127.0.0.1:5189/illustration/precomposition-3.mp4",
+   "ready": 4,
+   "frames": 204
   }
  ],
  "newClipsPlaying": true,
@@ -352,19 +380,21 @@
  "ext": [],
  "media": [
   "206 /oppo/live.mp4",
-  "206 /naivideo/live.mp4",
   "206 /oppo-self/motion.mp4",
+  "206 /naivideo/live.mp4",
   "200 /illustration/cover.jpg",
-  "206 /9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
-  "206 /01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
-  "206 /illustration/cover.mp4",
   "206 /erp/cover.mp4",
+  "206 /illustration/cover.mp4",
+  "206 /01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4",
+  "206 /9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4",
   "200 /illustration/reel.jpg",
   "200 /illustration/gift-motion-v2.jpg",
   "200 /illustration/launch-motion-v3.jpg",
+  "200 /illustration/precomposition-3.jpg",
   "200 /projects/illustration/_payload.json?_b=dae78082-791f-45e5-83d8-7af79c012859",
   "206 /illustration/reel.mp4",
+  "206 /illustration/launch-motion-v3.mp4",
   "206 /illustration/gift-motion-v2.mp4",
-  "206 /illustration/launch-motion-v3.mp4"
+  "206 /illustration/precomposition-3.mp4"
  ]
 }

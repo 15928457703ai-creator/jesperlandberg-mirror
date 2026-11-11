@@ -11,6 +11,9 @@ const fs = require('fs'), path = require('path');
 const ORIGIN = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5189';
 const OUT = path.join(__dirname, '..', 'screenshots');
 const SLUG = 'illustration';
+const PROJECT = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'raw', 'local_projects.json'))).find(p => p.slug === SLUG);
+const EXPECTED_SLIDES = PROJECT.slides.length;
+const MOTION_FILES = PROJECT.slides.map(s => s.video).filter(v => v && !['cover.mp4', 'reel.mp4'].includes(v));
 const wait = ms => new Promise(r => setTimeout(r, ms));
 const LAUNCH = {
   executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
@@ -181,21 +184,21 @@ const HOOK = () => {
   console.log('direct video elements:', JSON.stringify(directVids));
   await page.screenshot({ path: path.join(OUT, 'illustration_detail_direct.png') });
 
-  const frames = () => page.evaluate(() => (window.__videos || [])
-    .filter(v => /\/(gift-motion|launch-motion)(?:-v\d+)?\.mp4$/.test(v.src))
-    .map(v => ({ src: v.src, ready: v.readyState, frames: v.getVideoPlaybackQuality().totalVideoFrames })));
+  const frames = () => page.evaluate(files => (window.__videos || [])
+    .filter(v => files.includes(new URL(v.src).pathname.split('/').pop()))
+    .map(v => ({ src: v.src, ready: v.readyState, frames: v.getVideoPlaybackQuality().totalVideoFrames })), MOTION_FILES);
   const motionBefore = await frames();
   await wait(650);
   var motionAfter = await frames();
   const progressed = new Set();
   for (let step = 0; step < 8; step++) {
-    for (const v of motionAfter) if (v.ready >= 2 && v.frames > motionBefore.find(b => b.src === v.src).frames) progressed.add(v.src);
-    if (progressed.size === 2) break;
+    for (const v of motionAfter) if (v.ready >= 2 && v.frames > (motionBefore.find(b => b.src === v.src)?.frames || 0)) progressed.add(v.src);
+    if (progressed.size === MOTION_FILES.length) break;
     await page.mouse.wheel(0, 260);
     await wait(400);
     motionAfter = await frames();
   }
-  const newClipsPlaying = progressed.size === 2;
+  const newClipsPlaying = progressed.size === MOTION_FILES.length;
   console.log('new motion clips playing:', newClipsPlaying, motionBefore, motionAfter);
 
   await page.goto(ORIGIN + '/full', { waitUntil: 'domcontentloaded' });
@@ -214,8 +217,8 @@ const HOOK = () => {
                  reached && homePlaying;
   const okSheet = navigated && spa.url === '/projects/' + SLUG && spa.title === '插画' &&
                   spa.fill === 'rgb(0, 0, 0)' && spa.hFill === 'rgb(0, 0, 0)' &&
-                  spa.slides === 4 && (spa.copy || '').length > 40;
-  const okDirect = direct && directInfo.id === SLUG && directInfo.slides === 4 &&
+                  spa.slides === EXPECTED_SLIDES && (spa.copy || '').length > 40;
+  const okDirect = direct && directInfo.id === SLUG && directInfo.slides === EXPECTED_SLIDES &&
                    directInfo.fill === 'rgb(0, 0, 0)';
   const clean = !perr.length && !cerr.length && !hyd.length && !bad.length && !ext.length;
   const result = { home, homeVids, homePlaying, spa, cover1, cover2, afterScroll, directInfo,
