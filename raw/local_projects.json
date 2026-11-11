@@ -199,15 +199,6 @@
   "cover": "naivideo-ultra (11-card 3D collage, GSAP)",
   "slides": [
    {
-    "n": 2,
-    "files": [
-     "live.jpg",
-     "live_small.jpg",
-     "live_card.jpg"
-    ],
-    "video": "live.mp4"
-   },
-   {
     "n": 1,
     "files": [
      "1.jpg",
@@ -215,6 +206,15 @@
      "1_card.jpg"
     ],
     "video": null
+   },
+   {
+    "n": 2,
+    "files": [
+     "live.jpg",
+     "live_small.jpg",
+     "live_card.jpg"
+    ],
+    "video": "live.mp4"
    },
    {
     "n": 3,

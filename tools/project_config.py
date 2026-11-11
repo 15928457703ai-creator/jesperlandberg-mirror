@@ -87,6 +87,8 @@ PROJECTS = [
         "slug": "naivideo",
         "title": "Naivideo",
         "pid": "naivideo-app-2026",
+        # The introduction leads the detail page; retain the live home cover.
+        "cover_index": 1,
         "dir": "naivideo",
         "desc": "Naivideo 海外 AI 创作工具：面向 AI 视频与音乐生成的一站式创作平台，以 AI Studio、AI Effects 与 Agent 创作打通从灵感到成片的完整链路，构建沉浸观看、社交裂变与资产全生命周期管理，并支持 PC 横向扩展与商业化闭环。",
         "short": "Naivideo 海外 AI 创作工具，AI 视频与音乐生成平台，覆盖 Agent 创作、沉浸观看与资产全生命周期管理。",

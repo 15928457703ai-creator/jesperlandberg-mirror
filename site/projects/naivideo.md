@@ -4,11 +4,11 @@ Naivideo 海外 AI 创作工具：面向 AI 视频与音乐生成的一站式创
 
 ## Slides
 
+![Naivideo 1](http://127.0.0.1:__PORT__/naivideo/1.jpg)
+
 ![Naivideo 2](http://127.0.0.1:__PORT__/naivideo/live.jpg)
 
 [Watch video](http://127.0.0.1:__PORT__/naivideo/live.mp4)
-
-![Naivideo 1](http://127.0.0.1:__PORT__/naivideo/1.jpg)
 
 ![Naivideo 3](http://127.0.0.1:__PORT__/naivideo/3.jpg)
 
