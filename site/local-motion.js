@@ -7,23 +7,55 @@
     // every label inside the scene's pointer field and preview mask.
     useCanvasText: function (el) {
       return el.textContent.trim() === '华润ERP' ||
-        (el.matches('.content-center a') && /[\u3400-\u9fff]/.test(el.textContent));
+        ((el.matches('.content-center a') || el.hasAttribute('data-title')) && /[\u3400-\u9fff]/.test(el.textContent));
     },
     install: function (folio) {
       if (folio.galleryMotion) return;
       var media = matchMedia('(prefers-reduced-motion: reduce)');
       var pointer = { x: .5, y: .5, sx: .5, sy: .5, active: false };
+      var hovered = null, pressed = null;
+      var states = new WeakMap();
       var intro = -10000;
       var enabled = function () { return !media.matches && location.pathname === '/' && !folio.ctx.$resize?.small; };
       var clamp = function (n, a, b) { return Math.max(a, Math.min(b, n)); };
+      function stateFor(el) {
+        var state = states.get(el);
+        if (!state) { state = { hover: 0, press: 0, x: .5, y: .5 }; states.set(el, state); }
+        return state;
+      }
       folio.galleryMotion = { pointer: pointer, get enabled() { return enabled(); } };
       window.addEventListener('pointermove', function (e) {
         pointer.x = e.clientX / innerWidth;
         pointer.y = e.clientY / innerHeight;
         pointer.active = e.pointerType !== 'touch';
+        hovered = pointer.active ? e.target.closest?.('[data-gl="card"]') : null;
       }, { passive: true });
-      document.documentElement.addEventListener('pointerleave', function () { pointer.active = false; });
-      window.addEventListener('blur', function () { pointer.active = false; });
+      function release() { pressed = null; }
+      function leave() { pointer.active = false; hovered = null; release(); }
+      window.addEventListener('pointerdown', function (e) { if (e.button === 0) pressed = e.target.closest?.('[data-gl="card"]'); }, { passive: true });
+      window.addEventListener('pointerup', release, { passive: true });
+      window.addEventListener('pointercancel', leave, { passive: true });
+      document.documentElement.addEventListener('pointerleave', leave);
+      window.addEventListener('blur', leave);
+
+      // Light is evaluated on the existing card surface: no overlay can
+      // intercept clicks or cover the four corner navigation controls.
+      var plane = folio.plane;
+      folio.plane = function () {
+        var mesh = plane.apply(this, arguments), material = mesh.material;
+        var end = 'gl_FragColor = vec4(tex.rgb, alpha);';
+        if (material.fragmentShader.includes(end)) {
+          material.uniforms.u_galleryFocus = { value: 0 };
+          material.uniforms.u_galleryPoint = { value: material.uniforms.u_res.value.clone().set(.5, .5) };
+          material.fragmentShader = 'uniform float u_galleryFocus;\nuniform vec2 u_galleryPoint;\n' + material.fragmentShader.replace(end,
+            'vec2 galleryDelta = (vUv - u_galleryPoint) * vec2(u_res.x / max(u_res.y, 0.001), 1.0);\n' +
+            'float galleryLight = exp(-dot(galleryDelta, galleryDelta) * 5.0);\n' +
+            'float gallerySweep = pow(max(0.0, 1.0 - abs(vUv.x + vUv.y * 0.25 - u_galleryPoint.x - 0.12)), 16.0);\n' +
+            'tex.rgb += (vec3(0.07, 0.085, 0.11) * galleryLight + vec3(0.035) * gallerySweep) * u_galleryFocus * (1.0 - u_white);\n' + end);
+          material.needsUpdate = true;
+        }
+        return mesh;
+      };
 
       var showHome = folio.showHome;
       folio.showHome = function () {
@@ -35,6 +67,25 @@
         var k = 1 - Math.exp(-Math.min(dt || .016, .05) * 7);
         pointer.sx += ((pointer.active ? pointer.x : .5) - pointer.sx) * k;
         pointer.sy += ((pointer.active ? pointer.y : .5) - pointer.sy) * k;
+        var active = enabled() && this.hole.p < .02;
+        for (var card of this.reg.all()) {
+          var el = card.el, uniforms = card.mesh.material.uniforms;
+          if (!el?.isConnected || el.dataset.gl !== 'card' || !active) {
+            if (uniforms.u_galleryFocus) uniforms.u_galleryFocus.value = 0;
+            continue;
+          }
+          var state = stateFor(el), box = el._vrect || el.getBoundingClientRect();
+          state.hover += ((el === hovered ? 1 : 0) - state.hover) * k;
+          state.press += ((el === pressed ? 1 : 0) - state.press) * Math.min(1, k * 2);
+          var x = clamp((pointer.x * innerWidth - box.left) / Math.max(box.width, 1), 0, 1);
+          var y = clamp((pointer.y * innerHeight - box.top) / Math.max(box.height, 1), 0, 1);
+          state.x += (x - state.x) * k;
+          state.y += (y - state.y) * k;
+          if (uniforms.u_galleryFocus) {
+            uniforms.u_galleryFocus.value = state.hover;
+            uniforms.u_galleryPoint.value.set(state.x, 1 - state.y);
+          }
+        }
         return tick.apply(this, arguments);
       };
       var sheet = folio.sheet;
@@ -59,19 +110,27 @@
         var center = clamp((cx - .5) * 2, -1.5, 1.5);
         var focus = Math.exp(-Math.pow(center * 1.55, 2));
         var delay = Math.min(Math.max(index, 0), 5) * 70;
-        var p = clamp((performance.now() - intro - delay) / 1450, 0, 1);
-        var arrival = Math.pow(1 - p, 3);
+        var p = clamp((performance.now() - intro - delay) / 1650, 0, 1);
+        var arrival = Math.pow(1 - p, 4);
+        var state = stateFor(el);
+        var hover = this.hole.p < .02 ? state.hover : 0;
+        var press = this.hole.p < .02 ? state.press : 0;
         var h = pose.scale.y;
         var px = (pointer.sx - .5) * 2;
         var py = (pointer.sy - .5) * 2;
-        var dy = h * (-.17 * arrival + (px * center * .012 - py * .014) * focus);
-        var dz = h * (.045 * focus - .12 * arrival - Math.abs(this.vel || 0) * .025);
+        var dy = h * (-.20 * arrival + (px * center * .012 - py * .014) * focus + .018 * hover);
+        var dz = h * (.045 * focus - .15 * arrival - Math.abs(this.vel || 0) * .045 + .06 * hover - .035 * press);
         el._galleryOffset = { y: dy, z: dz };
         pose.pos.y += dy;
         pose.pos.z += dz;
+        var scale = 1 + .012 * hover - .01 * press;
+        pose.scale.x *= scale;
+        pose.scale.y *= scale;
         // The same pose is sampled by native click flights, preventing a jump.
         pose.quat = this.core.camera.quaternion.clone();
-        pose.quat.setFromAxisAngle({ x: 0, y: 1, z: 0 }, -.035 * center + .018 * px * focus + .10 * arrival * (index % 2 ? -1 : 1));
+        pose.quat.setFromAxisAngle({ x: 0, y: 1, z: 0 }, -.035 * center + .018 * px * focus + .12 * arrival * (index % 2 ? -1 : 1) + (state.x - .5) * .09 * hover);
+        var tiltX = this.core.camera.quaternion.clone().setFromAxisAngle({ x: 1, y: 0, z: 0 }, (state.y - .5) * .07 * hover);
+        pose.quat.multiply(tiltX);
         return pose;
       };
       var syncTitles = folio.syncTitles;

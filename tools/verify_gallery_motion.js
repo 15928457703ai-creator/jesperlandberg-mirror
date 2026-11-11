@@ -18,7 +18,9 @@ const options = { executablePath: '/Applications/Google Chrome.app/Contents/MacO
     const read = () => page.evaluate(() => {
       const folio = document.querySelector('#__nuxt').__vue_app__.config.globalProperties.$nuxt.$folio;
       return { enabled: folio.galleryMotion.enabled, pointer: { ...folio.galleryMotion.pointer },
-        cards: folio.cards.filter(c => c.el.isConnected).map(c => ({ slug: c.slug, pos: c.mesh.position.toArray(), quat: c.mesh.quaternion.toArray() })) };
+        cards: folio.cards.filter(c => c.el.isConnected).map(c => ({ slug: c.slug, pos: c.mesh.position.toArray(), quat: c.mesh.quaternion.toArray(),
+          focus: c.mesh.material.uniforms.u_galleryFocus?.value, light: c.mesh.material.uniforms.u_galleryPoint?.value.toArray() })),
+        labels: folio.texts.filter(t => t.el.isConnected).map(t => t.el.textContent) };
     });
     await page.mouse.move(720, 450);
     await page.waitForTimeout(800);
@@ -29,17 +31,28 @@ const options = { executablePath: '/Applications/Google Chrome.app/Contents/MacO
     check('desktop gallery active with ten projects', before.enabled && before.cards.length === 10);
     check('pointer changes rendered card pose', after.cards.some((c, i) => Math.abs(c.pos[1] - before.cards[i].pos[1]) > .001));
     check('all card poses stay finite', after.cards.every(c => c.pos.concat(c.quat).every(Number.isFinite)));
+    check('all card surfaces support directional light', after.cards.every(c => Number.isFinite(c.focus) && c.light.length === 2));
+    check('Chinese project captions are rendered', after.labels.includes('OPPO自助服务') && after.labels.includes('华润ERP'));
     await page.screenshot({ path: 'screenshots/gallery_motion_home.png' });
     await page.mouse.wheel(0, 1800);
     await page.waitForTimeout(900);
     await page.screenshot({ path: 'screenshots/gallery_motion_scroll.png' });
-    await page.evaluate(() => {
+    const slug = await page.evaluate(() => {
       const card = [...document.querySelectorAll('[data-gl="card"]')].find(e => {
         const r = e._vrect || e.getBoundingClientRect(); return r.left > 0 && r.left < innerWidth * .7;
       });
       if (!card) throw new Error('No visible card');
-      (card.querySelector('a') || card).click();
+      return card.dataset.id;
     });
+    const target = page.locator('[data-gl="card"][data-id="' + slug + '"]');
+    await target.hover(); await page.waitForTimeout(1100);
+    const focused = (await read()).cards.find(c => c.slug === slug);
+    check('hover focuses and lights the active card', focused.focus > .8);
+    await page.screenshot({ path: 'screenshots/gallery_motion_focus.png' });
+    await page.mouse.down(); await page.waitForTimeout(220);
+    const pressed = (await read()).cards.find(c => c.slug === slug);
+    check('press gives the card a depth response', pressed.pos[2] < focused.pos[2] - .001);
+    await page.mouse.up();
     await page.waitForFunction(() => location.pathname.startsWith('/projects/'));
     await page.waitForTimeout(1800);
     check('card opens a single detail sheet', await page.locator('[data-gl="sheet"]').count() === 1);
