@@ -135,6 +135,18 @@
         pose.quat.multiply(tiltX);
         return pose;
       };
+      // About keeps the native sheet; its audible DOM video owns the media.
+      var aboutSyncContent = folio.syncContent;
+      folio.syncContent = function () {
+        aboutSyncContent.apply(this, arguments);
+        for (var item of this.content) {
+          var about = !!item.el?.closest('[data-gl="sheet"][data-id="showreel"]');
+          if (about || item.mesh.userData.aboutHidden) {
+            item.mesh.visible = !about;
+            item.mesh.userData.aboutHidden = about;
+          }
+        }
+      };
       var syncTitles = folio.syncTitles;
       folio.syncTitles = function () {
         syncTitles.apply(this, arguments);
