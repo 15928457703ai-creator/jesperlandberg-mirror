@@ -1,5 +1,24 @@
 [
  {
+  "slug": "showreel",
+  "title": "视频展示",
+  "dir": "showreel",
+  "link": null,
+  "hint": null,
+  "cover": "11月11日.mp4",
+  "slides": [
+   {
+    "n": 1,
+    "files": [
+     "showreel.jpg",
+     "showreel_small.jpg",
+     "showreel_card.jpg"
+    ],
+    "video": "showreel.mp4"
+   }
+  ]
+ },
+ {
   "slug": "oppo-service",
   "title": "OPPO 服务小程序",
   "dir": "oppo",

@@ -44,3 +44,5 @@ _Every page on http://127.0.0.1:__PORT__ is also available as Markdown: send `Ac
 - [动效设计精选](http://127.0.0.1:__PORT__/projects/illustration.md): 界面动效与动态视觉作品精选，涵盖启动页、交互反馈、礼物互动及插画与 3D 动态表达。
 
 - [AI短视频](http://127.0.0.1:__PORT__/projects/ai-video.md): AI 创新实验·儿童故事短视频，AIGC 工作流与 LoRA 角色一致性驱动的百万播放系列。
+
+- [视频展示](http://127.0.0.1:__PORT__/projects/showreel.md): 视频作品展示。

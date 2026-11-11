@@ -1,16 +1,16 @@
-/* Verify the requested 10-card home permutation, the default first screen,
+/* Verify the requested 11-card home permutation, the default first screen,
  * the detail-page prev/next ring and hydration after the SSR reorder. */
 const { chromium } = require('playwright-core');
 const path = require('path');
 const OUT = path.join(__dirname, '..', 'screenshots');
-const ORIGIN = 'http://127.0.0.1:5188';
+const ORIGIN = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5188';
 const ORDER = [
-  'oppo-service', 'naivideo', 'oppo-self-service', 'erp', 'csa-service',
+  'oppo-service', 'showreel', 'naivideo', 'oppo-self-service', 'erp', 'csa-service',
   'hengxiang-advantage', 'ai-video', 'the-lookback',
   'griflan', 'illustration'
 ];
 const TITLES = {
-  'oppo-service': 'OPPO 服务小程序', 'naivideo': 'Naivideo',
+  'showreel': '视频展示', 'oppo-service': 'OPPO 服务小程序', 'naivideo': 'Naivideo',
   'oppo-self-service': 'OPPO自助服务', 'erp': 'ERP',
   'csa-service': 'CSA客服服务', 'hengxiang-advantage': '横向优势',
   'illustration': '插画', 'ai-video': 'AI短视频'
@@ -184,8 +184,8 @@ const readCards = () => {
   if (bad.length) console.log(' bad :', bad.slice(0, 5));
   if (ext.length) console.log(' ext :', ext.slice(0, 5));
 
-  const okAll = orderOK && ids.length === ORDER.length && center.id === 'naivideo' &&
-    firstThree.join(',') === 'oppo-service,naivideo,oppo-self-service' &&
+  const okAll = orderOK && ids.length === ORDER.length && center.id === 'showreel' &&
+    firstThree.join(',') === 'oppo-service,showreel,naivideo' &&
     ring.every(x => x.ok) && clean;
   console.log('\nHOME ORDER VERIFY:', okAll ? 'PASS' : 'FAIL');
   await browser.close();

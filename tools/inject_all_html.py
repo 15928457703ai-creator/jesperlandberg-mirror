@@ -62,7 +62,8 @@ def add_cards(t):
     local = {}
     for p in PROJECTS:
         b = base.replace('data-id="griflan"', 'data-id="' + p["slug"] + '"')
-        b = re.sub(r'aspect-ratio:[^;]+;', 'aspect-ratio:1600 / 900;', b)
+        m = cover(p)['main']
+        b = re.sub(r'aspect-ratio:[^;]+;', 'aspect-ratio:%d / %d;' % (m['width'], m['height']), b)
         b = b.replace('>Griflan</span>', '>' + p["title"] + '</span>')
         local[p["slug"]] = b
     pool = dict(orig)

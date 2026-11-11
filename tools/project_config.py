@@ -3,7 +3,7 @@
 Two different orders live here:
   * DISPLAY_ORDER -> relative order of the local projects in data.projects,
     the /full catalogue, sitemap and markdown.
-  * HOME_ORDER    -> the COMPLETE 10-item permutation of the home card strip;
+  * HOME_ORDER    -> the COMPLETE 11-item permutation of the home card strip;
     this also drives home.featured in every payload / the GraphQL replay and
     the detail-page prev/next ring. See the notes next to HOME_ORDER.
 """
@@ -45,6 +45,16 @@ def _meta(slug, path):
 
 
 PROJECTS = [
+    {
+        "slug": "showreel",
+        "title": "视频展示",
+        "pid": "fengmei-showreel-2026",
+        "dir": "showreel",
+        "desc": "视频作品展示。",
+        "short": "视频作品展示。",
+        "tags": [("showreel-video", "Video", None), ("showreel-year", "2026", None)],
+        "meta": _meta("showreel", "raw/project_images/showreel.json"),
+    },
     {
         "slug": "oppo-service",
         "title": "OPPO 服务小程序",
@@ -213,7 +223,7 @@ PROJECTS = [
 
 # Relative order of the locally added case studies. DIFFERENT from the home
 # strip: this drives data.projects, the /full index, sitemap and markdown.
-DISPLAY_ORDER = ["oppo-service", "naivideo", "oppo-self-service",
+DISPLAY_ORDER = ["showreel", "oppo-service", "naivideo", "oppo-self-service",
                  "erp", "csa-service", "hengxiang-advantage",
                  "illustration", "ai-video"]
 assert set(DISPLAY_ORDER) == {p["slug"] for p in PROJECTS}
@@ -233,7 +243,8 @@ ORIGINAL_FEATURED = [
 
 # ---------------------------------------------------------------------------
 # HOME_ORDER is THE single source of truth for the home card strip.
-# A complete 10-item permutation (1-based positions):
+# A complete 11-item permutation. The new video sits in the centered first-screen slot.
+# Existing cards retain their relative positions:
 #    1 oppo-service      2 naivideo            3 oppo-self-service
 #    4 erp               5 csa-service         6 hengxiang-advantage
 #    7 ai-video
@@ -245,12 +256,12 @@ ORIGINAL_FEATURED = [
 # <article> strip, the sr-only SEO list and all related href/labels must be
 # derived from this list, otherwise Vue reports hydration mismatches.
 # ---------------------------------------------------------------------------
-LOCAL_HEAD = ["oppo-service", "naivideo", "oppo-self-service",
+LOCAL_HEAD = ["oppo-service", "showreel", "naivideo", "oppo-self-service",
               "erp", "csa-service", "hengxiang-advantage", "ai-video"]
 LOCAL_TAIL = ["illustration"]
 ORIGINAL_ORDER = [s for s, _ in ORIGINAL_FEATURED]
 HOME_ORDER = LOCAL_HEAD + ORIGINAL_ORDER + LOCAL_TAIL
-assert len(HOME_ORDER) == 10 and len(set(HOME_ORDER)) == 10
+assert len(HOME_ORDER) == 11 and len(set(HOME_ORDER)) == 11
 assert set(HOME_ORDER) == set(ORIGINAL_ORDER) | {p["slug"] for p in PROJECTS}
 
 _TITLES = dict(ORIGINAL_FEATURED)
