@@ -3,9 +3,12 @@
 (function () {
   'use strict';
   window.PortfolioMotion = {
-    // This renamed title needs Chinese glyphs in cards, pills and the index;
-    // use the native canvas-text path instead of the Latin-only outline font.
-    useCanvasText: function (el) { return el.textContent.trim() === '华润ERP'; },
+    // Chinese catalogue labels need native canvas glyphs too: this keeps
+    // every label inside the scene's pointer field and preview mask.
+    useCanvasText: function (el) {
+      return el.textContent.trim() === '华润ERP' ||
+        (el.matches('.content-center a') && /[\u3400-\u9fff]/.test(el.textContent));
+    },
     install: function (folio) {
       if (folio.galleryMotion) return;
       var media = matchMedia('(prefers-reduced-motion: reduce)');

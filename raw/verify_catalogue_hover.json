@@ -1,0 +1,146 @@
+{
+  "results": [
+    {
+      "title": "The Lookback",
+      "slug": "the-lookback",
+      "drawn": true,
+      "domHidden": true,
+      "field": 0.9675543298502477,
+      "preview": true,
+      "selected": 0,
+      "previewSlug": "the-lookback",
+      "x": 545.3900146484375,
+      "y": 403.92999267578125,
+      "ok": true
+    },
+    {
+      "title": "Griflan",
+      "slug": "griflan",
+      "drawn": true,
+      "domHidden": true,
+      "field": 0.9971271941717174,
+      "preview": true,
+      "selected": 1,
+      "previewSlug": "griflan",
+      "x": 670.762713532491,
+      "y": 403.92999267578125,
+      "ok": true
+    },
+    {
+      "title": "OPPO 服务小程序",
+      "slug": "oppo-service",
+      "drawn": true,
+      "domHidden": true,
+      "field": 0.9999246182790058,
+      "preview": true,
+      "selected": 2,
+      "previewSlug": "oppo-service",
+      "x": 861.2685366656466,
+      "y": 403.92999267578125,
+      "ok": true
+    },
+    {
+      "title": "Naivideo",
+      "slug": "naivideo",
+      "drawn": true,
+      "domHidden": true,
+      "field": 0.9999997285062617,
+      "preview": true,
+      "selected": 3,
+      "previewSlug": "naivideo",
+      "x": 590.95496191226,
+      "y": 443.765102510064,
+      "ok": true
+    },
+    {
+      "title": "OPPO自助服务",
+      "slug": "oppo-self-service",
+      "drawn": true,
+      "domHidden": true,
+      "field": 0.999999990310634,
+      "preview": true,
+      "selected": 4,
+      "previewSlug": "oppo-self-service",
+      "x": 706.8361449596987,
+      "y": 449.8117224098975,
+      "ok": true
+    },
+    {
+      "title": "华润ERP",
+      "slug": "erp",
+      "drawn": true,
+      "domHidden": true,
+      "field": 0.9999999997913239,
+      "preview": true,
+      "selected": 5,
+      "previewSlug": "erp",
+      "x": 883.5746954994112,
+      "y": 449.9965515756488,
+      "ok": true
+    },
+    {
+      "title": "CSA客服服务",
+      "slug": "csa-service",
+      "drawn": true,
+      "domHidden": true,
+      "field": 0.9999999999956064,
+      "preview": true,
+      "selected": 6,
+      "previewSlug": "csa-service",
+      "x": 565.9925625123655,
+      "y": 493.76674215102526,
+      "ok": true
+    },
+    {
+      "title": "横向优势",
+      "slug": "hengxiang-advantage",
+      "drawn": true,
+      "domHidden": true,
+      "field": 0.9999999999999656,
+      "preview": true,
+      "selected": 7,
+      "previewSlug": "hengxiang-advantage",
+      "x": 708.1480561188596,
+      "y": 496.04454572520217,
+      "ok": true
+    },
+    {
+      "title": "插画",
+      "slug": "illustration",
+      "drawn": true,
+      "domHidden": true,
+      "field": 0.9999999999999994,
+      "preview": true,
+      "selected": 8,
+      "previewSlug": "illustration",
+      "x": 812.9236715814732,
+      "y": 496.05982590423014,
+      "ok": true
+    },
+    {
+      "title": "AI短视频",
+      "slug": "ai-video",
+      "drawn": true,
+      "domHidden": true,
+      "field": 0.9999999999999998,
+      "preview": true,
+      "selected": 9,
+      "previewSlug": "ai-video",
+      "x": 917.6133165375727,
+      "y": 496.05999565168605,
+      "ok": true
+    },
+    {
+      "title": "reset and three-row layout",
+      "ok": true,
+      "reveal": 0.006737946999085466,
+      "rows": 3,
+      "labels": 10
+    },
+    {
+      "title": "Chinese title opens matching detail",
+      "ok": true
+    }
+  ],
+  "errors": []
+}
