@@ -1,5 +1,6 @@
 """Export the mirror, including cached media, for GitHub Pages or static hosting."""
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -19,6 +20,14 @@ if out == ROOT or ROOT in out.parents and out.name != 'dist-pages':
     raise SystemExit('Use dist-pages or a separate output directory')
 if out.exists(): shutil.rmtree(out)
 shutil.copytree(ROOT / 'site', out, ignore=shutil.ignore_patterns('originals'))
+# Every publication gets fresh module URLs, including their dependency imports.
+# Nuxt's mirrored filenames are stable even when their contents change.
+revision_hash = hashlib.sha256()
+for source in sorted((ROOT / 'site').rglob('*')):
+    if source.is_file() and source.suffix in ('.html','.js','.css','.json'):
+        revision_hash.update(source.relative_to(ROOT / 'site').as_posix().encode())
+        revision_hash.update(source.read_bytes())
+revision = revision_hash.hexdigest()[:12]
 manifest = json.loads((ROOT / 'assets/manifest.json').read_text())
 media = out / '__media'
 media.mkdir()
@@ -57,6 +66,9 @@ def transform(text, suffix):
         text = text.replace('baseURL:"/"', 'baseURL:' + json.dumps(base))
         text = re.sub(r'buildAssetsDir:"[^"]+"', 'buildAssetsDir:"/_nuxt/"', text)
         text = text.replace('<head>', '<head><script src="' + base + 'pages-runtime.js"></script>', 1)
+    if suffix in ('.html', '.js'):
+        # Keep static imports, dynamic imports and module preloads on one revision.
+        text = re.sub(r'([\"\'])([^\"\'\s?#]+\.(?:js|css))\1', lambda m: m.group(1) + m.group(2) + '?v=' + revision + m.group(1), text)
     return text
 
 for file in list(out.rglob('*')):
@@ -75,7 +87,7 @@ for route in ['full','newsletter','oppo-wechat'] + ['projects/' + f.stem for f i
 (out / '.nojekyll').touch()
 runtime = r'''(function(){
 'use strict';
-var base=BASE, assets=ASSETS;
+var base=BASE, assets=ASSETS, revision=REVISION;
 window.__portfolioPath=function(){var p=location.pathname;return p.indexOf(base)===0?'/'+p.slice(base.length):p;};
 function mapped(input){var url=new URL(input,location.href);if(!/^https?:$/.test(url.protocol))return input;var path=url.pathname;
 if(path.indexOf(base)===0)path='/'+path.slice(base.length);
@@ -86,14 +98,16 @@ return url.href;}
 var fetchOriginal=window.fetch.bind(window);
 window.fetch=function(input,options){var raw=typeof input==='string'?input:input.url;
 var url=new URL(raw,location.href);
-if(url.pathname.endsWith('/__graphql'))return fetchOriginal(base+'graphql.json',{cache:'no-cache'});
+if(url.pathname.endsWith('/__graphql'))return fetchOriginal(base+'graphql.json?v='+revision,{cache:'no-cache'});
 if(url.pathname.endsWith('/api/subscribe'))return Promise.resolve(new Response('{"ok":true,"offline":true}',{headers:{'content-type':'application/json'}}));
-return fetchOriginal(typeof input==='string'?mapped(raw):input,options);};
+var target=typeof input==='string'?mapped(raw):input;
+if(typeof target==='string'){var parsed=new URL(target,location.href);if(parsed.origin===location.origin&&parsed.pathname.endsWith('.json')){parsed.searchParams.set('v',revision);target=parsed.href;}}
+return fetchOriginal(target,options);};
 var descriptor=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,'src');
 Object.defineProperty(HTMLImageElement.prototype,'src',{configurable:true,get:descriptor.get,set:function(value){descriptor.set.call(this,mapped(value));}});
 var mediaDescriptor=Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype,'src');
 Object.defineProperty(HTMLMediaElement.prototype,'src',{configurable:true,get:mediaDescriptor.get,set:function(value){mediaDescriptor.set.call(this,mapped(value));}});
-})();'''.replace('BASE', json.dumps(base)).replace('ASSETS', json.dumps(urlmap, separators=(',',':')))
+})();'''.replace('BASE', json.dumps(base)).replace('REVISION', json.dumps(revision)).replace('ASSETS', json.dumps(urlmap, separators=(',',':')))
 (out / 'pages-runtime.js').write_text(runtime)
 # Use absolute public metadata; no loopback addresses survive the export.
 print('Exported', sum(f.is_file() for f in out.rglob('*')), 'files to', out)
