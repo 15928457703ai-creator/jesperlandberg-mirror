@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>核心优势 · 文案精简稿</title>
+<style>
+  :root{
+    --bg:#0c0d0f; --panel:#14161a; --panel2:#181b20; --line:#272b31;
+    --ink:#eceef1; --muted:#8a919c; --accent:#d4f27a; --accent-soft:rgba(212,242,122,.10);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.75;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:72px 28px 96px}
+  .overline{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-size:clamp(30px,5vw,46px);line-height:1.25;margin:18px 0 12px;letter-spacing:-.02em;font-weight:650}
+  .lede{color:var(--muted);font-size:15px;margin:0 0 8px}
+  .lede b{color:var(--ink);font-weight:600}
+  .rule{height:1px;background:var(--line);margin:44px 0 8px}
+
+  .card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+        padding:30px 32px 32px;margin-top:24px;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:#3a4049}
+  .card.recommended{border-color:rgba(212,242,122,.42);background:linear-gradient(180deg,rgba(212,242,122,.035),transparent 45%),var(--panel)}
+  .num{position:absolute;right:28px;top:16px;font-size:56px;font-weight:700;line-height:1;
+       color:rgba(255,255,255,.035);letter-spacing:-.06em;user-select:none}
+  .card-head{display:flex;align-items:center;flex-wrap:wrap;gap:10px;position:relative;z-index:1}
+  .card h2{font-size:19px;margin:0;font-weight:650;letter-spacing:.01em}
+  .tag{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:3px 10px;white-space:nowrap}
+  .tag.hi{color:var(--accent);border-color:rgba(212,242,122,.35);background:var(--accent-soft)}
+  .meta{margin-left:auto;font-size:12px;color:var(--muted);white-space:nowrap}
+  button.copy{background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:7px;
+    padding:5px 12px;font-size:12px;cursor:pointer;font-family:inherit;transition:all .18s;margin-left:4px}
+  button.copy:hover{color:var(--ink);border-color:#4a515c}
+  button.copy.ok{color:var(--accent);border-color:rgba(212,242,122,.45)}
+  .sub{font-size:12px;color:var(--muted);margin:10px 0 22px}
+
+  .body{font-size:15.5px;color:#dfe2e6}
+  .body ol{margin:0;padding-left:1.35em}
+  .body li{margin:0 0 11px;padding-left:.2em}
+  .body li:last-child{margin-bottom:0}
+  .body li::marker{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
+  .body p{margin:0 0 12px}
+  .body p:last-child{margin-bottom:0}
+  .body .tagline{font-size:16px;line-height:2.1;letter-spacing:.01em}
+  .body .tagline .sep{color:var(--accent);padding:0 6px;font-weight:400}
+  em{font-style:normal;color:var(--accent);font-weight:600}
+
+  .foot{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  .box{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:24px 26px}
+  .box h3{font-size:13px;letter-spacing:.08em;color:var(--muted);margin:0 0 14px;font-weight:600;text-transform:uppercase}
+  .box ul{margin:0;padding-left:1.1em;font-size:14px;color:#cdd1d7}
+  .box li{margin-bottom:9px}
+  .box li:last-child{margin-bottom:0}
+  .box li::marker{color:var(--accent)}
+
+  details{margin-top:32px;border-top:1px solid var(--line);padding-top:18px}
+  summary{cursor:pointer;color:var(--muted);font-size:13px;list-style:none;user-select:none}
+  summary::-webkit-details-marker{display:none}
+  summary:before{content:"+";display:inline-block;width:18px;color:var(--accent)}
+  details[open] summary:before{content:"−"}
+  .original{margin-top:16px;font-size:13px;line-height:1.9;color:#838a94;background:var(--panel);
+    border:1px solid var(--line);border-radius:10px;padding:20px 22px;white-space:pre-wrap}
+  .copyright{margin-top:40px;color:#5d646e;font-size:12px}
+  @media(max-width:640px){
+    .wrap{padding:48px 18px 72px}
+    .card{padding:24px 20px 26px}
+    .num{font-size:42px;right:18px}
+    .foot{grid-template-columns:1fr}
+    .meta{margin-left:0;width:100%;order:3}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="overline">Resume / Copy Edit</div>
+  <h1>核心优势 · 精简稿</h1>
+  <p class="lede">原文 4 段约 <b>380 字</b>，信息点全部保留，按「量级 → 能力 → AI 差异化 → 横向能力」重排。给出三档，按投放位置取用。</p>
+
+  <div class="rule"></div>
+
+  <!-- A -->
+  <section class="card recommended">
+    <div class="num">01</div>
+    <div class="card-head">
+      <h2>标准版</h2>
+      <span class="tag hi">推荐</span>
+      <span class="tag">简历「核心优势」</span>
+      <span class="meta">约 190 字 · 压缩 50%</span>
+      <button class="copy" data-target="raw-a">复制</button>
+    </div>
+    <p class="sub">四条各司其职，HR 3 秒能抓到年限、量级与差异化。</p>
+    <div class="body">
+      <ol>
+        <li>10 年 B 端设计 + 1 年团队管理，主导<em>亿级 C 端</em>与<em>百万级 AI 产品</em>；覆盖 ERP、CRM、E-mis、计划预算、智慧园区，PC / App / 小程序全端交付。</li>
+        <li>独立搭建多平台、多语言的交互与视觉设计规范体系，多个海外项目落地；贯通用户研究、业务分析、PRD 到设计策略，具备强业务理解与跨团队推进力。</li>
+        <li>具 Agent 项目经验，精通 AIGC 全栈工具与视频 / 短剧工作流；自研 AI 视频<em>单平台播放 100W+</em>，熟练运用 GPT、WorkBuddy、MJ、SD、画布完成生成到剪辑全流程。</li>
+        <li>视觉中国签约插画师，兼具 3D 建模与动效设计能力。</li>
+      </ol>
+    </div>
+    <script type="text/plain" id="raw-a">1、10 年 B 端设计 + 1 年团队管理，主导亿级 C 端与百万级 AI 产品；覆盖 ERP、CRM、E-mis、计划预算、智慧园区，PC / App / 小程序全端交付。
+2、独立搭建多平台、多语言的交互与视觉设计规范体系，多个海外项目落地；贯通用户研究、业务分析、PRD 到设计策略，具备强业务理解与跨团队推进力。
+3、具 Agent 项目经验，精通 AIGC 全栈工具与视频 / 短剧工作流；自研 AI 视频单平台播放 100W+，熟练运用 GPT、WorkBuddy、MJ、SD、画布完成生成到剪辑全流程。
+4、视觉中国签约插画师，兼具 3D 建模与动效设计能力。</script>
+  </section>
+
+  <!-- B -->
+  <section class="card">
+    <div class="num">02</div>
+    <div class="card-head">
+      <h2>极简版</h2>
+      <span class="tag">简历抬头 / 面试自我介绍</span>
+      <span class="meta">约 100 字</span>
+      <button class="copy" data-target="raw-b">复制</button>
+    </div>
+    <p class="sub">三句话讲完，适合放在姓名下方或口述开场。</p>
+    <div class="body">
+      <p>10 年 B 端设计 + 1 年管理，<em>亿级 C 端 / 百万级 AI 产品</em>，多端跨平台、多个海外项目落地。</p>
+      <p>从用户研究、PRD 到设计策略与规范体系独立闭环，强业务理解与跨团队推进。</p>
+      <p>Agent + AIGC 视频全栈（自研作品单平台 <em>100W+ 播放</em>）；视觉中国签约插画师，兼 3D / 动效。</p>
+    </div>
+    <script type="text/plain" id="raw-b">10 年 B 端设计 + 1 年管理，亿级 C 端 / 百万级 AI 产品，多端跨平台、多个海外项目落地。
+从用户研究、PRD 到设计策略与规范体系独立闭环，强业务理解与跨团队推进。
+Agent + AIGC 视频全栈（自研作品单平台 100W+ 播放）；视觉中国签约插画师，兼 3D / 动效。</script>
+  </section>
+
+  <!-- C -->
+  <section class="card">
+    <div class="num">03</div>
+    <div class="card-head">
+      <h2>标签版</h2>
+      <span class="tag">作品集首页 / 一句话简介</span>
+      <span class="meta">约 60 字</span>
+      <button class="copy" data-target="raw-c">复制</button>
+    </div>
+    <p class="sub">不做句子，只留关键词，扫描式阅读。</p>
+    <div class="body">
+      <p class="tagline">10 年 B 端设计 · 1 年管理<span class="sep">｜</span>亿级 C 端 &amp; 百万级 AI 产品<span class="sep">｜</span>海外项目 · 多端规范体系<span class="sep">｜</span>Agent / AIGC 视频（100W+）<span class="sep">｜</span>插画 · 3D · 动效</p>
+    </div>
+    <script type="text/plain" id="raw-c">10 年 B 端设计 · 1 年管理 ｜ 亿级 C 端 & 百万级 AI 产品 ｜ 海外项目 · 多端规范体系 ｜ Agent / AIGC 视频（100W+）｜ 插画 · 3D · 动效</script>
+  </section>
+
+  <div class="foot">
+    <div class="box">
+      <h3>改了什么</h3>
+      <ul>
+        <li>去重：「独立」出现 3 次、「精通」2 次，各留一次；删掉「具备／拥有／有效／能力」等虚词。</li>
+        <li>重排：年限与量级前置，方法论居中，AI 差异化单独成条，横向能力收尾。</li>
+        <li>数字前置：10 年、亿级、100W+ 全部提到句首或分句首；工具名合并一行，不再割裂。</li>
+        <li>补逻辑主语：把零散的「经验」改成「主导／搭建／贯通」等动作，读起来是履历而非清单。</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>使用建议</h3>
+      <ul>
+        <li>投 <strong>AI 产品 / Agent 岗</strong>：把标准版第 3 条提到第 1 条，先亮差异化。</li>
+        <li>投 <strong>B 端 / 设计管理岗</strong>：保持现顺序，年限与跨团队推进优先。</li>
+        <li>「E-mis」「画布」属内部叫法，对外投递建议写成「E-MIS 管理系统」「即梦 / 可灵画布」或直接用「AI 画布工具」。</li>
+        <li>100W+ 播放若能补上平台名与周期（如「单平台 3 个月 100W+」），可信度会明显更高。</li>
+      </ul>
+    </div>
+  </div>
+
+  <details>
+    <summary>对照原文</summary>
+    <div class="original">1、能独立负责多平台、多语言的交互/视觉设计/规范体系制定，拥有多个海外项目落地经验，具备独立用户研究、业务分析及沟通，产品需求分析及PRD文档撰写、制定有效设计策略的能力，及强业务思考与跨团队推进力
+2、具备 10年B端设计 + 1年管理 + 亿级C端+百万级AI产品综合背景。多端跨平台设计能力（PC/APP/小程序）B端项目涵盖ERP、CRM、E-mis、计划预算、智慧园区等多个领域经验
+3、有Agent项目经验，精通 AIGC 全栈工具与视频/短剧工作流：实操自研 AI 视频单平台斩获 100W+ 播放量；精通视频生成/剪辑全流程，掌握 熟练使用GPT、Workbuddy、MJ、SD、画布、等AI工具。
+4、有插画（视觉中国签约插画师）、3D建模，动效设计等横向能力】</div>
+  </details>
+
+  <p class="copyright">2026.11.12 · 文案精简稿</p>
+</div>
+
+<script>
+document.querySelectorAll('button.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var src = document.getElementById(btn.dataset.target);
+    var text = src.textContent.trim();
+    var done = function(){
+      var old = btn.textContent;
+      btn.textContent = '已复制';
+      btn.classList.add('ok');
+      setTimeout(function(){ btn.textContent = old; btn.classList.remove('ok'); }, 1600);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(text, done); });
+    } else { fallback(text, done); }
+  });
+});
+function fallback(text, done){
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done(); } catch(e) { alert('复制失败，请手动选择文本'); }
+  document.body.removeChild(ta);
+}
+</script>
+</body>
+</html>
