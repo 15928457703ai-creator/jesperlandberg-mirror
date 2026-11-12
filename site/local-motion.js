@@ -90,6 +90,15 @@
         }
         return tick.apply(this, arguments);
       };
+      // Scale only the Profile lens; its text layout keeps its current size.
+      var profileSyncHole = folio.syncHole;
+      folio.syncHole = function () {
+        profileSyncHole.apply(this, arguments);
+        var targetScale = this.holeEl?.querySelector('.profile-heading') ? .9 : 1;
+        var sourceScale = this.holeFrom?.querySelector('.profile-heading') ? .9 : 1;
+        var scale = this.holeFrom?.isConnected ? sourceScale + (targetScale - sourceScale) * this.hole.m : targetScale;
+        this.core.post.u.u_radius.value *= scale;
+      };
       var sheet = folio.sheet;
       folio.sheet = function () {
         var pose = sheet.apply(this, arguments);
