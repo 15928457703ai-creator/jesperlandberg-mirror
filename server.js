@@ -5,7 +5,7 @@ const PORT=Number(process.env.PORT||5188);
 // The mirror edits Nuxt bundles in place. Give each coherent set of runtime
 // files its own URL space so a warm browser cannot mix old and new modules.
 const runtimeFiles=[...fs.readdirSync(path.join(SITE,'_nuxt')).filter(f=>/\.(js|css)$/.test(f)).map(f=>path.join(SITE,'_nuxt',f)),
-  ...['local-motion.js','local-copy.js','local-copy.css','local-about.js'].map(f=>path.join(SITE,f))].sort();
+  ...['local-motion.js','local-copy.js','local-copy.css','local-about.js','local-profile.js'].map(f=>path.join(SITE,f))].sort();
 const runtimeHash=crypto.createHash('sha256');
 for(const file of runtimeFiles) runtimeHash.update(fs.readFileSync(file));
 const RUNTIME=runtimeHash.digest('hex').slice(0,12);
@@ -39,7 +39,7 @@ function sendFile(req,res,fp,ctype){
   if(TEXT_EXT.has(path.extname(fp).toLowerCase())){
     let t=fs.readFileSync(fp,'utf8').replace(/__PORT__/g,String(PORT));
     t=t.replace(/\/_nuxt\/(?!preview-[a-f0-9]{12}\/)/g,RUNTIME_PATH);
-    if(/\.html?$/.test(fp)) t=t.replace(/(["'])\/(local-(?:copy\.(?:css|js)|motion\.js|about\.js))\1/g,
+    if(/\.html?$/.test(fp)) t=t.replace(/(["'])\/(local-(?:copy\.(?:css|js)|motion\.js|about\.js|profile\.js))\1/g,
       (all,quote,name)=>quote+'/'+name+'?v='+RUNTIME+quote);
     sendBuf(res,Buffer.from(t),ctype||mime(fp));
     return true;

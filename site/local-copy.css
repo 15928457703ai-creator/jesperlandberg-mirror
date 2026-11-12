@@ -173,7 +173,6 @@ div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w
   width: 100%;
   max-width: none;
   text-shadow: 0 1px 8px #000;
-  animation: profileBioIn .6s cubic-bezier(.22, 1, .36, 1) both;
 }
 .profile-heading, .profile-phone {
   display: none;
@@ -194,7 +193,6 @@ div.fixed.z-40:not([inert]) .profile-phone {
 .profile-role small { color: #666; -webkit-text-fill-color: #666; font-size: 11px; letter-spacing: .02em; }
 .profile-cross { color: #666; -webkit-text-fill-color: #666; font-size: 18px; font-weight: 200; }
 .profile-phone { margin-top: 20px; font-size: 16px; max-width: 100%; white-space: normal; font-weight: 700; letter-spacing: .02em; line-height: 1.2; text-decoration: none; pointer-events: auto; }
-@keyframes profileBioIn { from { transform: translateY(10px); } to { transform: translateY(0); } }
 @media (max-width: 640px) {
   div.fixed.z-40:not([inert]) > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 30px; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 24px; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
   body:has(div.fixed.z-40:not([inert]) .profile-heading) div.fixed.inset-0.z-40 button { color: #fff; -webkit-text-fill-color: #fff; }
@@ -209,6 +207,11 @@ div.fixed.z-40:not([inert]) .profile-phone {
   .profile-role small { font-size: 10px; }
   .profile-heading { margin-bottom: 12px; }
   .profile-phone { margin-top: 16px; }
+}
+/* Opening lines stay masked until local-profile.js has measured their rows. */
+.profile-reveal-token { display: inline-block; }
+html[data-profile-motion] div.fixed.z-40:not([inert]):not([data-profile-reveal]) > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) > :is(.profile-heading, .profile-phone, p[class*="max-w-[35rem]"]) {
+  visibility: hidden;
 }
 /* === end profile bio === */
 

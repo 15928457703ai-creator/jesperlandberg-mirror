@@ -29,7 +29,8 @@ CSS_LINK = '<link rel="stylesheet" href="/local-copy.css"></head>'
 JS_TAG = ('<link rel="stylesheet" href="/local-copy.css">'
           '<script src="/local-motion.js"></script>'
           '<script src="/local-copy.js" defer></script>'
-          '<script src="/local-about.js" defer></script></head>')
+          '<script src="/local-about.js" defer></script>'
+          '<script src="/local-profile.js" defer></script></head>')
 
 
 def inject_css(t):
