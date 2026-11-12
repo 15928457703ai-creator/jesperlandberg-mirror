@@ -1,9 +1,9 @@
-# 关于我
+# About Me
 
-关于我
+About Me
 
 ## Slides
 
-![关于我 1](http://127.0.0.1:__PORT__/showreel/intro-v2.jpg)
+![About Me 1](http://127.0.0.1:__PORT__/showreel/intro-v3.jpg)
 
-[Watch video](http://127.0.0.1:__PORT__/showreel/intro-v2.mp4)
+[Watch video](http://127.0.0.1:__PORT__/showreel/intro-v3.mp4)

@@ -13,7 +13,7 @@
     "illustration"
   ],
   "before": {
-    "time": 3.438616,
+    "time": 3.329521,
     "paused": false,
     "muted": true,
     "loop": true,
@@ -22,7 +22,7 @@
     "height": 1080
   },
   "after": {
-    "time": 4.842825,
+    "time": 4.732768,
     "paused": false,
     "muted": true,
     "loop": true,
@@ -36,7 +36,7 @@
     "height": 691.3125,
     "muted": false,
     "paused": false,
-    "time": 9.249973,
+    "time": 9.142148,
     "domVideo": 0,
     "slots": 1,
     "top": 104.34375,

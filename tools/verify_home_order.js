@@ -10,7 +10,7 @@ const ORDER = [
   'griflan', 'illustration'
 ];
 const TITLES = {
-  'showreel': '关于我', 'oppo-service': 'OPPO 服务小程序', 'naivideo': 'Naivideo',
+  'showreel': 'About Me', 'oppo-service': 'OPPO 服务小程序', 'naivideo': 'Naivideo',
   'oppo-self-service': 'OPPO自助服务', 'erp': 'ERP',
   'csa-service': 'CSA客服服务', 'hengxiang-advantage': '横向优势',
   'illustration': '插画', 'ai-video': 'AI短视频'

@@ -1,31 +1,31 @@
 [
  {
   "n": 1,
-  "source": "11月11日(1).mp4",
+  "source": "11月11日(2).mp4",
   "kind": "video",
   "cover": true,
   "origWidth": 1920,
   "origHeight": 1080,
   "main": {
-   "file": "intro-v2.jpg",
+   "file": "intro-v3.jpg",
    "width": 1600,
    "height": 900
   },
   "_card": {
-   "file": "intro-v2_card.jpg",
+   "file": "intro-v3_card.jpg",
    "width": 1200,
    "height": 675
   },
   "_small": {
-   "file": "intro-v2_small.jpg",
+   "file": "intro-v3_small.jpg",
    "width": 640,
    "height": 360
   },
   "video": {
-   "file": "intro-v2.mp4",
+   "file": "intro-v3.mp4",
    "width": 1920,
    "height": 1080,
-   "duration": 50.247982
+   "duration": 50.266667
   }
  }
 ]

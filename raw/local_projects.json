@@ -1,20 +1,20 @@
 [
  {
   "slug": "showreel",
-  "title": "关于我",
+  "title": "About Me",
   "dir": "showreel",
   "link": null,
   "hint": null,
-  "cover": "11月11日(1).mp4",
+  "cover": "11月11日(2).mp4",
   "slides": [
    {
     "n": 1,
     "files": [
-     "intro-v2.jpg",
-     "intro-v2_small.jpg",
-     "intro-v2_card.jpg"
+     "intro-v3.jpg",
+     "intro-v3_small.jpg",
+     "intro-v3_card.jpg"
     ],
-    "video": "intro-v2.mp4"
+    "video": "intro-v3.mp4"
    }
   ]
  },

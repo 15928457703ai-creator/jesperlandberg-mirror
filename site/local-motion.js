@@ -90,15 +90,6 @@
         }
         return tick.apply(this, arguments);
       };
-      // Scale only the Profile lens; its text layout keeps its current size.
-      var profileSyncHole = folio.syncHole;
-      folio.syncHole = function () {
-        profileSyncHole.apply(this, arguments);
-        var targetScale = this.holeEl?.querySelector('.profile-heading') ? .9 : 1;
-        var sourceScale = this.holeFrom?.querySelector('.profile-heading') ? .9 : 1;
-        var scale = this.holeFrom?.isConnected ? sourceScale + (targetScale - sourceScale) * this.hole.m : targetScale;
-        this.core.post.u.u_radius.value *= scale;
-      };
       var sheet = folio.sheet;
       folio.sheet = function () {
         var pose = sheet.apply(this, arguments);
@@ -146,10 +137,10 @@
       };
       // The About clip stays on the stock WebGL plane and transition clock.
       window.PortfolioMotion.getAboutVideo = function () {
-        return folio.video('/showreel/intro-v2.mp4').el;
+        return folio.video('/showreel/intro-v3.mp4').el;
       };
       window.PortfolioMotion.playAboutAudio = function () {
-        var clip = folio.video('/showreel/intro-v2.mp4');
+        var clip = folio.video('/showreel/intro-v3.mp4');
         clip.el.dataset.userPaused = "false";
         clip.el.dataset.userMuted = "false";
         clip.el.muted = false;
@@ -189,7 +180,7 @@
       document.documentElement.addEventListener('pointerleave', function () { detailPointer.fine = false; });
       var playVideo = folio.playVideo;
       folio.playVideo = function (video, wantsPlay) {
-        if (video && new URL(video.el.currentSrc || video.el.src, location.href).pathname === '/showreel/intro-v2.mp4') {
+        if (video && new URL(video.el.currentSrc || video.el.src, location.href).pathname === '/showreel/intro-v3.mp4') {
           var aboutActive = location.pathname.replace(/\/$/, '') === '/projects/showreel';
           video.el.muted = !aboutActive || video.el.dataset.userMuted === 'true';
           if (aboutActive && video.el.dataset.userPaused === 'true') wantsPlay = false;
