@@ -10,3 +10,6 @@ node_modules/
 # Kept ignored above: dependencies, workspace state, OS cruft and logs.
 
 __pycache__/
+
+# Generated static publishing artifact
+dist-pages/
