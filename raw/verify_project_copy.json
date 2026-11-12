@@ -1,0 +1,273 @@
+{
+  "results": [
+    {
+      "slug": "naivideo",
+      "title": "Naivideo-AI创作工具",
+      "tags": [
+        "欧美市场",
+        "短剧创作",
+        "Agent"
+      ],
+      "native": [
+        {
+          "text": "欧美市场",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "短剧创作",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "Agent",
+          "canvas": false,
+          "alpha": 1
+        }
+      ],
+      "titleWidth": 278.765625,
+      "columnWidth": 422.421875
+    },
+    {
+      "slug": "oppo-self-service",
+      "title": "OPPO自助服务",
+      "tags": [
+        "交互/视觉/用研",
+        "方案探索",
+        "方案输出",
+        "方法沉淀",
+        "调研/访谈"
+      ],
+      "native": [
+        {
+          "text": "交互/视觉/用研",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "方案探索",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "方案输出",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "方法沉淀",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "调研/访谈",
+          "canvas": true,
+          "alpha": 1
+        }
+      ],
+      "titleWidth": 285.125,
+      "columnWidth": 422.421875
+    },
+    {
+      "slug": "erp",
+      "title": "华润ERP",
+      "tags": [
+        "场景调研",
+        "需求分析",
+        "方案输出",
+        "组件搭建"
+      ],
+      "native": [
+        {
+          "text": "场景调研",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "需求分析",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "方案输出",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "组件搭建",
+          "canvas": true,
+          "alpha": 1
+        }
+      ],
+      "titleWidth": 164,
+      "columnWidth": 422.421875
+    },
+    {
+      "slug": "csa-service",
+      "title": "CSA客服服务",
+      "tags": [
+        "调研访谈",
+        "方案输出",
+        "组件搭建"
+      ],
+      "native": [
+        {
+          "text": "调研访谈",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "方案输出",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "组件搭建",
+          "canvas": true,
+          "alpha": 1
+        }
+      ],
+      "titleWidth": 252.5625,
+      "columnWidth": 422.421875
+    },
+    {
+      "slug": "hengxiang-advantage",
+      "title": "横向优势",
+      "tags": [
+        "手绘插画",
+        "3D建模渲染",
+        "AI视频创作"
+      ],
+      "native": [
+        {
+          "text": "手绘插画",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "3D建模渲染",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "AI视频创作",
+          "canvas": true,
+          "alpha": 1
+        }
+      ],
+      "titleWidth": 164.171875,
+      "columnWidth": 422.421875
+    },
+    {
+      "slug": "ai-video",
+      "title": "AI短视频账号",
+      "tags": [
+        "百万播放量",
+        "主理人",
+        "账号主理人"
+      ],
+      "native": [
+        {
+          "text": "百万播放量",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "主理人",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "账号主理人",
+          "canvas": true,
+          "alpha": 1
+        }
+      ],
+      "titleWidth": 244.90625,
+      "columnWidth": 422.421875
+    },
+    {
+      "slug": "illustration",
+      "title": "动效设计",
+      "tags": [
+        "运营动效",
+        "UI交互动效",
+        "Loading动效",
+        "Agent动效"
+      ],
+      "native": [
+        {
+          "text": "运营动效",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "UI交互动效",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "Loading动效",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "Agent动效",
+          "canvas": true,
+          "alpha": 1
+        }
+      ],
+      "titleWidth": 164.171875,
+      "columnWidth": 422.421875
+    },
+    {
+      "slug": "oppo-service",
+      "title": "OPPO 服务小程序",
+      "tags": [
+        "线下调研",
+        "供应商对接",
+        "方案落地"
+      ],
+      "native": [
+        {
+          "text": "线下调研",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "供应商对接",
+          "canvas": true,
+          "alpha": 1
+        },
+        {
+          "text": "方案落地",
+          "canvas": true,
+          "alpha": 1
+        }
+      ],
+      "titleWidth": 334.765625,
+      "columnWidth": 422.421875
+    }
+  ],
+  "mobile": {
+    "closed": {
+      "inert": true,
+      "shadow": "none",
+      "body": "14px",
+      "phone": "16px"
+    },
+    "opened": {
+      "inert": false,
+      "shadow": "rgba(0, 0, 0, 0.92) 0px 0px 0px 844px",
+      "body": "14px",
+      "phone": "16px"
+    },
+    "after": {
+      "inert": true,
+      "shadow": "none",
+      "body": "14px",
+      "phone": "16px"
+    }
+  },
+  "errors": []
+}

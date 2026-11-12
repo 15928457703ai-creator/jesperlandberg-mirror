@@ -103,7 +103,7 @@ div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w
   white-space: pre-line;
   text-align: left;
   letter-spacing: 0;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.45;
   width: 100%;
   max-width: none;
@@ -128,10 +128,10 @@ div.fixed.z-40:not([inert]) .profile-phone {
 .profile-role strong { font-size: 16px; line-height: 1.2; }
 .profile-role small { color: #666; -webkit-text-fill-color: #666; font-size: 11px; letter-spacing: .02em; }
 .profile-cross { color: #666; -webkit-text-fill-color: #666; font-size: 18px; font-weight: 200; }
-.profile-phone { margin-top: 20px; font-size: 40px; max-width: 100%; white-space: normal; font-weight: 700; letter-spacing: .02em; line-height: 1.2; text-decoration: none; pointer-events: auto; }
+.profile-phone { margin-top: 20px; font-size: 16px; max-width: 100%; white-space: normal; font-weight: 700; letter-spacing: .02em; line-height: 1.2; text-decoration: none; pointer-events: auto; }
 @keyframes profileBioIn { from { transform: translateY(10px); } to { transform: translateY(0); } }
 @media (max-width: 640px) {
-  div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 30px; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 24px; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
+  div.fixed.z-40:not([inert]) > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 30px; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 24px; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
   body:has(div.fixed.z-40:not([inert]) .profile-heading) div.fixed.inset-0.z-40 button { color: #fff; -webkit-text-fill-color: #fff; }
   .profile-heading { margin-bottom: 24px; }
   .profile-roles { gap: 12px; }

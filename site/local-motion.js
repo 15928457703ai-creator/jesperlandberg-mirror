@@ -7,7 +7,7 @@
     // every label inside the scene's pointer field and preview mask.
     useCanvasText: function (el) {
       return el.textContent.trim() === '华润ERP' ||
-        ((el.matches('.content-center a, [data-gl="sheet"] h1') || el.hasAttribute('data-title')) && /[\u3400-\u9fff]/.test(el.textContent));
+        ((el.matches('.content-center a, [data-gl="sheet"] h1, [data-gl="pill"] [data-gl="text"]') || el.hasAttribute('data-title')) && /[\u3400-\u9fff]/.test(el.textContent));
     },
     install: function (folio) {
       if (folio.galleryMotion) return;

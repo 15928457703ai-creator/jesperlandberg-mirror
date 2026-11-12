@@ -192,7 +192,7 @@
  },
  {
   "slug": "naivideo",
-  "title": "Naivideo",
+  "title": "Naivideo-AI创作工具",
   "dir": "naivideo",
   "link": "https://www.piclumen.com/",
   "hint": null,
@@ -683,7 +683,7 @@
  },
  {
   "slug": "illustration",
-  "title": "动效设计精选",
+  "title": "动效设计",
   "dir": "illustration",
   "link": null,
   "hint": null,
@@ -729,7 +729,7 @@
  },
  {
   "slug": "ai-video",
-  "title": "AI短视频",
+  "title": "AI短视频账号",
   "dir": "ai-video",
   "link": null,
   "hint": null,
