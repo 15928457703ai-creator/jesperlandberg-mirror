@@ -208,10 +208,6 @@ div.fixed.z-40:not([inert]) .profile-phone {
   .profile-role strong { font-size: 14px; }
   .profile-role small { font-size: 10px; }
   .profile-heading { margin-bottom: 12px; }
-  div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
-    max-height: min(210px, 32vh); overflow-y: auto; pointer-events: auto;
-    scrollbar-width: thin; scrollbar-color: #555 transparent;
-  }
   .profile-phone { margin-top: 16px; }
 }
 /* === end profile bio === */

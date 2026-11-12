@@ -92,7 +92,7 @@ const wait = ms => new Promise(r => setTimeout(r, ms));
       }, KEYS);
     const visible = info && info.fill === 'rgb(222, 222, 222)' && info.opacity === '1' && info.rect[1] > 40;
     console.log(p.padEnd(36), JSON.stringify({ opened, closed, visible, hasAll, ...info }));
-    if (opened && visible && hasAll && !info.inert && info.heading === '冯梅FengMei' && info.phone === 'tel:15928457703') ok++;
+    if (opened && visible && hasAll && !info.inert && info.heading === '冯梅 资深设计师' && info.phone === 'tel:15928457703') ok++;
     if (p === '/') {
       await page.screenshot({ path: path.join(OUT, 'profile_zh.png') });
       await page.setViewportSize({ width: 1100, height: 680 });

@@ -29,12 +29,7 @@ VN = re.compile(r'(ct\("p",\{ref_key:"intro"[^}]*)(\},(?:"(?:[^"\\]|\\.)*"|null)
 
 # Shared static tree keeps server markup and Vue hydration identical.
 HEADER = ("header", {"class": "profile-heading"}, [
-    ("h1", {"class": "profile-name"}, "冯梅FengMei"),
-    ("div", {"class": "profile-roles"}, [
-        ("div", {"class": "profile-role"}, [("strong", {}, "UX交互设计师"), ("small", {}, "User Experience Design")]),
-        ("span", {"class": "profile-cross", "aria-hidden": "true"}, "X"),
-        ("div", {"class": "profile-role"}, [("strong", {}, "UI界面设计师"), ("small", {}, "User Interface Designer")]),
-    ]),
+    ("h1", {"class": "profile-name"}, "冯梅 资深设计师"),
 ])
 CONTACT = ("a", {"class": "profile-phone", "href": "tel:15928457703", "aria-label": "拨打电话 15928457703"}, PHONE)
 def markup(node):
@@ -45,6 +40,31 @@ def vnode(node):
     tag, attrs, children = node
     body = json.dumps(children, ensure_ascii=False) if isinstance(children, str) else "[" + ",".join(map(vnode, children)) + "]"
     return "ct(" + json.dumps(tag) + "," + json.dumps(attrs, ensure_ascii=False) + "," + body + ")"
+
+def replace_header_vnode(text):
+    """Replace a generated nested header vnode while respecting JS strings."""
+    match = re.search(r'ct\("header",\s*\{"class":\s*"profile-heading"\}', text)
+    if not match:
+        raise SystemExit("profile header vnode not found")
+    depth, quote, escaped = 0, None, False
+    for end in range(match.start(), len(text)):
+        char = text[end]
+        if quote:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == quote:
+                quote = None
+        elif char in ('"', "'", "`"):
+            quote = char
+        elif char == "(":
+            depth += 1
+        elif char == ")":
+            depth -= 1
+            if depth == 0:
+                return text[:match.start()] + vnode(HEADER) + text[end + 1:]
+    raise SystemExit("unbalanced profile header vnode")
 
 # ---------------------------------------------------------------- SSR pages
 PAT = re.compile(
@@ -62,6 +82,7 @@ for f in pages:
     if 'class="profile-heading"' not in t:
         m = PAT.search(t)
         t = t[:m.start()] + markup(HEADER) + t[m.start():m.end()] + markup(CONTACT) + t[m.end():]
+    t = re.sub(r'<header class="profile-heading">.*?</header>', lambda _: markup(HEADER), t, flags=re.S)
     t = re.sub(r'<a class="profile-phone"[^>]*>.*?</a>', lambda _: markup(CONTACT), t, flags=re.S)
     open(f, "w", encoding="utf-8").write(t)
 print("SSR sources updated:", len(pages))
@@ -78,6 +99,7 @@ for f in ("raw/nuxt/DZyj3ghP.js", "site/_nuxt/DZyj3ghP.js"):
     if '"profile-heading"' not in t:
         m = VN.search(t)
         t = t[:m.start()] + vnode(HEADER) + "," + t[m.start():m.end()] + "," + vnode(CONTACT) + t[m.end():]
+    t = replace_header_vnode(t)
     t = re.sub(r'ct\("a",\s*\{[^{}]*"class":\s*"profile-phone"[^{}]*\},\s*"(?:[^"\\]|\\.)*"\)', lambda _: vnode(CONTACT), t)
     open(f, "w", encoding="utf-8").write(t)
     print("client vnode updated:", f)
@@ -144,10 +166,6 @@ div.fixed.z-40:not([inert]) .profile-phone {
   .profile-role strong { font-size: 14px; }
   .profile-role small { font-size: 10px; }
   .profile-heading { margin-bottom: 12px; }
-  div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
-    max-height: min(210px, 32vh); overflow-y: auto; pointer-events: auto;
-    scrollbar-width: thin; scrollbar-color: #555 transparent;
-  }
   .profile-phone { margin-top: 16px; }
 }
 """ + CSS_END
