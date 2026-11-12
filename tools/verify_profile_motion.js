@@ -1,4 +1,4 @@
-/* Match the Newsletter shader's masked line timing and Profile lifecycle. */
+/* Compare native Newsletter and Profile tween/shader state, not a DOM imitation. */
 const {chromium}=require('playwright-core');
 const fs=require('fs'),path=require('path');
 const origin=process.env.PROFILE_ORIGIN||'http://127.0.0.1:5250/jesperlandberg-mirror/';
@@ -11,43 +11,56 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   const mobile=mode==='mobile';
   const context=await browser.newContext({viewport:mobile?{width:390,height:844}:{width:1440,height:900},isMobile:mobile,hasTouch:mobile,reducedMotion:mode==='reduced'?'reduce':'no-preference'});
   const page=await context.newPage();
-  await page.addInitScript(()=>{
-   const animate=Element.prototype.animate;
-   Element.prototype.animate=function(){const animation=animate.apply(this,arguments);queueMicrotask(()=>{if(animation.id==='profile-newsletter-reveal'){animation.pause();animation.currentTime=0;}});return animation;};
-  });
   page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
   await page.goto(origin,{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>!document.querySelector('[data-gl="bar"]'),null,{timeout:60000});
-  await page.getByRole('button',{name:'Profile'}).click({force:true});
-  await page.waitForSelector('[data-profile-reveal="ready"]',{state:'attached'});
-  const info=await page.evaluate(()=>{
-   const animations=document.getAnimations().filter(a=>a.id==='profile-newsletter-reveal');
-   animations.forEach(a=>{a.pause();a.currentTime=0;});
-   const bio=document.querySelector('p[data-gl="text"][class*="max-w-[35rem]"]');
-   return{debug:{motion:document.documentElement.hasAttribute('data-profile-motion'),disc:{...bio.closest('div.fixed.z-40').dataset},tokens:bio.querySelectorAll('.profile-reveal-token').length,rect:bio.getBoundingClientRect().toJSON(),all:document.getAnimations().map(a=>a.id),reduced:matchMedia('(prefers-reduced-motion: reduce)').matches},timings:animations.map(a=>({duration:a.effect.getTiming().duration,delay:a.effect.getTiming().delay})),title:document.querySelector('.profile-name').textContent,copy:bio.textContent,bold:[...bio.querySelectorAll('strong')].map(e=>e.textContent),bio:getComputedStyle(bio).fontSize,phone:getComputedStyle(document.querySelector('.profile-phone')).fontSize};
+  await page.waitForFunction(()=>document.querySelector('#__nuxt').__vue_app__.config.globalProperties.$nuxt.$folio.profileTextPlanes?.phone);
+  await page.evaluate(async()=>{
+   const f=document.querySelector('#__nuxt').__vue_app__.config.globalProperties.$nuxt.$folio;
+   const gsap=(await import(document.querySelector('script[type="module"]').src)).a6;
+   window.__profileCalls=[];window.__profileTweens=[];
+   const original=f.showText;
+   f.showText=function(plane,visible,delay,options){
+    const result=original.apply(this,arguments);
+    if(plane&&['profile','news'].includes(plane.group)&&visible){
+     const tweens=gsap.getTweensOf(plane);
+     tweens.forEach(t=>{t.pause(0);window.__profileTweens.push({plane,tween:t,delay});});
+     window.__profileCalls.push({group:plane.group,text:plane.el.textContent.slice(0,30),count:plane.count,delay,duration:tweens[0]?.duration()||0,window:plane.material.uniforms.u_window.value,stagger:plane.material.uniforms.u_stagger.value});
+    }
+    return result;
+   };
   });
-  if(info.title!=='冯梅 资深设计师'||info.bold.length!==4||info.bio!=='14px'||info.phone!=='16px'||!info.copy.includes('Lottie动效设计'))throw Error('Profile copy/layout changed');
-  if(mode==='reduced'){
-   if(info.timings.length)throw Error('Reduced motion is animated');
-   const visible=await page.locator('.profile-name').evaluate(el=>getComputedStyle(el).visibility==='visible');
-   if(!visible)throw Error('Reduced-motion copy was hidden');
-  }else{
-   const delays=[...new Set(info.timings.map(t=>t.delay))].sort((a,b)=>a-b);
-   if(delays[0]!==200||delays.length<6||delays.some((d,i)=>i&&d-delays[i-1]!==75)||info.timings.some(t=>t.duration!==1100))throw Error('Newsletter timing mismatch '+JSON.stringify({delays,debug:info.debug}));
-   await page.evaluate(()=>document.getAnimations().filter(a=>a.id==='profile-newsletter-reveal').forEach(a=>a.currentTime=650));
+  await page.getByRole('button',{name:'Newsletter'}).click({force:true});await wait(1000);
+  const news=await page.evaluate(()=>window.__profileCalls.find(c=>c.group==='news'&&c.text.includes('An occasional')));
+  if(!news||Math.abs(news.duration-(1.1+(news.count-1)*.075))>.001)throw Error('Could not inspect Newsletter reference');
+  await page.evaluate(()=>window.__profileTweens.forEach(({tween})=>tween.totalTime(tween.duration())));
+  await page.getByRole('button',{name:'Profile',exact:true}).click({force:true});await wait(1000);
+  const info=await page.evaluate(()=>{
+   const f=document.querySelector('#__nuxt').__vue_app__.config.globalProperties.$nuxt.$folio,p=f.profileTextPlanes;
+   const n=f.overlay.find(t=>t.group==='news'&&t.el?.matches('p[class*="max-w-[30rem]"]'));
+   const body=p.body.el;
+   return{calls:window.__profileCalls.filter(c=>c.group==='profile'),sameRenderer:Object.values(p).every(t=>t.constructor===n.constructor&&t.group==='profile'),title:p.title.el.textContent,bold:[...body.querySelectorAll('strong')].map(e=>e.textContent),body:getComputedStyle(body).fontSize,phone:getComputedStyle(p.phone.el).fontSize,domTokens:body.querySelectorAll('.profile-reveal-token').length,shade:f.profileShade?.visible};
+  });
+  if(!info.sameRenderer||info.calls.length!==3||info.title!=='冯梅 资深设计师'||info.bold.length!==4||info.body!=='14px'||info.phone!=='16px'||info.domTokens)throw Error('Profile is not using native text path: '+JSON.stringify(info));
+  if(mode!=='reduced'){
+   info.calls.forEach(c=>{const duration=1.1+(c.count-1)*.075;if(Math.abs(c.duration-duration)>.001||Math.abs(c.window-1.1/duration)>.001||Math.abs(c.stagger-.075/duration)>.001)throw Error('Shader timing differs from Newsletter');});
+   await page.evaluate(()=>window.__profileTweens.filter(t=>t.plane.group==='profile').forEach(({tween,delay})=>tween.totalTime(Math.max(0,.65-delay))));
    await page.screenshot({path:path.join(__dirname,'../screenshots/profile_motion_'+mode+'_mid.png')});
-   await page.evaluate(()=>document.getAnimations().filter(a=>a.id==='profile-newsletter-reveal').forEach(a=>a.finish()));
-   await page.screenshot({path:path.join(__dirname,'../screenshots/profile_motion_'+mode+'_complete.png')});
   }
-  await page.getByRole('button',{name:'CLOSE'}).click({force:true});await wait(100);
-  const stopped=await page.evaluate(()=>document.getAnimations().every(a=>a.id!=='profile-newsletter-reveal')&&!document.querySelector('div.fixed.z-40:not([inert]) .profile-phone'));
-  if(!stopped)throw Error('Animations survived close');
-  await page.getByRole('button',{name:'Profile'}).click({force:true});await page.waitForSelector('[data-profile-reveal="ready"]',{state:'attached'});
-  if(mode!=='reduced'&&!await page.evaluate(()=>document.getAnimations().some(a=>a.id==='profile-newsletter-reveal')))throw Error('Entrance did not replay');
-  await page.getByRole('button',{name:'CLOSE'}).click({force:true});await wait(100);
-  if(await page.evaluate(()=>document.getAnimations().some(a=>a.id==='profile-newsletter-reveal')))throw Error('Quick close retained reveal');
-  report.push({mode,animatedTokens:info.timings.length,delays:[...new Set(info.timings.map(t=>t.delay))],bold:info.bold});
-  console.log('PASS',mode,info.timings.length,'animated tokens; close/reopen clean');
+  await page.evaluate(()=>window.__profileTweens.filter(t=>t.plane.group==='profile').forEach(({tween})=>tween.totalTime(tween.duration())));
+  await page.screenshot({path:path.join(__dirname,'../screenshots/profile_motion_'+mode+'_complete.png')});
+  await page.getByRole('button',{name:/^close$/i}).click({force:true});await wait(850);
+  const closed=await page.evaluate(()=>{
+   const f=document.querySelector('#__nuxt').__vue_app__.config.globalProperties.$nuxt.$folio;
+   return{alpha:Object.values(f.profileTextPlanes).map(t=>t.material.uniforms.u_alpha.value),shade:f.profileShade.visible,inert:f.profileTextPlanes.body.el.closest('div.fixed.z-40').hasAttribute('inert')};
+  });
+  if(!closed.inert||closed.shade||closed.alpha.some(a=>a>.01))throw Error('Native Profile did not close cleanly');
+  await page.evaluate(()=>{window.__profileCalls=[];window.__profileTweens=[];});
+  await page.getByRole('button',{name:'Profile',exact:true}).click({force:true});await wait(200);
+  const reopened=await page.evaluate(()=>window.__profileCalls.filter(c=>c.group==='profile'));
+  if(reopened.length!==3||Math.abs(reopened[0].delay-.2)>.001)throw Error('Native open did not restart correctly');
+  await page.getByRole('button',{name:/^close$/i}).click({force:true});await wait(850);
+  report.push({mode,reference:news,profile:info,closed,reopened});console.log('PASS',mode,'same native renderer, shaders, tween timing and close/reopen');
   await context.close();
  }
  if(errors.length)throw Error(JSON.stringify(errors));

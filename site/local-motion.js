@@ -6,11 +6,45 @@
     // Chinese catalogue labels need native canvas glyphs too: this keeps
     // every label inside the scene's pointer field and preview mask.
     useCanvasText: function (el) {
-      return el.textContent.trim() === '华润ERP' ||
+      return el.matches('.profile-name, .profile-phone, p[class*="max-w-[35rem]"]') || el.textContent.trim() === '华润ERP' ||
         ((el.matches('.content-center a, [data-gl="sheet"] h1, [data-gl="pill"] [data-gl="text"]') || el.hasAttribute('data-title')) && /[\u3400-\u9fff]/.test(el.textContent));
     },
     install: function (folio) {
       if (folio.galleryMotion) return;
+      // Keep Profile on Newsletter's native showTexts/showText path rather
+      // than approximating its masks with DOM transforms.
+      var profileText = folio.text, profileShowTexts = folio.showTexts;
+      folio.text = async function (el, options) {
+        var plane = await profileText.call(this, el, options);
+        if (!plane || !el.matches('p[class*="max-w-[35rem]"]')) return plane;
+        var rasterize = plane.rasterize;
+        plane.rasterize = function () {
+          var result = rasterize.apply(this, arguments);
+          if (result) window.PortfolioProfile?.paintRichText(this);
+          return result;
+        };
+        plane.supersample(2);
+        window.PortfolioProfile?.paintRichText(plane);
+        var disc = el.closest('div.fixed.z-40');
+        var extraOptions = {over: true, hold: true, group: 'profile'};
+        var title = await profileText.call(this, disc.querySelector('.profile-name'), extraOptions);
+        var phone = await profileText.call(this, disc.querySelector('.profile-phone'), extraOptions);
+        title?.supersample(2); phone?.supersample(2);
+        this.profileTextPlanes = {title: title, body: plane, phone: phone};
+        return plane;
+      };
+      function profileGroup(group) {
+        return Array.isArray(group) ? group.some(profileGroup) : !!group && (group.group === 'profile' || group.planes && profileGroup(group.planes));
+      }
+      folio.showTexts = function (groups, visible, delay, options) {
+        var profile = this.profileTextPlanes;
+        if (profile && profileGroup(groups)) {
+          var planes = [profile.title, profile.body, profile.phone].filter(Boolean);
+          if (visible && matchMedia('(prefers-reduced-motion: reduce)').matches) options = {mask: false, fade: 0};
+          return profileShowTexts.call(this, planes, visible, delay, options);
+        }
+        return profileShowTexts.apply(this, arguments);
+      };
       var media = matchMedia('(prefers-reduced-motion: reduce)');
       var elapsed = 0;
       var pressed = null;
@@ -88,7 +122,26 @@
             uniforms.u_galleryPoint.value.set(state.x, 1 - state.y);
           }
         }
-        return tick.apply(this, arguments);
+        var result = tick.apply(this, arguments);
+        // Native Profile text is in the overlay scene. A DOM backdrop would
+        // cover it on phones, so its shade must live in that same scene.
+        if (!this.profileShade && this.sky) {
+          var shade = this.sky.clone();
+          shade.material = this.sky.material.clone();
+          shade.material.uniforms.u_c0.value.set('#000');
+          shade.material.uniforms.u_profileShade = {value: 0};
+          shade.material.fragmentShader = shade.material.fragmentShader.replace('vec4(u_c0, 1.0)', 'vec4(u_c0, u_profileShade)');
+          shade.material.fragmentShader = 'uniform float u_profileShade;\n' + shade.material.fragmentShader;
+          shade.material.transparent = true; shade.material.needsUpdate = true;
+          shade.renderOrder = -10; shade.visible = false;
+          this.core.over.add(shade); this.profileShade = shade;
+        }
+        if (this.profileShade) {
+          var profileOpen = this.ctx.$resize?.small && this.holeGroup === 'profile' && this.hole.p > .001;
+          this.profileShade.visible = !!profileOpen;
+          this.profileShade.material.uniforms.u_profileShade.value = profileOpen ? .92 * this.hole.p : 0;
+        }
+        return result;
       };
       var sheet = folio.sheet;
       folio.sheet = function () {

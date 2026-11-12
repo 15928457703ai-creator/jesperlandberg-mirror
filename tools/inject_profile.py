@@ -166,10 +166,18 @@ div.fixed.z-40:not([inert]) .profile-phone {
   .profile-heading { margin-bottom: 12px; }
   .profile-phone { margin-top: 16px; }
 }
-/* Opening lines stay masked until local-profile.js has measured their rows. */
-.profile-reveal-token { display: inline-block; }
-html[data-profile-motion] div.fixed.z-40:not([inert]):not([data-profile-reveal]) > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) > :is(.profile-heading, .profile-phone, p[class*="max-w-[35rem]"]) {
-  visibility: hidden;
+/* Keep measurable DOM placeholders; Newsletter's native renderer paints
+ * Profile's text, preserving its clipping, reveal and hide choreography. */
+html[data-profile-native] .profile-heading,
+html[data-profile-native] .profile-phone { display: block; color: #f5f5f5; -webkit-text-fill-color: transparent !important; }
+html[data-profile-native] .profile-name { -webkit-text-fill-color: transparent !important; }
+html[data-profile-native] div.fixed.z-40 > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
+  color: #dedede !important; -webkit-text-fill-color: transparent !important;
+}
+@media (max-width: 640px) {
+  html[data-profile-native] div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) {
+    background: transparent !important; box-shadow: none !important;
+  }
 }
 """ + CSS_END
 

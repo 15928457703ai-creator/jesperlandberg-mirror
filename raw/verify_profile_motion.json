@@ -2,65 +2,281 @@
   "report": [
     {
       "mode": "desktop",
-      "animatedTokens": 264,
-      "delays": [
-        200,
-        275,
-        350,
-        425,
-        500,
-        575,
-        650,
-        725,
-        800,
-        875,
-        950,
-        1025
-      ],
-      "bold": [
-        "全栈设计与体系建设",
-        "AI与前沿工作流实践",
-        "全链路业务赋能",
-        "多元视觉延展能力"
+      "reference": {
+        "group": "news",
+        "text": " An occasional newsletter with",
+        "count": 3,
+        "delay": 0.2,
+        "duration": 1.25,
+        "window": 0.8800000000000001,
+        "stagger": 0.06
+      },
+      "profile": {
+        "calls": [
+          {
+            "group": "profile",
+            "text": "冯梅 资深设计师",
+            "count": 1,
+            "delay": 0.35,
+            "duration": 1.1,
+            "window": 1,
+            "stagger": 0.06818181818181818
+          },
+          {
+            "group": "profile",
+            "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
+            "count": 10,
+            "delay": 0.425,
+            "duration": 1.775,
+            "window": 0.619718309859155,
+            "stagger": 0.04225352112676056
+          },
+          {
+            "group": "profile",
+            "text": "call me 15928457703",
+            "count": 1,
+            "delay": 1.1749999999999998,
+            "duration": 1.1,
+            "window": 1,
+            "stagger": 0.06818181818181818
+          }
+        ],
+        "sameRenderer": true,
+        "title": "冯梅 资深设计师",
+        "bold": [
+          "全栈设计与体系建设",
+          "AI与前沿工作流实践",
+          "全链路业务赋能",
+          "多元视觉延展能力"
+        ],
+        "body": "14px",
+        "phone": "16px",
+        "domTokens": 0,
+        "shade": false
+      },
+      "closed": {
+        "alpha": [
+          0,
+          0,
+          0
+        ],
+        "shade": false,
+        "inert": true
+      },
+      "reopened": [
+        {
+          "group": "profile",
+          "text": "冯梅 资深设计师",
+          "count": 1,
+          "delay": 0.2,
+          "duration": 1.1,
+          "window": 1,
+          "stagger": 0.06818181818181818
+        },
+        {
+          "group": "profile",
+          "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
+          "count": 10,
+          "delay": 0.275,
+          "duration": 1.775,
+          "window": 0.619718309859155,
+          "stagger": 0.04225352112676056
+        },
+        {
+          "group": "profile",
+          "text": "call me 15928457703",
+          "count": 1,
+          "delay": 1.025,
+          "duration": 1.1,
+          "window": 1,
+          "stagger": 0.06818181818181818
+        }
       ]
     },
     {
       "mode": "mobile",
-      "animatedTokens": 264,
-      "delays": [
-        200,
-        275,
-        350,
-        425,
-        500,
-        575,
-        650,
-        725,
-        800,
-        875,
-        950,
-        1025,
-        1100,
-        1175,
-        1250,
-        1325
-      ],
-      "bold": [
-        "全栈设计与体系建设",
-        "AI与前沿工作流实践",
-        "全链路业务赋能",
-        "多元视觉延展能力"
+      "reference": {
+        "group": "news",
+        "text": " An occasional newsletter with",
+        "count": 3,
+        "delay": 0.2,
+        "duration": 1.25,
+        "window": 0.8800000000000001,
+        "stagger": 0.06
+      },
+      "profile": {
+        "calls": [
+          {
+            "group": "profile",
+            "text": "冯梅 资深设计师",
+            "count": 1,
+            "delay": 0.35,
+            "duration": 1.1,
+            "window": 1,
+            "stagger": 0.06818181818181818
+          },
+          {
+            "group": "profile",
+            "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
+            "count": 13,
+            "delay": 0.425,
+            "duration": 2,
+            "window": 0.55,
+            "stagger": 0.0375
+          },
+          {
+            "group": "profile",
+            "text": "call me 15928457703",
+            "count": 1,
+            "delay": 1.4,
+            "duration": 1.1,
+            "window": 1,
+            "stagger": 0.06818181818181818
+          }
+        ],
+        "sameRenderer": true,
+        "title": "冯梅 资深设计师",
+        "bold": [
+          "全栈设计与体系建设",
+          "AI与前沿工作流实践",
+          "全链路业务赋能",
+          "多元视觉延展能力"
+        ],
+        "body": "14px",
+        "phone": "16px",
+        "domTokens": 0,
+        "shade": true
+      },
+      "closed": {
+        "alpha": [
+          0,
+          0,
+          0
+        ],
+        "shade": false,
+        "inert": true
+      },
+      "reopened": [
+        {
+          "group": "profile",
+          "text": "冯梅 资深设计师",
+          "count": 1,
+          "delay": 0.2,
+          "duration": 1.1,
+          "window": 1,
+          "stagger": 0.06818181818181818
+        },
+        {
+          "group": "profile",
+          "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
+          "count": 13,
+          "delay": 0.275,
+          "duration": 2,
+          "window": 0.55,
+          "stagger": 0.0375
+        },
+        {
+          "group": "profile",
+          "text": "call me 15928457703",
+          "count": 1,
+          "delay": 1.25,
+          "duration": 1.1,
+          "window": 1,
+          "stagger": 0.06818181818181818
+        }
       ]
     },
     {
       "mode": "reduced",
-      "animatedTokens": 0,
-      "delays": [],
-      "bold": [
-        "全栈设计与体系建设",
-        "AI与前沿工作流实践",
-        "全链路业务赋能",
-        "多元视觉延展能力"
+      "reference": {
+        "group": "news",
+        "text": " An occasional newsletter with",
+        "count": 3,
+        "delay": 0.2,
+        "duration": 1.25,
+        "window": 0.8800000000000001,
+        "stagger": 0.06
+      },
+      "profile": {
+        "calls": [
+          {
+            "group": "profile",
+            "text": "冯梅 资深设计师",
+            "count": 1,
+            "delay": 0.35,
+            "duration": 0,
+            "window": 1,
+            "stagger": 0
+          },
+          {
+            "group": "profile",
+            "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
+            "count": 10,
+            "delay": 0.425,
+            "duration": 0,
+            "window": 1,
+            "stagger": 0
+          },
+          {
+            "group": "profile",
+            "text": "call me 15928457703",
+            "count": 1,
+            "delay": 1.1749999999999998,
+            "duration": 0,
+            "window": 1,
+            "stagger": 0
+          }
+        ],
+        "sameRenderer": true,
+        "title": "冯梅 资深设计师",
+        "bold": [
+          "全栈设计与体系建设",
+          "AI与前沿工作流实践",
+          "全链路业务赋能",
+          "多元视觉延展能力"
+        ],
+        "body": "14px",
+        "phone": "16px",
+        "domTokens": 0,
+        "shade": false
+      },
+      "closed": {
+        "alpha": [
+          0,
+          0,
+          0
+        ],
+        "shade": false,
+        "inert": true
+      },
+      "reopened": [
+        {
+          "group": "profile",
+          "text": "冯梅 资深设计师",
+          "count": 1,
+          "delay": 0.2,
+          "duration": 0,
+          "window": 1,
+          "stagger": 0
+        },
+        {
+          "group": "profile",
+          "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
+          "count": 10,
+          "delay": 0.275,
+          "duration": 0,
+          "window": 1,
+          "stagger": 0
+        },
+        {
+          "group": "profile",
+          "text": "call me 15928457703",
+          "count": 1,
+          "delay": 1.025,
+          "duration": 0,
+          "window": 1,
+          "stagger": 0
+        }
       ]
     }
   ],
