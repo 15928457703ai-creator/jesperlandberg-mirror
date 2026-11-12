@@ -17,7 +17,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from profile_config import INTRO, INTRO_CLASS, CSS_BEGIN, CSS_END, LINES
+from profile_config import INTRO, INTRO_CLASS, CSS_BEGIN, CSS_END, LINES, PHONE
 from project_config import ROOT
 
 os.chdir(ROOT)
@@ -37,7 +37,7 @@ HEADER = ("header", {"class": "profile-heading"}, [
         ("div", {"class": "profile-role"}, [("strong", {}, "UI界面设计师"), ("small", {}, "User Interface Designer")]),
     ]),
 ])
-CONTACT = ("a", {"class": "profile-phone", "href": "tel:15928457703", "aria-label": "拨打电话 15928457703"}, "15928457703")
+CONTACT = ("a", {"class": "profile-phone", "href": "tel:15928457703", "aria-label": "拨打电话 15928457703"}, PHONE)
 def markup(node):
     tag, attrs, children = node
     body = html.escape(children) if isinstance(children, str) else "".join(map(markup, children))
@@ -63,6 +63,7 @@ for f in pages:
     if 'class="profile-heading"' not in t:
         m = PAT.search(t)
         t = t[:m.start()] + markup(HEADER) + t[m.start():m.end()] + markup(CONTACT) + t[m.end():]
+    t = re.sub(r'<a class="profile-phone"[^>]*>.*?</a>', lambda _: markup(CONTACT), t, flags=re.S)
     open(f, "w", encoding="utf-8").write(t)
 print("SSR sources updated:", len(pages))
 
@@ -76,6 +77,7 @@ for f in ("raw/nuxt/DZyj3ghP.js", "site/_nuxt/DZyj3ghP.js"):
     if '"profile-heading"' not in t:
         m = VN.search(t)
         t = t[:m.start()] + vnode(HEADER) + "," + t[m.start():m.end()] + "," + vnode(CONTACT) + t[m.end():]
+    t = re.sub(r'ct\("a",\s*\{[^{}]*"class":\s*"profile-phone"[^{}]*\},\s*"(?:[^"\\]|\\.)*"\)', lambda _: vnode(CONTACT), t)
     open(f, "w", encoding="utf-8").write(t)
     print("client vnode updated:", f)
 
@@ -83,7 +85,7 @@ for f in ("raw/nuxt/DZyj3ghP.js", "site/_nuxt/DZyj3ghP.js"):
 CSS = CSS_BEGIN + """ */
 /* Keep the native animated disc and characters behind the profile copy. */
 div.fixed.z-40:has(> [data-gl-shield] > p[class*="max-w-[35rem]"]) {
-  width: min(1080px, 100vw);
+  width: min(900px, 100vw);
 }
 div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) {
   inset-inline: 0;
@@ -103,7 +105,7 @@ div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w
   white-space: pre-line;
   text-align: left;
   letter-spacing: 0;
-  font-size: clamp(13px, 2.04vw, 22px);
+  font-size: 16px;
   line-height: 1.75;
   width: 100%;
   max-width: none;
@@ -121,14 +123,14 @@ div.fixed.z-40:not([inert]) .profile-phone {
   flex-shrink: 0;
   text-shadow: 0 2px 12px #000;
 }
-.profile-heading { margin-bottom: 36px; text-align: left; }
+.profile-heading { margin-bottom: 28px; text-align: left; }
 .profile-name { margin: 0 0 14px; font-size: clamp(30px, 5.2vw, 56px); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
 .profile-roles { display: flex; align-items: start; gap: 20px; }
 .profile-role { display: flex; flex-direction: column; gap: 4px; }
 .profile-role strong { font-size: clamp(13px, 2vw, 22px); line-height: 1.2; }
 .profile-role small { color: #666; -webkit-text-fill-color: #666; font-size: clamp(9px, 1.2vw, 13px); letter-spacing: .02em; }
 .profile-cross { color: #666; -webkit-text-fill-color: #666; font-size: 18px; font-weight: 200; }
-.profile-phone { margin-top: clamp(45px, 12.8vh, 140px); font-size: clamp(32px, 5.75vw, 62px); font-weight: 700; letter-spacing: .04em; line-height: 1; text-decoration: none; pointer-events: auto; }
+.profile-phone { margin-top: clamp(36px, 8vh, 80px); font-size: 40px; max-width: 100%; white-space: normal; font-weight: 700; letter-spacing: .02em; line-height: 1.2; text-decoration: none; pointer-events: auto; }
 @keyframes profileBioIn { from { transform: translateY(10px); } to { transform: translateY(0); } }
 @media (max-width: 640px) {
   div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 30px; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 24px; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
@@ -142,10 +144,10 @@ div.fixed.z-40:not([inert]) .profile-phone {
 }
 @media (min-width: 641px) and (max-height: 800px) {
   div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { width: 80%; left: 10%; padding-inline: 8%; }
-  div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] { font-size: min(1.7vw, 2.35vh); }
+  div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] { font-size: 16px; }
   .profile-name { font-size: min(5.2vw, 6vh); }
   .profile-heading { margin-bottom: 24px; }
-  .profile-phone { margin-top: 6vh; font-size: 7vh; }
+  .profile-phone { margin-top: 6vh; font-size: 40px; }
 }
 """ + CSS_END
 

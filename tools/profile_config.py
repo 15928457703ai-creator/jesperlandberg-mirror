@@ -15,7 +15,7 @@ LINES = [
 ]
 
 # Contact is rendered as a separate, prominent telephone link.
-PHONE = "15928457703"
+PHONE = "call me 15928457703"
 
 # The stock vnode has one leading and one trailing space.  Keeping them makes
 # the SSR text node and the client vnode string identical.
