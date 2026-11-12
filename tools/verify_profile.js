@@ -4,7 +4,7 @@ const fs = require('fs'), path = require('path');
 const OUT = path.join(__dirname, '..', 'screenshots');
 const ORIGIN = process.env.PROFILE_ORIGIN || 'http://127.0.0.1:5188';
 const SEL = 'div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"]';
-const KEYS = ['能独立负责多平台', '10年B端设计', '100W+', '视觉中国签约插画师'];
+const KEYS = ['全栈设计与体系建设', 'AI与前沿工作流实践', '全链路业务赋能', '多元视觉延展能力'];
 const PAGES = ['/', '/full', '/newsletter', '/projects/oppo-service', '/projects/hengxiang-advantage'];
 const wait = ms => new Promise(r => setTimeout(r, ms));
 

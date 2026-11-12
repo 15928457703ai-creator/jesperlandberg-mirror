@@ -17,16 +17,15 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from profile_config import INTRO, INTRO_CLASS, CSS_BEGIN, CSS_END, LINES, PHONE
+from profile_config import INTRO, INTRO_CLASS, CSS_BEGIN, CSS_END, LINES, PHONE, SECTIONS
 from project_config import ROOT
 
 os.chdir(ROOT)
 
-HTML_INTRO = html.escape(INTRO, quote=False)
-JS_NEW = json.dumps(INTRO, ensure_ascii=False)
+HTML_INTRO = " " + "\n\n".join("<strong>" + html.escape(heading) + "</strong>：" + html.escape(body) for heading, body in SECTIONS) + " "
 # Locate the intro vnode by its ref instead of by its old text: the brand name
 # in that stock paragraph can be rewritten independently (inject_brand.py).
-VN = re.compile(r'(ct\("p",\{ref_key:"intro"[^}]*\},)("(?:[^"\\]|\\.)*")(,512\))')
+VN = re.compile(r'(ct\("p",\{ref_key:"intro"[^}]*)(\},(?:"(?:[^"\\]|\\.)*"|null),512\))')
 
 # Shared static tree keeps server markup and Vue hydration identical.
 HEADER = ("header", {"class": "profile-heading"}, [
@@ -73,7 +72,9 @@ for f in ("raw/nuxt/DZyj3ghP.js", "site/_nuxt/DZyj3ghP.js"):
     m = VN.search(t)
     if not m:
         raise SystemExit("intro vnode not found in " + f)
-    t = t[:m.start(2)] + JS_NEW + t[m.end(2):]
+    attrs = re.sub(r',innerHTML:"(?:[^"\\]|\\.)*"', '', m.group(1))
+    rendered = attrs + ',innerHTML:' + json.dumps(HTML_INTRO, ensure_ascii=False) + '},null,512)'
+    t = t[:m.start()] + rendered + t[m.end():]
     if '"profile-heading"' not in t:
         m = VN.search(t)
         t = t[:m.start()] + vnode(HEADER) + "," + t[m.start():m.end()] + "," + vnode(CONTACT) + t[m.end():]

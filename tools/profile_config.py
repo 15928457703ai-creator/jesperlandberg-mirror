@@ -7,19 +7,20 @@ the client vnode byte-identical (which is what keeps Vue hydration clean) and
 """
 
 # Verbatim from the brief, with only the stray closing "】" removed.
-LINES = [
-    "1、能独立负责多平台、多语言的交互/视觉设计/规范体系制定，拥有多个海外项目落地经验，具备独立用户研究、业务分析及沟通，产品需求分析及PRD文档撰写、制定有效设计策略的能力，及强业务思考与跨团队推进力",
-    "2、具备 10年B端设计 + 1年管理 + 亿级C端+百万级AI产品综合背景。多端跨平台设计能力（PC/APP/小程序）B端项目涵盖ERP、CRM、E-mis、计划预算、智慧园区等多个领域经验",
-    "3、有Agent项目经验，精通 AIGC 全栈工具与视频/短剧工作流：实操自研 AI 视频单平台斩获 100W+ 播放量；精通视频生成/剪辑全流程，掌握 熟练使用GPT、Workbuddy、MJ、SD、画布、等AI工具。",
-    "4、有插画（视觉中国签约插画师）、3D建模，动效设计等横向能力",
+SECTIONS = [
+    ("全栈设计与体系建设", "10年B端（ERP/CRM/计划预算/智慧园区等）+ 1年管理经验，兼具亿级C端与百万级AI产品落地经验；精通多端跨平台设计（PC/App/小程序），具备跨多语言、多平台规范体系制定与设计策略能力。"),
+    ("AI与前沿工作流实践", "具备Agent项目经验，精通AIGC全栈工具与AI视频/短剧工作流。自研AI视频单平台获100W+播放量；熟练掌握GPT、MJ、SD、Workbuddy等主流AI工具。"),
+    ("全链路业务赋能", "具备独立用户研究、业务分析、产品需求分析及PRD撰写能力，拥有极强的业务思考力、跨团队推进力与海外项目落地经验。"),
+    ("多元视觉延展能力", "视觉中国签约插画师，具备扎实的3D建模与Lottie动效设计能力，能为产品提供从逻辑到视觉的高品质全链路闭环支持。"),
 ]
+LINES = [heading + "：" + body for heading, body in SECTIONS]
 
 # Contact is rendered as a separate, prominent telephone link.
 PHONE = "call me 15928457703"
 
 # The stock vnode has one leading and one trailing space.  Keeping them makes
 # the SSR text node and the client vnode string identical.
-INTRO = " " + "\n".join(LINES) + " "
+INTRO = " " + "\n\n".join(LINES) + " "
 
 # The brand name is handled globally by tools/inject_brand.py; the previous
 # stock-English intro is intentionally not kept here so that no old name is
