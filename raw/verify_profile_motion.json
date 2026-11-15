@@ -4,12 +4,12 @@
       "mode": "desktop",
       "reference": {
         "group": "news",
-        "text": " Scan the QR code to connect o",
-        "count": 1,
+        "text": "微信联系\n15928457703/345434367@qq.",
+        "count": 2,
         "delay": 0.2,
-        "duration": 1.1,
-        "window": 1,
-        "stagger": 0.06818181818181818
+        "duration": 1.175,
+        "window": 0.9361702127659575,
+        "stagger": 0.06382978723404255
       },
       "profile": {
         "calls": [
@@ -25,17 +25,17 @@
           {
             "group": "profile",
             "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
-            "count": 10,
+            "count": 12,
             "delay": 0.425,
-            "duration": 1.775,
-            "window": 0.619718309859155,
-            "stagger": 0.04225352112676056
+            "duration": 1.925,
+            "window": 0.5714285714285715,
+            "stagger": 0.03896103896103896
           },
           {
             "group": "profile",
-            "text": "call me 15928457703",
+            "text": "下载简历",
             "count": 1,
-            "delay": 1.1749999999999998,
+            "delay": 1.325,
             "duration": 1.1,
             "window": 1,
             "stagger": 0.06818181818181818
@@ -49,8 +49,9 @@
           "全链路业务赋能",
           "多元视觉延展能力"
         ],
-        "body": "14px",
-        "phone": "16px",
+        "body": "10.6px",
+        "download": "下载简历",
+        "phone": false,
         "domTokens": 0,
         "shade": false
       },
@@ -76,17 +77,17 @@
         {
           "group": "profile",
           "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
-          "count": 10,
+          "count": 12,
           "delay": 0.275,
-          "duration": 1.775,
-          "window": 0.619718309859155,
-          "stagger": 0.04225352112676056
+          "duration": 1.925,
+          "window": 0.5714285714285715,
+          "stagger": 0.03896103896103896
         },
         {
           "group": "profile",
-          "text": "call me 15928457703",
+          "text": "下载简历",
           "count": 1,
-          "delay": 1.025,
+          "delay": 1.175,
           "duration": 1.1,
           "window": 1,
           "stagger": 0.06818181818181818
@@ -97,12 +98,12 @@
       "mode": "mobile",
       "reference": {
         "group": "news",
-        "text": " Scan the QR code to connect o",
-        "count": 1,
+        "text": "微信联系\n15928457703/345434367@qq.",
+        "count": 2,
         "delay": 0.2,
-        "duration": 1.1,
-        "window": 1,
-        "stagger": 0.06818181818181818
+        "duration": 1.175,
+        "window": 0.9361702127659575,
+        "stagger": 0.06382978723404255
       },
       "profile": {
         "calls": [
@@ -118,17 +119,17 @@
           {
             "group": "profile",
             "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
-            "count": 13,
+            "count": 11,
             "delay": 0.425,
-            "duration": 2,
-            "window": 0.55,
-            "stagger": 0.0375
+            "duration": 1.85,
+            "window": 0.5945945945945946,
+            "stagger": 0.040540540540540536
           },
           {
             "group": "profile",
-            "text": "call me 15928457703",
+            "text": "下载简历",
             "count": 1,
-            "delay": 1.4,
+            "delay": 1.25,
             "duration": 1.1,
             "window": 1,
             "stagger": 0.06818181818181818
@@ -142,8 +143,9 @@
           "全链路业务赋能",
           "多元视觉延展能力"
         ],
-        "body": "14px",
-        "phone": "16px",
+        "body": "7.4375px",
+        "download": "下载简历",
+        "phone": false,
         "domTokens": 0,
         "shade": true
       },
@@ -169,17 +171,17 @@
         {
           "group": "profile",
           "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
-          "count": 13,
+          "count": 11,
           "delay": 0.275,
-          "duration": 2,
-          "window": 0.55,
-          "stagger": 0.0375
+          "duration": 1.85,
+          "window": 0.5945945945945946,
+          "stagger": 0.040540540540540536
         },
         {
           "group": "profile",
-          "text": "call me 15928457703",
+          "text": "下载简历",
           "count": 1,
-          "delay": 1.25,
+          "delay": 1.0999999999999999,
           "duration": 1.1,
           "window": 1,
           "stagger": 0.06818181818181818
@@ -190,12 +192,12 @@
       "mode": "reduced",
       "reference": {
         "group": "news",
-        "text": " Scan the QR code to connect o",
-        "count": 1,
+        "text": "微信联系\n15928457703/345434367@qq.",
+        "count": 2,
         "delay": 0.2,
-        "duration": 1.1,
-        "window": 1,
-        "stagger": 0.06818181818181818
+        "duration": 1.175,
+        "window": 0.9361702127659575,
+        "stagger": 0.06382978723404255
       },
       "profile": {
         "calls": [
@@ -211,7 +213,7 @@
           {
             "group": "profile",
             "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
-            "count": 10,
+            "count": 12,
             "delay": 0.425,
             "duration": 0,
             "window": 1,
@@ -219,9 +221,9 @@
           },
           {
             "group": "profile",
-            "text": "call me 15928457703",
+            "text": "下载简历",
             "count": 1,
-            "delay": 1.1749999999999998,
+            "delay": 1.325,
             "duration": 0,
             "window": 1,
             "stagger": 0
@@ -235,8 +237,9 @@
           "全链路业务赋能",
           "多元视觉延展能力"
         ],
-        "body": "14px",
-        "phone": "16px",
+        "body": "10.6px",
+        "download": "下载简历",
+        "phone": false,
         "domTokens": 0,
         "shade": false
       },
@@ -262,7 +265,7 @@
         {
           "group": "profile",
           "text": " 全栈设计与体系建设：10年B端（ERP/CRM/计划预算/",
-          "count": 10,
+          "count": 12,
           "delay": 0.275,
           "duration": 0,
           "window": 1,
@@ -270,9 +273,9 @@
         },
         {
           "group": "profile",
-          "text": "call me 15928457703",
+          "text": "下载简历",
           "count": 1,
-          "delay": 1.025,
+          "delay": 1.175,
           "duration": 0,
           "window": 1,
           "stagger": 0

@@ -1,0 +1,1015 @@
+{
+  "report": [
+    {
+      "mobile": false,
+      "slug": "the-lookback",
+      "title": "The Lookback",
+      "tags": [
+        "BetterOff® Studio",
+        "2026"
+      ],
+      "slides": 4,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/fdc12ef15e790e0cd86f.mp4",
+          "video": "/jesperlandberg-mirror/__media/fdc12ef15e790e0cd86f.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/481c85df80e8bd808667.mp4",
+          "video": "/jesperlandberg-mirror/__media/481c85df80e8bd808667.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/dfe1846d956642f44ea1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/af31c13b97a42228167e.jpg",
+          "alpha": 0.803127
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": false,
+      "slug": "griflan",
+      "title": "Griflan",
+      "tags": [
+        "2026"
+      ],
+      "slides": 3,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/7c2533d921978bebc611.mp4",
+          "video": "/jesperlandberg-mirror/__media/7c2533d921978bebc611.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/09f73608cf6c4a4c0ce2.mp4",
+          "video": "/jesperlandberg-mirror/__media/09f73608cf6c4a4c0ce2.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/22981438af73950a4484.mp4",
+          "video": "/jesperlandberg-mirror/__media/22981438af73950a4484.mp4",
+          "alpha": 1
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": false,
+      "slug": "showreel",
+      "title": "About Me",
+      "tags": [
+        "Video",
+        "2026"
+      ],
+      "slides": 1,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/showreel/intro-v3.mp4",
+          "video": "/jesperlandberg-mirror/showreel/intro-v3.mp4",
+          "alpha": 1
+        }
+      ],
+      "controls": true
+    },
+    {
+      "mobile": false,
+      "slug": "oppo-service",
+      "title": "OPPO 服务小程序",
+      "tags": [
+        "线下调研",
+        "供应商对接",
+        "方案落地"
+      ],
+      "slides": 18,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/4.jpg",
+          "alpha": 0.35632
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/5.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/6.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/7.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/8.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/9.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/10.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/11.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/12.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/13.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/14.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/15.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/16.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/17.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/18.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": false,
+      "slug": "naivideo",
+      "title": "Naivideo-AI创作工具",
+      "tags": [
+        "欧美市场",
+        "短剧创作",
+        "Agent"
+      ],
+      "slides": 8,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/live.mp4",
+          "video": "/jesperlandberg-mirror/naivideo/live.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/4.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/5.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/6.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/7.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/8.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": false,
+      "slug": "oppo-self-service",
+      "title": "OPPO自助服务",
+      "tags": [
+        "交互/视觉/用研",
+        "方案探索",
+        "方案输出",
+        "方法沉淀",
+        "调研/访谈"
+      ],
+      "slides": 17,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/0.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/3.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/4.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/5.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/6.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/7.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/8.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/9.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/10.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/11.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/12.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/13.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/14.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/15.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/16.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": false,
+      "slug": "erp",
+      "title": "华润ERP",
+      "tags": [
+        "场景调研",
+        "需求分析",
+        "方案输出",
+        "组件搭建"
+      ],
+      "slides": 11,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/4.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/5.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/6.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/7.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/8.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/9.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/10.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/11.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": false,
+      "slug": "csa-service",
+      "title": "CSA客服服务",
+      "tags": [
+        "调研访谈",
+        "方案输出",
+        "组件搭建"
+      ],
+      "slides": 8,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/4.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/5.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/6.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/7.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/8.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": false,
+      "slug": "hengxiang-advantage",
+      "title": "横向优势",
+      "tags": [
+        "手绘插画",
+        "3D建模渲染",
+        "AI视频创作"
+      ],
+      "slides": 5,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/hengxiang/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/hengxiang/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/hengxiang/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/hengxiang/4.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/hengxiang/5.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": false,
+      "slug": "illustration",
+      "title": "动效设计",
+      "tags": [
+        "运营动效",
+        "UI交互动效",
+        "Loading动效",
+        "Agent动效"
+      ],
+      "slides": 4,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/illustration/cover.mp4",
+          "video": "/jesperlandberg-mirror/illustration/cover.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/illustration/gift-motion-v2.mp4",
+          "video": "/jesperlandberg-mirror/illustration/gift-motion-v2.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/illustration/launch-motion-v3.mp4",
+          "video": "/jesperlandberg-mirror/illustration/launch-motion-v3.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/illustration/rewards-motion-v2.mp4",
+          "video": "/jesperlandberg-mirror/illustration/rewards-motion-v2.mp4",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": false,
+      "slug": "ai-video",
+      "title": "AI短视频账号",
+      "tags": [
+        "百万播放量",
+        "主理人",
+        "账号主理人"
+      ],
+      "slides": 6,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/4.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/5.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/6.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": true,
+      "slug": "the-lookback",
+      "title": "The Lookback",
+      "tags": [
+        "BetterOff® Studio",
+        "2026"
+      ],
+      "slides": 4,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/fdc12ef15e790e0cd86f.mp4",
+          "video": "/jesperlandberg-mirror/__media/fdc12ef15e790e0cd86f.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/481c85df80e8bd808667.mp4",
+          "video": "/jesperlandberg-mirror/__media/481c85df80e8bd808667.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/dfe1846d956642f44ea1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/af31c13b97a42228167e.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": true,
+      "slug": "griflan",
+      "title": "Griflan",
+      "tags": [
+        "2026"
+      ],
+      "slides": 3,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/7c2533d921978bebc611.mp4",
+          "video": "/jesperlandberg-mirror/__media/7c2533d921978bebc611.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/09f73608cf6c4a4c0ce2.mp4",
+          "video": "/jesperlandberg-mirror/__media/09f73608cf6c4a4c0ce2.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/__media/22981438af73950a4484.mp4",
+          "video": "/jesperlandberg-mirror/__media/22981438af73950a4484.mp4",
+          "alpha": 1
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": true,
+      "slug": "showreel",
+      "title": "About Me",
+      "tags": [
+        "Video",
+        "2026"
+      ],
+      "slides": 1,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/showreel/intro-v3.mp4",
+          "video": "/jesperlandberg-mirror/showreel/intro-v3.mp4",
+          "alpha": 1
+        }
+      ],
+      "controls": true
+    },
+    {
+      "mobile": true,
+      "slug": "oppo-service",
+      "title": "OPPO 服务小程序",
+      "tags": [
+        "线下调研",
+        "供应商对接",
+        "方案落地"
+      ],
+      "slides": 18,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/4.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/5.jpg",
+          "alpha": 0.897531
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/6.jpg",
+          "alpha": 0.815128
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/7.jpg",
+          "alpha": 0.675778
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/8.jpg",
+          "alpha": 0.438663
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/9.jpg",
+          "alpha": 0.027331
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/10.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/11.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/12.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/13.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/14.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/15.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/16.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/17.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo/18.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": true,
+      "slug": "naivideo",
+      "title": "Naivideo-AI创作工具",
+      "tags": [
+        "欧美市场",
+        "短剧创作",
+        "Agent"
+      ],
+      "slides": 8,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/live.mp4",
+          "video": "/jesperlandberg-mirror/naivideo/live.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/4.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/5.jpg",
+          "alpha": 0.849897
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/6.jpg",
+          "alpha": 0.734541
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/7.jpg",
+          "alpha": 0.539052
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/naivideo/8.jpg",
+          "alpha": 0.202638
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": true,
+      "slug": "oppo-self-service",
+      "title": "OPPO自助服务",
+      "tags": [
+        "交互/视觉/用研",
+        "方案探索",
+        "方案输出",
+        "方法沉淀",
+        "调研/访谈"
+      ],
+      "slides": 17,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/0.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/4.jpg",
+          "alpha": 0.293435
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/5.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/6.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/7.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/8.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/9.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/10.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/11.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/12.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/13.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/14.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/15.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/oppo-self/16.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": true,
+      "slug": "erp",
+      "title": "华润ERP",
+      "tags": [
+        "场景调研",
+        "需求分析",
+        "方案输出",
+        "组件搭建"
+      ],
+      "slides": 11,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/4.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/5.jpg",
+          "alpha": 0.301147
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/6.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/7.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/8.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/9.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/10.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/erp/11.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": true,
+      "slug": "csa-service",
+      "title": "CSA客服服务",
+      "tags": [
+        "调研访谈",
+        "方案输出",
+        "组件搭建"
+      ],
+      "slides": 8,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/4.jpg",
+          "alpha": 0.999992
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/5.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/6.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/7.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/csa/8.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": true,
+      "slug": "hengxiang-advantage",
+      "title": "横向优势",
+      "tags": [
+        "手绘插画",
+        "3D建模渲染",
+        "AI视频创作"
+      ],
+      "slides": 5,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/hengxiang/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/hengxiang/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/hengxiang/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/hengxiang/4.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/hengxiang/5.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": true,
+      "slug": "illustration",
+      "title": "动效设计",
+      "tags": [
+        "运营动效",
+        "UI交互动效",
+        "Loading动效",
+        "Agent动效"
+      ],
+      "slides": 4,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/illustration/cover.mp4",
+          "video": "/jesperlandberg-mirror/illustration/cover.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/illustration/gift-motion-v2.mp4",
+          "video": "/jesperlandberg-mirror/illustration/gift-motion-v2.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/illustration/launch-motion-v3.mp4",
+          "video": "/jesperlandberg-mirror/illustration/launch-motion-v3.mp4",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/illustration/rewards-motion-v2.mp4",
+          "video": "/jesperlandberg-mirror/illustration/rewards-motion-v2.mp4",
+          "alpha": 1
+        }
+      ],
+      "controls": false
+    },
+    {
+      "mobile": true,
+      "slug": "ai-video",
+      "title": "AI短视频账号",
+      "tags": [
+        "百万播放量",
+        "主理人",
+        "账号主理人"
+      ],
+      "slides": 6,
+      "content": [
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/1.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/2.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/3.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/4.jpg",
+          "alpha": 1
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/5.jpg",
+          "alpha": 0
+        },
+        {
+          "src": "http://127.0.0.1:5250/jesperlandberg-mirror/ai-video/6.jpg",
+          "alpha": 0
+        }
+      ],
+      "controls": false
+    }
+  ],
+  "errors": []
+}

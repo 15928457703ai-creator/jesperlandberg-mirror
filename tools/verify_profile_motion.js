@@ -31,7 +31,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
    };
   });
   await page.getByRole('button',{name:'Contact Me'}).click({force:true});await wait(1000);
-  const news=await page.evaluate(()=>window.__profileCalls.find(c=>c.group==='news'&&c.text.includes('微信联系')));
+  const news=await page.evaluate(()=>window.__profileCalls.find(c=>c.group==='news'&&c.text.includes('扫码微信联系我')));
   if(!news||Math.abs(news.duration-(1.1+(news.count-1)*.075))>.001)throw Error('Could not inspect Newsletter reference');
   await page.evaluate(()=>window.__profileTweens.forEach(({tween})=>tween.totalTime(tween.duration())));
   await page.getByRole('button',{name:'Profile',exact:true}).click({force:true});await wait(1000);
