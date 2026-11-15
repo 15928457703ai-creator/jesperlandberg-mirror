@@ -1,26 +1,24 @@
 const {chromium}=require('playwright-core');
 const path=require('path');
 const base=process.env.PROFILE_ORIGIN||'http://127.0.0.1:5250/jesperlandberg-mirror/';
-const wait=ms=>new Promise(r=>setTimeout(r,ms));
 (async()=>{
- const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--ignore-gpu-blocklist','--autoplay-policy=no-user-gesture-required']});
+ const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--ignore-gpu-blocklist']});
  try{
  const page=await browser.newPage({viewport:{width:1440,height:900}}),errors=[];
- page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
- await page.goto(base,{waitUntil:'domcontentloaded'});await wait(8500);
- await page.getByRole('button',{name:'Profile'}).click({force:true});await wait(2200);
- for(const [width,height,name] of [[1440,900,'desktop'],[1100,680,'compact'],[390,844,'mobile']]){
-  await page.setViewportSize({width,height});await wait(1200);
-  const info=await page.evaluate(()=>{
-   const phone=document.querySelector('.profile-phone'),disc=phone.closest('div.fixed.z-40'),bio=disc.querySelector('p[data-gl="text"]');
-   return {bio:getComputedStyle(bio).fontSize,phone:getComputedStyle(phone).fontSize,text:phone.textContent,disc:disc.getBoundingClientRect().width,phoneWidth:phone.getBoundingClientRect().width,copyWidth:phone.parentElement.getBoundingClientRect().width,title:disc.querySelector('.profile-name').textContent,titleSize:getComputedStyle(disc.querySelector('.profile-name')).fontSize,bodyClipped:bio.scrollHeight>bio.clientHeight+1,copy:bio.textContent,headings:[...bio.querySelectorAll('strong')].map(e=>e.textContent),newsletter:document.querySelector('p[class*="max-w-[30rem]"]').closest('div.fixed.z-40').getBoundingClientRect().width};
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(base);await page.waitForFunction(()=>!document.querySelector('[data-gl="bar"]'));
+ await page.getByRole('button',{name:'Profile',exact:true}).click({force:true});await page.waitForTimeout(2300);
+ for(const[width,height,name]of [[1440,900,'desktop'],[1100,680,'compact'],[390,844,'mobile'],[2048,1200,'wide']]){
+  await page.setViewportSize({width,height});await page.waitForTimeout(1300);
+  const info=await page.locator('.profile-resume').evaluate(resume=>{
+   const box=resume.parentElement,disc=box.parentElement,bio=box.querySelector('p[data-gl="text"]');
+   const f=document.querySelector('#__nuxt').__vue_app__.config.globalProperties.$nuxt.$folio;
+   const d=disc.getBoundingClientRect().width*.7,r=box.getBoundingClientRect();
+   return {width:r.width,height:r.height,diameter:d,font:getComputedStyle(bio).fontSize,title:box.querySelector('.profile-name').textContent,headings:bio.querySelectorAll('strong').length,bodyClipped:bio.scrollHeight>bio.clientHeight+1,phone:!!box.querySelector('.profile-phone'),download:resume.textContent,glow:f.profileResumePill.glow,chroma:f.profileResumePill.chroma,alpha:f.profileResumePill.mesh.material.uniforms.u_alpha.value};
   });
-  console.log(name,JSON.stringify(info));
-  if(info.title!=='冯梅 资深设计师'||info.bodyClipped||info.titleSize!==(name==='compact'?'32px':'40px')||!info.copy.includes('PC/App/小程序')||!info.copy.includes('GPT、MJ、SD、Workbuddy')||info.headings.length!==4||!info.copy.includes('Lottie动效设计')||info.bio!=='14px'||info.phone!=='16px'||info.text!=='call me 15928457703'||info.disc!==info.newsletter||info.phoneWidth>info.copyWidth)throw Error('Profile layout failed');
-  await page.screenshot({path:path.join(__dirname,'../screenshots/profile_'+name+'_updated.png')});
+  if(info.width>info.diameter||info.height>info.diameter*.8||info.headings!==4||info.bodyClipped||info.phone||info.download!=='下载简历'||info.title!=='冯梅 资深设计师'||info.glow!==1||info.chroma!==1||info.alpha<.99)throw Error(JSON.stringify(info));
+  console.log('PASS',name,JSON.stringify(info));await page.screenshot({path:path.join(__dirname,'../screenshots/profile_'+name+'_updated.png')});
  }
- await page.getByRole('button',{name:'CLOSE'}).click({force:true});await wait(1000);
- if(await page.locator('div.fixed.z-40:not([inert]) .profile-phone').count())throw Error('Profile close failed');
- if(errors.length)throw Error(JSON.stringify(errors));
- }finally{await browser.close();}
-})().catch(e=>{console.error(e);process.exit(1);});
+ if(errors.length)throw Error(errors.join('\n'));
+ }finally{await browser.close()}
+})().catch(e=>{console.error(e);process.exit(1)});

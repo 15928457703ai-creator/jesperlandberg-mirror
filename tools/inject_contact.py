@@ -4,7 +4,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 OLD = ' An occasional newsletter with insights and thoughts from a design engineer, drawn from over a decade of freelancing. '
-COPY = ' Scan the QR code to connect on WeChat. '
+COPY = '微信联系\n15928457703/345434367@qq.com'
 BOX_CLASS = 'contact-qr invisible relative bg-black'
 IMAGE = '<div class="contact-qr-crop"><img src="/contact/wechat.jpg" alt="微信二维码，扫码添加好友" class="contact-qr-image"></div>'
 MARKUP = '<div class="' + BOX_CLASS + '" role="img" aria-label="微信二维码">' + IMAGE + '</div>'
@@ -14,13 +14,23 @@ for file in [ROOT/'raw/nuxt/DZyj3ghP.js', ROOT/'site/_nuxt/DZyj3ghP.js']:
     start=text.index('Nz={__name:')
     end=text.index('Oz=["disabled"]',start)
     text=text[:start]+COMPONENT+text[end:]
-    text=text.replace(OLD,COPY).replace('De(d)?"Close":"Newsletter"','De(d)?"Close":"Contact Me"').replace('{title:"Newsletter"}','{title:"Contact Me"}')
+    text=text.replace(' Scan the QR code to connect on WeChat. ',COPY.replace('\n','\\n')).replace(OLD,COPY.replace('\n','\\n'))
+    blurb=re.search(r'ct\("p",\{ref_key:"blurb".*?,512\)',text).group(0)
+    replacement=blurb.replace('class:"text-14 ', 'class:"contact-details text-14 ')
+    # Insert below the QR form while keeping the original native text ref.
+    text=text.replace(blurb+',','').replace('],40,zz),ct("p",Hz','],40,zz),'+replacement+',ct("p",Hz')
+    text=text.replace(OLD,COPY.replace('\n','\\n')).replace('De(d)?"Close":"Newsletter"','De(d)?"Close":"Contact Me"').replace('{title:"Newsletter"}','{title:"Contact Me"}')
     text=text.replace('Mt(Je,{ref_key:"send",ref:u,busy:De(_)||De(v)},null,8,["busy"]),','')
     file.write_text(text)
 for file in list((ROOT/'raw/pages').glob('*.html'))+list((ROOT/'raw/templates').glob('*.html')):
-    text=file.read_text().replace(OLD,COPY).replace('>Newsletter</button>','>Contact Me</button>')
+    text=file.read_text().replace(' Scan the QR code to connect on WeChat. ',COPY).replace(OLD,COPY).replace('>Newsletter</button>','>Contact Me</button>')
     text=re.sub(r'<div class="invisible relative flex h-40 s:h-45.*?</div>(?=<button type="submit")',lambda _:MARKUP,text,flags=re.S)
     text=re.sub(r'<button type="submit" aria-label="Subscribe".*?</button>','',text,flags=re.S)
+    blurb=re.search(r'<p data-gl="text" class="(?:contact-details )?text-14 leading-14 tracking-\[-0.02em\] max-w-\[30rem\].*?</p>',text,re.S)
+    if blurb:
+        block=blurb.group(0).replace('class="text-14 ', 'class="contact-details text-14 ')
+        text=text[:blurb.start()]+text[blurb.end():]
+        text=text.replace('</form><p role="status"','</form>'+block+'<p role="status"')
     file.write_text(text)
 css_path=ROOT/'site/local-copy.css'
 text=css_path.read_text()
@@ -30,9 +40,14 @@ text+='''
 /* === Contact Me QR === */
 div.fixed.inset-0.z-40 button.absolute.bottom-0.right-0 { text-transform: none; }
 [data-gl-shield]:has(.contact-qr) form {
-  justify-content: center; margin-top: 24px; max-width: 100%;
+  justify-content: center; margin-top: 0; max-width: 100%;
 }
 [data-gl-shield]:has(.contact-qr) > p[role="status"] { display: none; }
+.contact-details {
+  margin-top: 20px; white-space: pre-line; text-align: center;
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px; line-height: 1.8; color: white;
+}
 .contact-qr {
   width: min(300px, calc(100vw - 88px), calc(100svh - 220px));
   height: min(300px, calc(100vw - 88px), calc(100svh - 220px));

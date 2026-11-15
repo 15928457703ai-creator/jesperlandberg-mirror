@@ -152,8 +152,9 @@ a[data-gl="pill"][href="/oppo-wechat"]:focus-within span.visible::after {
 /* Both discs retain the same native w-420 / s:w-600 dimensions. */
 div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) {
   inset-inline: 0;
-  width: 100%;
-  padding: 0 36px;
+  width: 58%;
+  margin-inline: auto;
+  padding: 0;
   box-sizing: border-box;
   font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
@@ -161,15 +162,15 @@ div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) > .label,
 div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) > ul {
   display: none;
 }
-div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
+div.fixed.z-40 > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
   -webkit-text-fill-color: #dedede !important;
   color: #dedede !important;
   opacity: 1 !important;
   white-space: pre-line;
   text-align: left;
   letter-spacing: 0;
-  font-size: 14px;
-  line-height: 1.45;
+  font-size: var(--profile-body-size, 10px);
+  line-height: 1.4;
   width: 100%;
   max-width: none;
   text-shadow: 0 1px 8px #000;
@@ -185,8 +186,8 @@ div.fixed.z-40:not([inert]) .profile-phone {
   flex-shrink: 0;
   text-shadow: 0 2px 12px #000;
 }
-.profile-heading { margin-bottom: 18px; text-align: left; }
-.profile-name { margin: 0 0 14px; font-size: 40px; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
+.profile-heading { margin-bottom: 10px; text-align: left; }
+.profile-name { margin: 0; font-size: var(--profile-title-size, 28px); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
 .profile-roles { display: flex; align-items: start; gap: 20px; }
 .profile-role { display: flex; flex-direction: column; gap: 4px; }
 .profile-role strong { font-size: 16px; line-height: 1.2; }
@@ -194,33 +195,31 @@ div.fixed.z-40:not([inert]) .profile-phone {
 .profile-cross { color: #666; -webkit-text-fill-color: #666; font-size: 18px; font-weight: 200; }
 .profile-phone { margin-top: 20px; font-size: 16px; max-width: 100%; white-space: normal; font-weight: 700; letter-spacing: .02em; line-height: 1.2; text-decoration: none; pointer-events: auto; }
 @media (max-width: 640px) {
-  div.fixed.z-40:not([inert]) > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 30px; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 24px; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
+  div.fixed.z-40:not([inert]) > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 0; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 0; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
   body:has(div.fixed.z-40:not([inert]) .profile-heading) div.fixed.inset-0.z-40 button { color: #fff; -webkit-text-fill-color: #fff; }
-  .profile-heading { margin-bottom: 24px; }
+  .profile-heading { margin-bottom: 10px; }
   .profile-roles { gap: 12px; }
   .profile-phone { margin-top: 36px; margin-bottom: 10px; }
 }
 .profile-resume {
   display: inline-flex; align-items: center; justify-content: center;
-  flex-shrink: 0; min-width: 180px; min-height: 46px; margin-top: 22px;
-  padding: 0 24px; border: 1px solid rgba(255,255,255,.65); border-radius: 999px;
+  flex-shrink: 0; min-width: 140px; min-height: 34px; margin-top: 14px;
+  padding: 0 24px; border: 0; border-radius: 999px; background: transparent;
   font-size: 14px; font-weight: 600; line-height: 1.2; color: #f5f5f5;
   -webkit-text-fill-color: #f5f5f5; text-decoration: none; pointer-events: auto;
-  opacity: 0; visibility: hidden; transform: translateY(8px);
-  transition: opacity .35s, transform .35s, background .2s;
+  opacity: 1; visibility: visible;
 }
 div.fixed.z-40:not([inert]) .profile-resume {
-  opacity: 1; visibility: visible; transform: none;
-  transition-delay: 1.5s, 1.5s, 0s;
+  visibility: visible;
 }
-.profile-resume:hover { background: rgba(255,255,255,.12); }
+.profile-download-label { display: block; font-size: 14px; color: #f5f5f5; -webkit-text-fill-color: transparent; visibility: visible; }
 .profile-resume:focus-visible { outline: 2px solid white; outline-offset: 5px; }
 @media (prefers-reduced-motion: reduce) {
   .profile-resume, div.fixed.z-40:not([inert]) .profile-resume { transition: none; transform: none; }
 }
 /* Keep the compact newsletter-sized disc readable on shorter displays. */
 @media (min-width: 641px) and (max-height: 800px) {
-  .profile-name { font-size: 32px; margin-bottom: 10px; }
+  .profile-name { font-size: var(--profile-title-size, 28px); margin-bottom: 10px; }
   .profile-role strong { font-size: 14px; }
   .profile-role small { font-size: 10px; }
   .profile-heading { margin-bottom: 12px; }
@@ -313,9 +312,14 @@ div.fixed.inset-0.z-40 a.label[href="/"] {
 /* === Contact Me QR === */
 div.fixed.inset-0.z-40 button.absolute.bottom-0.right-0 { text-transform: none; }
 [data-gl-shield]:has(.contact-qr) form {
-  justify-content: center; margin-top: 24px; max-width: 100%;
+  justify-content: center; margin-top: 0; max-width: 100%;
 }
 [data-gl-shield]:has(.contact-qr) > p[role="status"] { display: none; }
+.contact-details {
+  margin-top: 20px; white-space: pre-line; text-align: center;
+  font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 14px; line-height: 1.8; color: white;
+}
 .contact-qr {
   width: min(300px, calc(100vw - 88px), calc(100svh - 220px));
   height: min(300px, calc(100vw - 88px), calc(100svh - 220px));

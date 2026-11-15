@@ -17,7 +17,7 @@ import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from profile_config import INTRO, INTRO_CLASS, CSS_BEGIN, CSS_END, LINES, PHONE, SECTIONS
+from profile_config import INTRO, INTRO_CLASS, CSS_BEGIN, CSS_END, LINES, SECTIONS
 from project_config import ROOT
 
 os.chdir(ROOT)
@@ -31,8 +31,7 @@ VN = re.compile(r'(ct\("p",\{ref_key:"intro"[^}]*)(\},(?:"(?:[^"\\]|\\.)*"|null)
 HEADER = ("header", {"class": "profile-heading"}, [
     ("h1", {"class": "profile-name"}, "冯梅 资深设计师"),
 ])
-CONTACT = ("a", {"class": "profile-phone", "href": "tel:15928457703", "aria-label": "拨打电话 15928457703"}, PHONE)
-DOWNLOAD = ("a", {"class": "profile-resume", "href": "/downloads/fengmei-resume.pdf", "download": "冯梅15928457703-资深设计师.pdf"}, "下载简历 ↓")
+DOWNLOAD = ("a", {"class": "profile-resume", "href": "/downloads/fengmei-resume.pdf", "download": "冯梅15928457703-资深设计师.pdf"}, [("span", {"class": "profile-download-label"}, "下载简历")])
 def markup(node):
     tag, attrs, children = node
     body = html.escape(children) if isinstance(children, str) else "".join(map(markup, children))
@@ -82,11 +81,13 @@ for f in pages:
     t = t[:m.start(2)] + HTML_INTRO + t[m.end(2):]
     if 'class="profile-heading"' not in t:
         m = PAT.search(t)
-        t = t[:m.start()] + markup(HEADER) + t[m.start():m.end()] + markup(CONTACT) + t[m.end():]
+        t = t[:m.start()] + markup(HEADER) + t[m.start():m.end()] + t[m.end():]
+    t = t.replace("下载简历 ↓", "下载简历")
     t = re.sub(r'<header class="profile-heading">.*?</header>', lambda _: markup(HEADER), t, flags=re.S)
-    t = re.sub(r'<a class="profile-phone"[^>]*>.*?</a>', lambda _: markup(CONTACT), t, flags=re.S)
+    t = re.sub(r'<a class="profile-phone"[^>]*>.*?</a>', lambda _: "", t, flags=re.S)
+    t = re.sub(r'<a class="profile-resume"[^>]*>.*?</a>', lambda _: markup(DOWNLOAD), t, flags=re.S)
     if 'class="profile-resume"' not in t:
-        t = t.replace(markup(CONTACT), markup(CONTACT) + markup(DOWNLOAD))
+        t = re.sub(r'(<p data-gl="text" ' + re.escape(INTRO_CLASS) + r'>.*?</p>)', lambda m: m.group(1) + markup(DOWNLOAD), t, count=1, flags=re.S)
     open(f, "w", encoding="utf-8").write(t)
 print("SSR sources updated:", len(pages))
 
@@ -101,11 +102,15 @@ for f in ("raw/nuxt/DZyj3ghP.js", "site/_nuxt/DZyj3ghP.js"):
     t = t[:m.start()] + rendered + t[m.end():]
     if '"profile-heading"' not in t:
         m = VN.search(t)
-        t = t[:m.start()] + vnode(HEADER) + "," + t[m.start():m.end()] + "," + vnode(CONTACT) + t[m.end():]
+        t = t[:m.start()] + vnode(HEADER) + "," + t[m.start():m.end()] + t[m.end():]
+    t = t.replace("下载简历 ↓", "下载简历")
     t = replace_header_vnode(t)
-    t = re.sub(r'ct\("a",\s*\{[^{}]*"class":\s*"profile-phone"[^{}]*\},\s*"(?:[^"\\]|\\.)*"\)', lambda _: vnode(CONTACT), t)
+    t = re.sub(r'ct\("a",\s*\{[^{}]*"class":\s*"profile-phone"[^{}]*\},\s*"(?:[^"\\]|\\.)*"\)', lambda _: "", t)
+    t = t.replace("),,ct(", "),ct(")
+    t = re.sub(r'ct\("a",\s*\{[^{}]*"class":\s*"profile-resume"[^{}]*\},\s*"下载简历"\)', lambda _: vnode(DOWNLOAD), t)
     if '"profile-resume"' not in t:
-        t = t.replace(vnode(CONTACT), vnode(CONTACT) + "," + vnode(DOWNLOAD))
+        m = VN.search(t)
+        t = t[:m.end()] + "," + vnode(DOWNLOAD) + t[m.end():]
     open(f, "w", encoding="utf-8").write(t)
     print("client vnode updated:", f)
 
@@ -115,8 +120,9 @@ CSS = CSS_BEGIN + """ */
 /* Both discs retain the same native w-420 / s:w-600 dimensions. */
 div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) {
   inset-inline: 0;
-  width: 100%;
-  padding: 0 36px;
+  width: 58%;
+  margin-inline: auto;
+  padding: 0;
   box-sizing: border-box;
   font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
 }
@@ -124,15 +130,15 @@ div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) > .label,
 div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) > ul {
   display: none;
 }
-div.fixed.z-40:not([inert]) > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
+div.fixed.z-40 > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
   -webkit-text-fill-color: #dedede !important;
   color: #dedede !important;
   opacity: 1 !important;
   white-space: pre-line;
   text-align: left;
   letter-spacing: 0;
-  font-size: 14px;
-  line-height: 1.45;
+  font-size: var(--profile-body-size, 10px);
+  line-height: 1.4;
   width: 100%;
   max-width: none;
   text-shadow: 0 1px 8px #000;
@@ -148,8 +154,8 @@ div.fixed.z-40:not([inert]) .profile-phone {
   flex-shrink: 0;
   text-shadow: 0 2px 12px #000;
 }
-.profile-heading { margin-bottom: 18px; text-align: left; }
-.profile-name { margin: 0 0 14px; font-size: 40px; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
+.profile-heading { margin-bottom: 10px; text-align: left; }
+.profile-name { margin: 0; font-size: var(--profile-title-size, 28px); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
 .profile-roles { display: flex; align-items: start; gap: 20px; }
 .profile-role { display: flex; flex-direction: column; gap: 4px; }
 .profile-role strong { font-size: 16px; line-height: 1.2; }
@@ -157,33 +163,31 @@ div.fixed.z-40:not([inert]) .profile-phone {
 .profile-cross { color: #666; -webkit-text-fill-color: #666; font-size: 18px; font-weight: 200; }
 .profile-phone { margin-top: 20px; font-size: 16px; max-width: 100%; white-space: normal; font-weight: 700; letter-spacing: .02em; line-height: 1.2; text-decoration: none; pointer-events: auto; }
 @media (max-width: 640px) {
-  div.fixed.z-40:not([inert]) > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 30px; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 24px; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
+  div.fixed.z-40:not([inert]) > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 0; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 0; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
   body:has(div.fixed.z-40:not([inert]) .profile-heading) div.fixed.inset-0.z-40 button { color: #fff; -webkit-text-fill-color: #fff; }
-  .profile-heading { margin-bottom: 24px; }
+  .profile-heading { margin-bottom: 10px; }
   .profile-roles { gap: 12px; }
   .profile-phone { margin-top: 36px; margin-bottom: 10px; }
 }
 .profile-resume {
   display: inline-flex; align-items: center; justify-content: center;
-  flex-shrink: 0; min-width: 180px; min-height: 46px; margin-top: 22px;
-  padding: 0 24px; border: 1px solid rgba(255,255,255,.65); border-radius: 999px;
+  flex-shrink: 0; min-width: 140px; min-height: 34px; margin-top: 14px;
+  padding: 0 24px; border: 0; border-radius: 999px; background: transparent;
   font-size: 14px; font-weight: 600; line-height: 1.2; color: #f5f5f5;
   -webkit-text-fill-color: #f5f5f5; text-decoration: none; pointer-events: auto;
-  opacity: 0; visibility: hidden; transform: translateY(8px);
-  transition: opacity .35s, transform .35s, background .2s;
+  opacity: 1; visibility: visible;
 }
 div.fixed.z-40:not([inert]) .profile-resume {
-  opacity: 1; visibility: visible; transform: none;
-  transition-delay: 1.5s, 1.5s, 0s;
+  visibility: visible;
 }
-.profile-resume:hover { background: rgba(255,255,255,.12); }
+.profile-download-label { display: block; font-size: 14px; color: #f5f5f5; -webkit-text-fill-color: transparent; visibility: visible; }
 .profile-resume:focus-visible { outline: 2px solid white; outline-offset: 5px; }
 @media (prefers-reduced-motion: reduce) {
   .profile-resume, div.fixed.z-40:not([inert]) .profile-resume { transition: none; transform: none; }
 }
 /* Keep the compact newsletter-sized disc readable on shorter displays. */
 @media (min-width: 641px) and (max-height: 800px) {
-  .profile-name { font-size: 32px; margin-bottom: 10px; }
+  .profile-name { font-size: var(--profile-title-size, 28px); margin-bottom: 10px; }
   .profile-role strong { font-size: 14px; }
   .profile-role small { font-size: 10px; }
   .profile-heading { margin-bottom: 12px; }

@@ -6,13 +6,21 @@
     // Chinese catalogue labels need native canvas glyphs too: this keeps
     // every label inside the scene's pointer field and preview mask.
     useCanvasText: function (el) {
-      return el.matches('.profile-name, .profile-phone, p[class*="max-w-[35rem]"]') || el.textContent.trim() === '华润ERP' ||
+      return el.matches('.profile-name, .profile-download-label, .contact-details, p[class*="max-w-[35rem]"]') || el.textContent.trim() === '华润ERP' ||
         ((el.matches('.content-center a, [data-gl="sheet"] h1, [data-gl="pill"] [data-gl="text"]') || el.hasAttribute('data-title')) && /[\u3400-\u9fff]/.test(el.textContent));
     },
     install: function (folio) {
       if (folio.galleryMotion) return;
       // Keep Profile on Newsletter's native showTexts/showText path rather
       // than approximating its masks with DOM transforms.
+      // Use the carousel/column's own centering API for both overlay views.
+      ['bindHole', 'retargetHole'].forEach(function (method) {
+        var original = folio[method];
+        folio[method] = function (el, group) {
+          if (el && ['profile', 'news'].includes(group)) this.focusHomeContactProject?.();
+          return original.apply(this, arguments);
+        };
+      });
       // Scale only the lens radius: copy and QR retain their measured size.
       var syncHole = folio.syncHole;
       folio.syncHole = function () {
@@ -24,6 +32,7 @@
       };
       var profileText = folio.text, profileShowTexts = folio.showTexts;
       folio.text = async function (el, options) {
+        if (el?.matches('p[class*="max-w-[35rem]"]')) window.PortfolioProfile?.fit(el);
         var plane = await profileText.call(this, el, options);
         if (!plane || !el.matches('p[class*="max-w-[35rem]"]')) return plane;
         var rasterize = plane.rasterize;
@@ -37,9 +46,13 @@
         var disc = el.closest('div.fixed.z-40');
         var extraOptions = {over: true, hold: true, group: 'profile'};
         var title = await profileText.call(this, disc.querySelector('.profile-name'), extraOptions);
-        var phone = await profileText.call(this, disc.querySelector('.profile-phone'), extraOptions);
-        title?.supersample(2); phone?.supersample(2);
-        this.profileTextPlanes = {title: title, body: plane, phone: phone};
+        var resume = disc.querySelector('.profile-resume');
+        this.profileResumePill = this.pill(resume, {over: true, group: 'profile', glow: true});
+        this.profileResumePill.chroma = 1;
+        this.profileResumePill.mesh.material.uniforms.u_rest.value.set("#000");
+        var download = await profileText.call(this, resume.querySelector('.profile-download-label'), extraOptions);
+        title?.supersample(2); download?.supersample(2);
+        this.profileTextPlanes = {title: title, body: plane, download: download};
         return plane;
       };
       function profileGroup(group) {
@@ -48,8 +61,9 @@
       folio.showTexts = function (groups, visible, delay, options) {
         var profile = this.profileTextPlanes;
         if (profile && profileGroup(groups)) {
-          var planes = [profile.title, profile.body, profile.phone].filter(Boolean);
+          var planes = [profile.title, profile.body, profile.download].filter(Boolean);
           if (visible && matchMedia('(prefers-reduced-motion: reduce)').matches) options = {mask: false, fade: 0};
+          this.showOverPills([this.profileResumePill], visible, delay);
           return profileShowTexts.call(this, planes, visible, delay, options);
         }
         return profileShowTexts.apply(this, arguments);
