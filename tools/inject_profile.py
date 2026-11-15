@@ -175,7 +175,7 @@ div.fixed.z-40:not([inert]) .profile-phone {
 }
 .profile-resume {
   display: inline-flex; align-items: center; justify-content: center;
-  flex-shrink: 0; min-width: 140px; height: 60px; min-height: 60px; margin-top: 48px;
+  flex-shrink: 0; width: 180px; min-width: 180px; height: 48px; min-height: 48px; box-sizing: border-box; margin-top: 48px;
   padding: 0 24px; border: 0; border-radius: 999px; background: transparent;
   font-size: 14px; font-weight: 600; line-height: 1.2; color: #f5f5f5;
   -webkit-text-fill-color: #f5f5f5; text-decoration: none; pointer-events: auto;
