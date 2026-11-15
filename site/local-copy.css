@@ -200,6 +200,24 @@ div.fixed.z-40:not([inert]) .profile-phone {
   .profile-roles { gap: 12px; }
   .profile-phone { margin-top: 36px; margin-bottom: 10px; }
 }
+.profile-resume {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0; min-width: 180px; min-height: 46px; margin-top: 22px;
+  padding: 0 24px; border: 1px solid rgba(255,255,255,.65); border-radius: 999px;
+  font-size: 14px; font-weight: 600; line-height: 1.2; color: #f5f5f5;
+  -webkit-text-fill-color: #f5f5f5; text-decoration: none; pointer-events: auto;
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .35s, transform .35s, background .2s;
+}
+div.fixed.z-40:not([inert]) .profile-resume {
+  opacity: 1; visibility: visible; transform: none;
+  transition-delay: 1.5s, 1.5s, 0s;
+}
+.profile-resume:hover { background: rgba(255,255,255,.12); }
+.profile-resume:focus-visible { outline: 2px solid white; outline-offset: 5px; }
+@media (prefers-reduced-motion: reduce) {
+  .profile-resume, div.fixed.z-40:not([inert]) .profile-resume { transition: none; transform: none; }
+}
 /* Keep the compact newsletter-sized disc readable on shorter displays. */
 @media (min-width: 641px) and (max-height: 800px) {
   .profile-name { font-size: 32px; margin-bottom: 10px; }

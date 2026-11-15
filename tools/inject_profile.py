@@ -32,6 +32,7 @@ HEADER = ("header", {"class": "profile-heading"}, [
     ("h1", {"class": "profile-name"}, "冯梅 资深设计师"),
 ])
 CONTACT = ("a", {"class": "profile-phone", "href": "tel:15928457703", "aria-label": "拨打电话 15928457703"}, PHONE)
+DOWNLOAD = ("a", {"class": "profile-resume", "href": "/downloads/fengmei-resume.pdf", "download": "冯梅15928457703-资深设计师.pdf"}, "下载简历 ↓")
 def markup(node):
     tag, attrs, children = node
     body = html.escape(children) if isinstance(children, str) else "".join(map(markup, children))
@@ -84,6 +85,8 @@ for f in pages:
         t = t[:m.start()] + markup(HEADER) + t[m.start():m.end()] + markup(CONTACT) + t[m.end():]
     t = re.sub(r'<header class="profile-heading">.*?</header>', lambda _: markup(HEADER), t, flags=re.S)
     t = re.sub(r'<a class="profile-phone"[^>]*>.*?</a>', lambda _: markup(CONTACT), t, flags=re.S)
+    if 'class="profile-resume"' not in t:
+        t = t.replace(markup(CONTACT), markup(CONTACT) + markup(DOWNLOAD))
     open(f, "w", encoding="utf-8").write(t)
 print("SSR sources updated:", len(pages))
 
@@ -101,6 +104,8 @@ for f in ("raw/nuxt/DZyj3ghP.js", "site/_nuxt/DZyj3ghP.js"):
         t = t[:m.start()] + vnode(HEADER) + "," + t[m.start():m.end()] + "," + vnode(CONTACT) + t[m.end():]
     t = replace_header_vnode(t)
     t = re.sub(r'ct\("a",\s*\{[^{}]*"class":\s*"profile-phone"[^{}]*\},\s*"(?:[^"\\]|\\.)*"\)', lambda _: vnode(CONTACT), t)
+    if '"profile-resume"' not in t:
+        t = t.replace(vnode(CONTACT), vnode(CONTACT) + "," + vnode(DOWNLOAD))
     open(f, "w", encoding="utf-8").write(t)
     print("client vnode updated:", f)
 
@@ -157,6 +162,24 @@ div.fixed.z-40:not([inert]) .profile-phone {
   .profile-heading { margin-bottom: 24px; }
   .profile-roles { gap: 12px; }
   .profile-phone { margin-top: 36px; margin-bottom: 10px; }
+}
+.profile-resume {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0; min-width: 180px; min-height: 46px; margin-top: 22px;
+  padding: 0 24px; border: 1px solid rgba(255,255,255,.65); border-radius: 999px;
+  font-size: 14px; font-weight: 600; line-height: 1.2; color: #f5f5f5;
+  -webkit-text-fill-color: #f5f5f5; text-decoration: none; pointer-events: auto;
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .35s, transform .35s, background .2s;
+}
+div.fixed.z-40:not([inert]) .profile-resume {
+  opacity: 1; visibility: visible; transform: none;
+  transition-delay: 1.5s, 1.5s, 0s;
+}
+.profile-resume:hover { background: rgba(255,255,255,.12); }
+.profile-resume:focus-visible { outline: 2px solid white; outline-offset: 5px; }
+@media (prefers-reduced-motion: reduce) {
+  .profile-resume, div.fixed.z-40:not([inert]) .profile-resume { transition: none; transform: none; }
 }
 /* Keep the compact newsletter-sized disc readable on shorter displays. */
 @media (min-width: 641px) and (max-height: 800px) {
