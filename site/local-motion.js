@@ -13,6 +13,15 @@
       if (folio.galleryMotion) return;
       // Keep Profile on Newsletter's native showTexts/showText path rather
       // than approximating its masks with DOM transforms.
+      // Scale only the lens radius: copy and QR retain their measured size.
+      var syncHole = folio.syncHole;
+      folio.syncHole = function () {
+        var result = syncHole.apply(this, arguments);
+        if (this.holeEl?.isConnected && ['profile', 'news'].includes(this.holeGroup)) {
+          this.core.post.u.u_radius.value *= .7;
+        }
+        return result;
+      };
       var profileText = folio.text, profileShowTexts = folio.showTexts;
       folio.text = async function (el, options) {
         var plane = await profileText.call(this, el, options);

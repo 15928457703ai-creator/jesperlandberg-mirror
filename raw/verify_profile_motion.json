@@ -4,12 +4,12 @@
       "mode": "desktop",
       "reference": {
         "group": "news",
-        "text": " An occasional newsletter with",
-        "count": 3,
+        "text": " Scan the QR code to connect o",
+        "count": 1,
         "delay": 0.2,
-        "duration": 1.25,
-        "window": 0.8800000000000001,
-        "stagger": 0.06
+        "duration": 1.1,
+        "window": 1,
+        "stagger": 0.06818181818181818
       },
       "profile": {
         "calls": [
@@ -97,12 +97,12 @@
       "mode": "mobile",
       "reference": {
         "group": "news",
-        "text": " An occasional newsletter with",
-        "count": 3,
+        "text": " Scan the QR code to connect o",
+        "count": 1,
         "delay": 0.2,
-        "duration": 1.25,
-        "window": 0.8800000000000001,
-        "stagger": 0.06
+        "duration": 1.1,
+        "window": 1,
+        "stagger": 0.06818181818181818
       },
       "profile": {
         "calls": [
@@ -190,12 +190,12 @@
       "mode": "reduced",
       "reference": {
         "group": "news",
-        "text": " An occasional newsletter with",
-        "count": 3,
+        "text": " Scan the QR code to connect o",
+        "count": 1,
         "delay": 0.2,
-        "duration": 1.25,
-        "window": 0.8800000000000001,
-        "stagger": 0.06
+        "duration": 1.1,
+        "window": 1,
+        "stagger": 0.06818181818181818
       },
       "profile": {
         "calls": [

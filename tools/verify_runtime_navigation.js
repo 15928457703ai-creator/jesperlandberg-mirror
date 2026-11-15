@@ -32,8 +32,8 @@ const launch = { executablePath: '/Applications/Google Chrome.app/Contents/MacOS
     await page.waitForTimeout(1300);
     check('top-right Profile opens', await page.getByRole('button', { name: 'Close', exact: true }).isVisible());
     await page.getByRole('button', { name: 'Close', exact: true }).click(); await page.waitForTimeout(1300);
-    await page.getByRole('button', { name: 'Newsletter', exact: true }).click(); await page.waitForTimeout(1300);
-    check('bottom-right Newsletter opens', await page.getByRole('textbox', { name: /email/i }).count() > 0 || await page.locator('form input[type="email"]').isVisible());
+    await page.getByRole('button', { name: 'Contact Me', exact: true }).click(); await page.waitForTimeout(1300);
+    check('bottom-right Contact Me opens', await page.locator('.contact-qr-crop').isVisible());
     await page.getByRole('button', { name: 'Close', exact: true }).click(); await page.waitForTimeout(1300);
     await page.getByRole('link', { name: 'Full', exact: true }).click(); await page.waitForURL('**/full'); await page.waitForTimeout(1600);
     await page.locator('main .content-center a[href="/projects/illustration"]').hover(); await page.waitForTimeout(800);
