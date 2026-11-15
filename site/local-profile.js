@@ -3,23 +3,7 @@
 (function () {
   'use strict';
   document.documentElement.setAttribute('data-profile-native', 'ready');
-  function fit(el) {
-    var disc = el.closest('div.fixed.z-40'), box = el.parentElement;
-    var diameter = disc.getBoundingClientRect().width * .7;
-    var limit = Math.min(innerHeight - 140, diameter * .78);
-    var size = Math.min(14, diameter / 32);
-    do {
-      box.style.setProperty('--profile-body-size', size + 'px');
-      box.style.setProperty('--profile-title-size', Math.max(18, size * 2.5) + 'px');
-      size -= .25;
-    } while (box.getBoundingClientRect().height > limit && size >= 7);
-  }
-  window.addEventListener('resize', function () {
-    var el = document.querySelector('p[class*="max-w-[35rem]"]');
-    if (el) fit(el);
-  });
   window.PortfolioProfile = {
-    fit: fit,
     paintRichText: function (plane) {
       if (!plane?.canvas || !plane.el?.isConnected) return;
       var el = plane.el, box = el.getBoundingClientRect(), ctx = plane.ctx2d;

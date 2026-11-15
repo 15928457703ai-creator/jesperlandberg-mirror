@@ -60,13 +60,13 @@ def add_cards(t):
     if missing:
         raise SystemExit("home strip is missing originals: " + ", ".join(missing))
 
-    base = orig["griflan"]
+    base = next(iter(orig.values()))
     local = {}
     for p in PROJECTS:
-        b = base.replace('data-id="griflan"', 'data-id="' + p["slug"] + '"')
+        b = re.sub(r'data-id="[^\"]+"', 'data-id="' + p["slug"] + '"', base, count=1)
         m = cover(p)['main']
         b = re.sub(r'aspect-ratio:[^;]+;', 'aspect-ratio:%d / %d;' % (m['width'], m['height']), b)
-        b = b.replace('>Griflan</span>', '>' + p["title"] + '</span>')
+        b = re.sub(r'(<span[^>]*data-title[^>]*>).*?(</span>)', lambda m: m.group(1) + p['title'] + m.group(2), b, count=1, flags=re.S)
         local[p["slug"]] = b
     pool = dict(orig)
     pool.update(local)

@@ -30,9 +30,37 @@
         }
         return result;
       };
+      var pendingDetails = [], detailLoads = 0;
+      folio.preloadAll = function () { return Promise.resolve(); };
+      folio.detailTexture = function (el, src, ready) {
+        var cached = this.resolved.get(src);
+        if (cached) return cached;
+        pendingDetails.push({el: el, src: src, ready: ready});
+        // Reuse the scene's neutral fallback while the visible slide loads.
+        return this.ready('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==');
+      };
+      function loadVisibleDetails() {
+        pendingDetails = pendingDetails.filter(function (item) { return item.el?.isConnected; });
+        for (var index = 0; index < pendingDetails.length && detailLoads < 3;) {
+          var item = pendingDetails[index], rect = item.el._vrect || item.el.getBoundingClientRect();
+          var panel = item.el.closest('[data-gl="sheet"]');
+          if (!panel || rect.top > innerHeight + 400 || rect.top + rect.height < -400) { index++; continue; }
+          pendingDetails.splice(index, 1); detailLoads++;
+          (function (item) {
+            folio.texture(item.src).then(function (texture) {
+              if (texture && item.el.isConnected) item.ready(texture);
+            }).finally(function () { detailLoads--; folio.core.wake(); });
+          })(item);
+        }
+      }
+      var makeVideo = folio.video;
+      folio.video = function (src) {
+        var result = makeVideo.apply(this, arguments);
+        result.el.preload = 'metadata';
+        return result;
+      };
       var profileText = folio.text, profileShowTexts = folio.showTexts;
       folio.text = async function (el, options) {
-        if (el?.matches('p[class*="max-w-[35rem]"]')) window.PortfolioProfile?.fit(el);
         var plane = await profileText.call(this, el, options);
         if (!plane || !el.matches('p[class*="max-w-[35rem]"]')) return plane;
         var rasterize = plane.rasterize;
@@ -61,10 +89,13 @@
       folio.showTexts = function (groups, visible, delay, options) {
         var profile = this.profileTextPlanes;
         if (profile && profileGroup(groups)) {
-          var planes = [profile.title, profile.body, profile.download].filter(Boolean);
+          var planes = [profile.title, profile.body].filter(Boolean);
           if (visible && matchMedia('(prefers-reduced-motion: reduce)').matches) options = {mask: false, fade: 0};
-          this.showOverPills([this.profileResumePill], visible, delay);
-          return profileShowTexts.call(this, planes, visible, delay, options);
+          var buttonDelay = visible ? (delay || 0) + ((profile.title.count || 1) + (profile.body.count || 1)) * this.c.text.stagger : 0;
+          this.showOverPills([this.profileResumePill], visible, buttonDelay);
+          var result = profileShowTexts.call(this, planes, visible, delay, options);
+          this.showText(profile.download, visible, 0, {mask: false, fade: 0});
+          return result;
         }
         return profileShowTexts.apply(this, arguments);
       };
@@ -146,6 +177,11 @@
           }
         }
         var result = tick.apply(this, arguments);
+        // The download label follows the same native scale/alpha as its rim.
+        var button = this.profileResumePill, label = this.profileTextPlanes?.download;
+        if (button && label) {
+          label.material.uniforms.u_alpha.value = button.mesh.material.uniforms.u_alpha.value;
+        }
         // Native Profile text is in the overlay scene. A DOM backdrop would
         // cover it on phones, so its shade must live in that same scene.
         if (!this.profileShade && this.sky) {
@@ -213,10 +249,11 @@
       };
       // The About clip stays on the stock WebGL plane and transition clock.
       window.PortfolioMotion.getAboutVideo = function () {
-        return folio.video('/showreel/intro-v3.mp4').el;
+        return folio.video('/showreel/intro-v4-web.mp4').el;
       };
       window.PortfolioMotion.playAboutAudio = function () {
-        var clip = folio.video('/showreel/intro-v3.mp4');
+        var clip = folio.video('/showreel/intro-v4-web.mp4');
+        clip.el.currentTime = 0;
         clip.el.dataset.userPaused = "false";
         clip.el.dataset.userMuted = "false";
         clip.el.muted = false;
@@ -256,7 +293,15 @@
       document.documentElement.addEventListener('pointerleave', function () { detailPointer.fine = false; });
       var playVideo = folio.playVideo;
       folio.playVideo = function (video, wantsPlay) {
-        if (video && new URL(video.el.currentSrc || video.el.src, location.href).pathname === '/showreel/intro-v3.mp4') {
+        if (video && location.pathname.replace(/\/$/, '').startsWith('/projects/')) {
+          var source = new URL(video.el.currentSrc || video.el.src, location.href).pathname;
+          var belongsToDetail = this.content.some(function (item) {
+            return item.el?.isConnected && item.mesh.userData.videoSrc &&
+              new URL(item.mesh.userData.videoSrc, location.href).pathname === source;
+          });
+          if (!belongsToDetail) wantsPlay = false;
+        }
+        if (video && new URL(video.el.currentSrc || video.el.src, location.href).pathname === '/showreel/intro-v4-web.mp4') {
           var aboutActive = location.pathname.replace(/\/$/, '') === '/projects/showreel';
           video.el.muted = !aboutActive || video.el.dataset.userMuted === 'true';
           if (aboutActive && video.el.dataset.userPaused === 'true') wantsPlay = false;
@@ -295,6 +340,7 @@
           if (visible) visibleClips.add(new URL(source, location.href).pathname);
           motionMedia.push({ item: item, box: box, visible: visible });
         }
+        loadVisibleDetails();
         syncContent.apply(this, arguments);
         var now = performance.now();
         var k = 1 - Math.exp(-Math.min(lastMediaFrame ? (now - lastMediaFrame) / 1000 : .016, .12) * 8);

@@ -9,7 +9,7 @@ const origin=(process.env.PROFILE_ORIGIN||'http://127.0.0.1:5250/jesperlandberg-
   await page.goto(origin+'/full/');await page.waitForFunction(()=>!document.querySelector('[data-gl="bar"]'));
   const projects=await page.evaluate(async()=>{const data=await(await fetch(window.__portfolioPath?'/jesperlandberg-mirror/graphql.json':'/graphql.json')).json();return data.data.projects});
   const links=await page.locator('main .content-center a').evaluateAll(els=>els.map(e=>({title:e.textContent.trim(),href:e.getAttribute('href')})));
-  if(links.length!==11)throw Error('Expected 11 catalogue projects, got '+links.length);
+  if(links.length!==9||links.some(l=>/the-lookback|griflan/.test(l.href)))throw Error('Expected 9 active catalogue projects, got '+links.length);
   for(const link of links){
    const slug=link.href.split('/').filter(Boolean).at(-1),expected=projects.find(p=>p.slug===slug);
    if(!expected||expected.title!==link.title)throw Error('List label/href mismatch '+JSON.stringify(link));
@@ -18,14 +18,14 @@ const origin=(process.env.PROFILE_ORIGIN||'http://127.0.0.1:5250/jesperlandberg-
    const result=await page.evaluate(slug=>{
     const f=document.querySelector('#__nuxt').__vue_app__.config.globalProperties.$nuxt.$folio;
     const sheet=document.querySelector('[data-gl="sheet"][data-id="'+slug+'"]');
-    return{slug,title:sheet?.querySelector('h1')?.textContent.trim(),tags:[...sheet.querySelectorAll('[data-gl="pill"] [data-gl="text"]')].map(e=>e.textContent.trim()),slides:sheet.querySelectorAll('[data-gl="simple"]').length,content:f.content.filter(c=>sheet.contains(c.el)).map(c=>({src:c.mesh.material.uniforms.u_texture.value?.image?.currentSrc||c.mesh.material.uniforms.u_texture.value?.image?.src,video:c.mesh.userData.videoSrc,alpha:c.mesh.material.uniforms.u_alpha.value})),controls:!!document.querySelector('[role="group"][aria-label="视频播放控制"]')};
+    return{slug,title:sheet?.querySelector('h1')?.textContent.trim(),tags:[...sheet.querySelectorAll('[data-gl="pill"] [data-gl="text"]')].map(e=>e.textContent.trim()),slides:sheet.querySelectorAll('[data-gl="simple"]').length,content:f.content.filter(c=>sheet.contains(c.el)).map(c=>({detailSrc:c.mesh.userData.detailSrc,src:c.mesh.material.uniforms.u_texture.value?.image?.currentSrc||c.mesh.material.uniforms.u_texture.value?.image?.src,video:c.mesh.userData.videoSrc,alpha:c.mesh.material.uniforms.u_alpha.value})),controls:!!document.querySelector('[role="group"][aria-label="视频播放控制"]')};
    },slug);
    if(result.title!==expected.title||JSON.stringify(result.tags)!==JSON.stringify(expected.tags.map(t=>t.title))||result.slides!==expected.media.length||result.content.length!==expected.media.length)throw Error('Detail mismatch '+JSON.stringify({expected:expected.title,media:expected.media.length,result}));
    if(slug==='showreel'&&!result.controls)throw Error('Video controls missing');
    for(const [index,c]of result.content.entries()){
     const media=expected.media[index];
     const candidates=[media.url,media.tile,media.small,media.card,media.video?.mp4High,media.video?.mp4Medium,media.video?.thumbnailUrl].filter(Boolean).map(url=>new URL(url,origin).href);
-    if(!c.src||!candidates.includes(c.src))throw Error('Wrong media for '+slug+' slide '+index+' '+JSON.stringify({c,candidates}));
+    if(!c.detailSrc||!candidates.includes(new URL(c.detailSrc,origin).href))throw Error('Wrong media for '+slug+' slide '+index+' '+JSON.stringify({c,candidates}));
    }
    report.push({mobile,...result});console.log('PASS',mobile?'mobile':'desktop',link.title,'→',slug,result.slides+' slides');
    await page.locator('[aria-label="Close project"] > span').click({force:true});await page.waitForTimeout(1000);await page.getByRole('link',{name:'Full',exact:true}).click();await page.waitForURL('**/full');await page.waitForTimeout(1000);

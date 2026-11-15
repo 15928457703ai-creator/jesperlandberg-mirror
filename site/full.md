@@ -4,7 +4,6 @@
 
 ## Projects
 
-- [The Lookback](http://127.0.0.1:__PORT__/projects/the-lookback): Digital capsule for Better Off® studio to document what inspired them and what they created over the last months/years.
 - [DoThings](https://dothingsnyc.com/): external site
 - [53 West 53](https://53w53.com/): external site
 - [Ross Mason®](https://iamrossmason.com/): external site
@@ -13,7 +12,6 @@
 - [111 West 57th Street](https://111w57.com/): external site
 - [Better Off®](https://betteroff.studio/): external site
 - [Techspeed](https://techspeed.com/): external site
-- [Griflan](http://127.0.0.1:__PORT__/projects/griflan): Griflan is a creative studio at the intersection of design, strategy, and compelling storytelling, shaping brands that move culture and leave a lasting mark.
 - [Chris Wilcock](https://www.chriswilcock.co/): external site
 - [David Lubofsky](https://www.davidlubofsky.com/): external site
 - [Fivepathways](https://fivepathways.com/): external site

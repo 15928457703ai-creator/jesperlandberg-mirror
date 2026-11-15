@@ -29,8 +29,6 @@ How to call: Email jesper@alpacka.studio. Availability and rates are not publish
 
 ## Work
 
-- [The Lookback](http://127.0.0.1:__PORT__/projects/the-lookback.md): Digital capsule for Better Off® studio to document what inspired them and what they created over the last months/years.
-- [Griflan](http://127.0.0.1:__PORT__/projects/griflan.md): Griflan is a creative studio at the intersection of design, strategy, and compelling storytelling, shaping brands that move culture and leave a lasting mark.
 
 - [OPPO 服务小程序](http://127.0.0.1:__PORT__/projects/oppo-service.md): OPPO 服务小程序 UI 体验升级，重构服务流程与品牌设计系统。
 

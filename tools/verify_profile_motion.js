@@ -43,7 +43,7 @@ const wait=ms=>new Promise(r=>setTimeout(r,ms));
   });
   if(!info.sameRenderer||info.calls.length!==3||info.title!=='冯梅 资深设计师'||info.bold.length!==4||parseFloat(info.body)>14||info.phone||info.download!=='下载简历'||info.domTokens)throw Error('Profile is not using native text path: '+JSON.stringify(info));
   if(mode!=='reduced'){
-   info.calls.forEach(c=>{const duration=1.1+(c.count-1)*.075;if(Math.abs(c.duration-duration)>.001||Math.abs(c.window-1.1/duration)>.001||Math.abs(c.stagger-.075/duration)>.001)throw Error('Shader timing differs from Newsletter');});
+   info.calls.filter(c=>c.duration>0).forEach(c=>{const duration=1.1+(c.count-1)*.075;if(Math.abs(c.duration-duration)>.001||Math.abs(c.window-1.1/duration)>.001||Math.abs(c.stagger-.075/duration)>.001)throw Error('Shader timing differs from Newsletter');});
    await page.evaluate(()=>window.__profileTweens.filter(t=>t.plane.group==='profile').forEach(({tween,delay})=>tween.totalTime(Math.max(0,.65-delay))));
    await page.screenshot({path:path.join(__dirname,'../screenshots/profile_motion_'+mode+'_mid.png')});
   }

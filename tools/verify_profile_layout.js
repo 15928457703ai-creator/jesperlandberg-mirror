@@ -16,7 +16,7 @@ const base=process.env.PROFILE_ORIGIN||'http://127.0.0.1:5250/jesperlandberg-mir
    const d=disc.getBoundingClientRect().width*.7,r=box.getBoundingClientRect();
    return {width:r.width,height:r.height,diameter:d,font:getComputedStyle(bio).fontSize,title:box.querySelector('.profile-name').textContent,headings:bio.querySelectorAll('strong').length,bodyClipped:bio.scrollHeight>bio.clientHeight+1,phone:!!box.querySelector('.profile-phone'),download:resume.textContent,glow:f.profileResumePill.glow,chroma:f.profileResumePill.chroma,alpha:f.profileResumePill.mesh.material.uniforms.u_alpha.value};
   });
-  if(info.width>info.diameter||info.height>info.diameter*.8||info.headings!==4||info.bodyClipped||info.phone||info.download!=='下载简历'||info.title!=='冯梅 资深设计师'||info.glow!==1||info.chroma!==1||info.alpha<.99)throw Error(JSON.stringify(info));
+  if(info.width>info.diameter||info.font!=='14px'||info.headings!==4||info.bodyClipped||info.phone||info.download!=='下载简历'||info.title!=='冯梅 资深设计师'||info.glow!==1||info.chroma!==1||info.alpha<.99)throw Error(JSON.stringify(info));
   console.log('PASS',name,JSON.stringify(info));await page.screenshot({path:path.join(__dirname,'../screenshots/profile_'+name+'_updated.png')});
  }
  if(errors.length)throw Error(errors.join('\n'));

@@ -1,0 +1,120 @@
+[
+  {
+    "mobile": false,
+    "layout": {
+      "font": "14px",
+      "shadow": "none",
+      "gap": 48,
+      "height": 60,
+      "width": 334.078125,
+      "disc": 403.2,
+      "buttonText": "下载简历",
+      "clipped": false,
+      "bounds": {
+        "top": 180.2578125,
+        "bottom": 719.7421875
+      },
+      "headings": 4
+    },
+    "samples": [
+      {
+        "enter": 0,
+        "rimScale": 0,
+        "labelScale": 0,
+        "labelAlpha": 1,
+        "rimAlpha": 1
+      },
+      {
+        "enter": 0.642907,
+        "rimScale": 0.6429070000000001,
+        "labelScale": 0.642907,
+        "labelAlpha": 1,
+        "rimAlpha": 1
+      },
+      {
+        "enter": 0.976563,
+        "rimScale": 0.6429070000000001,
+        "labelScale": 0.642907,
+        "labelAlpha": 1,
+        "rimAlpha": 1
+      },
+      {
+        "enter": 1,
+        "rimScale": 1,
+        "labelScale": 1,
+        "labelAlpha": 1,
+        "rimAlpha": 1
+      }
+    ],
+    "closed": {
+      "alpha": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shadow": "none"
+    }
+  },
+  {
+    "mobile": true,
+    "layout": {
+      "font": "14px",
+      "shadow": "none",
+      "gap": 48,
+      "height": 60,
+      "width": 243.59375,
+      "disc": 294,
+      "buttonText": "下载简历",
+      "clipped": false,
+      "bounds": {
+        "top": 113.0703125,
+        "bottom": 730.9296875
+      },
+      "headings": 4
+    },
+    "samples": [
+      {
+        "enter": 0,
+        "rimScale": 0,
+        "labelScale": 0,
+        "labelAlpha": 1,
+        "rimAlpha": 1
+      },
+      {
+        "enter": 0.642907,
+        "rimScale": 0,
+        "labelScale": 0,
+        "labelAlpha": 1,
+        "rimAlpha": 1
+      },
+      {
+        "enter": 0.976563,
+        "rimScale": 0,
+        "labelScale": 0,
+        "labelAlpha": 1,
+        "rimAlpha": 1
+      },
+      {
+        "enter": 1,
+        "rimScale": 0.976563,
+        "labelScale": 0.976563,
+        "labelAlpha": 1,
+        "rimAlpha": 1
+      }
+    ],
+    "closed": {
+      "alpha": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shadow": "none"
+    }
+  }
+]

@@ -7,6 +7,7 @@ import os, re, json, shutil, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from project_config import ROOT, PROJECTS, FEATURED, HOME_ORDER, rwobj, cover, video_url
+from payload_graph import compact
 
 os.chdir(ROOT)
 paths = json.load(open("raw/discovery.json", encoding="utf-8"))["paths"]
@@ -123,8 +124,7 @@ def reorder_featured(d):
     missing = [s for s in HOME_ORDER if s not in by]
     if missing:
         raise SystemExit("home.featured is missing: " + ", ".join(missing))
-    extra = [i for i in arr if slug_of(i) not in HOME_ORDER]
-    d[fidx] = [by[s] for s in HOME_ORDER] + extra
+    d[fidx] = [by[s] for s in HOME_ORDER]
     return d
 
 
@@ -137,7 +137,7 @@ for p in paths:
     root = next(o for o in d if isinstance(o, dict) and "projects" in o)
     d[root["projects"]] = [i for i in d[root["projects"]]
                            if d[d[i]["slug"]] in HOME_ORDER]
-    d = reorder_featured(d)
+    d = compact(reorder_featured(d))
     dst = payload_dst(p)
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     open(dst, "w", encoding="utf-8").write(json.dumps(d, ensure_ascii=False, separators=(",", ":")))

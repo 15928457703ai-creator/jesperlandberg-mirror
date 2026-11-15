@@ -1,15 +1,5 @@
 {
  "byUrl": {
-  "https://image.mux.com/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/thumbnail.jpg": {
-   "file": "687760b134934a939053.jpg",
-   "size": 109797,
-   "mime": "image/jpeg"
-  },
-  "https://image.mux.com/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
-   "file": "e1a8dc7e033d2ac13bd2.jpg",
-   "size": 96042,
-   "mime": "image/jpeg"
-  },
   "https://image.mux.com/6zKcsnr1vdsv01YdSEXg56EVGgjmoTQ5l/thumbnail.jpg": {
    "file": "e88b3f922448537e9ab6.jpg",
    "size": 166843,
@@ -18,46 +8,6 @@
   "https://image.mux.com/6zKcsnr1vdsv01YdSEXg56EVGgjmoTQ5l/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
    "file": "c6d70ebdd0e44c6a424b.jpg",
    "size": 81583,
-   "mime": "image/jpeg"
-  },
-  "https://image.mux.com/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/thumbnail.jpg": {
-   "file": "309837cd9f3354c02748.jpg",
-   "size": 106817,
-   "mime": "image/jpeg"
-  },
-  "https://image.mux.com/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
-   "file": "6ec125ea1728ca45a19d.jpg",
-   "size": 99179,
-   "mime": "image/jpeg"
-  },
-  "https://image.mux.com/F7soo79aHLgeYDtjug6X599kMSZoBja4/thumbnail.jpg": {
-   "file": "38a99e23962bdaf29706.jpg",
-   "size": 60699,
-   "mime": "image/jpeg"
-  },
-  "https://image.mux.com/F7soo79aHLgeYDtjug6X599kMSZoBja4/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
-   "file": "2e6952a852ca1bf341d8.jpg",
-   "size": 58721,
-   "mime": "image/jpeg"
-  },
-  "https://image.mux.com/Hb00nsAmF7R01kcTOmRr2tgpX3WjZkVYPN/thumbnail.jpg": {
-   "file": "7e5dd20b2d252dbb94cd.jpg",
-   "size": 91044,
-   "mime": "image/jpeg"
-  },
-  "https://image.mux.com/Hb00nsAmF7R01kcTOmRr2tgpX3WjZkVYPN/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
-   "file": "6b65f62c08d80e20c323.jpg",
-   "size": 97822,
-   "mime": "image/jpeg"
-  },
-  "https://image.mux.com/HofYkQ00DP02B202026iOjEsHVlOHoXqJB02y/thumbnail.jpg": {
-   "file": "ccda3865864c110c9a1f.jpg",
-   "size": 154027,
-   "mime": "image/jpeg"
-  },
-  "https://image.mux.com/HofYkQ00DP02B202026iOjEsHVlOHoXqJB02y/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
-   "file": "b94196678d9db8946d6c.jpg",
-   "size": 86105,
    "mime": "image/jpeg"
   },
   "https://image.mux.com/Oj1mBZa5S4oFjdl009Jet4wfVy6mXbhMI/thumbnail.jpg": {
@@ -120,34 +70,9 @@
    "size": 34482,
    "mime": "image/jpeg"
   },
-  "https://stream.mux.com/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4": {
-   "file": "fdc12ef15e790e0cd86f.mp4",
-   "size": 1995455,
-   "mime": "video/mp4"
-  },
   "https://stream.mux.com/6zKcsnr1vdsv01YdSEXg56EVGgjmoTQ5l/high.mp4": {
    "file": "8b510f619b3e4bf53cab.mp4",
    "size": 6942600,
-   "mime": "video/mp4"
-  },
-  "https://stream.mux.com/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4": {
-   "file": "7c2533d921978bebc611.mp4",
-   "size": 3174022,
-   "mime": "video/mp4"
-  },
-  "https://stream.mux.com/F7soo79aHLgeYDtjug6X599kMSZoBja4/high.mp4": {
-   "file": "22981438af73950a4484.mp4",
-   "size": 1251692,
-   "mime": "video/mp4"
-  },
-  "https://stream.mux.com/Hb00nsAmF7R01kcTOmRr2tgpX3WjZkVYPN/high.mp4": {
-   "file": "09f73608cf6c4a4c0ce2.mp4",
-   "size": 399131,
-   "mime": "video/mp4"
-  },
-  "https://stream.mux.com/HofYkQ00DP02B202026iOjEsHVlOHoXqJB02y/high.mp4": {
-   "file": "481c85df80e8bd808667.mp4",
-   "size": 1611019,
    "mime": "video/mp4"
   },
   "https://stream.mux.com/Oj1mBZa5S4oFjdl009Jet4wfVy6mXbhMI/high.mp4": {
@@ -179,36 +104,6 @@
    "file": "f59883ccba20c9ad5068.mp4",
    "size": 481929,
    "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1785656629-image-39.jpg?auto=format&fit=crop&h=630&w=1200": {
-   "file": "b41eda64b28e475baa7b.jpg",
-   "size": 95183,
-   "mime": "image/jpeg"
-  },
-  "https://www.datocms-assets.com/223669/1785656629-image-39.jpg?auto=format&fit=max&w=1200": {
-   "file": "dfe1846d956642f44ea1.jpg",
-   "size": 175642,
-   "mime": "image/jpeg"
-  },
-  "https://www.datocms-assets.com/223669/1785656629-image-39.jpg?auto=format&fit=max&w=600": {
-   "file": "6f35efa7e66958ddedcb.jpg",
-   "size": 64419,
-   "mime": "image/jpeg"
-  },
-  "https://www.datocms-assets.com/223669/1785656633-tlb4.jpg?auto=format&fit=crop&h=630&w=1200": {
-   "file": "cbf6a0225539b8f4bf12.jpg",
-   "size": 69784,
-   "mime": "image/jpeg"
-  },
-  "https://www.datocms-assets.com/223669/1785656633-tlb4.jpg?auto=format&fit=max&w=1200": {
-   "file": "af31c13b97a42228167e.jpg",
-   "size": 88895,
-   "mime": "image/jpeg"
-  },
-  "https://www.datocms-assets.com/223669/1785656633-tlb4.jpg?auto=format&fit=max&w=600": {
-   "file": "7033b406aa5f1bdb33e6.jpg",
-   "size": 37070,
-   "mime": "image/jpeg"
   },
   "https://www.datocms-assets.com/223669/1785656645-image-84.jpg?auto=format&fit=crop&h=630&w=1200": {
    "file": "9bea1348c8679c0e435c.jpg",
@@ -825,34 +720,9 @@
    "size": 120102,
    "mime": "image/jpeg"
   },
-  "https://stream.mux.com/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/medium.mp4": {
-   "file": "c8ccbce36c8fd0179ed9.mp4",
-   "size": 917790,
-   "mime": "video/mp4"
-  },
   "https://stream.mux.com/6zKcsnr1vdsv01YdSEXg56EVGgjmoTQ5l/medium.mp4": {
    "file": "107584ccae624f57aa27.mp4",
    "size": 1922434,
-   "mime": "video/mp4"
-  },
-  "https://stream.mux.com/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/medium.mp4": {
-   "file": "89041e138f6d2a629ce9.mp4",
-   "size": 1466654,
-   "mime": "video/mp4"
-  },
-  "https://stream.mux.com/F7soo79aHLgeYDtjug6X599kMSZoBja4/medium.mp4": {
-   "file": "a8b98c3a9c9ae3db0098.mp4",
-   "size": 578247,
-   "mime": "video/mp4"
-  },
-  "https://stream.mux.com/Hb00nsAmF7R01kcTOmRr2tgpX3WjZkVYPN/medium.mp4": {
-   "file": "d615701774bdc2d5f677.mp4",
-   "size": 201881,
-   "mime": "video/mp4"
-  },
-  "https://stream.mux.com/HofYkQ00DP02B202026iOjEsHVlOHoXqJB02y/medium.mp4": {
-   "file": "51c3db297bd9e7d344c6.mp4",
-   "size": 346534,
    "mime": "video/mp4"
   },
   "https://stream.mux.com/Oj1mBZa5S4oFjdl009Jet4wfVy6mXbhMI/medium.mp4": {
@@ -884,36 +754,6 @@
    "file": "89ad3fdac63eb26b86e5.mp4",
    "size": 179934,
    "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1785656624-bo2.mp4": {
-   "file": "79381cfa0753dfb6b6a0.mp4",
-   "size": 1763217,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1785656624-bo2.mp4?auto=format&fit=crop&h=630&w=1200": {
-   "file": "e6c10700ea2e277d5c62.mp4",
-   "size": 1763217,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1785656624-bo2.mp4?auto=format&fit=max&w=1200": {
-   "file": "3ce26ec9776d7f841ea6.mp4",
-   "size": 1763217,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1785656624-bo2.mp4?auto=format&fit=max&w=600": {
-   "file": "b75469f6eacae4197c5f.mp4",
-   "size": 1763217,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1785656629-image-39.jpg": {
-   "file": "a48f91bbf8f7153ee196.jpg",
-   "size": 965843,
-   "mime": "image/jpeg"
-  },
-  "https://www.datocms-assets.com/223669/1785656633-tlb4.jpg": {
-   "file": "e1213d19797d8bff3ddc.jpg",
-   "size": 400292,
-   "mime": "image/jpeg"
   },
   "https://www.datocms-assets.com/223669/1785656645-image-84.jpg": {
    "file": "96f442347e0261ea8bf0.jpg",
@@ -1190,26 +1030,6 @@
    "size": 18623,
    "mime": "image/avif"
   },
-  "https://www.datocms-assets.com/223669/1786208843-tlb-thumbnail.mp4": {
-   "file": "eee38f90325143889ba1.mp4",
-   "size": 4918425,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786208843-tlb-thumbnail.mp4?auto=format&fit=crop&h=630&w=1200": {
-   "file": "3a80ddd9b70ef33aaf1f.mp4",
-   "size": 4918425,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786208843-tlb-thumbnail.mp4?auto=format&fit=max&w=1200": {
-   "file": "dc36c0207d5c2581fd1e.mp4",
-   "size": 4918425,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786208843-tlb-thumbnail.mp4?auto=format&fit=max&w=600": {
-   "file": "e2643a1e8d7edd82c8c9.mp4",
-   "size": 4918425,
-   "mime": "video/mp4"
-  },
   "https://www.datocms-assets.com/223669/1786212214-chris-thumb.avif": {
    "file": "b54de29024dc577d592d.avif",
    "size": 40264,
@@ -1249,79 +1069,9 @@
    "file": "39e0b2e3f46ce07edd0c.avif",
    "size": 847897,
    "mime": "image/avif"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-1.mp4": {
-   "file": "c05b32bc4b3861a51ae3.mp4",
-   "size": 2136464,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-1.mp4?auto=format&fit=crop&h=630&w=1200": {
-   "file": "643be9f81e1a6e635a67.mp4",
-   "size": 2136464,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-1.mp4?auto=format&fit=max&w=1200": {
-   "file": "a431a976eae278497bd4.mp4",
-   "size": 2136464,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-1.mp4?auto=format&fit=max&w=600": {
-   "file": "9f21b6a135ab2f483997.mp4",
-   "size": 2136464,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-2.mp4": {
-   "file": "a7bc6fbc49903470e0d1.mp4",
-   "size": 7244423,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-2.mp4?auto=format&fit=crop&h=630&w=1200": {
-   "file": "d882f61324c5a7df7dac.mp4",
-   "size": 7244423,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-2.mp4?auto=format&fit=max&w=1200": {
-   "file": "01f8e2291e4cc439c15c.mp4",
-   "size": 7244423,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-2.mp4?auto=format&fit=max&w=600": {
-   "file": "d62b3ec15bac0726c0dd.mp4",
-   "size": 7244423,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-3.mp4": {
-   "file": "4f640769c31e3b68f8ad.mp4",
-   "size": 983930,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-3.mp4?auto=format&fit=crop&h=630&w=1200": {
-   "file": "8105dd1a9199bd3f5c3e.mp4",
-   "size": 983930,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-3.mp4?auto=format&fit=max&w=1200": {
-   "file": "003f3d7f60d851e0b2e0.mp4",
-   "size": 983930,
-   "mime": "video/mp4"
-  },
-  "https://www.datocms-assets.com/223669/1786433825-griflan-3.mp4?auto=format&fit=max&w=600": {
-   "file": "b062ab89f994ea7082ef.mp4",
-   "size": 983930,
-   "mime": "video/mp4"
   }
  },
  "byPath": {
-  "/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/thumbnail.jpg": {
-   "file": "687760b134934a939053.jpg",
-   "size": 109797,
-   "mime": "image/jpeg"
-  },
-  "/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
-   "file": "e1a8dc7e033d2ac13bd2.jpg",
-   "size": 96042,
-   "mime": "image/jpeg"
-  },
   "/6zKcsnr1vdsv01YdSEXg56EVGgjmoTQ5l/thumbnail.jpg": {
    "file": "e88b3f922448537e9ab6.jpg",
    "size": 166843,
@@ -1330,46 +1080,6 @@
   "/6zKcsnr1vdsv01YdSEXg56EVGgjmoTQ5l/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
    "file": "c6d70ebdd0e44c6a424b.jpg",
    "size": 81583,
-   "mime": "image/jpeg"
-  },
-  "/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/thumbnail.jpg": {
-   "file": "309837cd9f3354c02748.jpg",
-   "size": 106817,
-   "mime": "image/jpeg"
-  },
-  "/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
-   "file": "6ec125ea1728ca45a19d.jpg",
-   "size": 99179,
-   "mime": "image/jpeg"
-  },
-  "/F7soo79aHLgeYDtjug6X599kMSZoBja4/thumbnail.jpg": {
-   "file": "38a99e23962bdaf29706.jpg",
-   "size": 60699,
-   "mime": "image/jpeg"
-  },
-  "/F7soo79aHLgeYDtjug6X599kMSZoBja4/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
-   "file": "2e6952a852ca1bf341d8.jpg",
-   "size": 58721,
-   "mime": "image/jpeg"
-  },
-  "/Hb00nsAmF7R01kcTOmRr2tgpX3WjZkVYPN/thumbnail.jpg": {
-   "file": "7e5dd20b2d252dbb94cd.jpg",
-   "size": 91044,
-   "mime": "image/jpeg"
-  },
-  "/Hb00nsAmF7R01kcTOmRr2tgpX3WjZkVYPN/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
-   "file": "6b65f62c08d80e20c323.jpg",
-   "size": 97822,
-   "mime": "image/jpeg"
-  },
-  "/HofYkQ00DP02B202026iOjEsHVlOHoXqJB02y/thumbnail.jpg": {
-   "file": "ccda3865864c110c9a1f.jpg",
-   "size": 154027,
-   "mime": "image/jpeg"
-  },
-  "/HofYkQ00DP02B202026iOjEsHVlOHoXqJB02y/thumbnail.jpg?width=1200&height=630&fit_mode=crop": {
-   "file": "b94196678d9db8946d6c.jpg",
-   "size": 86105,
    "mime": "image/jpeg"
   },
   "/Oj1mBZa5S4oFjdl009Jet4wfVy6mXbhMI/thumbnail.jpg": {
@@ -1432,34 +1142,9 @@
    "size": 34482,
    "mime": "image/jpeg"
   },
-  "/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/high.mp4": {
-   "file": "fdc12ef15e790e0cd86f.mp4",
-   "size": 1995455,
-   "mime": "video/mp4"
-  },
   "/6zKcsnr1vdsv01YdSEXg56EVGgjmoTQ5l/high.mp4": {
    "file": "8b510f619b3e4bf53cab.mp4",
    "size": 6942600,
-   "mime": "video/mp4"
-  },
-  "/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/high.mp4": {
-   "file": "7c2533d921978bebc611.mp4",
-   "size": 3174022,
-   "mime": "video/mp4"
-  },
-  "/F7soo79aHLgeYDtjug6X599kMSZoBja4/high.mp4": {
-   "file": "22981438af73950a4484.mp4",
-   "size": 1251692,
-   "mime": "video/mp4"
-  },
-  "/Hb00nsAmF7R01kcTOmRr2tgpX3WjZkVYPN/high.mp4": {
-   "file": "09f73608cf6c4a4c0ce2.mp4",
-   "size": 399131,
-   "mime": "video/mp4"
-  },
-  "/HofYkQ00DP02B202026iOjEsHVlOHoXqJB02y/high.mp4": {
-   "file": "481c85df80e8bd808667.mp4",
-   "size": 1611019,
    "mime": "video/mp4"
   },
   "/Oj1mBZa5S4oFjdl009Jet4wfVy6mXbhMI/high.mp4": {
@@ -1491,36 +1176,6 @@
    "file": "f59883ccba20c9ad5068.mp4",
    "size": 481929,
    "mime": "video/mp4"
-  },
-  "/223669/1785656629-image-39.jpg?auto=format&fit=crop&h=630&w=1200": {
-   "file": "b41eda64b28e475baa7b.jpg",
-   "size": 95183,
-   "mime": "image/jpeg"
-  },
-  "/223669/1785656629-image-39.jpg?auto=format&fit=max&w=1200": {
-   "file": "dfe1846d956642f44ea1.jpg",
-   "size": 175642,
-   "mime": "image/jpeg"
-  },
-  "/223669/1785656629-image-39.jpg?auto=format&fit=max&w=600": {
-   "file": "6f35efa7e66958ddedcb.jpg",
-   "size": 64419,
-   "mime": "image/jpeg"
-  },
-  "/223669/1785656633-tlb4.jpg?auto=format&fit=crop&h=630&w=1200": {
-   "file": "cbf6a0225539b8f4bf12.jpg",
-   "size": 69784,
-   "mime": "image/jpeg"
-  },
-  "/223669/1785656633-tlb4.jpg?auto=format&fit=max&w=1200": {
-   "file": "af31c13b97a42228167e.jpg",
-   "size": 88895,
-   "mime": "image/jpeg"
-  },
-  "/223669/1785656633-tlb4.jpg?auto=format&fit=max&w=600": {
-   "file": "7033b406aa5f1bdb33e6.jpg",
-   "size": 37070,
-   "mime": "image/jpeg"
   },
   "/223669/1785656645-image-84.jpg?auto=format&fit=crop&h=630&w=1200": {
    "file": "9bea1348c8679c0e435c.jpg",
@@ -2137,34 +1792,9 @@
    "size": 120102,
    "mime": "image/jpeg"
   },
-  "/01CbIdBLVCiUlQLMC8Ct3vq014VS02lwCaq/medium.mp4": {
-   "file": "c8ccbce36c8fd0179ed9.mp4",
-   "size": 917790,
-   "mime": "video/mp4"
-  },
   "/6zKcsnr1vdsv01YdSEXg56EVGgjmoTQ5l/medium.mp4": {
    "file": "107584ccae624f57aa27.mp4",
    "size": 1922434,
-   "mime": "video/mp4"
-  },
-  "/9AaOR02f5lWzxopxZCg54ZRXsxGe4SSE7/medium.mp4": {
-   "file": "89041e138f6d2a629ce9.mp4",
-   "size": 1466654,
-   "mime": "video/mp4"
-  },
-  "/F7soo79aHLgeYDtjug6X599kMSZoBja4/medium.mp4": {
-   "file": "a8b98c3a9c9ae3db0098.mp4",
-   "size": 578247,
-   "mime": "video/mp4"
-  },
-  "/Hb00nsAmF7R01kcTOmRr2tgpX3WjZkVYPN/medium.mp4": {
-   "file": "d615701774bdc2d5f677.mp4",
-   "size": 201881,
-   "mime": "video/mp4"
-  },
-  "/HofYkQ00DP02B202026iOjEsHVlOHoXqJB02y/medium.mp4": {
-   "file": "51c3db297bd9e7d344c6.mp4",
-   "size": 346534,
    "mime": "video/mp4"
   },
   "/Oj1mBZa5S4oFjdl009Jet4wfVy6mXbhMI/medium.mp4": {
@@ -2196,36 +1826,6 @@
    "file": "89ad3fdac63eb26b86e5.mp4",
    "size": 179934,
    "mime": "video/mp4"
-  },
-  "/223669/1785656624-bo2.mp4": {
-   "file": "79381cfa0753dfb6b6a0.mp4",
-   "size": 1763217,
-   "mime": "video/mp4"
-  },
-  "/223669/1785656624-bo2.mp4?auto=format&fit=crop&h=630&w=1200": {
-   "file": "e6c10700ea2e277d5c62.mp4",
-   "size": 1763217,
-   "mime": "video/mp4"
-  },
-  "/223669/1785656624-bo2.mp4?auto=format&fit=max&w=1200": {
-   "file": "3ce26ec9776d7f841ea6.mp4",
-   "size": 1763217,
-   "mime": "video/mp4"
-  },
-  "/223669/1785656624-bo2.mp4?auto=format&fit=max&w=600": {
-   "file": "b75469f6eacae4197c5f.mp4",
-   "size": 1763217,
-   "mime": "video/mp4"
-  },
-  "/223669/1785656629-image-39.jpg": {
-   "file": "a48f91bbf8f7153ee196.jpg",
-   "size": 965843,
-   "mime": "image/jpeg"
-  },
-  "/223669/1785656633-tlb4.jpg": {
-   "file": "e1213d19797d8bff3ddc.jpg",
-   "size": 400292,
-   "mime": "image/jpeg"
   },
   "/223669/1785656645-image-84.jpg": {
    "file": "96f442347e0261ea8bf0.jpg",
@@ -2502,26 +2102,6 @@
    "size": 18623,
    "mime": "image/avif"
   },
-  "/223669/1786208843-tlb-thumbnail.mp4": {
-   "file": "eee38f90325143889ba1.mp4",
-   "size": 4918425,
-   "mime": "video/mp4"
-  },
-  "/223669/1786208843-tlb-thumbnail.mp4?auto=format&fit=crop&h=630&w=1200": {
-   "file": "3a80ddd9b70ef33aaf1f.mp4",
-   "size": 4918425,
-   "mime": "video/mp4"
-  },
-  "/223669/1786208843-tlb-thumbnail.mp4?auto=format&fit=max&w=1200": {
-   "file": "dc36c0207d5c2581fd1e.mp4",
-   "size": 4918425,
-   "mime": "video/mp4"
-  },
-  "/223669/1786208843-tlb-thumbnail.mp4?auto=format&fit=max&w=600": {
-   "file": "e2643a1e8d7edd82c8c9.mp4",
-   "size": 4918425,
-   "mime": "video/mp4"
-  },
   "/223669/1786212214-chris-thumb.avif": {
    "file": "b54de29024dc577d592d.avif",
    "size": 40264,
@@ -2561,66 +2141,6 @@
    "file": "39e0b2e3f46ce07edd0c.avif",
    "size": 847897,
    "mime": "image/avif"
-  },
-  "/223669/1786433825-griflan-1.mp4": {
-   "file": "c05b32bc4b3861a51ae3.mp4",
-   "size": 2136464,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-1.mp4?auto=format&fit=crop&h=630&w=1200": {
-   "file": "643be9f81e1a6e635a67.mp4",
-   "size": 2136464,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-1.mp4?auto=format&fit=max&w=1200": {
-   "file": "a431a976eae278497bd4.mp4",
-   "size": 2136464,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-1.mp4?auto=format&fit=max&w=600": {
-   "file": "9f21b6a135ab2f483997.mp4",
-   "size": 2136464,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-2.mp4": {
-   "file": "a7bc6fbc49903470e0d1.mp4",
-   "size": 7244423,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-2.mp4?auto=format&fit=crop&h=630&w=1200": {
-   "file": "d882f61324c5a7df7dac.mp4",
-   "size": 7244423,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-2.mp4?auto=format&fit=max&w=1200": {
-   "file": "01f8e2291e4cc439c15c.mp4",
-   "size": 7244423,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-2.mp4?auto=format&fit=max&w=600": {
-   "file": "d62b3ec15bac0726c0dd.mp4",
-   "size": 7244423,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-3.mp4": {
-   "file": "4f640769c31e3b68f8ad.mp4",
-   "size": 983930,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-3.mp4?auto=format&fit=crop&h=630&w=1200": {
-   "file": "8105dd1a9199bd3f5c3e.mp4",
-   "size": 983930,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-3.mp4?auto=format&fit=max&w=1200": {
-   "file": "003f3d7f60d851e0b2e0.mp4",
-   "size": 983930,
-   "mime": "video/mp4"
-  },
-  "/223669/1786433825-griflan-3.mp4?auto=format&fit=max&w=600": {
-   "file": "b062ab89f994ea7082ef.mp4",
-   "size": 983930,
-   "mime": "video/mp4"
   }
  }
 }

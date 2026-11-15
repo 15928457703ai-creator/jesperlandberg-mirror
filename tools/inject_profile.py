@@ -117,6 +117,10 @@ for f in ("raw/nuxt/DZyj3ghP.js", "site/_nuxt/DZyj3ghP.js"):
 # ------------------------------------------------------------------- styling
 CSS = CSS_BEGIN + """ */
 /* Keep the native animated disc and characters behind the profile copy. */
+/* Filter hides closed DOM placeholders without changing native text/pill alpha. */
+div.fixed.z-40[inert] > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) {
+  filter: opacity(0);
+}
 /* Both discs retain the same native w-420 / s:w-600 dimensions. */
 div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) {
   inset-inline: 0;
@@ -137,7 +141,7 @@ div.fixed.z-40 > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
   white-space: pre-line;
   text-align: left;
   letter-spacing: 0;
-  font-size: var(--profile-body-size, 10px);
+  font-size: 14px;
   line-height: 1.4;
   width: 100%;
   max-width: none;
@@ -154,8 +158,8 @@ div.fixed.z-40:not([inert]) .profile-phone {
   flex-shrink: 0;
   text-shadow: 0 2px 12px #000;
 }
-.profile-heading { margin-bottom: 10px; text-align: left; }
-.profile-name { margin: 0; font-size: var(--profile-title-size, 28px); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
+.profile-heading { margin-bottom: 48px; text-align: left; }
+.profile-name { margin: 0; font-size: 28px; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
 .profile-roles { display: flex; align-items: start; gap: 20px; }
 .profile-role { display: flex; flex-direction: column; gap: 4px; }
 .profile-role strong { font-size: 16px; line-height: 1.2; }
@@ -165,13 +169,13 @@ div.fixed.z-40:not([inert]) .profile-phone {
 @media (max-width: 640px) {
   div.fixed.z-40:not([inert]) > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 0; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 0; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
   body:has(div.fixed.z-40:not([inert]) .profile-heading) div.fixed.inset-0.z-40 button { color: #fff; -webkit-text-fill-color: #fff; }
-  .profile-heading { margin-bottom: 10px; }
+  .profile-heading { margin-bottom: 48px; }
   .profile-roles { gap: 12px; }
   .profile-phone { margin-top: 36px; margin-bottom: 10px; }
 }
 .profile-resume {
   display: inline-flex; align-items: center; justify-content: center;
-  flex-shrink: 0; min-width: 140px; min-height: 34px; margin-top: 14px;
+  flex-shrink: 0; min-width: 140px; height: 60px; min-height: 60px; margin-top: 48px;
   padding: 0 24px; border: 0; border-radius: 999px; background: transparent;
   font-size: 14px; font-weight: 600; line-height: 1.2; color: #f5f5f5;
   -webkit-text-fill-color: #f5f5f5; text-decoration: none; pointer-events: auto;
@@ -187,10 +191,10 @@ div.fixed.z-40:not([inert]) .profile-resume {
 }
 /* Keep the compact newsletter-sized disc readable on shorter displays. */
 @media (min-width: 641px) and (max-height: 800px) {
-  .profile-name { font-size: var(--profile-title-size, 28px); margin-bottom: 10px; }
+  .profile-name { font-size: 28px; margin-bottom: 10px; }
   .profile-role strong { font-size: 14px; }
   .profile-role small { font-size: 10px; }
-  .profile-heading { margin-bottom: 12px; }
+  .profile-heading { margin-bottom: 48px; }
   .profile-phone { margin-top: 16px; }
 }
 /* Keep measurable DOM placeholders; Newsletter's native renderer paints
@@ -198,6 +202,13 @@ div.fixed.z-40:not([inert]) .profile-resume {
 html[data-profile-native] .profile-heading,
 html[data-profile-native] .profile-phone { display: block; color: #f5f5f5; -webkit-text-fill-color: transparent !important; }
 html[data-profile-native] .profile-name { -webkit-text-fill-color: transparent !important; }
+/* Transparent glyphs still paint CSS shadows; native text must be the only layer. */
+html[data-profile-native] .profile-heading,
+html[data-profile-native] .profile-name,
+html[data-profile-native] .profile-download-label,
+html[data-profile-native] p[data-gl="text"][class*="max-w-[35rem]"] {
+  text-shadow: none !important;
+}
 html[data-profile-native] div.fixed.z-40 > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
   color: #dedede !important; -webkit-text-fill-color: transparent !important;
 }

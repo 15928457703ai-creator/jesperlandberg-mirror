@@ -3,7 +3,7 @@
 Two different orders live here:
   * DISPLAY_ORDER -> relative order of the local projects in data.projects,
     the /full catalogue, sitemap and markdown.
-  * HOME_ORDER    -> the COMPLETE 11-item permutation of the home card strip;
+  * HOME_ORDER    -> the complete active permutation of the home card strip;
     this also drives home.featured in every payload / the GraphQL replay and
     the detail-page prev/next ring. See the notes next to HOME_ORDER.
 """
@@ -53,6 +53,12 @@ PROJECTS = [
         "desc": "About Me",
         "short": "About Me",
         "tags": [("showreel-video", "Video", None), ("showreel-year", "2026", None)],
+        "home_cover": {
+            "main": {"file": "intro-v3.jpg", "width": 1920, "height": 1080},
+            "_small": {"file": "intro-v3_small.jpg", "width": 640, "height": 360},
+            "_card": {"file": "intro-v3_card.jpg", "width": 1200, "height": 675},
+            "video": {"file": "intro-preview.mp4", "width": 1280, "height": 720, "duration": 12},
+        },
         "meta": _meta("showreel", "raw/project_images/showreel.json"),
     },
     {
@@ -238,34 +244,16 @@ for project in PROJECTS:
     if project["slug"] == "illustration":
         project["meta"] = [m for m in project["meta"] if m.get("video") and m["video"]["file"] != "reel.mp4"]
 
-# the two case studies shipped with the original site, in the recorded
-# order of its own home.featured
-ORIGINAL_FEATURED = [
-    ("the-lookback", "The Lookback"),
-    ("griflan", "Griflan"),
-]
+# Archived reference projects live only on codex/archive-lookback-griflan.
+ORIGINAL_FEATURED = []
 
-# ---------------------------------------------------------------------------
-# HOME_ORDER is THE single source of truth for the home card strip.
-# A complete 11-item permutation. The new video sits in the centered first-screen slot.
-# Existing cards retain their relative positions:
-#    1 oppo-service      2 naivideo            3 oppo-self-service
-#    4 erp               5 csa-service         6 hengxiang-advantage
-#    7 ai-video
-#    8..9   the two retained original case studies, in their own recorded order
-#   10 illustration
-# The client's `useAsyncData("featured")` reads home.featured and computes
-# BOTH the home strip and each detail page's prev/next ring from that one
-# array. So home.featured in every Nuxt payload + the GraphQL replay, the SSR
-# <article> strip, the sr-only SEO list and all related href/labels must be
-# derived from this list, otherwise Vue reports hydration mismatches.
-# ---------------------------------------------------------------------------
+# HOME_ORDER drives home, catalogue data and the detail-page navigation ring.
 LOCAL_HEAD = ["oppo-service", "showreel", "naivideo", "oppo-self-service",
               "erp", "csa-service", "hengxiang-advantage", "ai-video"]
 LOCAL_TAIL = ["illustration"]
 ORIGINAL_ORDER = [s for s, _ in ORIGINAL_FEATURED]
 HOME_ORDER = LOCAL_HEAD + ORIGINAL_ORDER + LOCAL_TAIL
-assert len(HOME_ORDER) == 11 and len(set(HOME_ORDER)) == 11
+assert len(HOME_ORDER) == len(PROJECTS) and len(set(HOME_ORDER)) == len(PROJECTS)
 assert set(HOME_ORDER) == set(ORIGINAL_ORDER) | {p["slug"] for p in PROJECTS}
 
 _TITLES = dict(ORIGINAL_FEATURED)

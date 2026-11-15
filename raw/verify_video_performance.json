@@ -1,0 +1,692 @@
+[
+  {
+    "mobile": false,
+    "cards": [
+      "oppo-service",
+      "showreel",
+      "naivideo",
+      "oppo-self-service",
+      "erp",
+      "csa-service",
+      "hengxiang-advantage",
+      "ai-video",
+      "illustration"
+    ],
+    "entries": [
+      {
+        "entry": 0,
+        "start": {
+          "time": 0.851057,
+          "paused": false,
+          "muted": false,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5459.900000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5862.900000035763
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/showreel/intro-v4-web.mp4"
+          ]
+        },
+        "after": {
+          "time": 2.658401,
+          "paused": false,
+          "muted": false,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5459.900000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5862.900000035763
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/showreel/intro-v4-web.mp4"
+          ]
+        },
+        "closed": {
+          "time": 0,
+          "paused": true,
+          "muted": true,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5459.900000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5862.900000035763
+            },
+            {
+              "op": "pause",
+              "time": 2.80074,
+              "at": 9015.900000035763
+            },
+            {
+              "op": "play",
+              "time": 2.800752,
+              "at": 9352.400000035763
+            },
+            {
+              "op": "pause",
+              "time": 15.08,
+              "at": 9672.400000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 9688.600000023842
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 10323.100000023842
+            },
+            {
+              "op": "pause",
+              "time": 1.007901,
+              "at": 10775.700000047684
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4"
+          ]
+        }
+      },
+      {
+        "entry": 1,
+        "start": {
+          "time": 0.398419,
+          "paused": false,
+          "muted": false,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5459.900000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5862.900000035763
+            },
+            {
+              "op": "pause",
+              "time": 2.80074,
+              "at": 9015.900000035763
+            },
+            {
+              "op": "play",
+              "time": 2.800752,
+              "at": 9352.400000035763
+            },
+            {
+              "op": "pause",
+              "time": 15.08,
+              "at": 9672.400000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 9688.600000023842
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 10323.100000023842
+            },
+            {
+              "op": "pause",
+              "time": 1.007901,
+              "at": 10775.700000047684
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 11150.200000047684
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 11670.800000011921
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/showreel/intro-v4-web.mp4"
+          ]
+        },
+        "after": {
+          "time": 2.203881,
+          "paused": false,
+          "muted": false,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5459.900000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5862.900000035763
+            },
+            {
+              "op": "pause",
+              "time": 2.80074,
+              "at": 9015.900000035763
+            },
+            {
+              "op": "play",
+              "time": 2.800752,
+              "at": 9352.400000035763
+            },
+            {
+              "op": "pause",
+              "time": 15.08,
+              "at": 9672.400000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 9688.600000023842
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 10323.100000023842
+            },
+            {
+              "op": "pause",
+              "time": 1.007901,
+              "at": 10775.700000047684
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 11150.200000047684
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 11670.800000011921
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/showreel/intro-v4-web.mp4"
+          ]
+        },
+        "closed": {
+          "time": 0,
+          "paused": true,
+          "muted": true,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5459.900000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 5862.900000035763
+            },
+            {
+              "op": "pause",
+              "time": 2.80074,
+              "at": 9015.900000035763
+            },
+            {
+              "op": "play",
+              "time": 2.800752,
+              "at": 9352.400000035763
+            },
+            {
+              "op": "pause",
+              "time": 15.08,
+              "at": 9672.400000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 9688.600000023842
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 10323.100000023842
+            },
+            {
+              "op": "pause",
+              "time": 1.007901,
+              "at": 10775.700000047684
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 11150.200000047684
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 11670.800000011921
+            },
+            {
+              "op": "pause",
+              "time": 2.40697,
+              "at": 14171.700000047684
+            },
+            {
+              "op": "play",
+              "time": 2.40698,
+              "at": 14490.600000023842
+            },
+            {
+              "op": "pause",
+              "time": 15.08,
+              "at": 14814.800000011921
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 14826.900000035763
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 14827.400000035763
+            },
+            {
+              "op": "pause",
+              "time": 0.049896,
+              "at": 15042.200000047684
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4"
+          ]
+        }
+      }
+    ],
+    "loading": {
+      "totalSlides": 18,
+      "loadedSlides": 3,
+      "requests": 55,
+      "bytes": 4382318
+    },
+    "afterScroll": 12
+  },
+  {
+    "mobile": true,
+    "cards": [
+      "oppo-service",
+      "showreel",
+      "naivideo",
+      "oppo-self-service",
+      "erp",
+      "csa-service",
+      "hengxiang-advantage",
+      "ai-video",
+      "illustration"
+    ],
+    "entries": [
+      {
+        "entry": 0,
+        "start": {
+          "time": 1.150656,
+          "paused": false,
+          "muted": false,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 3693.5
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 4190.800000011921
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/erp/cover.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/illustration/cover.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/showreel/intro-v4-web.mp4"
+          ]
+        },
+        "after": {
+          "time": 2.952757,
+          "paused": false,
+          "muted": false,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 3693.5
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 4190.800000011921
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/erp/cover.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/illustration/cover.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/showreel/intro-v4-web.mp4"
+          ]
+        },
+        "closed": {
+          "time": 0,
+          "paused": true,
+          "muted": true,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 3693.5
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 4190.800000011921
+            },
+            {
+              "op": "pause",
+              "time": 3.083678,
+              "at": 7386.900000035763
+            },
+            {
+              "op": "play",
+              "time": 3.083695,
+              "at": 7630.300000011921
+            },
+            {
+              "op": "pause",
+              "time": 15.094676,
+              "at": 7945.800000011921
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8048.699999988079
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8049.400000035763
+            },
+            {
+              "op": "pause",
+              "time": 0,
+              "at": 8068
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/erp/cover.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/illustration/cover.mp4"
+          ]
+        }
+      },
+      {
+        "entry": 1,
+        "start": {
+          "time": 0.475442,
+          "paused": false,
+          "muted": false,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 3693.5
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 4190.800000011921
+            },
+            {
+              "op": "pause",
+              "time": 3.083678,
+              "at": 7386.900000035763
+            },
+            {
+              "op": "play",
+              "time": 3.083695,
+              "at": 7630.300000011921
+            },
+            {
+              "op": "pause",
+              "time": 15.094676,
+              "at": 7945.800000011921
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8048.699999988079
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8049.400000035763
+            },
+            {
+              "op": "pause",
+              "time": 0,
+              "at": 8068
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8867.100000023842
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 9270
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/erp/cover.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/illustration/cover.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/showreel/intro-v4-web.mp4"
+          ]
+        },
+        "after": {
+          "time": 2.279266,
+          "paused": false,
+          "muted": false,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 3693.5
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 4190.800000011921
+            },
+            {
+              "op": "pause",
+              "time": 3.083678,
+              "at": 7386.900000035763
+            },
+            {
+              "op": "play",
+              "time": 3.083695,
+              "at": 7630.300000011921
+            },
+            {
+              "op": "pause",
+              "time": 15.094676,
+              "at": 7945.800000011921
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8048.699999988079
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8049.400000035763
+            },
+            {
+              "op": "pause",
+              "time": 0,
+              "at": 8068
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8867.100000023842
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 9270
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/erp/cover.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/illustration/cover.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/showreel/intro-v4-web.mp4"
+          ]
+        },
+        "closed": {
+          "time": 0,
+          "paused": true,
+          "muted": true,
+          "ready": 4,
+          "events": [
+            {
+              "op": "play",
+              "time": 0,
+              "at": 3693.5
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 4190.800000011921
+            },
+            {
+              "op": "pause",
+              "time": 3.083678,
+              "at": 7386.900000035763
+            },
+            {
+              "op": "play",
+              "time": 3.083695,
+              "at": 7630.300000011921
+            },
+            {
+              "op": "pause",
+              "time": 15.094676,
+              "at": 7945.800000011921
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8048.699999988079
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8049.400000035763
+            },
+            {
+              "op": "pause",
+              "time": 0,
+              "at": 8068
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 8867.100000023842
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 9270
+            },
+            {
+              "op": "pause",
+              "time": 2.39616,
+              "at": 11738.100000023842
+            },
+            {
+              "op": "play",
+              "time": 2.396169,
+              "at": 12007.100000023842
+            },
+            {
+              "op": "pause",
+              "time": 15.094963,
+              "at": 12334.699999988079
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 12378.300000011921
+            },
+            {
+              "op": "play",
+              "time": 0,
+              "at": 12379
+            },
+            {
+              "op": "pause",
+              "time": 0.005636,
+              "at": 12441.5
+            }
+          ],
+          "playing": [
+            "http://127.0.0.1:5252/jesperlandberg-mirror/oppo-self/motion.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/erp/cover.mp4",
+            "http://127.0.0.1:5252/jesperlandberg-mirror/illustration/cover.mp4"
+          ]
+        }
+      }
+    ],
+    "loading": {
+      "totalSlides": 18,
+      "loadedSlides": 5,
+      "requests": 57,
+      "bytes": 4627607
+    },
+    "afterScroll": 18
+  }
+]

@@ -12,6 +12,7 @@
   function icon(button, name) { button.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + icons[name] + '</svg>'; }
   function time(value) { value = Math.max(0, Math.floor(value || 0)); return Math.floor(value / 60) + ':' + String(value % 60).padStart(2, '0'); }
   function remove() {
+    if (player) { player.pause(); player.muted = true; player.currentTime = 0; }
     if (dispose) dispose();
     if (bar) bar.remove();
     bar = player = dispose = null;
@@ -24,6 +25,12 @@
     var clip = window.PortfolioMotion.getAboutVideo();
     if (bar?.parentElement === sheet && player === clip) return;
     remove(); player = clip;
+    // The full clip is dedicated to the detail view, never the home preview.
+    clip.currentTime = 0;
+    clip.dataset.userPaused = 'false';
+    clip.dataset.userMuted = 'false';
+    clip.muted = false;
+    clip.play().catch(function () {});
     bar = document.createElement('div');
     bar.className = 'about-playback';
     bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', '视频播放控制');

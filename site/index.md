@@ -8,8 +8,6 @@ Usually lead or sole developer, responsible for front-end architecture, animatio
 
 ## Featured work
 
-- [The Lookback](http://127.0.0.1:__PORT__/projects/the-lookback): Digital capsule for Better Off® studio to document what inspired them and what they created over the last months/years.
-- [Griflan](http://127.0.0.1:__PORT__/projects/griflan): Griflan is a creative studio at the intersection of design, strategy, and compelling storytelling, shaping brands that move culture and leave a lasting mark.
 
 ## Elsewhere on this site
 
