@@ -11,7 +11,7 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 p = argparse.ArgumentParser()
 p.add_argument('--base', default='/jesperlandberg-mirror/')
-p.add_argument('--origin', default='https://15928457703ai-creator.github.io')
+p.add_argument('--origin', default='https://fengmei-designer.github.io')
 p.add_argument('--out', default='dist-pages')
 a = p.parse_args()
 base = '/' + a.base.strip('/') + '/' if a.base.strip('/') else '/'
