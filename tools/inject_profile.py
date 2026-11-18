@@ -124,7 +124,8 @@ div.fixed.z-40[inert] > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) {
 /* Both discs retain the same native w-420 / s:w-600 dimensions. */
 div.fixed.z-40 > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) {
   inset-inline: 0;
-  width: 58%;
+  width: 72%;
+  max-width: calc(100vw - 48px);
   margin-inline: auto;
   padding: 0;
   box-sizing: border-box;
