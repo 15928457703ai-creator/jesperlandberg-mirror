@@ -21,12 +21,31 @@
           return original.apply(this, arguments);
         };
       });
-      // Scale only the lens radius: copy and QR retain their measured size.
+      // Give the existing content breathing room without resizing its copy.
+      function overlayRadius(el, viewportWidth) {
+        var disc = el.getBoundingClientRect();
+        var cx = disc.left + disc.width / 2, cy = disc.top + disc.height / 2;
+        var radius = disc.width * .82 / 2;
+        var content = el.querySelectorAll('.profile-name, p[class*="max-w-[35rem]"], .profile-resume, .contact-qr, .contact-details');
+        for (var item of content) {
+          var rect = item.getBoundingClientRect();
+          if (!rect.width || !rect.height) continue;
+          var dx = Math.max(Math.abs(rect.left - cx), Math.abs(rect.right - cx));
+          var dy = Math.max(Math.abs(rect.top - cy), Math.abs(rect.bottom - cy));
+          radius = Math.max(radius, Math.hypot(dx, dy) + 24);
+        }
+        return radius / viewportWidth;
+      }
       var syncHole = folio.syncHole;
       folio.syncHole = function () {
         var result = syncHole.apply(this, arguments);
         if (this.holeEl?.isConnected && ['profile', 'news'].includes(this.holeGroup)) {
-          this.core.post.u.u_radius.value *= .7;
+          var radius = overlayRadius(this.holeEl, this.ctx.$resize?.ww || innerWidth);
+          if (this.holeFrom?.isConnected && this.hole.m < 1) {
+            var from = overlayRadius(this.holeFrom, this.ctx.$resize?.ww || innerWidth);
+            radius = from + (radius - from) * this.hole.m;
+          }
+          this.core.post.u.u_radius.value = radius;
         }
         return result;
       };
