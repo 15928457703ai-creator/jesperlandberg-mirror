@@ -22,7 +22,7 @@ from project_config import ROOT
 
 os.chdir(ROOT)
 
-HTML_INTRO = " " + "\n\n".join("<strong>" + html.escape(heading) + "</strong>：" + html.escape(body) for heading, body in SECTIONS) + " "
+HTML_INTRO = " " + "\n".join("<strong>" + html.escape(heading) + "</strong>：" + html.escape(body) for heading, body in SECTIONS) + " "
 # Locate the intro vnode by its ref instead of by its old text: the brand name
 # in that stock paragraph can be rewritten independently (inject_brand.py).
 VN = re.compile(r'(ct\("p",\{ref_key:"intro"[^}]*)(\},(?:"(?:[^"\\]|\\.)*"|null),512\))')
@@ -158,7 +158,7 @@ div.fixed.z-40:not([inert]) .profile-phone {
   flex-shrink: 0;
   text-shadow: 0 2px 12px #000;
 }
-.profile-heading { margin-bottom: 48px; text-align: left; }
+.profile-heading { margin-bottom: 20px; text-align: left; }
 .profile-name { margin: 0; font-size: 28px; font-weight: 700; line-height: 1.1; letter-spacing: -.02em; }
 .profile-roles { display: flex; align-items: start; gap: 20px; }
 .profile-role { display: flex; flex-direction: column; gap: 4px; }
@@ -169,7 +169,7 @@ div.fixed.z-40:not([inert]) .profile-phone {
 @media (max-width: 640px) {
   div.fixed.z-40:not([inert]) > [data-gl-shield]:has(> p[class*="max-w-[35rem]"]) { padding-inline: 0; max-height: calc(100svh - 130px); overflow-y: auto; pointer-events: auto; padding-block: 0; background: rgba(0,0,0,.96); border-radius: 28px; box-shadow: 0 0 0 100vmax rgba(0,0,0,.92); }
   body:has(div.fixed.z-40:not([inert]) .profile-heading) div.fixed.inset-0.z-40 button { color: #fff; -webkit-text-fill-color: #fff; }
-  .profile-heading { margin-bottom: 48px; }
+  .profile-heading { margin-bottom: 20px; }
   .profile-roles { gap: 12px; }
   .profile-phone { margin-top: 36px; margin-bottom: 10px; }
 }
@@ -191,10 +191,10 @@ div.fixed.z-40:not([inert]) .profile-resume {
 }
 /* Keep the compact newsletter-sized disc readable on shorter displays. */
 @media (min-width: 641px) and (max-height: 800px) {
-  .profile-name { font-size: 28px; margin-bottom: 10px; }
+  .profile-name { font-size: 28px; margin-bottom: 0; }
   .profile-role strong { font-size: 14px; }
   .profile-role small { font-size: 10px; }
-  .profile-heading { margin-bottom: 48px; }
+  .profile-heading { margin-bottom: 20px; }
   .profile-phone { margin-top: 16px; }
 }
 /* Keep measurable DOM placeholders; Newsletter's native renderer paints

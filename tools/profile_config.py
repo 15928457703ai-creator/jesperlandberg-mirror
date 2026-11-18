@@ -20,7 +20,7 @@ PHONE = "call me 15928457703"
 
 # The stock vnode has one leading and one trailing space.  Keeping them makes
 # the SSR text node and the client vnode string identical.
-INTRO = " " + "\n\n".join(LINES) + " "
+INTRO = " " + "\n".join(LINES) + " "
 
 # The brand name is handled globally by tools/inject_brand.py; the previous
 # stock-English intro is intentionally not kept here so that no old name is
