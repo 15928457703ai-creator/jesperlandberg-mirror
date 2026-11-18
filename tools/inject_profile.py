@@ -143,7 +143,7 @@ div.fixed.z-40 > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
   text-align: left;
   letter-spacing: 0;
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 23.6px;
   width: 100%;
   max-width: none;
   text-shadow: 0 1px 8px #000;
