@@ -10,7 +10,7 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 p = argparse.ArgumentParser()
-p.add_argument('--base', default='/jesperlandberg-mirror/')
+p.add_argument('--base', default='/')
 p.add_argument('--origin', default='https://fengmei-designer.github.io')
 p.add_argument('--out', default='dist-pages')
 a = p.parse_args()

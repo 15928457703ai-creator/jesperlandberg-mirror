@@ -7,7 +7,7 @@ const origin=(process.env.PROFILE_ORIGIN||'http://127.0.0.1:5250/jesperlandberg-
   const page=await browser.newPage({viewport:mobile?{width:390,height:844}:{width:1440,height:900},isMobile:mobile,hasTouch:mobile});
   page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())});
   await page.goto(origin+'/full/');await page.waitForFunction(()=>!document.querySelector('[data-gl="bar"]'));
-  const projects=await page.evaluate(async()=>{const data=await(await fetch(window.__portfolioPath?'/jesperlandberg-mirror/graphql.json':'/graphql.json')).json();return data.data.projects});
+  const projects=await page.evaluate(async(base)=>{const data=await(await fetch(base+'/graphql.json')).json();return data.data.projects},origin);
   const links=await page.locator('main .content-center a').evaluateAll(els=>els.map(e=>({title:e.textContent.trim(),href:e.getAttribute('href')})));
   if(links.length!==9||links.some(l=>/the-lookback|griflan/.test(l.href)))throw Error('Expected 9 active catalogue projects, got '+links.length);
   for(const link of links){
