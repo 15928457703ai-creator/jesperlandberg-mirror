@@ -22,7 +22,7 @@ from project_config import ROOT
 
 os.chdir(ROOT)
 
-HTML_INTRO = " " + "\n".join("<strong>" + html.escape(heading) + "</strong>：" + html.escape(body) for heading, body in SECTIONS) + " "
+HTML_INTRO = " " + "".join('<span class="profile-section"><strong>' + html.escape(heading) + "</strong>：" + html.escape(body) + "</span>" for heading, body in SECTIONS) + " "
 # Locate the intro vnode by its ref instead of by its old text: the brand name
 # in that stock paragraph can be rewritten independently (inject_brand.py).
 VN = re.compile(r'(ct\("p",\{ref_key:"intro"[^}]*)(\},(?:"(?:[^"\\]|\\.)*"|null),512\))')
@@ -148,6 +148,8 @@ div.fixed.z-40 > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
   max-width: none;
   text-shadow: 0 1px 8px #000;
 }
+.profile-section { display: block; }
+.profile-section + .profile-section { margin-top: 12px; }
 .profile-heading, .profile-phone {
   display: none;
 }

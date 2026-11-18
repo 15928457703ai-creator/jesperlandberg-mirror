@@ -180,6 +180,8 @@ div.fixed.z-40 > [data-gl-shield] > p[data-gl="text"][class*="max-w-[35rem]"] {
   max-width: none;
   text-shadow: 0 1px 8px #000;
 }
+.profile-section { display: block; }
+.profile-section + .profile-section { margin-top: 12px; }
 .profile-heading, .profile-phone {
   display: none;
 }
