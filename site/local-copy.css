@@ -263,6 +263,10 @@ html[data-profile-native] div.fixed.z-40 > [data-gl-shield] > p[data-gl="text"][
 div.fixed.inset-0.z-40 a.label[href="/"] {
   text-transform: none !important;
 }
+/* The four persistent HUD labels share one slightly larger type size. */
+div.fixed.inset-0.z-40.flex.flex-col.justify-between .label {
+  font-size: 1.2rem !important;
+}
 /* === end brand name === */
 
 /* All detail media share the same corner treatment, including video planes.

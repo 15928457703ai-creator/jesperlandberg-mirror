@@ -48,6 +48,10 @@ CSS = CSS_BEGIN + """
 div.fixed.inset-0.z-40 a.label[href="/"] {
   text-transform: none !important;
 }
+/* The four persistent HUD labels share one slightly larger type size. */
+div.fixed.inset-0.z-40.flex.flex-col.justify-between .label {
+  font-size: 1.2rem !important;
+}
 """ + CSS_END
 
 
