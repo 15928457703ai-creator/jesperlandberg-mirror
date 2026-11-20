@@ -237,35 +237,6 @@
  },
  {
   "n": 11,
-  "source": "礼物 4_2.mp4",
-  "kind": "video",
-  "cover": false,
-  "origWidth": 1920,
-  "origHeight": 1080,
-  "main": {
-   "file": "gift-motion-v2.jpg",
-   "width": 1600,
-   "height": 900
-  },
-  "_card": {
-   "file": "gift-motion-v2_card.jpg",
-   "width": 1200,
-   "height": 675
-  },
-  "_small": {
-   "file": "gift-motion-v2_small.jpg",
-   "width": 640,
-   "height": 360
-  },
-  "video": {
-   "file": "gift-motion-v2.mp4",
-   "width": 1920,
-   "height": 1080,
-   "duration": 1.8
-  }
- },
- {
-  "n": 12,
   "source": "启动页 版本1_3.mp4",
   "kind": "video",
   "cover": false,
@@ -294,7 +265,7 @@
   }
  },
  {
-  "n": 13,
+  "n": 12,
   "source": "合成 2_2.mp4",
   "kind": "video",
   "cover": false,
@@ -323,7 +294,7 @@
   }
  },
  {
-  "n": 14,
+  "n": 13,
   "source": "抽奖中.mp4",
   "kind": "video",
   "cover": false,
@@ -349,6 +320,35 @@
    "width": 1444,
    "height": 812,
    "duration": 4.983333
+  }
+ },
+ {
+  "n": 14,
+  "source": "礼物 4.mp4",
+  "kind": "video",
+  "cover": false,
+  "origWidth": 1920,
+  "origHeight": 1080,
+  "main": {
+   "file": "gift-motion-v3.jpg",
+   "width": 1600,
+   "height": 900
+  },
+  "_card": {
+   "file": "gift-motion-v3_card.jpg",
+   "width": 1200,
+   "height": 675
+  },
+  "_small": {
+   "file": "gift-motion-v3_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "video": {
+   "file": "gift-motion-v3.mp4",
+   "width": 1920,
+   "height": 1080,
+   "duration": 1.8
   }
  }
 ]

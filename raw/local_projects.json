@@ -701,15 +701,6 @@
    {
     "n": 11,
     "files": [
-     "gift-motion-v2.jpg",
-     "gift-motion-v2_small.jpg",
-     "gift-motion-v2_card.jpg"
-    ],
-    "video": "gift-motion-v2.mp4"
-   },
-   {
-    "n": 12,
-    "files": [
      "launch-motion-v3.jpg",
      "launch-motion-v3_small.jpg",
      "launch-motion-v3_card.jpg"
@@ -717,7 +708,7 @@
     "video": "launch-motion-v3.mp4"
    },
    {
-    "n": 13,
+    "n": 12,
     "files": [
      "rewards-motion-v3.jpg",
      "rewards-motion-v3_small.jpg",
@@ -726,13 +717,22 @@
     "video": "rewards-motion-v3.mp4"
    },
    {
-    "n": 14,
+    "n": 13,
     "files": [
      "lottery-motion.jpg",
      "lottery-motion_small.jpg",
      "lottery-motion_card.jpg"
     ],
     "video": "lottery-motion.mp4"
+   },
+   {
+    "n": 14,
+    "files": [
+     "gift-motion-v3.jpg",
+     "gift-motion-v3_small.jpg",
+     "gift-motion-v3_card.jpg"
+    ],
+    "video": "gift-motion-v3.mp4"
    }
   ]
  },

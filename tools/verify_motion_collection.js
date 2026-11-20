@@ -34,6 +34,8 @@ const EXPECTED_MOTION = PROJECT.slides.map(s => s.video).filter(Boolean);
       initial.every(v => Math.abs(v.radius - 28) < .1));
     check('new rewards clip replaces old clip and duplicate reel', initial.some(v => v.src.endsWith('/rewards-motion-v3.mp4')) &&
       initial.every(v => !/\/(reel|precomposition-3)\.mp4$/.test(v.src)));
+    check('new gift motion replaces the previous gift clip', initial.some(v => v.src.endsWith('/gift-motion-v3.mp4')) &&
+      initial.every(v => !v.src.endsWith('/gift-motion-v2.mp4')));
     check('lottery motion is appended to the collection', initial.some(v => v.src.endsWith('/lottery-motion.mp4')));
     const offscreen = initial.filter(v => v.bottom <= v.panelTop || v.top >= v.panelBottom);
     check('offscreen videos do not start early', offscreen.length > 0 && offscreen.every(v => v.paused && v.time < .1), offscreen.map(v => ({ src: v.src, time: v.time })));

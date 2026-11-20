@@ -60,6 +60,7 @@ const clips = process.argv[2] ? [{ source: process.argv[2], stem: process.argv[3
       meta.push(entry);
       console.log(entry.source, result.width + 'x' + result.height, result.duration + 's');
     }
+    meta.forEach((entry, index) => { entry.n = index + 1; });
     fs.writeFileSync(META, JSON.stringify(meta, null, 1) + '\n');
     console.log('Illustration slides:', meta.length);
   } finally { await browser.close(); }
