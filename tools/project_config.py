@@ -11,6 +11,7 @@ import json, os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOCAL = "http://127.0.0.1:__PORT__"
+ZCOOL_PROFILE = "https://www.zcool.com.cn/u/ZNTIyMjA1MTY=#tab_anchor"
 
 RULES = [
     ("https://graphql.datocms.com/", LOCAL + "/__graphql"),
@@ -192,7 +193,7 @@ PROJECTS = [
         "dir": "hengxiang",
         "desc": "横向优势：以视觉表现为核心的能力横向拓展，覆盖插画、3D 渲染与 AIGC 运用。作为视觉中国签约插画师，将插画与 3D 输出沉淀为可复用的材质库与 IP 资产，落地到运营项目（渠道订货、在线对账、政策可视），并运用 AIGC 制作比赛宣传、年末贺岁、数字人采访等视频，为各业务线设计落地 IP。",
         "short": "横向优势：插画 / 3D 渲染 / AIGC 运用的能力拓展与运营落地。",
-        "link": "https://www.zcool.com.cn/u/ZNTIyMjA1MTY=#tab_anchor",
+        "link": ZCOOL_PROFILE,
         "tags": [("hengxiang-advantage-tag-1", "手绘插画", None),
                  ("hengxiang-advantage-tag-2", "3D建模渲染", None),
                  ("hengxiang-advantage-tag-3", "AI视频创作", None)],
@@ -205,6 +206,7 @@ PROJECTS = [
         "dir": "illustration",
         "desc": "围绕启动页、交互反馈、礼物互动与动态视觉展开的动效作品精选。通过关键帧动画、运动曲线与转场编排，将功能逻辑和视觉创意转化为清晰、连贯的动态体验；结合插画与 3D 表现，兼顾信息层级、品牌风格和情绪表达，呈现动效构思、节奏设计、画面制作与细节打磨能力。",
         "short": "界面动效与动态视觉作品精选，涵盖启动页、交互反馈、礼物互动及插画与 3D 动态表达。",
+        "link": ZCOOL_PROFILE,
         # Video-led project: meta[0] carries a `video` entry, so the stock
         # WebGL video-texture path paints the cover as a looping clip.
         "tags": [("illustration-tag-1", "运营动效", None),
