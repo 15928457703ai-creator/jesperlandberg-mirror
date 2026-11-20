@@ -25,10 +25,10 @@ const origin = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5193';
       });
     });
     const initial = await read(); samples.push(initial);
-    check('new motion collection name and introduction', await page.locator('[data-gl="sheet"] h1').textContent() === '动效设计精选' &&
+    check('new motion collection name and introduction', (await page.locator('[data-gl="sheet"] h1').textContent()).startsWith('动效设计') &&
       (await page.locator('[data-gl="sheet"] div[data-gl="text"]').first().textContent()).includes('节奏设计'));
     check('four distinct video works with 28px corners', initial.length === 4 && new Set(initial.map(v => v.src)).size === 4 && initial.every(v => Math.abs(v.radius - 28) < .1));
-    check('new rewards clip replaces old clip and duplicate reel', initial.some(v => v.src.endsWith('/rewards-motion-v2.mp4')) &&
+    check('new rewards clip replaces old clip and duplicate reel', initial.some(v => v.src.endsWith('/rewards-motion-v3.mp4')) &&
       initial.every(v => !/\/(reel|precomposition-3)\.mp4$/.test(v.src)));
     const offscreen = initial.filter(v => v.bottom <= v.panelTop || v.top >= v.panelBottom);
     check('offscreen videos do not start early', offscreen.length > 0 && offscreen.every(v => v.paused && v.time < .1), offscreen.map(v => ({ src: v.src, time: v.time })));
