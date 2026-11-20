@@ -25,6 +25,14 @@ const clips = process.argv[2] ? [{ source: process.argv[2], stem: process.argv[3
     const prior = JSON.parse(fs.readFileSync(META));
     const names = new Set(clips.map(c => path.basename(c.source)));
     const replaced = new Set(clips.flatMap(c => [c.stem + '.mp4', c.replaces + '.mp4']));
+    const anchors = new Map();
+    for (const clip of clips) {
+      const oldIndex = prior.findIndex(m => (m.video?.file || m.source) === clip.replaces + '.mp4');
+      if (oldIndex >= 0) {
+        const next = prior[oldIndex + 1];
+        anchors.set(clip.stem, next ? next.video?.file || next.source : null);
+      }
+    }
     const meta = prior.filter(m => !names.has(m.source) && !replaced.has(m.video?.file));
     for (const clip of clips) {
       const result = await page.evaluate(async stem => {
@@ -57,7 +65,10 @@ const clips = process.argv[2] ? [{ source: process.argv[2], stem: process.argv[3
         entry[key] = { file, width: v.width, height: v.height };
       }
       entry.video = { file: clip.stem + '.mp4', width: result.width, height: result.height, duration: result.duration };
-      meta.push(entry);
+      const anchor = anchors.get(clip.stem);
+      const insertAt = anchor == null ? -1 : meta.findIndex(m => (m.video?.file || m.source) === anchor);
+      if (insertAt >= 0) meta.splice(insertAt, 0, entry);
+      else meta.push(entry);
       console.log(entry.source, result.width + 'x' + result.height, result.duration + 's');
     }
     meta.forEach((entry, index) => { entry.n = index + 1; });

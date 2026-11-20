@@ -12,9 +12,9 @@
 
 [Watch video](http://127.0.0.1:__PORT__/illustration/launch-motion-v3.mp4)
 
-![动效设计 12](http://127.0.0.1:__PORT__/illustration/rewards-motion-v3.jpg)
+![动效设计 12](http://127.0.0.1:__PORT__/illustration/rewards-motion-v4.jpg)
 
-[Watch video](http://127.0.0.1:__PORT__/illustration/rewards-motion-v3.mp4)
+[Watch video](http://127.0.0.1:__PORT__/illustration/rewards-motion-v4.mp4)
 
 ![动效设计 13](http://127.0.0.1:__PORT__/illustration/lottery-motion.jpg)
 

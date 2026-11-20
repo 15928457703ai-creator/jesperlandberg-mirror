@@ -266,28 +266,28 @@
  },
  {
   "n": 12,
-  "source": "合成 2_2.mp4",
+  "source": "合成 2.mp4",
   "kind": "video",
   "cover": false,
   "origWidth": 1920,
   "origHeight": 1400,
   "main": {
-   "file": "rewards-motion-v3.jpg",
+   "file": "rewards-motion-v4.jpg",
    "width": 1600,
    "height": 1167
   },
   "_card": {
-   "file": "rewards-motion-v3_card.jpg",
+   "file": "rewards-motion-v4_card.jpg",
    "width": 1200,
    "height": 875
   },
   "_small": {
-   "file": "rewards-motion-v3_small.jpg",
+   "file": "rewards-motion-v4_small.jpg",
    "width": 640,
    "height": 467
   },
   "video": {
-   "file": "rewards-motion-v3.mp4",
+   "file": "rewards-motion-v4.mp4",
    "width": 1920,
    "height": 1400,
    "duration": 3.5

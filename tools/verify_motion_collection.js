@@ -32,7 +32,7 @@ const EXPECTED_MOTION = PROJECT.slides.map(s => s.video).filter(Boolean);
     check(`${EXPECTED_MOTION.length} distinct video works with 28px corners`,
       initial.length === EXPECTED_MOTION.length && new Set(initial.map(v => v.src)).size === EXPECTED_MOTION.length &&
       initial.every(v => Math.abs(v.radius - 28) < .1));
-    check('new rewards clip replaces old clip and duplicate reel', initial.some(v => v.src.endsWith('/rewards-motion-v3.mp4')) &&
+    check('new rewards clip replaces old clip and duplicate reel', initial.some(v => v.src.endsWith('/rewards-motion-v4.mp4')) &&
       initial.every(v => !/\/(reel|precomposition-3)\.mp4$/.test(v.src)));
     check('new gift motion replaces the previous gift clip', initial.some(v => v.src.endsWith('/gift-motion-v3.mp4')) &&
       initial.every(v => !v.src.endsWith('/gift-motion-v2.mp4')));
