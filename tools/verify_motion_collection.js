@@ -1,6 +1,8 @@
 const fs = require('fs');
 const { chromium } = require('playwright-core');
 const origin = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5193';
+const PROJECT = JSON.parse(fs.readFileSync('raw/local_projects.json')).find(p => p.slug === 'illustration');
+const EXPECTED_MOTION = PROJECT.slides.map(s => s.video).filter(Boolean);
 (async () => {
   const browser = await chromium.launch({ executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', headless: true,
     args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-webgl'] });
@@ -27,9 +29,12 @@ const origin = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5193';
     const initial = await read(); samples.push(initial);
     check('new motion collection name and introduction', (await page.locator('[data-gl="sheet"] h1').textContent()).startsWith('动效设计') &&
       (await page.locator('[data-gl="sheet"] div[data-gl="text"]').first().textContent()).includes('节奏设计'));
-    check('four distinct video works with 28px corners', initial.length === 4 && new Set(initial.map(v => v.src)).size === 4 && initial.every(v => Math.abs(v.radius - 28) < .1));
+    check(`${EXPECTED_MOTION.length} distinct video works with 28px corners`,
+      initial.length === EXPECTED_MOTION.length && new Set(initial.map(v => v.src)).size === EXPECTED_MOTION.length &&
+      initial.every(v => Math.abs(v.radius - 28) < .1));
     check('new rewards clip replaces old clip and duplicate reel', initial.some(v => v.src.endsWith('/rewards-motion-v3.mp4')) &&
       initial.every(v => !/\/(reel|precomposition-3)\.mp4$/.test(v.src)));
+    check('lottery motion is appended to the collection', initial.some(v => v.src.endsWith('/lottery-motion.mp4')));
     const offscreen = initial.filter(v => v.bottom <= v.panelTop || v.top >= v.panelBottom);
     check('offscreen videos do not start early', offscreen.length > 0 && offscreen.every(v => v.paused && v.time < .1), offscreen.map(v => ({ src: v.src, time: v.time })));
     const target = initial.find(v => v.visible >= v.height * .8 && v.top + v.height * .5 < 800);
@@ -44,7 +49,7 @@ const origin = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5193';
     }, target.src, { timeout: 4000 });
     check('pointer motion settles when leaving', Math.abs((await read()).find(v => v.src === target.src).quat[1]) < .001);
     const played = new Set(initial.filter(v => !v.paused).map(v => v.src));
-    for (let step = 0; step < 12; step++) {
+    for (let step = 0; step < Math.max(12, EXPECTED_MOTION.length * 3); step++) {
       await page.mouse.move(1050, 500); await page.mouse.wheel(0, 280); await page.waitForTimeout(420);
       // The virtual strip can wrap DOM slots just after a rendered frame.
       // Allow the next render to apply its corresponding playback state.
@@ -61,7 +66,7 @@ const origin = process.env.PREVIEW_ORIGIN || 'http://127.0.0.1:5193';
       const hidden = state.filter(v => v.bottom <= v.panelTop || v.top >= v.panelBottom);
       check('offscreen clips pause after scroll ' + step, hidden.every(v => v.paused));
     }
-    check('every video plays when scrolled into view', played.size === 4, [...played]);
+    check('every video plays when scrolled into view', played.size === EXPECTED_MOTION.length, [...played]);
     await page.screenshot({ path: 'screenshots/motion_collection_scrolled.png' });
     await page.goto(origin + '/full'); await page.waitForTimeout(2000);
     for (const width of [1280, 1440, 1920]) {

@@ -724,6 +724,15 @@
      "rewards-motion-v3_card.jpg"
     ],
     "video": "rewards-motion-v3.mp4"
+   },
+   {
+    "n": 14,
+    "files": [
+     "lottery-motion.jpg",
+     "lottery-motion_small.jpg",
+     "lottery-motion_card.jpg"
+    ],
+    "video": "lottery-motion.mp4"
    }
   ]
  },

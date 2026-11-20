@@ -321,5 +321,34 @@
    "height": 1400,
    "duration": 3.5
   }
+ },
+ {
+  "n": 14,
+  "source": "抽奖中.mp4",
+  "kind": "video",
+  "cover": false,
+  "origWidth": 1444,
+  "origHeight": 812,
+  "main": {
+   "file": "lottery-motion.jpg",
+   "width": 1444,
+   "height": 812
+  },
+  "_card": {
+   "file": "lottery-motion_card.jpg",
+   "width": 1200,
+   "height": 675
+  },
+  "_small": {
+   "file": "lottery-motion_small.jpg",
+   "width": 640,
+   "height": 360
+  },
+  "video": {
+   "file": "lottery-motion.mp4",
+   "width": 1444,
+   "height": 812,
+   "duration": 4.983333
+  }
  }
 ]
